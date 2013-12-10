@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_tab_radiogroup"
+    android:layout_width="fill_parent"
+    android:layout_height="45dip"
+    android:layout_gravity="center_vertical"
+    android:layout_marginTop="2dip"
+    android:background="@drawable/title_boobar_bg"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:id="@+id/main_tab_rb_setting"
+        style="@style/Main_Tab_RadioButton_Style"
+        android:text="@string/main_tab_rb_setting"
+        android:textSize="16sp" />
+
+    <RadioButton
+        android:id="@+id/main_tab_rb_test"
+        style="@style/Main_Tab_RadioButton_Style"
+        android:text="@string/main_tab_rb_test"
+        android:textSize="16sp" />
+
+    <RadioButton
+        android:id="@+id/main_tab_rb_monitor"
+        style="@style/Main_Tab_RadioButton_Style"
+        android:text="@string/main_tab_rb_monitor"
+        android:textSize="16sp" />
+
+    <RadioButton
+        android:id="@+id/main_tab_rb_trouble"
+        style="@style/Main_Tab_RadioButton_Style"
+        android:text="@string/main_tab_rb_trouble"
+        android:textSize="16sp" />
+
+</RadioGroup>

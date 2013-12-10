@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
+        android:background="@drawable/g_round_box_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="5dip"
+            android:text="@string/monitor_port_state_mainbord_input"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Item_Devide_Dashed_Line_Style"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip" />
+
+         <GridView
+            android:id="@+id/port_mainboard_gv_input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="3dip"
+            android:numColumns="5"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="3dip" >
+        </GridView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/g_round_box_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="5dip"
+            android:text="@string/monitor_port_state_mainbord_output"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/Item_Devide_Dashed_Line_Style"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip" />
+
+        <GridView
+            android:id="@+id/port_mainboard_gv_output"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="3dip"
+            android:numColumns="5"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="3dip" >
+        </GridView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#887A7A7A"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dlg_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:gravity="center"
+        android:text="恢复出厂设置值"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginBottom="15dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/dlg_btn_ok"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dlg_out_set_ok_selector"
+            android:text="@string/dlg_recover"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/dlg_btn_cancle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_weight="1"
+            android:background="@drawable/dlg_out_set_cancle_selector"
+            android:text="@string/dlg_recover_cancle"
+            android:textColor="@color/bule_text"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/edit_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@color/edit_conteng_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/main_rl_loginform"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="15.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="输入数据:" />
+
+            <EditText
+                android:id="@+id/edit_tv_send"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="3dip"
+                android:background="@drawable/g_round_box_bg" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_range"
+            android:layout_marginLeft="80dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_below="@+id/main_rl_loginform"
+            android:text="范围:0-255" />
+
+        <LinearLayout
+            android:id="@+id/main_rl_back"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_below="@+id/tv_range"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="15.0dip" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回数据:" />
+
+            <EditText
+                android:id="@+id/edit_back_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="3dip"
+                android:background="@drawable/g_round_box_bg" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/main_btn_send"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_rl_back"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="25dip"
+            android:background="@drawable/main_login_bg_selector"
+            android:text="发送"
+            android:textColor="@android:color/white" />
+
+        <com.challentec.lmss.view.KeyBoardInputWediget
+            android:id="@+id/et_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+        </com.challentec.lmss.view.KeyBoardInputWediget>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ScrollView style="@style/Item_ScrollView_Sytle" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/g_round_box_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_up_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_device_nomal" />
+
+                <TextView
+                   android:id="@+id/driver_tv_nomal"
+                    style="@style/Item_Right_TextView_Style"
+                     />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_device_run" />
+
+                <TextView
+                    android:id="@+id/driver_tv_run"
+                    style="@style/Item_Right_TextView_Style"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_out_voltage" />
+
+                <TextView
+                    android:id="@+id/driver_tv_out_voltage"
+                    style="@style/Item_Right_TextView_Style"
+                     />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_out_elec" />
+
+                <TextView
+                    android:id="@+id/driver_tv_out_ele"
+                    style="@style/Item_Right_TextView_Style"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_out_rate" />
+
+                <TextView
+                    android:id="@+id/driver_tv_rate"
+                    style="@style/Item_Right_TextView_Style"
+                   />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_moment_command" />
+
+                <TextView
+                    android:id="@+id/driver_tv_commad"
+                    style="@style/Item_Right_TextView_Style"
+                    />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_parent_voltage" />
+
+                <TextView
+                    android:id="@+id/driver_tv_mother_voltage"
+                    style="@style/Item_Right_TextView_Style"
+                   />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/monitor_drive_state_module_temperature" />
+
+                <TextView
+                    android:id="@+id/driver_tv_model_tp"
+                    style="@style/Item_Right_TextView_Style"
+                   />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    
+    <com.challentec.lmss.view.LoadProgressView 
+        android:id="@+id/driver_state_lp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        ></com.challentec.lmss.view.LoadProgressView>
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dip"
+        android:background="@color/edit_conteng_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/main_rl_loginform"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="15.0dip" >
+
+            <TextView
+                android:id="@+id/tv_data_pre"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/g_round_box_bg"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tv_data_back"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="3dip"
+                android:layout_weight="1"
+                android:background="@drawable/g_round_box_bg"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/wl_pre_scale"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_weight="1" />
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/wl_back_scale"
+                android:layout_width="0dip"
+                android:layout_height="50dip"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

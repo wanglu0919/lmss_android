@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dip"
+   android:background="@drawable/load_pb_bg"
+     >
+
+    <ProgressBar
+        android:id="@+id/pb_load"
+         android:layout_marginTop="3dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+         />
+
+    <TextView
+        android:id="@+id/pb_load_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pb_load"
+       android:layout_centerHorizontal="true" 
+        android:layout_marginTop="3dip"
+        android:text="@string/tip_msg_pb_loading"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

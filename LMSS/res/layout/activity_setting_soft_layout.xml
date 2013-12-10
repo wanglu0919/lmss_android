@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Item_ScrollView_Sytle" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/g_round_box_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_soft_update"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_up_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_soft_update" />
+
+                <TextView
+                    android:id="@+id/soft_tv_version"
+                    style="@style/Item_Right_TextView_More_Style" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_soft_about_us"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_soft_about_us" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_phone_ime"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_soft_phone_id" />
+
+                  <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/soft_btn_login_out"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/loginout_bg_selector"
+            android:gravity="center"
+            android:text="@string/setting_soft_login_out"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</ScrollView>

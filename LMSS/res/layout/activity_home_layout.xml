@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ScrollView style="@style/Item_ScrollView_Sytle" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/g_round_box_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_up_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_lift_no" />
+
+                <TextView
+                    android:id="@+id/home_tv_floor_no"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_control_no" />
+
+                <TextView
+                    android:id="@+id/home_tv_control_no"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_out_datetime" />
+
+                <TextView
+                    android:id="@+id/home_tv_out_datetime"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_rated_load" />
+
+                <TextView
+                    android:id="@+id/home_tv_fate_load"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_rated_speed" />
+
+                <TextView
+                    android:id="@+id/home_tv_home_speed"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_control_way" />
+
+                <TextView
+                    android:id="@+id/home_tv_control_type"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_floor_num" />
+
+                <TextView
+                    android:id="@+id/home_tv_floor_num"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_door_num" />
+
+                <TextView
+                    android:id="@+id/home_tv_door_num"
+                    style="@style/Item_Right_TextView_Style"
+                    android:text="" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_reply_default" />
+
+                <com.challentec.lmss.view.SwitchButton
+                    android:id="@+id/home_sw_recover_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/device_tv_reply_last_default" />
+
+                <com.challentec.lmss.view.SwitchButton
+                    android:id="@+id/home_sw_recover_last_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.challentec.lmss.view.LoadProgressView
+        android:id="@+id/home_lp_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" >
+    </com.challentec.lmss.view.LoadProgressView>
+
+</RelativeLayout>

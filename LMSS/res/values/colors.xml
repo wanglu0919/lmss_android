@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="tv_nomal_color">#979797</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="red">#FF0000</color>
+    <color name="bule_text">#44A8E1</color>
+   <!--   <color name="main_content_bg">#F8F8F8</color>-->
+     <color name="main_content_bg">#58DEDEDE</color>
+     <color name="edit_conteng_bg">#F8F8F8</color>
+<color name="nomal_devider_color">#DADADA</color>
+<color name="tab_content_bg">#DDDDDD</color>
+
+</resources>

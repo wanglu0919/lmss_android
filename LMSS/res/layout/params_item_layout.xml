@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="40dip"
+    android:background="@drawable/setting_down_selector"
+    android:clickable="false"
+    android:paddingBottom="10dip"
+    android:paddingLeft="2dip"
+    android:paddingRight="2dip"
+    android:paddingTop="10dip" >
+
+    <TextView
+        android:id="@+id/params_item_name"
+        style="@style/Item_Left_TextView_Style"
+        android:text="@string/setting_elec_params_encoder_test_time" />
+
+    <TextView
+        android:id="@+id/params_item_value"
+        style="@style/Item_Right_TextView_More_Style" />
+
+    <com.challentec.lmss.view.SwitchButton
+        android:id="@+id/params_item_switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:visibility="gone" />
+
+</RelativeLayout>

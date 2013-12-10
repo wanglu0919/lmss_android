@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Item_ScrollView_Sytle" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/g_round_box_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/setting_rl_auto_study"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_soft_phone_id" />
+
+            <TextView
+                android:id="@+id/soft_tv_tele_imei"
+                style="@style/Item_Right_TextView_Style" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

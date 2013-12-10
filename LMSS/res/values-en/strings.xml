@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- app -->
+    <string name="app_name">电梯监控服务系统</string>
+    <string name="action_settings">Settings</string>
+    <string name="head_btn_back">返回</string>
+    <string name="head_btn_save">保存</string>
+    <string name="choice_input">输入设备授权码</string>
+    <string name="choice_scan">扫描设备二维码</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <!-- 首页登陆 -->
+    <string name="main_tv_choice_language">语言选择:</string>
+    <string name="main_tv_language_Chinese">中文</string>
+    <string name="main_tv_language_English">English</string>
+    <string name="main_tv_teleno">手机号</string>
+    <string name="main_tv_vcode">验证码</string>
+    <string name="main_tv_login">登录</string>
+    <string name="main_tv_getvecode">获取验证码</string>
+    <string name="choice_btn_submit">提交</string>
+    <string name="main_tab_rb_setting">设置</string>
+    <string name="main_tab_rb_test">测试</string>
+    <string name="main_tab_rb_monitor">监控</string>
+    <string name="main_tab_rb_trouble">故障</string>
+    <string name="main_tab_logining">登录中...</string>
+    <string name="main_company">无锡中秀驱动技术有限公司</string>
+       <string name="main_location_tip_title">定位提示</string>
+    <string name="main_location_message">需要获取您的位置信息，请您勾选移动网络和Wi-FI定位选项!</string>
+
+    <!-- ui界面 -->
+    <string name="ui_title_login">用户登录</string>
+    <string name="ui_title_choice">选择设备</string>
+    <string name="ui_title_monitor">监控</string>
+    <string name="ui_title_monitor_drive_state">驱动状态</string>
+    <string name="ui_title_monitor_port_state">端口状态</string>
+    <string name="ui_title_trouble">故障</string>
+    <string name="ui_title_auto_study">自学习</string>
+    <string name="ui_choice_hint">输入或扫描设备授权码</string>
+    <string name="ui_title_codescan">扫描社二维码</string>
+    <string name="ui_title_setting">设置</string>
+    <string name="ui_title_setting_basic">基本参数设置</string>
+    <string name="ui_title_elec_basic">电机参数</string>
+    <string name="ui_title_elec_auto_study_param">电机自学习参数</string>
+    <string name="ui_title_well_auto_study_param">进道自学习参数</string>
+    <string name="ui_title_floor_door_setting">层楼前后门设置</string>
+    <string name="ui_title_floor_display_setting">层楼显示设置</string>
+    <string name="ui_title_device_info">设备信息</string>
+    <string name="ui_title_mainbord_input_setting">主板输入逻辑设置</string>
+    <string name="ui_title_change_device">设备更换</string>
+    <string name="ui_title_device_test">测试</string>
+    <string name="ui_title_device_test_vector_control_params">矢量控制参数</string>
+    <string name="ui_title_soft_about">软件相关</string>
+    <string name="ui_title_phone_ime">手机识别号</string>
+    <string name="ui_title_run_control_params">运行控制参数</string>
+    <string name="ui_title_time_control_params">时间控制参数</string>
+    <string name="ui_title_test_function_params">测试功能参数</string>
+    <string name="ui_title_command">指令</string>
+    <string name="ui_title_call">召唤</string>
+    <string name="ui_title_about_us">关于我们</string>
+    <string name="ui_login_success">登录成功</string>
+    <string name="ui_trouble_detail">故障信息</string>
+    <!-- 设备信息 -->
+    <string name="device_tv_lift_no">电梯编号</string>
+    <string name="device_tv_control_no">控制柜编号</string>
+    <string name="device_tv_out_datetime">出厂日期</string>
+    <string name="device_tv_rated_load">额定载重</string>
+    <string name="device_tv_rated_speed">额定速度</string>
+    <string name="device_tv_control_way">控制方式</string>
+    <string name="device_tv_floor_num">楼层数量</string>
+    <string name="device_tv_door_num">门机数量</string>
+    <string name="device_tv_reply_default">恢复出厂设置</string>
+    <string name="device_tv_reply_last_default">恢复上次设置值</string>
+    <string name="device_tv_scan">扫描</string>
+    <string name="dlg_recover">恢复</string>
+    <string name="dlg_recover_cancle">取消</string>
+
+    <!-- 设置 -->
+    <string name="setting_tv_basic_params">基本参数</string>
+    <string name="setting_tv_elec_params">电机参数</string>
+    <string name="setting_tv_auto_study">自学习</string>
+    <string name="setting_tv_change_device">设备更换</string>
+    <string name="setting_tv_floor_door_setting">层楼前后门设置</string>
+    <string name="setting_tv_floor_display_setting">层楼显示设置</string>
+    <string name="setting_tv_mainboard_input_setting">主板逻辑输入设置</string>
+    <string name="setting_tv_soft_about">软件相关</string>
+
+    <!-- 关于我们 -->
+
+    <string name="tv_about_us_content">\t\t中秀科技（无锡）有限公司成立于1995年初，经过15年的艰苦奋斗和开拓创新，现已发展为一家多元化、跨地域，占地面积30000平方米的集团化运作企业。</string>
+    <string name="setting_flush_device">刷新请求</string>
+
+    <!-- 基本设置->基本参数 -->
+    <string name="setting_basicparams_tv_system_time">系统时间</string>
+    <string name="setting_basicparams_tv_total_floor">总楼层</string>
+    <string name="setting_basicparams_tv_under_floor">地下层</string>
+    <string name="setting_basicparams_tv_floor_fixed_speed">电梯额定速度</string>
+    <string name="setting_basicparams_tv_floor_run_speed">电梯运行速度</string>
+    <string name="setting_basicparams_tv_drag_wheel_dia">曳引轮直径</string>
+    <string name="setting_basicparams_tv_drag_rope_scale">曳引绳悬挂比</string>
+    <string name="setting_basicparams_tv_speed_cut_scale">减速比</string>
+    <string name="setting_basicparams_tv_hight_speed_count_direction">高速计数方向</string>
+    <string name="setting_basicparams_tv_elec_model">电机形式</string>
+    <string name="setting_basicparams_tv_signal_carrier_rate">载波频率</string>
+    <string name="setting_basicparams_tv_drive_control_pattern">驱动控制模式</string>
+    <string name="setting_basicparams_tv_fire_protection_leave_floor">消防车撤离层</string>
+    <string name="setting_basicparams_tv_parking_floor">驻停层</string>
+    <string name="setting_basicparams_tv_back_station_floor">返基站层</string>
+    <string name="setting_basicparams_tv_ard_choice">ARD选择</string>
+    <string name="setting_basicparams_tv_ard_speed">ARD速度</string>
+    <string name="setting_basicparams_tv_control_type">控制方式</string>
+    <string name="setting_basicparams_tv_open_door_front">提前开门</string>
+
+    <!-- 设置->电机自学习 -->
+    <string name="setting_auto_study_elec">电机自学习</string>
+    <string name="setting_auto_study_elec_trouble_no">电机自学习故障编码</string>
+    <string name="setting_auto_study_elec_step_1">1.电机基本参数正确输入完毕</string>
+    <string name="setting_auto_study_elec_step_2">2. 确认抱闸闭合，人为接通运行接触器</string>
+    <string name="setting_auto_study_elec_step_3">3. 点【开始】主机开始自学习，主机发出吱声</string>
+    <string name="setting_auto_study_elec_step_4">4. 显示【完成】后，释放运行接触器，自学习结束</string>
+    <string name="setting_auto_study_params">参数</string>
+    <string name="setting_auto_study_start">开始</string>
+
+    <!-- 设置->电机自学习-参数 -->
+
+    <string name="auto_study_elec_param_asyn_empty_load_elec">异步机空载电流</string>
+    <string name="auto_study_elec_param_asyn_stator_resistance">异步机定子电阻</string>
+    <string name="auto_study_elec_param_asyn_rotor_resistance">异步机转子电阻</string>
+    <string name="auto_study_elec_param_asyn_leakage_oppose">异步机漏感抗</string>
+    <string name="auto_study_elec_param_asyn_mutual_oppose">异步机互感抗</string>
+    <string name="auto_study_elec_param_syn_start_location">同步机初始位置</string>
+    <string name="auto_study_elec_param_syn_cut_elec_location">同步机断电位置</string>
+    <string name="auto_study_elec_param_syn_q_elec">同步机Q轴电感</string>
+    <string name="auto_study_elec_param_syn_d_elec">同步机D轴电感</string>
+    <string name="auto_study_elec_param_auto_study_trouble_decode">自学习故障编码</string>
+    <string name="auto_study_elec_param_alternate_elec_resistance">相间线圈电阻</string>
+
+    <!-- 设置->井道子学习 -->
+
+    <string name="setting_auto_study_well">井道自学习</string>
+    <string name="setting_auto_study_well_step_1">1. 电梯处于检修状态</string>
+    <string name="setting_auto_study_well_step_2">2. 电梯停止在首层</string>
+    <string name="setting_auto_study_well_step_3">3. 点井道自学习【开始】</string>
+    <string name="setting_auto_study_well_step_4">4. 按下检修上行按钮，电梯上行</string>
+    <string name="setting_auto_study_well_step_5">5. 直至电梯运行到最高层停止</string>
+    <string name="setting_auto_study_well_step_6">6. 当显示【完成】后，自学习结束</string>
+
+    <!-- 设置->井道自学习->参数 -->
+    <string name="auto_study_well_param_hight_total">总高度</string>
+    <string name="auto_study_well_param_up_cut_one_count">上强减1脉冲数</string>
+    <string name="auto_study_well_param_down_cut_one_count">上强减1脉冲数</string>
+    <string name="auto_study_well_param_up_cut_two_count">上强减2脉冲数</string>
+    <string name="auto_study_well_param_down_cut_two_count">上强减2脉冲数</string>
+    <string name="auto_study_well_param_floor_location">楼位置值</string>
+    <string name="auto_study_well_param_interlamination_pulse">层间脉冲值</string>
+    <string name="auto_study_well_param_upstream_synch">上行同步值</string>
+    <string name="auto_study_well_param_downstream_synch">下行同步值</string>
+
+    <!-- 设置->电机参数 -->
+    <string name="setting_elec_params_rate__power">电机额定功率</string>
+    <string name="setting_elec_params_rate__frequency">电机额定频率</string>
+    <string name="setting_elec_params_rate_rotate_speed">电机额定转速</string>
+    <string name="setting_elec_params_rate_voltage">电机额定电压</string>
+    <string name="setting_elec_params_rate_elec">电机额定电流</string>
+    <string name="setting_elec_params_double_num">电机极对数</string>
+    <string name="setting_elec_params_run_dir">电机运行方向</string>
+    <string name="setting_elec_params_overload_ratio">过载系数</string>
+    <string name="setting_elec_params_overload_time">过载时间</string>
+    <string name="setting_elec_params_encoder_type">编码器类型</string>
+    <string name="setting_elec_params_encoder_resolution">编码器分辨率</string>
+    <string name="setting_elec_params_encoder_dir">编码器方向</string>
+    <string name="setting_elec_params_encoder_test_enabled">编码器断线检测使能</string>
+    <string name="setting_elec_params_encoder_test_time">编码器断线检测时间</string>
+    <!-- 设置->主板输入逻辑设置 -->
+    <string name="setting_mainbord_funciton_x1_x8">X1-X8设定值</string>
+    <string name="setting_mainbord_funciton_x11_x18">X11-X18设定值</string>
+    <string name="setting_mainbord_funciton_x21_x28">X21-X28设定值</string>
+    <string name="setting_mainbord_funciton_x27">X27设定值</string>
+    <string name="setting_mainbord_funciton_x28">X28设定值</string>
+    <string name="setting_mainbord_funciton_y7">Y7设定值</string>
+    <string name="setting_mainbord_funciton_y8">Y8设定值</string>
+    <!-- 设置->前后门设置 -->
+    <string name="setting_floor_door_front">前门</string>
+    <string name="setting_floor_door_back">后门</string>
+
+    <!-- 设置软件相关 -->
+    <string name="setting_soft_update">软件升级</string>
+    <string name="setting_soft_about_us">关于我们</string>
+    <string name="setting_soft_phone_id">手机识别号</string>
+    <string name="setting_soft_login_out">退出登录</string>
+    <string name="setting_soft_version">版本</string>
+
+    <!-- 测试 -->
+    <string name="test_tv_vector_control_params">矢量控制参数</string>
+    <string name="test_tv_run_control_params">运行控制参数</string>
+    <string name="test_tv_time_control_params">时间控制参数</string>
+    <string name="test_tv_test_function_params">测试功能参数</string>
+    <string name="test_tv_fast_debug_params">快速调试</string>
+
+    <!-- 测试->矢量控制参数 -->
+    <string name="test_vector_controlparams_speed_add_one">速度环比例增益1</string>
+    <string name="test_vector_controlparams_speed_score_one">速度环积分时间1</string>
+    <string name="test_vector_controlparams_speed_full_uplimt_one">速度环饱和上限1</string>
+    <string name="test_vector_controlparams_switch_frequency_one">切换频率</string>
+    <string name="test_vector_controlparams_speed_add_two">速度环比例增益2</string>
+    <string name="test_vector_controlparams_speed_score_two">速度环积分时间2</string>
+    <string name="test_vector_controlparams_speed_full_uplimt_two">速度环饱和上限2</string>
+    <string name="test_vector_controlparams_elec_add">电流环比例增益</string>
+    <string name="test_vector_controlparams_elec_score">电流环积分时间</string>
+    <string name="test_vector_controlparams_elec_full_uplimt">电流环饱和上限</string>
+    <string name="test_vector_controlparams_torque_full_uplimt">转矩上限</string>
+    <string name="test_vector_controlparams_lsf_elec_coefficient">零伺服电流系数</string>
+    <string name="test_vector_controlparams_lsf_speed_kp">零伺服速度环Kp</string>
+    <string name="test_vector_controlparams_lsf_speed_ki">零伺服速度环Ki</string>
+    <string name="test_vector_controlparams_lj_add_speed_time">力矩加速时间</string>
+    <string name="test_vector_controlparams_lj_slow_speed_time">力矩减速时间</string>
+    <string name="test_vector_controlparams_elec_contants">同步机电流滤波常数</string>
+
+    <!-- 测试->运行控制参数 -->
+    <string name="test_run_control_start_speed">启动速度</string>
+    <string name="test_run_control_start_speed_keep_time">启动速度保持时间</string>
+    <string name="test_run_control_start_zero_speed_time">开始零速度输出时间</string>
+    <string name="test_run_control_curve_give_delayed">曲线给定延时</string>
+    <string name="test_run_control_accelerated_speed_slope">加速度斜率</string>
+    <string name="test_run_control_inflection_point_accelerated_speed_1">拐点加速时间1</string>
+    <string name="test_run_control_inflection_point_accelerated_speed_2">拐点加速时间2</string>
+    <string name="test_run_control_slowdown_speed_slope">减速斜率</string>
+    <string name="test_run_control_inflection_point_slowdown_speed_1">拐点减速时间1</string>
+    <string name="test_run_control_inflection_point_slowdown_speed_2">拐点减速时间2</string>
+    <string name="test_run_control_special_slowdown_speed">特殊减速度斜率</string>
+    <string name="test_run_control_park_distance">停车距离裕量</string>
+    <string name="test_run_control_again_speed">再平层速度</string>
+    <string name="test_run_control_repair">检修速度</string>
+    <string name="test_run_control_reverse_again_speed">反平层速度</string>
+    <string name="test_run_control_again_adjust">平层调整</string>
+
+    <!-- 时间->时间控制参数 -->
+
+    <string name="test_time_control_one_way_run_time_limit">单程运行时间限制</string>
+    <string name="test_time_control_start_prevent_jump_delay">启动防颠延时</string>
+    <string name="test_time_control_curve_give_delay">曲线给定延时</string>
+    <string name="test_time_control_open_switch_delay">抱闸打开延时</string>
+    <string name="test_time_control_free_switch_delay">抱闸释放延时</string>
+    <string name="test_time_control_dir_backout_delay">方向撤销延时</string>
+    <string name="test_time_control_flat_sensor_delay">平层感应器延时</string>
+    <string name="test_time_control_repair_park_delay">检修停车延时</string>
+    <string name="test_time_control_auto_open_door_time">自动关门时间</string>
+    <string name="test_time_control_back_base_station_delay">返回基站延时</string>
+    <string name="test_time_control_save_energy_control_time">节能控制时间</string>
+    <string name="test_time_control_auto_switch_time">司机、自动转换时间</string>
+    <string name="test_time_control_ups_run_protected_time">UPS运行保护时间</string>
+    <string name="test_time_control_arrive_station_keep_time">到站钟维持时间</string>
+    <string name="test_time_control_firemen_run_delay">消防员运行延时</string>
+
+    <!-- 测试->测试功能参数 -->
+    <string name="test_test_function_inner_command_regist">内指令登记</string>
+    <string name="test_test_function_up_call_regist">上召唤登记</string>
+    <string name="test_test_function_down_call_regist">下召唤登记</string>
+    <string name="test_test_function_random_run_time">随机运行次数</string>
+    <string name="test_test_function_random_run_space">随机运间隔</string>
+    <string name="test_test_function_random_run_enabled">随机使能</string>
+    <string name="test_test_function_call_enabled">召唤使能</string>
+    <string name="test_test_function_open_door_enabled">开门使能</string>
+    <string name="test_test_function_over_load_enabled">超载使能</string>
+
+    <!-- 监控 -->
+    <string name="monitor_tv_floor_control_model">电梯控制模式</string>
+    <string name="monitor_tv_floor_current_speed">电梯当前速度</string>
+    <string name="monitor_tv_floor_give_speed">当前给定速度</string>
+    <string name="monitor_tv_floor_current_floor">电梯当前楼层</string>
+    <string name="monitor_tv_floor_current_height">电梯当前楼高度</string>
+    <string name="monitor_tv_floor_current_direction">电梯运行方向</string>
+    <string name="monitor_tv_floor_total_run_time">总计运行时间</string>
+    <string name="monitor_tv_floor_total_run_time_cout">总计运行次数</string>
+    <string name="monitor_tv_run_dir_up">上行</string>
+    <string name="monitor_tv_run_dir_down">下行</string>
+    <string name="monitor_tv_drive_state">驱动状态</string>
+    <string name="monitor_tv_port_state">端口状态</string>
+    <string name="monitor_tv_control_model_reparir">检修</string>
+    <string name="monitor_tv_control_model_jx">集选</string>
+    <string name="monitor_tv_control_model_bl">并联</string>
+
+    <!-- 监控->驱动状态 -->
+    <string name="monitor_drive_state_device_nomal">驱动正常</string>
+    <string name="monitor_drive_state_device_run">驱动运行</string>
+    <string name="monitor_drive_state_out_voltage">输出电压</string>
+    <string name="monitor_drive_state_out_elec">输出电流</string>
+    <string name="monitor_drive_state_out_rate">输出频率</string>
+    <string name="monitor_drive_state_moment_command">力矩指令</string>
+    <string name="monitor_drive_state_parent_voltage">母线电压</string>
+    <string name="monitor_drive_state_module_temperature">模块温度</string>
+    <!-- 监控->端口状态 -->
+    <string name="monitor_port_state_call">召唤</string>
+    <string name="monitor_port_state_cammand">指令</string>
+    <string name="monitor_port_state_mainbord_input">主板输入</string>
+    <string name="monitor_port_state_mainbord_output">主板输出</string>
+    <string name="monitor_port_state_jdb_input">轿顶板输入</string>
+    <string name="monitor_port_state_jdb_output">轿顶板输出</string>
+
+    <!-- 召唤指令 -->
+    <string name="monitor_btn_command">指令</string>
+    <string name="monitor_btn_call">召唤</string>
+    <string name="monitor_up_call">上召唤</string>
+    <string name="monitor_down_call">下召唤</string>
+
+    <!-- 故障 -->
+    <string name="trouble_tv_trouble_order">故障序号</string>
+    <string name="trouble_tv_trouble_time">发生时间</string>
+    <string name="trouble_tv_trouble_no">故障代码</string>
+    <!-- 故障-详细 -->
+    <string name="trouble_detail_tv_datetime">故障日期</string>
+    <string name="trouble_detail_tv_time">故障时间</string>
+    <string name="trouble_detail_tv_no">故障代码</string>
+    <string name="trouble_detail_tv_current_location">当前位置</string>
+    <string name="trouble_detail_tv_current_floor">当前楼层</string>
+    <string name="trouble_detail_tv_input_info">输入信息</string>
+    <string name="trouble_detail_tv_out_info">输出信息</string>
+    <string name="trouble_detail_tv_curve_info">曲线信息</string>
+    <string name="trouble_detail_tv_give_speed">给定速度</string>
+    <string name="trouble_detail_tv_feedback_speed">反馈速度</string>
+    <string name="trouble_detail_tv_parent_voltage">母线电压</string>
+    <string name="trouble_detail_tv_out_elec">输出电流</string>
+    <string name="trouble_detail_tv_out_rate">输出频率</string>
+    <string name="trouble_deatil_tv_zj_elec">转矩电流</string>
+
+    <!-- 基本参数 选项 -->
+    <string name="basic_check_asynchronization">异步机</string>
+    <string name="basic_check_synchronization">同步机</string>
+    <string name="basic_check_vf_vecotor">VF</string>
+    <string name="basic_check_pf_vecotor">PG</string>
+    <string name="basic_check_ard_start">启用</string>
+    <string name="basic_check_ard_stop">停用</string>
+    <string name="basic_check_control_type_jx">集选</string>
+    <string name="basic_check_control_type_qc">群控</string>
+    <string name="basic_check_control_type_bl">并联</string>
+    <string name="basic_check_opendoor_start">启用</string>
+    <string name="basic_check_opendoor_stop">停用</string>
+
+    <!-- 电机参数选项 -->
+    <string name="elec_check_run_dir_positive">正</string>
+    <string name="elec_check_run_dir_against">反</string>
+    <string name="elec_check_run_encode_positive">正</string>
+    <string name="elec_check_run_encode_against">反</string>
+
+    <!-- 楼层显示设置 -->
+    <string name="floor_display_set_lable">楼显示设定值</string>
+
+    <!-- 故障详细 -->
+    <string name="trouble_detail_add_speed">加速</string>
+    <string name="trouble_detail_fix_speed">额定</string>
+    <string name="trouble_detail_slow_speed">减速</string>
+
+    <!-- 故障列表 -->
+    <string name="trouble_list_lable_current_trouble">当前故障</string>
+    <string name="trouble_list_lable_front">前</string>
+    <string name="trouble_list_lable_back">次故障</string>
+
+    <!-- 井道自学习 -->
+    <string name="well_study_total_high">总高度</string>
+    <string name="well_study_up_pulse1">上强减1脉冲数</string>
+    <string name="well_study_down_pulse1">下强减1脉冲数</string>
+    <string name="well_study_up_pulse2">上强减2脉冲数</string>
+    <string name="well_study_down_pulse2">下强减2脉冲数</string>
+    <string name="well_study_floor_positon_value">楼位置值</string>
+    <string name="well_study_floor_space_value">层间脉冲值</string>
+    <string name="well_study_up_syn_value">上行同步值</string>
+    <string name="well_study_down_syn_value">下行同步值</string>
+
+    <!-- 单位 -->
+    <string name="unit_year">年</string>
+    <string name="unit_month">月</string>
+    <string name="unit_day">日</string>
+    <string name="unit_speed">米/秒</string>
+    <string name="unit_load">千克</string>
+    <string name="unit_floor">层</string>
+    <string name="unit_desk">台</string>
+    <string name="unit_millimetre">毫米</string>
+    <string name="unit_rate_khz">千赫兹</string>
+    <string name="unit_kw">千瓦</string>
+    <string name="unit_hz">赫兹</string>
+    <string name="unit_zf">转/分</string>
+    <string name="unit_ft">伏特</string>
+    <string name="unit_seconds">秒</string>
+    <string name="unit_ap">安培</string>
+    <string name="unit_apair">极对</string>
+    <string name="unit_killmi">毫秒</string>
+    <string name="unit_miil">米</string>
+    <string name="unit_time">次</string>
+    <string name="unit_z">转</string>
+    <string name="unit_hour">小时</string>
+    <string name="unit_du">度</string>
+    <string name="unit_om">欧姆</string>
+    <string name="unit_hh">毫亨</string>
+    <string name="unit_jdu">度</string>
+    <string name="unit_vector">矢量</string>
+
+    <!-- 系统图提示消息 -->
+    <string name="tip_msg_exit">再按一次退出电梯服务监控系统</string>
+    <string name="tip_msg_unknow_version">未知版本</string>
+    <string name="tip_msg_no_net">当前无网络连接</string>
+    <string name="tip_msg_net_error">网络异常</string>
+    <string name="tip_msg_net_un_connect">未连接</string>
+    <string name="tip_msg_net_connected">连接服务器成功</string>
+    <string name="tip_msg_net_nuknow_server">服务器不存在</string>
+    <string name="tip_msg_net_connect_server_time_out">连接服务器超时</string>
+    <string name="tip_msg_net_read_data_time_out">获取数据超时</string>
+    <string name="tip_msg_unknow_error">未知错误!</string>
+    <string name="tip_msg_pb_connecting_server">正在连接服务器...</string>
+    <string name="tip_msg_get_vecode_success">获取验证码成功，请检查您的手机短信</string>
+    <string name="tip_msg_pb_loading">努力加载数据中...</string>
+    <string name="tip_msg_pb_auto_study">正在学习...</string>
+    <string name="tip_msg_pb_change_device">正在刷新请求</string>
+    <string name="tip_msg_changedevice_success">更换设备成功</string>
+    <string name="tip_msg_edit_input_data_check">您输入的数据不正确，请检查后重新输入!</string>
+    <string name="tip_msg_edit_input_empty">数据不能为空</string>
+    <string name="tip_msg_edit_scal_data_error">比例数据不超出范围，请检查后重新设定!</string>
+    <string name="tip_msg_list_save_data_error">有不合法数据存在，请检查数据修改后重新保存!</string>
+    <string name="tip_msg_list_save_data_success">保存数据成功!</string>
+    <string name="tip_msg_list_pb_save_data">正在保存数据...</string>
+    <string name="tip_msg_save_front_save_data">正在保存前门数据...</string>
+    <string name="tip_msg_save_back_save_data">正在保存后门数据...</string>
+    <string name="tip_msg_save_front_success">保存前门数据成功!</string>
+    <string name="tip_msg_save_back_success">保存后门数据成功!</string>
+    <string name="tip_msg_auto_connect_success">重连成功!</string>
+    <string name="tip_msg_auto_connect_time_out">重连超时!</string>
+    <string name="title_tip_unconnnect">(未连接)</string>
+    <string name="title_tip_auto_connecting">重连中</string>
+
+    <!-- 表单提示 -->
+    <string name="tip_msg_form_tele_empty">请输入手机号码</string>
+    <string name="tip_msg_form_vecode_empty">请输验证码</string>
+    <string name="tip_msg_form_device_no_empty">请输入设备授权码</string>
+    <string name="tip_form_range_front">当前修改值的范围为</string>
+    <string name="tip_form_range_back">精度及数值的进制按照所示范围确定</string>
+    <string name="tip_form_number_big">输入数字过大</string>
+
+    <!-- 协议定义错误消息 -->
+    <string name="tip_msg_no_tel_use">手机号码不存在(非法用户)!</string>
+    <string name="tip_msg_no_ime_use">手机序列号不存在(非法用户)!</string>
+    <string name="tip_msg_tel_ime_not_pair">手机号和序列号不匹配(非法用户)!</string>
+    <string name="tip_msg_vecode_error"> 验证码错误!</string>
+    <string name="tip_msg_vecode_time_out">验证码过期!</string>
+    <string name="tip_msg_no_device">选择设备不存在!</string>
+    <string name="tip_msg_no_device_authority">选择设备权限不足!</string>
+    <string name="tip_msg_un_know_sever_error">未知服务端错误，请联系管理员!</string>
+    <string name="tip_msg_floor_device_offline">电梯设备未在线!</string>
+    <string name="tip_msg_get_data_fail">获取数据失败!</string>
+    <string name="tip_msg_data_format_error">数据格式错误!</string>
+    <string name="tip_msg_get_vecode_fast">发送验证码太频繁!</string>
+    <string name="tip_msg_tel_num_no_match">手机号码不匹配!</string>
+    <string name="tip_msg_no_auth_device">没有设备设备操作权限!</string>
+     <!-- 通用类 -->
+    
+      <string name="dlg_msg_ok">确定</string>
+   <string name="dlg_msg_cancle">取消</string>
+     <string name="dlg_title_ok_cancle">是否</string>
+
+</resources>

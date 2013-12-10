@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Item_ScrollView_Sytle" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/g_round_box_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_basic_params"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_up_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_basic_params" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_elec_params"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_elec_params" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_auto_study"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_auto_study" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_floor_door_setting"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_floor_door_setting" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_floor_display_setting"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_floor_display_setting" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_mainboard_input_setting"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_mainboard_input_setting" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+
+            <View style="@style/Item_Devide_Solid_Line_Style" />
+
+            <RelativeLayout
+                 android:id="@+id/setting_rl_change_device"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_down_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_change_device" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/g_round_box_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/setting_rl_soft_about"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/setting_up_selector"
+                android:clickable="true" >
+
+                <TextView
+                    style="@style/Item_Left_TextView_Style"
+                    android:text="@string/setting_tv_soft_about" />
+
+                <ImageView style="@style/Item_ImageMore_Sytle" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

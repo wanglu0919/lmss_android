@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_content_bg" >
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ui_title_choice"
+         />
+
+    <LinearLayout
+        android:id="@+id/choice_ll_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dip"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/choice_et_no"
+            style="@style/Nomail_TextStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_weight="1"
+            android:hint="@string/ui_choice_hint" />
+
+        <Button
+            android:id="@+id/choice_btn_codescan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/code_scan_bg_selector" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/choice_btn_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choice_ll_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="40dip"
+        android:background="@drawable/main_login_bg_selector"
+        android:text="@string/choice_btn_submit"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dip"
+        android:text="@string/main_company"
+        android:textColor="@color/tv_nomal_color"
+        android:textStyle="bold" />
+  <com.challentec.lmss.view.LoadProgressView
+        android:id="@+id/device_pb_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

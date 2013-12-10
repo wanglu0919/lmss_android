@@ -1,0 +1,417 @@
+android.annotation.SuppressLint
+android.annotation.TargetApi
+com.challentec.lmss.adapter.ArrayWheelAdapter
+com.challentec.lmss.adapter.NumericWheelAdapter:
+    public static final int DEFAULT_MAX_VALUE
+    private static final int DEFAULT_MIN_VALUE
+com.challentec.lmss.app.AppConfig:
+    private static final java.lang.String SP_CONFIG
+    public static final java.lang.String FLOOR_NUM_KEY
+    public static final java.lang.String TELE_PHONE_NUM_KEY
+    public static final java.lang.String DEVICE_NUMBER_KEY
+    public static final java.lang.String VECODE_KEY
+    public static final int POLL_INTERVAL_TIME
+    public static final int AUTO_CONNECT_TIME
+    public static final java.lang.String SERVER__HANG_TIME_KEY
+com.challentec.lmss.app.AppConnectStateRecever:
+    public static final java.lang.String ACTION_STRING
+    30:32:public AppConnectStateRecever(com.challentec.lmss.listener.AppConectStateListener)
+com.challentec.lmss.app.AppContext:
+    public static final int NETTYPE_WIFI
+    public static final int NETTYPE_CMWAP
+    public static final int NETTYPE_CMNET
+    47:66:public int getNetworkType()
+com.challentec.lmss.app.AppManager:
+    62:62:public android.app.Activity getCurrentActivity()
+    71:73:public void finishActivity()
+    81:86:public void finishActivity(java.lang.Class)
+com.challentec.lmss.app.AppMessageRecever:
+    public static final java.lang.String DATA_KEY
+    public static final java.lang.String ACTION_STRING
+com.challentec.lmss.app.AppTipMessage:
+    public static final java.lang.String NO_TEL_USE
+    public static final java.lang.String NO_IME_USE
+    public static final java.lang.String TEL_IME_NOT_PAIR
+    public static final java.lang.String VECODE_ERROR
+    public static final java.lang.String VECODE_TIME_OUT
+    public static final java.lang.String NO_DEVICE
+    public static final java.lang.String NO_DEVICE_AUTHORITY
+    public static final java.lang.String UN_KNOW_SEVER_ERROR
+    public static final java.lang.String FLOOR_DEVICE_OFFLINE
+    public static final java.lang.String GET_DATA_FAIL
+    public static final java.lang.String DATA_FORMAT_ERROR
+    public static final java.lang.String IOEXCEPTION
+    public static final java.lang.String UN_CONNECT
+    public static final java.lang.String CONNECT_SUCCESS
+    public static final java.lang.String UN_UNKNOWNHOST
+    public static final java.lang.String NO_NET
+    public static final java.lang.String CONNECT_SERVER_TIME_OUT
+    public static final java.lang.String READ_DATA_TIME_OUT
+    13:13:public AppTipMessage()
+com.challentec.lmss.app.BuildConfig
+com.challentec.lmss.app.MainActivity:
+    private static final int LANGUAGE_TYPE_ZH
+    private static final int LANGUAGE_TYPE_EN
+    private static final int LOCATION_SETTING_REQUEAST
+    private static final int GET_LOACTION_SUCCESS
+com.challentec.lmss.app.R
+com.challentec.lmss.app.R$attr
+com.challentec.lmss.app.R$color
+com.challentec.lmss.app.R$dimen
+com.challentec.lmss.app.R$drawable
+com.challentec.lmss.app.R$id
+com.challentec.lmss.app.R$layout
+com.challentec.lmss.app.R$menu
+com.challentec.lmss.app.R$raw
+com.challentec.lmss.app.R$string
+com.challentec.lmss.app.R$style
+com.challentec.lmss.bean.ButtonParamItem:
+    private java.lang.String itemValue
+    26:26:public java.lang.String getItemValue()
+    29:30:public void setItemValue(java.lang.String)
+com.challentec.lmss.bean.CheckItem:
+    private static final long serialVersionUID
+    37:38:public void setItemName(java.lang.String)
+    43:44:public void setItemValue(java.lang.String)
+com.challentec.lmss.bean.ParamsItem:
+    private static final long serialVersionUID
+    public static final int VALUE_TYPE_NOMAL
+    public static final int VALUE_TYPE_NOMAIL_SCALE
+    public static final int VALUE_TYPE_ON_OFF
+    public static final int VALUE_TYPE_CHECK
+    public static final int VALUE_TYPE_DATE_TIME
+    public static final int VALUE_TYPE_HEX
+    public static final int VAALUE_TYPE_TROUBLE
+    public static final int VALUE_INT
+    public static final int VALUE_FLOAT
+    public static final int VALUE_HEX
+    public static final int VALUE_STING
+    public static final int VALUE_STING_TIME
+    public static final int VALUE_STING_DATE
+    public static final int VALUE_FLOOR_INT
+    private boolean isChecked
+    77:78:public void setPreStart(int)
+    85:86:public void setPreEnd(int)
+    93:94:public void setBackStart(int)
+    101:102:public void setBackEnd(int)
+    143:143:public boolean isChecked()
+    147:148:public void setChecked(boolean)
+    490:491:public void setByteLen(int)
+com.challentec.lmss.bean.ResponseData:
+    private static final long serialVersionUID
+    33:33:public int getLen()
+com.challentec.lmss.bean.StackElement:
+    22:23:public void setTag(java.lang.String)
+    26:27:public void setView(android.view.View)
+com.challentec.lmss.dlg.RecoverOutSetDlg:
+    58:60:public RecoverOutSetDlg(android.content.Context,int)
+com.challentec.lmss.engine.BasicParamsParser:
+    23:23:public BasicParamsParser()
+com.challentec.lmss.engine.ElecAutoStudyParamsParser:
+    18:18:public ElecAutoStudyParamsParser()
+com.challentec.lmss.engine.ElecParamsParser:
+    21:21:public ElecParamsParser()
+com.challentec.lmss.engine.FloorDisplayParser:
+    20:20:public FloorDisplayParser()
+com.challentec.lmss.engine.FloorDoorSetParser:
+    14:14:public FloorDoorSetParser()
+com.challentec.lmss.engine.MainBoardParser:
+    17:17:public MainBoardParser()
+com.challentec.lmss.engine.RunControlParamsParser:
+    18:18:public RunControlParamsParser()
+com.challentec.lmss.engine.TestFunctionParamsParser:
+    22:22:public TestFunctionParamsParser()
+com.challentec.lmss.engine.TimeControlParamsParser:
+    18:18:public TimeControlParamsParser()
+com.challentec.lmss.engine.TroubleListParser:
+    20:20:public TroubleListParser()
+com.challentec.lmss.engine.TroublieDetailParser:
+    19:19:public TroublieDetailParser()
+com.challentec.lmss.engine.VecotorControlParamsParser:
+    18:18:public VecotorControlParamsParser()
+com.challentec.lmss.engine.WellAutoStudyParamsParser:
+    20:20:public WellAutoStudyParamsParser()
+com.challentec.lmss.exception.ConnectServerTimeOutException:
+    private static final long serialVersionUID
+    8:8:public ConnectServerTimeOutException()
+com.challentec.lmss.exception.ReadDataException:
+    private static final long serialVersionUID
+com.challentec.lmss.net.SocketClient:
+    private static final java.lang.String INTRANET_IP
+    private static final java.lang.String OUTERNET_IP
+    private static final int PORT
+    private static final int CONNECT_SERVER_TIME_OUT
+    165:165:public java.net.Socket getSocket()
+com.challentec.lmss.net.SynHandler:
+    public static final int IOEXCEPTION
+    public static final int SEND_SUCCESS
+    public static final int UN_CONNECT
+    public static final int CONNECTION_SUCCESS
+    public static final int UNKNOWNHOST
+    public static final int CONET_SEVER_TIME_OUT
+    public static final int READ_DATA_TIME_OUT
+    public static final int NO_NET
+    171:171:public void onSuccess()
+com.challentec.lmss.net.SynTask:
+    54:56:public void setHandler(com.challentec.lmss.net.SynHandler)
+com.challentec.lmss.service.AutoConnectPollingService:
+    public static final java.lang.String ACTION
+com.challentec.lmss.service.LoginPollingService:
+    public static final java.lang.String ACTION
+com.challentec.lmss.service.PollingService:
+    public static final java.lang.String ACTION
+com.challentec.lmss.ui.BasicParamActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.CallCommandActivity:
+    public static final int TYPE_COMMAND
+    public static final int TYPE_CALL
+    public static final java.lang.String TYPE_KEY
+com.challentec.lmss.ui.CheckItemActivity:
+    public static final java.lang.String INTENT_ITEM_KEY
+com.challentec.lmss.ui.ChoiceDeviceActivity:
+    private static final int SCANNIN_GREQUEST_CODE
+com.challentec.lmss.ui.CodeScanActivity:
+    private static final float BEEP_VOLUME
+    private static final long VIBRATE_DURATION
+com.challentec.lmss.ui.DateTimeEditActivity:
+    public static final java.lang.String INTENT_ITEM_KEY
+com.challentec.lmss.ui.DeviceTestFunctionParamsActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.EditItemActivity:
+    public static final java.lang.String INTENT_ITEM_KEY
+com.challentec.lmss.ui.ElecParamActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.FloorDoorSetActivity:
+    private static final int TYPE_FRONT_SET
+    private static final int TYPE_BACK_SET
+com.challentec.lmss.ui.HomeActivity:
+    public static final java.lang.String ACTION_UPDATE_FLOOR_NUMBER
+com.challentec.lmss.ui.ListParamActivity:
+    public static final java.lang.String ACTION_ITEM_UPDATE
+    public static final java.lang.String INTENT_UPDATE_ITEM_KEY
+com.challentec.lmss.ui.MainBoardActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.MainTabActivity:
+    private static final int REMOVE_VIEW
+    302:309:public void clearStack()
+com.challentec.lmss.ui.MonitorActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.PortStateActivity:
+    private static final int NUM_COLUMNS
+com.challentec.lmss.ui.RunControlParamsActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.ScaleEditActivity:
+    public static final java.lang.String INTENT_ITEM_KEY
+com.challentec.lmss.ui.TimeControlParamsActivity:
+    private static final int DATA_LEN
+com.challentec.lmss.ui.TroubleDetailActivity:
+    public static final java.lang.String INTENT_KEY_TID
+    public static final java.lang.String INTENT_TROUBLE_TITLE_KEY
+    private static final int DATA_LEN
+com.challentec.lmss.util.ClinetAPI:
+    9:9:public ClinetAPI()
+com.challentec.lmss.util.DataPaseUtil:
+    7:7:public DataPaseUtil()
+    298:316:public static java.lang.String hexString2BinaryString(java.lang.String)
+com.challentec.lmss.util.DataTimeUtil:
+    11:11:public DataTimeUtil()
+com.challentec.lmss.util.Des:
+    public static final java.lang.String key
+    7:7:public Des()
+    311:342:public static java.lang.String strToDes(java.lang.String,java.lang.String)
+    347:384:public static java.lang.String desToStr(java.lang.String,java.lang.String)
+com.challentec.lmss.util.DisplayUtil:
+    5:5:public DisplayUtil()
+    26:27:public static int px2dip(android.content.Context,float)
+com.challentec.lmss.util.HandlerMessage:
+    17:17:public HandlerMessage()
+com.challentec.lmss.util.LogUtil:
+    private static final int LOG_LEVEL
+    private static final int LEVEL
+    11:11:public LogUtil()
+    38:41:public static void e(java.lang.String,java.lang.String)
+    50:53:public static void d(java.lang.String,java.lang.String)
+com.challentec.lmss.util.PollingUtils:
+    13:13:public PollingUtils()
+com.challentec.lmss.util.Protocol:
+    public static final java.lang.String PROTOCOL_HEADER
+    public static final java.lang.String C_BEAT
+    public static final java.lang.String C_GET_VCODE
+    public static final java.lang.String C_LOGIN
+    public static final java.lang.String C_SET_LANGUAGE
+    public static final java.lang.String C_SEND_AUTHORIZATION_CODE
+    public static final java.lang.String C_LOG
+    public static final java.lang.String C_AUTO_CONNECT
+    public static final java.lang.String C_GET_DEVICE_INFO
+    public static final java.lang.String C_RECOVER_DEVICE
+    public static final java.lang.String C_RECOVER_LAST_SET
+    public static final java.lang.String C_EXIT_LOGIN
+    public static final java.lang.String S_GET_DEVICE_BASE_P
+    public static final java.lang.String S_SAVE_DEVICE_BASE_P
+    public static final java.lang.String S_GET_ELEC_P
+    public static final java.lang.String S_SAVE_ELEC_P
+    public static final java.lang.String S_ELEC_AUTO_STUDY
+    public static final java.lang.String S_WELL_AUTO_STUDY
+    public static final java.lang.String S_ELEC_STUDY_GET_P
+    public static final java.lang.String S_SAVE_ELEC_STUDY_P
+    public static final java.lang.String S_WELL_STUDY_GET_P
+    public static final java.lang.String S_SAVE_WELL_STUDY_P
+    public static final java.lang.String S_GET_FLOOR_SET_FRONT
+    public static final java.lang.String S_SAVE_FLOOR_SET_FRONT
+    public static final java.lang.String S_GET_FLOOR_SET_BACK
+    public static final java.lang.String S_SAVE_FLOOR_SET_BACK
+    public static final java.lang.String S_GET_FLOOR_DISPALY
+    public static final java.lang.String S_SAVE_FLOOR_DISPALY
+    public static final java.lang.String S_GET_MAINBOARD
+    public static final java.lang.String S_SAVE_MAINBOARD
+    public static final java.lang.String S_CHANGE_DEVICE
+    public static final java.lang.String T_GET_VECTOR_P
+    public static final java.lang.String T_SAVE_VECTOR_P
+    public static final java.lang.String T_GET_RUN_P
+    public static final java.lang.String T_SAVE_RUN_P
+    public static final java.lang.String T_GET_TIME_P
+    public static final java.lang.String T_SAVE_TIME_P
+    public static final java.lang.String T_GET_TEST_P
+    public static final java.lang.String T_SAVE_TEST_P
+    public static final java.lang.String M_START_MON
+    public static final java.lang.String M_END_MON
+    public static final java.lang.String M_START_DRIVE
+    public static final java.lang.String M_END_DRIVE
+    public static final java.lang.String M_START_PORT_1
+    public static final java.lang.String M_END_PORT_1
+    public static final java.lang.String M_START_PORT_2
+    public static final java.lang.String M_END_PORT_2
+    public static final java.lang.String M_START_UP_CALL
+    public static final java.lang.String M_END_UP_CALL
+    public static final java.lang.String M_START_DOWN_CALL
+    public static final java.lang.String M_END_DOWN_CALL
+    public static final java.lang.String M_START_COMMAND
+    public static final java.lang.String M_END_COMMAND
+    public static final java.lang.String B_GET_TROUBLE
+    public static final java.lang.String B_GET_TROUBLE_D
+    public static final java.lang.String A_TEST_SEND
+    public static final java.lang.String A_TEST_RECEIVE
+    public static final java.lang.String UI_LOGIN
+    public static final java.lang.String UI_LOGIN_SUCCESS
+    public static final java.lang.String UI_INPUT_DEVICE_NO
+    public static final java.lang.String UI_CODE_SCAN
+    public static final java.lang.String UI_CONFORM_SCAN
+    public static final java.lang.String UI_DEVICE_DISPLAY
+    public static final java.lang.String UI_SETTING_HOME
+    public static final java.lang.String UI_BASIC_P
+    public static final java.lang.String UI_ELEC_P
+    public static final java.lang.String UI_AUTO_STUDY_ELC
+    public static final java.lang.String UI_AUTO_STUDY_WELL
+    public static final java.lang.String UI_ELE_AUTO_STUDY_P
+    public static final java.lang.String UI_WELL_AUTO_STUDY_P
+    public static final java.lang.String UI_FLOOR_SET_FRONT
+    public static final java.lang.String UI_FLOOR_SET_BACK
+    public static final java.lang.String UI_FLOOR_DISPLAY_SET
+    public static final java.lang.String UI_MAINBOARD_INPUT_SET
+    public static final java.lang.String UI_CHANGE_DEVICE
+    public static final java.lang.String UI_TEST_HOME
+    public static final java.lang.String UI_VETOR_CONTROL_P
+    public static final java.lang.String UI_RUN_CONTROL_P
+    public static final java.lang.String UI_TIME_CONTROL_P
+    public static final java.lang.String UI_TEST_FUNCTION_P
+    public static final java.lang.String UI_FAST_DEBUG
+    public static final java.lang.String UI_MONITOR_HOME
+    public static final java.lang.String UI_DRIVER_STATE
+    public static final java.lang.String UI_PORT_STATE_1
+    public static final java.lang.String UI_PORT_STATE_2
+    public static final java.lang.String UI_COMMAND
+    public static final java.lang.String UI_UP_CALL
+    public static final java.lang.String UI_DOWN_CALL
+    public static final java.lang.String UI_TROUBLE_HOME
+    public static final java.lang.String UI_TROUBLE_DETAIL
+    public static final java.lang.String UI_SOFT_ABOUT
+    public static final java.lang.String UI_SOFT_UPDATE
+    public static final java.lang.String UI_LOGINOUT
+    11:11:public Protocol()
+com.challentec.lmss.util.StringUtils
+com.challentec.lmss.util.StringUtils$1
+com.challentec.lmss.util.StringUtils$2
+com.challentec.lmss.util.UIHelper:
+    12:12:public UIHelper()
+com.challentec.lmss.util.UnitUtil:
+    public static final int FLOOR
+    public static final int SPEED
+    public static final int MILLIMETRE
+    public static final int RATE_KHZ
+    public static final int KW
+    public static final int HZ
+    public static final int ZF
+    public static final int FT
+    public static final int SECONDS
+    public static final int AP
+    public static final int APAIR
+    public static final int KILLMI
+    public static final int MILL
+    public static final int TIME
+    public static final int UNIT_Z
+    public static final int HOUR
+    public static final int WD
+    public static final int HH
+    public static final int OM
+    public static final int JD
+    public static final int VECTOR
+    13:13:public UnitUtil()
+com.challentec.lmss.view.FrameAnimationController:
+    private static final int MSG_ANIMATE
+    public static final int ANIMATION_FRAME_DURATION
+    14:15:private FrameAnimationController()
+    26:30:public static void requestFrameDelay(java.lang.Runnable,long)
+com.challentec.lmss.view.KeyBoardInputWediget:
+    public static final int KEY_CODE_ZERON
+    public static final int KEY_CODE_ONE
+    public static final int KEY_CODE_TWO
+    public static final int KEY_CODE_THREE
+    public static final int KEY_CODE_FOUR
+    public static final int KEY_CODE_FIVE
+    public static final int KEY_CODE_SIX
+    public static final int KEY_CODE_SEVEN
+    public static final int KEY_CODE_EIGHT
+    public static final int KEY_CODE_NINE
+    public static final int KEY_CODE_A
+    public static final int KEY_CODE_B
+    public static final int KEY_CODE_C
+    public static final int KEY_CODE_D
+    public static final int KEY_CODE_E
+    public static final int KEY_CODE_F
+    public static final int KEY_CODE_DOT
+    public static final int KEY_CODE_CANCLE
+    public static final int KEY_CODE_OK
+    45:45:public int getDataType()
+com.challentec.lmss.view.MyScrollView:
+    android.view.View$OnTouchListener mGestureListener
+com.challentec.lmss.view.SwitchButton:
+    249:250:public void setOnCheckedChangeWidgetListener(android.widget.CompoundButton$OnCheckedChangeListener)
+com.challentec.lmss.view.ViewfinderView:
+    private static final java.lang.String TAG
+    private static final long ANIMATION_DELAY
+    private static final int OPAQUE
+    private static final int CORNER_WIDTH
+    private static final int MIDDLE_LINE_WIDTH
+    private static final int MIDDLE_LINE_PADDING
+    private static final int SPEEN_DISTANCE
+    private static final int TEXT_SIZE
+    private static final int TEXT_PADDING_TOP
+    250:252:public void drawResultBitmap(android.graphics.Bitmap)
+com.challentec.lmss.view.WheelView:
+    private static final int SCROLLING_DURATION
+    private static final int MIN_DELTA_FOR_SCROLLING
+    private static final int VALUE_TEXT_COLOR
+    private static final int ITEMS_TEXT_COLOR
+    private static final int ADDITIONAL_ITEM_HEIGHT
+    private static final int ADDITIONAL_ITEMS_SPACE
+    private static final int LABEL_OFFSET
+    private static final int PADDING
+    private static final int DEF_VISIBLE_ITEMS
+    206:208:public void setInterpolator(android.view.animation.Interpolator)
+    216:216:public int getVisibleItems()
+    226:228:public void setVisibleItems(int)
+    236:236:public java.lang.String getLabel()
+    270:271:public void removeChangingListener(com.challentec.lmss.listener.OnWheelChangedListener)
+    294:295:public void addScrollingListener(com.challentec.lmss.listener.OnWheelScrollListener)
+    304:305:public void removeScrollingListener(com.challentec.lmss.listener.OnWheelScrollListener)
+    389:389:public boolean isCyclic()

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec_trouble_no"
+            android:textColor="@color/tv_nomal_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec_step_1"
+            android:textColor="@color/tv_nomal_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec_step_2"
+            android:textColor="@color/tv_nomal_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec_step_3"
+            android:textColor="@color/tv_nomal_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:background="@drawable/setting_up_selector"
+        android:clickable="true" >
+
+        <TextView
+            style="@style/Item_Left_TextView_Style"
+            android:text="@string/setting_auto_study_elec_step_4"
+            android:textColor="@color/tv_nomal_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        style="@style/Item_Devide_Dashed_Line_Style"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="25dip"
+        android:background="@drawable/g_round_box_bg"
+        android:clickable="true" >
+
+        <RelativeLayout
+            android:id="@+id/auto_elec_rl_param"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/setting_up_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_auto_study_params"
+                android:textColor="@color/tv_nomal_color"
+                android:textSize="12sp" />
+
+            <ImageView style="@style/Item_ImageMore_Sytle" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/auto_study_ele_btn_start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/main_login_bg_selector"
+        android:text="@string/setting_auto_study_start"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

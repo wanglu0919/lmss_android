@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_content_bg"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/change_dev_btn_change"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/main_login_bg_selector"
+        android:text="@string/setting_flush_device"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <com.challentec.lmss.view.LoadProgressView
+        android:id="@+id/change_lp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" >
+    </com.challentec.lmss.view.LoadProgressView>
+
+</RelativeLayout>

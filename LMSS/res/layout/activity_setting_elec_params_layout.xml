@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Item_ScrollView_Sytle" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/g_round_box_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_up_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_rate__power" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="500千瓦" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_rate__frequency" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="60赫兹" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_rate_rotate_speed" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="100转/分" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_rate_voltage" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="280伏特" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_rate_elec" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="200安培" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_double_num" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="30极对" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_run_dir" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="正" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_overload_ratio" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="100%" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_overload_time" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="100秒" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_encoder_type" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="sin.cos" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_encoder_resolution" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="1000" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_encoder_dir" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="正" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_encoder_test_enabled" />
+
+            <com.challentec.lmss.view.SwitchButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_elec_params_encoder_test_time" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="500" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/edit_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:background="@color/edit_conteng_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/main_rl_loginform"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="15.0dip"
+            android:background="@drawable/g_round_box_bg" >
+
+            <EditText
+                android:id="@+id/edit_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="3dip"
+                android:background="@android:color/transparent" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/edit_tv_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_rl_loginform"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="3dip"
+            android:text="范围:"
+            android:textColor="@color/red" />
+
+        <com.challentec.lmss.view.KeyBoardInputWediget
+            android:id="@+id/et_keyboard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+        </com.challentec.lmss.view.KeyBoardInputWediget>
+    </RelativeLayout>
+
+</LinearLayout>

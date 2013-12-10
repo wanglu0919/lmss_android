@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Item_ScrollView_Sytle" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/g_round_box_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_up_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_system_time" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="2013.09.12 80:35:00" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_total_floor" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="18层" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_under_floor" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="2层" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_floor_fixed_speed" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="5米/秒" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_floor_run_speed" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="6米/秒" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_drag_wheel_dia" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="500毫米" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_drag_rope_scale" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="5:1" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_speed_cut_scale" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="2:1" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_hight_speed_count_direction" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="0" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_elec_model" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="异步机" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_signal_carrier_rate" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="4千赫兹" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_drive_control_pattern" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="VF矢量" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_fire_protection_leave_floor" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="20层" />
+        </RelativeLayout>
+
+        <View style="@style/Item_Devide_Dashed_Line_Style" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/setting_down_selector"
+            android:clickable="true" >
+
+            <TextView
+                style="@style/Item_Left_TextView_Style"
+                android:text="@string/setting_basicparams_tv_parking_floor" />
+
+            <TextView
+                style="@style/Item_Right_TextView_More_Style"
+                android:text="20层" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

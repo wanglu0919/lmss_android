@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_content_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dip"
+        android:background="@color/edit_conteng_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/main_rl_loginform"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="15.0dip"
+            android:background="@drawable/g_round_box_bg" >
+
+            <TextView
+                android:id="@+id/tv_date_time"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="3dip"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/date_edit_timePicker"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/year"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5" />
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/month"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/day"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/hour"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.challentec.lmss.view.WheelView
+                android:id="@+id/mins"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
