@@ -97,7 +97,7 @@ public class DeviceTestActivity extends TabContentBaseActivity {
 				.findViewById(R.id.device_test_rl_test_function_control_params);
 		device_fast_rl_fast_debug = (RelativeLayout) mainView
 				.findViewById(R.id.device_fast_rl_fast_debug);// 快速调试
-		new SynTask(appContext).uiLog(Protocol.UI_SETTING_HOME);// 提交操作日志
+		new SynTask(appContext).uiLog(Protocol.UI_TEST_HOME);// 提交操作日志
 
 	}
 
