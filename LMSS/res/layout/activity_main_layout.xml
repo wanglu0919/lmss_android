@@ -9,17 +9,19 @@
     <LinearLayout
         android:id="@+id/main_ll_language"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dip"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="10dip"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:background="@drawable/title_boobar_bg"
+        android:paddingTop="5dip"
+         >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/main_lang_choice_icon" />
+            android:layout_marginLeft="2dip"
+            android:layout_marginTop="1dip"
+            android:background="@drawable/item_more_icon" />
 
         <TextView
             android:layout_width="wrap_content"

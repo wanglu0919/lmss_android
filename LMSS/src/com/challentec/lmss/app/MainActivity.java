@@ -190,7 +190,7 @@ public class MainActivity extends Activity {
 		appManager = AppManager.getManager(appContext);
 		appManager.addActivity(this);
 		sp = AppConfig.getAppConfig(appContext).getSharedPreferences();
-		clearCache();// 清楚本地存储信息
+		clearCache();// 清除本地存储信息
 		connect();// 连接服务器
 
 		PollingUtils.stopPollingService(appContext, LoginPollingService.class,
@@ -477,8 +477,8 @@ public class MainActivity extends Activity {
 		main_login_et_tel = (EditText) findViewById(R.id.main_login_et_tel);
 		main_et_vecode = (EditText) findViewById(R.id.main_et_vecode);
 
-		main_login_et_tel.setText("13888888888");
-		main_et_vecode.setText("123456");
+		//main_login_et_tel.setText("13888888888");
+		//main_et_vecode.setText("123456");
 
 	}
 

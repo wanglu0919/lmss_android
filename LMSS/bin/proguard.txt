@@ -1,7 +1,7 @@
 # view res/layout/activity_auto_study_layout.xml #generated:27
 # view res/layout/activity_floor_door_set_layout.xml #generated:25
 # view res/layout/activity_monitor_call_command_layout.xml #generated:32
-# view res/layout/activity_port_state_layout.xml #generated:26
+# view res/layout/activity_port_state_layout.xml #generated:24
 -keep class android.support.v4.view.ViewPager { <init>(...); }
 
 # view AndroidManifest.xml #generated:23
@@ -136,7 +136,7 @@
 # view res/layout/activity_change_device_layout.xml #generated:23
 # view res/layout/activity_choice_device_layout.xml #generated:63
 # view res/layout/activity_home_layout.xml #generated:203
-# view res/layout/activity_main_layout.xml #generated:172
+# view res/layout/activity_main_layout.xml #generated:174
 # view res/layout/activity_monitor_drive_state_layout.xml #generated:161
 # view res/layout/activity_monitor_layout.xml #generated:201
 # view res/layout/activity_params_list_layout.xml #generated:20

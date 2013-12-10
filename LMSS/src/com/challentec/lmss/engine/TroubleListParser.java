@@ -38,20 +38,34 @@ public class TroubleListParser {
 			String code = trData.substring(14, 16);// 代码
 
 			Trouble trouble = new Trouble();
-
-			trouble.setT_id(DataPaseUtil.hexStrToInt(id) + "");// id
+			int tid=DataPaseUtil.hexStrToInt(id);
+			trouble.setT_id(tid + "");// id
 			if (index == 0) {
 				trouble.setT_order(context
 						.getString(R.string.trouble_list_lable_current_trouble));// 当前故障
 			} else {
+				String stid="";
+				if(tid<10){
+					stid="0"+tid;
+				}else{
+					stid=""+tid;
+				}
 				trouble.setT_order(context
 						.getString(R.string.trouble_list_lable_front)
-						+ id
+						+ stid
 						+ context.getString(R.string.trouble_list_lable_back));// 前+N次故障
 			}
 			trouble.setT_time(timeStr);// 时间
+			int intCode=DataPaseUtil.hexStrToInt(code);
+			if(intCode <10) {
+				trouble.setT_no("0" + intCode);
+			}else{
+				trouble.setT_no( intCode+"");
+			} 
 			
-			trouble.setT_no(code + "");// 代码
+			if(intCode<0||intCode>99){
+				trouble.setError(true);//标识信息错误
+			}
 			troubles.add(trouble);
 			index++;
 

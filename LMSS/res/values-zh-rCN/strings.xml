@@ -36,7 +36,7 @@
     <string name="ui_title_trouble">故障</string>
     <string name="ui_title_auto_study">自学习</string>
     <string name="ui_choice_hint">输入或扫描设备授权码</string>
-    <string name="ui_title_codescan">扫描社二维码</string>
+    <string name="ui_title_codescan">扫描设备二维码</string>
     <string name="ui_title_setting">设置</string>
     <string name="ui_title_setting_basic">基本参数设置</string>
     <string name="ui_title_elec_basic">电机参数</string>

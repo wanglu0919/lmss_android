@@ -70,7 +70,8 @@ public class EditItemActivity extends TabContentBaseActivity {
 				+ paramsItem.getLimitString() + " " + paramsItem.getUnit()
 				+ "," + getString(R.string.tip_form_range_back));
 		dataType = paramsItem.getDataType();
-
+		
+		edit_tv.setSelection(paramsItem.getItemValue().length());
 		checkInput();// 检查数据是否合法
 		keyBoard.setDataType(dataType);// 设置键盘数据类型
 

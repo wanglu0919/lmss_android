@@ -12,6 +12,13 @@ public class Trouble {
 	private String t_order;//故障序号
 	private String t_time;//故障时间
 	private String t_no;//故障代码
+	private boolean isError;//标识信息是否错误
+	public boolean isError() {
+		return isError;
+	}
+	public void setError(boolean isError) {
+		this.isError = isError;
+	}
 	public String getT_order() {
 		return t_order;
 	}
