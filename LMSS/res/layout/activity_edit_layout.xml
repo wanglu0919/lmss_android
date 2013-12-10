@@ -30,7 +30,9 @@
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="3dip"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:editable="false"
+                 />
         </RelativeLayout>
 
         <TextView

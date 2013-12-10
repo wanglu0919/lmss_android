@@ -29,6 +29,7 @@ public class AppTipMessage {
 	public static final String GET_VECODE_FAST = "12";// 发送验证码太频繁
 	public static final String TEL_NUMBER_NOT_MATCH = "13";// 手机号码不匹配
 	public static final String NO_AUTH_DEVICE = "14";// 未获得设备授权而进行设备操作错误
+	public static final String NO_LOCATION="15";//未获得定位信息，不能登录
 
 	// 自定义错误信息
 	public static final String IOEXCEPTION = "20";// 网络异常
@@ -65,6 +66,8 @@ public class AppTipMessage {
 
 		tipMessage.put(TEL_NUMBER_NOT_MATCH, R.string.tip_msg_tel_num_no_match);
 		tipMessage.put(NO_AUTH_DEVICE, R.string.tip_msg_no_auth_device);
+		
+		tipMessage.put(NO_LOCATION, R.string.tip_msg_no_location);
 
 		// 自定义错误信息
 		tipMessage.put(IOEXCEPTION, R.string.tip_msg_net_error);

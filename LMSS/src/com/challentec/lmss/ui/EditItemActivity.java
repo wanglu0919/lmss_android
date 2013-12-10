@@ -1,10 +1,13 @@
 package com.challentec.lmss.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,7 +47,7 @@ public class EditItemActivity extends TabContentBaseActivity {
 		keyBoard = (KeyBoardInputWediget) mainView
 				.findViewById(R.id.et_keyboard);
 		edit_tv_limit = (TextView) mainView.findViewById(R.id.edit_tv_limit);
-		edit_tv.setInputType(InputType.TYPE_NULL);
+
 		paramsItem = (ParamsItem) getIntent().getExtras().get(INTENT_ITEM_KEY);
 
 		imgData_Warring = this.getResources().getDrawable(
@@ -57,6 +60,9 @@ public class EditItemActivity extends TabContentBaseActivity {
 
 	}
 
+	/**
+	 * 初始化数据 wanglu 泰得利通
+	 */
 	private void initData() {
 
 		edit_tv.setText(paramsItem.getItemValue());//
@@ -100,8 +106,10 @@ public class EditItemActivity extends TabContentBaseActivity {
 				}
 
 			} catch (NumberFormatException e) {
-				/*UIHelper.showToask(this,
-						getString(R.string.tip_form_number_big));*/
+				/*
+				 * UIHelper.showToask(this,
+				 * getString(R.string.tip_form_number_big));
+				 */
 				showErrorIcon();
 				e.printStackTrace();
 				return false;
@@ -277,29 +285,33 @@ public class EditItemActivity extends TabContentBaseActivity {
 	 * @param data
 	 */
 	private void setTextData(String data) {
-		edit_tv.append(data);
+
+		int index = edit_tv.getSelectionStart(); // 获取光标位置
+		Editable editable = edit_tv.getText();
+		editable.insert(index, data);
 
 		checkInput();
 	}
 
 	/**
 	 * 清楚数据
-	 *@author 泰得利通 wanglu
+	 * 
+	 * @author 泰得利通 wanglu
 	 */
 	private void clearText() {
 
-		String textData = edit_tv.getText().toString();
-		if (!textData.equals("")) {
-			if (textData.length() > 1) {
-				textData = textData.substring(0, textData.length() - 1);
-			} else {
-				textData = "";
-			}
-
+		
+		int index = edit_tv.getSelectionStart();
+		Editable editable = edit_tv.getText();
+		if(index==0&&!editable.toString().equals("")){
+			index=editable.toString().length();
 		}
-
-		edit_tv.setText(textData);
-		checkInput();//检查数据是否合法
+		if(index>=1){
+			editable.delete(index - 1, index);
+		}
+		
+		
+		checkInput();// 检查数据是否合法
 	}
 
 	@Override

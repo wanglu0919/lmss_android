@@ -79,6 +79,9 @@ public class MainActivity extends Activity {
 	private LoadProgressView main_pb_load;// 加载进度条
 	private SharedPreferences sp;
 	private AppConnectStateRecever appConnectStateRecever;
+	private static final int LOCATION_GET_VECODE = 1;// 验证码获取时定位
+	private static final int LOCATION_LOGIN = 2;// 登录时定位
+	private int locationType = LOCATION_GET_VECODE;
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 
@@ -88,8 +91,13 @@ public class MainActivity extends Activity {
 			switch (msg.what) {
 
 			case GET_LOACTION_SUCCESS:
-				getVecode();// 获取验证码
-				gpsInfoService.cancleLocationUpdates();
+				if (locationType == LOCATION_GET_VECODE) {
+					getVecode();// 获取验证码
+				} else if (locationType == LOCATION_LOGIN) {
+					doLogin();// 登陆
+				}
+
+				gpsInfoService.cancleLocationUpdates();// 取消定位服务
 				break;
 
 			}
@@ -321,7 +329,16 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				doLogin();
+				if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
+					locationType = LOCATION_LOGIN;
+					showOpenGPSDlg();// 显示定位对话框
+
+				} else {// 基站已经定位已经打开
+					locationType = LOCATION_LOGIN;
+					getLoaction();
+
+				}
+
 			}
 		});
 
@@ -339,11 +356,12 @@ public class MainActivity extends Activity {
 						}
 
 						if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
-
+							locationType = LOCATION_GET_VECODE;
 							showOpenGPSDlg();// 显示定位对话框
 
 						} else {// 基站已经定位已经打开
 
+							locationType = LOCATION_GET_VECODE;
 							getLoaction();// 定位
 
 						}
@@ -399,10 +417,12 @@ public class MainActivity extends Activity {
 		if (checkInput()) {
 			main_pb_load.setVisibility(View.VISIBLE);
 			main_pb_load.setProgressText(getString(R.string.main_tab_logining));
-			String apiData = ClinetAPI.getApiStr(Protocol.C_LOGIN,
+			String apiData = ClinetAPI.getApiStr(
+					Protocol.C_LOGIN,
 					main_login_et_tel.getText().toString() + "|"
 							+ main_et_vecode.getText().toString() + "|"
-							+ appManager.getIMEI());// 手机号+验证码+IME号
+							+ appManager.getIMEI() + "|"
+							+ locationStr.toString());// 手机号+验证码+IME号+经纬度
 
 			new SynTask(new SynHandler() {
 
@@ -570,7 +590,12 @@ public class MainActivity extends Activity {
 				main_pb_load.setProgressText("");
 				main_pb_load.setVisibility(View.VISIBLE);
 				locationStr = "0,0";// 默认地址
-				getVecode();// 获取验证码
+				if (locationType == LOCATION_GET_VECODE) {
+					getVecode();// 获取验证码
+				} else if (locationType == LOCATION_LOGIN) {
+					doLogin();// 登录
+				}
+
 			}
 		}
 
@@ -606,7 +631,12 @@ public class MainActivity extends Activity {
 						main_pb_load.showProgessText(false);
 						main_pb_load.setVisibility(View.VISIBLE);
 						locationStr = "0,0";// 默认地址
-						getVecode();// 获取验证码
+						if (locationType == LOCATION_GET_VECODE) {
+							getVecode();// 获取验证码
+						} else if (locationType == LOCATION_LOGIN) {
+							doLogin();// 登录
+						}
+
 					}
 
 				});

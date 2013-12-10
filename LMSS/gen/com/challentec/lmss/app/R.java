@@ -436,14 +436,15 @@ public final class R {
         public static final int device_tv_reply_default=0x7f08003e;
         public static final int device_tv_reply_last_default=0x7f08003f;
         public static final int device_tv_scan=0x7f080040;
-        public static final int dlg_msg_cancle=0x7f08017b;
+        public static final int dlg_msg_cancle=0x7f08017c;
         /**  通用类 
  通用类 
+ 通用类 
          */
-        public static final int dlg_msg_ok=0x7f08017a;
+        public static final int dlg_msg_ok=0x7f08017b;
         public static final int dlg_recover=0x7f080041;
         public static final int dlg_recover_cancle=0x7f080042;
-        public static final int dlg_title_ok_cancle=0x7f08017c;
+        public static final int dlg_title_ok_cancle=0x7f08017d;
         public static final int elec_check_run_dir_against=0x7f08011b;
         /**  电机参数选项 
  电机参数选项 
@@ -752,6 +753,7 @@ public final class R {
         public static final int tip_msg_no_device=0x7f080171;
         public static final int tip_msg_no_device_authority=0x7f080172;
         public static final int tip_msg_no_ime_use=0x7f08016d;
+        public static final int tip_msg_no_location=0x7f08017a;
         public static final int tip_msg_no_net=0x7f08014a;
         /**  协议定义错误消息 
  协议定义错误消息 

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- app -->
-    <string name="app_name">电梯监控服务系统</string>
+    <string name="app_name">电梯管理系统</string>
     <string name="action_settings">Settings</string>
     <string name="head_btn_back">返回</string>
     <string name="head_btn_save">保存</string>
@@ -22,8 +22,9 @@
     <string name="main_tab_rb_test">测试</string>
     <string name="main_tab_rb_monitor">监控</string>
     <string name="main_tab_rb_trouble">故障</string>
-    <string name="main_company">无锡中秀驱动技术有限公司</string>
-    <string name="main_location_tip_title">定位提示</string>
+    <string name="main_tab_logining">登录中...</string>
+    <string name="main_company">中秀科技(无锡)有限公司</string>
+       <string name="main_location_tip_title">定位提示</string>
     <string name="main_location_message">需要获取您的位置信息，请您勾选移动网络和Wi-FI定位选项!</string>
 
     <!-- ui界面 -->
@@ -447,5 +448,11 @@
     <string name="tip_msg_get_vecode_fast">发送验证码太频繁!</string>
     <string name="tip_msg_tel_num_no_match">手机号码不匹配!</string>
     <string name="tip_msg_no_auth_device">没有设备设备操作权限!</string>
+    <string name="tip_msg_no_location">未获取定位信息，不能登录!</string>
+     <!-- 通用类 -->
+    
+      <string name="dlg_msg_ok">确定</string>
+   <string name="dlg_msg_cancle">取消</string>
+     <string name="dlg_title_ok_cancle">是否</string>
 
 </resources>

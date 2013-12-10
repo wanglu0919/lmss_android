@@ -56,7 +56,9 @@
         <!-- 主tab -->
         <activity
             android:name="com.challentec.lmss.ui.MainTabActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:theme="@android:style/Theme.Light.NoTitleBar" 
+            
+            />
         <!-- 设置 -->
         <activity
             android:name="com.challentec.lmss.ui.SettingActivity"
@@ -145,7 +147,10 @@
         <!-- 编辑输入框 -->
         <activity
             android:name="com.challentec.lmss.ui.EditItemActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:theme="@android:style/Theme.Light.NoTitleBar" 
+            
+            
+            />
         <activity
             android:name="com.challentec.lmss.ui.ScaleEditActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
