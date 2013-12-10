@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    >
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -24,15 +28,15 @@
             android:layout_marginLeft="5dip"
             android:layout_marginRight="5dip" />
 
-        <GridView
+        <com.challentec.lmss.view.GrapeGridview
             android:id="@+id/port_jdb_gv_input"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:horizontalSpacing="3dip"
             android:numColumns="5"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="3dip" >
-        </GridView>
+            android:verticalSpacing="3dip" />
+     
     </LinearLayout>
 
     <LinearLayout
@@ -56,15 +60,16 @@
             android:layout_marginLeft="5dip"
             android:layout_marginRight="5dip" />
 
-        <GridView
+        <com.challentec.lmss.view.GrapeGridview
             android:id="@+id/port_jdb_gv_output"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:horizontalSpacing="3dip"
             android:numColumns="5"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="3dip" >
-        </GridView>
+            android:verticalSpacing="3dip" />
+       
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>

@@ -123,9 +123,13 @@
 
 # view res/layout/floor_door_back_gate_set_layout.xml #generated:22
 # view res/layout/floor_door_front_gate_set_layout.xml #generated:22
+# view res/layout/port_state_jdbord_layout.xml #generated:31
+# view res/layout/port_state_jdbord_layout.xml #generated:63
+# view res/layout/port_state_mainbord_layout.xml #generated:32
+# view res/layout/port_state_mainbord_layout.xml #generated:63
 -keep class com.challentec.lmss.view.GrapeGridview { <init>(...); }
 
-# view res/layout/activity_edit_layout.xml #generated:47
+# view res/layout/activity_edit_layout.xml #generated:49
 # view res/layout/activity_fast_debug_layout.xml #generated:82
 -keep class com.challentec.lmss.view.KeyBoardInputWediget { <init>(...); }
 
@@ -142,7 +146,6 @@
 # view res/layout/activity_auto_study_layout.xml #generated:17
 # view res/layout/activity_floor_door_set_layout.xml #generated:17
 # view res/layout/activity_monitor_call_command_layout.xml #generated:24
-# view res/layout/activity_port_state_layout.xml #generated:17
 -keep class com.challentec.lmss.view.MyScrollView { <init>(...); }
 
 # view res/layout/activity_home_layout.xml #generated:171

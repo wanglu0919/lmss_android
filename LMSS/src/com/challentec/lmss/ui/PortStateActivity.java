@@ -42,7 +42,6 @@ import com.challentec.lmss.util.UIHelper;
  */
 public class PortStateActivity extends TabContentBaseActivity {
 
-	
 	private static final int NUM_COLUMNS = 5;
 	private ViewPager port_state_vp_contains;
 	private LinearLayout port_sate_ll_draw_point;
@@ -86,11 +85,12 @@ public class PortStateActivity extends TabContentBaseActivity {
 	private ButtonParamItemAdapter jdboutButtonParamItemAdapter;// 轿顶板输出适配器
 	private int viewPostion = 0;
 	private MonitorRecever monitorRecever;
-	public static final String UI_NAME="PORT_STATE";
+	public static final String UI_NAME = "PORT_STATE";
+
 	@Override
 	protected void onBack() {
-		stopMonitor();//停止当前的健康
-		
+		stopMonitor();// 停止当前的健康
+
 		Intent intent = new Intent();
 		intent.setAction(MonitorRecever.ACTION_MONTION);// 发送广播通知 监控页面开始监空数据
 		sendBroadcast(intent);
@@ -101,12 +101,10 @@ public class PortStateActivity extends TabContentBaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		AppCache.cache(AppCache.CACHE_UI, UI_NAME);//存储当前UI
+		AppCache.cache(AppCache.CACHE_UI, UI_NAME);// 存储当前UI
 		registerMonitorRecever();// 注册端口状态广播监听
 
 	}
-
-	
 
 	@Override
 	protected void initMainView(View mainView) {
@@ -131,9 +129,14 @@ public class PortStateActivity extends TabContentBaseActivity {
 		initData();
 		startPortMonitor_1();// 开始监控端口状态1
 
-		port_state_vp_contains.getLayoutParams().height = getGridViewHeight(mainBoardInputGridView)
-				+ getGridViewHeight(mainBoardOutputGridView)
-				+ DisplayUtil.dip2px(this, 115);
+		
+		int space=DisplayUtil.dip2px(this,20);
+		mainBoardInputGridView.getLayoutParams().height = getGridViewHeight(mainBoardInputGridView)+space;
+		mainBoardOutputGridView.getLayoutParams().height = getGridViewHeight(mainBoardOutputGridView)+space;
+
+		jdbInputGridView.getLayoutParams().height = getGridViewHeight(jdbInputGridView)+space;
+
+		jdbOutputGridView.getLayoutParams().height = getGridViewHeight(jdbOutputGridView)+space;
 		synTask.uiLog(Protocol.UI_PORT_STATE_1);// 记录
 
 	}
@@ -213,7 +216,8 @@ public class PortStateActivity extends TabContentBaseActivity {
 
 	/**
 	 * 初始化数据
-	 *@author 泰得利通 wanglu
+	 * 
+	 * @author 泰得利通 wanglu
 	 */
 	private void initData() {
 
@@ -592,7 +596,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 
 	@Override
 	protected void onDestroy() {
-		
+
 		unregisterReceiver(monitorRecever);// 取消广播监听
 		super.onDestroy();
 
