@@ -39,7 +39,7 @@ import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.service.AutoConnectPollingService;
 import com.challentec.lmss.service.LoginPollingService;
 import com.challentec.lmss.ui.ChoiceDeviceActivity;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
@@ -334,8 +334,10 @@ public class MainActivity extends Activity {
 					showOpenGPSDlg();// 显示定位对话框
 
 				} else {// 基站已经定位已经打开
-					locationType = LOCATION_LOGIN;
-					getLoaction();
+					if (checkInput()) {
+						locationType = LOCATION_LOGIN;
+						getLoaction();
+					}
 
 				}
 
@@ -398,7 +400,7 @@ public class MainActivity extends Activity {
 						setLanguageTextViewStyle();
 						addLinsteners();
 
-						String hexStr = ClinetAPI.getHexApiStr(
+						String hexStr = ClientAPI.getHexApiStr(
 								Protocol.C_SET_LANGUAGE, "02");
 						new SynTask(new SynHandler(), appContext)
 								.writeData(hexStr);
@@ -417,7 +419,7 @@ public class MainActivity extends Activity {
 		if (checkInput()) {
 			main_pb_load.setVisibility(View.VISIBLE);
 			main_pb_load.setProgressText(getString(R.string.main_tab_logining));
-			String apiData = ClinetAPI.getApiStr(
+			String apiData = ClientAPI.getApiStr(
 					Protocol.C_LOGIN,
 					main_login_et_tel.getText().toString() + "|"
 							+ main_et_vecode.getText().toString() + "|"
@@ -440,7 +442,7 @@ public class MainActivity extends Activity {
 	private void getVecode() {
 
 		String tele = main_login_et_tel.getText().toString();
-		String apiData = ClinetAPI.getApiStr(Protocol.C_GET_VCODE, tele + "|"
+		String apiData = ClientAPI.getApiStr(Protocol.C_GET_VCODE, tele + "|"
 				+ appManager.getIMEI() + "|" + locationStr);
 		LogUtil.i(LogUtil.LOG_TAG_LOCATION, locationStr);
 		new SynTask(new SynHandler()
@@ -477,8 +479,8 @@ public class MainActivity extends Activity {
 		main_login_et_tel = (EditText) findViewById(R.id.main_login_et_tel);
 		main_et_vecode = (EditText) findViewById(R.id.main_et_vecode);
 
-		//main_login_et_tel.setText("13888888888");
-		//main_et_vecode.setText("123456");
+		// main_login_et_tel.setText("13888888888");
+		// main_et_vecode.setText("123456");
 
 	}
 
@@ -585,12 +587,18 @@ public class MainActivity extends Activity {
 
 		if (requestCode == LOCATION_SETTING_REQUEAST) {// 定位设置返回
 			if (appContext.isGPSOPen()) {// 基站定位打开
-				getLoaction();// 定位
+				if(locationType == LOCATION_LOGIN&&checkInput()){
+					getLoaction();// 定位
+				}else if(locationType == LOCATION_GET_VECODE){
+					getLoaction();
+				}
+				
 			} else {
-				main_pb_load.setProgressText("");
-				main_pb_load.setVisibility(View.VISIBLE);
+				
 				locationStr = "0,0";// 默认地址
 				if (locationType == LOCATION_GET_VECODE) {
+					main_pb_load.setProgressText("");
+					main_pb_load.setVisibility(View.VISIBLE);
 					getVecode();// 获取验证码
 				} else if (locationType == LOCATION_LOGIN) {
 					doLogin();// 登录
@@ -628,13 +636,16 @@ public class MainActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						main_pb_load.showProgessText(false);
-						main_pb_load.setVisibility(View.VISIBLE);
+						
 						locationStr = "0,0";// 默认地址
 						if (locationType == LOCATION_GET_VECODE) {
+							main_pb_load.showProgessText(false);
+							main_pb_load.setVisibility(View.VISIBLE);
 							getVecode();// 获取验证码
 						} else if (locationType == LOCATION_LOGIN) {
+
 							doLogin();// 登录
+
 						}
 
 					}

@@ -30,7 +30,7 @@ import com.challentec.lmss.listener.MonitorListener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.MonitorRecever;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DisplayUtil;
 import com.challentec.lmss.util.Protocol;
@@ -158,7 +158,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 */
 	private void startUpCall() {
 
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.M_START_UP_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_UP_CALL));
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startDownCall() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.M_START_DOWN_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_DOWN_CALL));
 	}
 
 	/**
@@ -231,7 +231,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopDownCall() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.M_END_DOWN_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_DOWN_CALL));
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startCommand() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.M_START_COMMAND));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_COMMAND));
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopCommand() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.M_END_COMMAND));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_COMMAND));
 	}
 
 	/**

@@ -17,7 +17,7 @@ import com.challentec.lmss.engine.TroubleListParser;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
 import com.challentec.lmss.view.LoadProgressView;
@@ -76,7 +76,7 @@ public class TroubleActivity extends TabContentBaseActivity {
 		trouble_lp_pb.setVisibility(View.VISIBLE);
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
-		String apiData = ClinetAPI.getApiStr(Protocol.B_GET_TROUBLE);
+		String apiData = ClientAPI.getApiStr(Protocol.B_GET_TROUBLE);
 		synTask.writeData(apiData);
 		synTask.uiLog(Protocol.UI_TROUBLE_HOME);// 日志
 

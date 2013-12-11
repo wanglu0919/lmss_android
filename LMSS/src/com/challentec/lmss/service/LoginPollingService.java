@@ -16,7 +16,7 @@ import com.challentec.lmss.app.AppManager;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.engine.GPSInfoService;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
@@ -68,7 +68,7 @@ public class LoginPollingService extends Service {
 	private void sendConnectData(String location) {
 		String tele = sp.getString(AppConfig.TELE_PHONE_NUM_KEY, "");
 		String vecode = sp.getString(AppConfig.VECODE_KEY, "");
-		String apiData = ClinetAPI.getApiStr(Protocol.C_LOGIN, tele + "|"
+		String apiData = ClientAPI.getApiStr(Protocol.C_LOGIN, tele + "|"
 				+ vecode + "|" + AppManager.getManager(appContext).getIMEI()
 				+ "|" + location);// 手机号+验证码+IME号+定位信息
 

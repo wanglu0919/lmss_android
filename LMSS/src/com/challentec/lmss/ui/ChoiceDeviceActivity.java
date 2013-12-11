@@ -21,7 +21,7 @@ import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.service.LoginPollingService;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -79,7 +79,7 @@ public class ChoiceDeviceActivity extends BaseActivity {
 			loadProgess.setVisibility(View.VISIBLE);
 			String deviceNo = choice_et_no.getText().toString();
 
-			String apiData = ClinetAPI.getApiStr(
+			String apiData = ClientAPI.getApiStr(
 					Protocol.C_SEND_AUTHORIZATION_CODE, deviceNo);
 
 			new SynTask(new SynHandler(), appContext).writeData(apiData);

@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.Protocol;
 
@@ -49,7 +49,7 @@ public class PollingService extends Service {
 	 */
 	private void polling() {
 		LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳数据");
-		String apiData = ClinetAPI.getApiStr(Protocol.C_BEAT);
+		String apiData = ClientAPI.getApiStr(Protocol.C_BEAT);
 		synTask.writeData(apiData);
 
 	}

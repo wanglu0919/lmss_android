@@ -21,7 +21,7 @@ import com.challentec.lmss.dlg.RecoverOutSetDlg;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DataTimeUtil;
 import com.challentec.lmss.util.Protocol;
@@ -62,7 +62,7 @@ public class HomeActivity extends TabContentBaseActivity {
 							recoverOutSetDlg.show();// 显示对话框
 
 						} else {
-							String hexData = ClinetAPI.getHexApiStr(
+							String hexData = ClientAPI.getHexApiStr(
 									Protocol.C_RECOVER_DEVICE, "00");
 							recoverSynTask.writeData(hexData);
 
@@ -90,7 +90,7 @@ public class HomeActivity extends TabContentBaseActivity {
 							recoverlastOutSetDlg.show();
 
 						} else {
-							String hexData = ClinetAPI.getHexApiStr(
+							String hexData = ClientAPI.getHexApiStr(
 									Protocol.C_RECOVER_LAST_SET, "00");
 							recoverSynTask.writeData(hexData);
 
@@ -109,7 +109,7 @@ public class HomeActivity extends TabContentBaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			String hexData = ClinetAPI.getHexApiStr(Protocol.C_RECOVER_DEVICE,
+			String hexData = ClientAPI.getHexApiStr(Protocol.C_RECOVER_DEVICE,
 					"01");
 			recoverSynTask.writeData(hexData);
 			recoverOutSetDlg.dismiss();
@@ -144,7 +144,7 @@ public class HomeActivity extends TabContentBaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			String hexData = ClinetAPI.getHexApiStr(
+			String hexData = ClientAPI.getHexApiStr(
 					Protocol.C_RECOVER_LAST_SET, "01");
 			recoverSynTask.writeData(hexData);
 			recoverlastOutSetDlg.dismiss();
@@ -283,7 +283,7 @@ public class HomeActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void loadData() {
-		String apiData = ClinetAPI.getApiStr(Protocol.C_GET_DEVICE_INFO);
+		String apiData = ClientAPI.getApiStr(Protocol.C_GET_DEVICE_INFO);
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 		synTask.uiLog(Protocol.UI_DEVICE_DISPLAY);// 日志记录
 		home_lp_device.setVisibility(View.GONE);

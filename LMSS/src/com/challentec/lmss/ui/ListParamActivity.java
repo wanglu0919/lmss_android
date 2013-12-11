@@ -21,7 +21,7 @@ import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.UIHelper;
 import com.challentec.lmss.view.LoadProgressView;
 
@@ -85,7 +85,7 @@ public abstract class ListParamActivity extends TabContentBaseActivity {
 	 */
 	private void saveData() {
 		pd_save.show();// 显示进度对话框
-		String apiData = ClinetAPI.getHexApiStr(getSaveFuncitonCode(),
+		String apiData = ClientAPI.getHexApiStr(getSaveFuncitonCode(),
 				getHexSaveData());
 		sysTask.writeData(apiData);
 	}
@@ -284,7 +284,7 @@ public abstract class ListParamActivity extends TabContentBaseActivity {
 		params_pb.setVisibility(View.VISIBLE);
 		sysTask = new SynTask(new SynHandler(), appContext);
 
-		String apiData = ClinetAPI.getApiStr(getFunctionCommand());
+		String apiData = ClientAPI.getApiStr(getFunctionCommand());
 		sysTask.writeData(apiData);
 		sysTask.uiLog(getUICode());// 日志
 

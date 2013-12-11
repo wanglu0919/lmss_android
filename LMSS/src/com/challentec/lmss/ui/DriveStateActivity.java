@@ -16,7 +16,7 @@ import com.challentec.lmss.listener.MonitorListener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.MonitorRecever;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -53,7 +53,7 @@ public class DriveStateActivity extends TabContentBaseActivity {
 	 */
 	private void stopDriveMonitor() {
 
-		String apiData = ClinetAPI.getApiStr(Protocol.M_END_DRIVE);
+		String apiData = ClientAPI.getApiStr(Protocol.M_END_DRIVE);
 
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
@@ -167,7 +167,7 @@ public class DriveStateActivity extends TabContentBaseActivity {
 	 */
 	private void startDriverState() {
 		driver_state_lp.setVisibility(View.VISIBLE);
-		String apiData = ClinetAPI.getApiStr(Protocol.M_START_DRIVE);
+		String apiData = ClientAPI.getApiStr(Protocol.M_START_DRIVE);
 
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 

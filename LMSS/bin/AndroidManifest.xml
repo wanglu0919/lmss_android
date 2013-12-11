@@ -7,6 +7,12 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="8" />
+    <supports-screens 
+       android:anyDensity="true" 
+       android:largeScreens="true" 
+       android:normalScreens="true" 
+       android:smallScreens="true" 
+       /> 
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />

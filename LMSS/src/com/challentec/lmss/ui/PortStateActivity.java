@@ -28,7 +28,7 @@ import com.challentec.lmss.listener.MonitorListener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.MonitorRecever;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DisplayUtil;
 import com.challentec.lmss.util.Protocol;
@@ -126,6 +126,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 		port_state_vp_contains.setAdapter(new PortStatePagerViewAdapter());
 
 		port_state_vp_contains.setCurrentItem(0);
+	
 		initData();
 		startPortMonitor_1();// 开始监控端口状态1
 
@@ -147,7 +148,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startPortMonitor_1() {
-		String apiData = ClinetAPI.getApiStr(Protocol.M_START_PORT_1);
+		String apiData = ClientAPI.getApiStr(Protocol.M_START_PORT_1);
 		synTask.writeData(apiData);
 
 	}
@@ -158,7 +159,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopPortMonitor_1() {
-		String apiData = ClinetAPI.getApiStr(Protocol.M_END_PORT_1);
+		String apiData = ClientAPI.getApiStr(Protocol.M_END_PORT_1);
 		synTask.writeData(apiData);
 	}
 
@@ -168,7 +169,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startPortMonitor_2() {
-		String apiData = ClinetAPI.getApiStr(Protocol.M_START_PORT_2);
+		String apiData = ClientAPI.getApiStr(Protocol.M_START_PORT_2);
 		synTask.writeData(apiData);
 	}
 
@@ -178,7 +179,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopPortMonitor_2() {
-		String apiData = ClinetAPI.getApiStr(Protocol.M_END_PORT_2);
+		String apiData = ClientAPI.getApiStr(Protocol.M_END_PORT_2);
 		synTask.writeData(apiData);
 	}
 

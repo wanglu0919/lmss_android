@@ -11,7 +11,7 @@ import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.exception.ConnectServerTimeOutException;
 import com.challentec.lmss.exception.ReadDataException;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.HandlerMessage;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.Protocol;
@@ -265,7 +265,7 @@ public class SynTask {
 
 			@Override
 			public void run() {
-				String logData = ClinetAPI.getLOGStr(ui_code);
+				String logData = ClientAPI.getLOGStr(ui_code);
 				try {
 					socketClient.writeHexStr(logData);
 					LogUtil.i(LogUtil.LOG_TAG_LOG, "提交日志数据" + ui_code + ":" + logData);

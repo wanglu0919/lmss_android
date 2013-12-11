@@ -6,7 +6,7 @@ package com.challentec.lmss.util;
  * @author 泰得利通 wanglu
  * 
  */
-public class ClinetAPI {
+public class ClientAPI {
 
 	/**
 	 * 功能

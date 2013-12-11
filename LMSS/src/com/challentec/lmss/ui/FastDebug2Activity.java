@@ -11,7 +11,7 @@ import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.Protocol;
 
@@ -93,7 +93,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				String apiData = ClinetAPI.getHexApiStr(Protocol.A_TEST_SEND,
+				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"01");
 				synTask.writeData(apiData);
 			}
@@ -103,7 +103,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 
 			@Override
 			public void onClick(View v) {
-				String apiData = ClinetAPI.getHexApiStr(Protocol.A_TEST_SEND,
+				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"03");
 				synTask.writeData(apiData);
 			}
@@ -114,7 +114,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 			@Override
 			public void onClick(View v) {
 
-				String apiData = ClinetAPI.getHexApiStr(Protocol.A_TEST_SEND,
+				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"02");
 				synTask.writeData(apiData);
 

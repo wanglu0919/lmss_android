@@ -9,7 +9,7 @@ import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
 import com.challentec.lmss.view.LoadProgressView;
@@ -83,7 +83,7 @@ public class ChangeDeviceActivity extends TabContentBaseActivity {
 		
 		
 
-		String apiData = ClinetAPI.getApiStr(Protocol.S_CHANGE_DEVICE);
+		String apiData = ClientAPI.getApiStr(Protocol.S_CHANGE_DEVICE);
 
 		synTask.writeData(apiData);
 

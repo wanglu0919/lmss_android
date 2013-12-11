@@ -22,7 +22,7 @@ import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
 
@@ -148,7 +148,7 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 	 */
 	protected void wellStartStudy() {
 		pd_study.show();
-		String apiData = ClinetAPI.getApiStr(Protocol.S_WELL_AUTO_STUDY);
+		String apiData = ClientAPI.getApiStr(Protocol.S_WELL_AUTO_STUDY);
 		new SynTask(new SynHandler()
 
 			, appContext).writeData(apiData);
@@ -162,7 +162,7 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 	private void elecStartStudy() {
 
 		pd_study.show();
-		String apiData = ClinetAPI.getApiStr(Protocol.S_ELEC_AUTO_STUDY);
+		String apiData = ClientAPI.getApiStr(Protocol.S_ELEC_AUTO_STUDY);
 		new SynTask(new SynHandler(), appContext).writeData(apiData);
 
 	}
@@ -175,12 +175,16 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 			if (responseData.getFunctionCode().equals(
 					Protocol.S_ELEC_AUTO_STUDY)) {
 				if (responseData.isSuccess()) {
-					UIHelper.showToask(AutoStudyActivity.this, "电机学习成功");
+					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
+				}else{
+					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
 				}
 			} else if (responseData.getFunctionCode().equals(
 					Protocol.S_WELL_AUTO_STUDY)) {
 				if (responseData.isSuccess()) {
-					UIHelper.showToask(AutoStudyActivity.this, "进道学习成功");
+					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
+				}else{
+					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
 				}
 			}
 

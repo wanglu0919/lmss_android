@@ -27,7 +27,7 @@ import com.challentec.lmss.engine.FloorDoorSetParser;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DisplayUtil;
 import com.challentec.lmss.util.Protocol;
@@ -101,7 +101,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void getFrontDoorData() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.S_GET_FLOOR_SET_FRONT));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_FRONT));
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void getBackDoorData() {
-		synTask.writeData(ClinetAPI.getApiStr(Protocol.S_GET_FLOOR_SET_BACK));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_BACK));
 	}
 
 	private class FloorDoorSetMessageListener implements AppMessageLinstener {
@@ -568,7 +568,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 	private void saveBackSetData() {
 		pd_save.setMessage(getString(R.string.tip_msg_save_back_save_data));
 		pd_save.show();
-		String apiData = ClinetAPI.getHexApiStr(Protocol.S_SAVE_FLOOR_SET_BACK,
+		String apiData = ClientAPI.getHexApiStr(Protocol.S_SAVE_FLOOR_SET_BACK,
 				getBackSaveData());
 		synTask.writeData(apiData);
 	}
@@ -603,7 +603,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 		pd_save.setMessage(getString(R.string.tip_msg_save_front_save_data));
 		pd_save.show();
 
-		String apiData = ClinetAPI.getHexApiStr(
+		String apiData = ClientAPI.getHexApiStr(
 				Protocol.S_SAVE_FLOOR_SET_FRONT, getFrontSaveData());
 		synTask.writeData(apiData);
 

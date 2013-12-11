@@ -18,7 +18,7 @@ import com.challentec.lmss.listener.MonitorListener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.MonitorRecever;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -176,7 +176,7 @@ public class MonitorActivity extends TabContentBaseActivity {
 	 */
 	private void startMontitor() {
 		monitor_pb.setVisibility(View.VISIBLE);
-		String apiData = ClinetAPI.getApiStr(Protocol.M_START_MON);
+		String apiData = ClientAPI.getApiStr(Protocol.M_START_MON);
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 		synTask.writeData(apiData);
 		synTask.uiLog(Protocol.UI_MONITOR_HOME);// 记录操作
@@ -317,7 +317,7 @@ public class MonitorActivity extends TabContentBaseActivity {
 	 */
 	private void stopMontitor() {
 
-		String apiData = ClinetAPI.getApiStr(Protocol.M_END_MON);
+		String apiData = ClientAPI.getApiStr(Protocol.M_END_MON);
 		new SynTask(new SynHandler() {
 
 			@Override

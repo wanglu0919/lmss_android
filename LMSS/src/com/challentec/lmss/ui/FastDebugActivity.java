@@ -14,7 +14,7 @@ import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.listener.KeyBoardPressListener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -127,7 +127,7 @@ public class FastDebugActivity extends TabContentBaseActivity {
 		if (checkInput()) {
 			String hexData = DataPaseUtil.getHexStr(
 					Integer.parseInt(edit_tv_send.getText().toString()), 1);
-			String apiData = ClinetAPI.getHexApiStr(Protocol.A_TEST_SEND,
+			String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 					hexData);
 			synTask.writeData(apiData);
 			

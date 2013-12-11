@@ -10,7 +10,7 @@ import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.app.AppManager;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.net.SynTask;
-import com.challentec.lmss.util.ClinetAPI;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
@@ -68,7 +68,7 @@ public class AutoConnectPollingService extends Service {
 			if(betweenMinutes<30){//30分钟内
 				String tel = sp.getString(AppConfig.TELE_PHONE_NUM_KEY, "");
 				String deviceNo = sp.getString(AppConfig.DEVICE_NUMBER_KEY, "");// 设备授权码
-				String apiData = ClinetAPI.getApiStr(Protocol.C_AUTO_CONNECT, tel + "|"
+				String apiData = ClientAPI.getApiStr(Protocol.C_AUTO_CONNECT, tel + "|"
 						+ deviceNo+"|"+AppManager.getManager(appContext).getIMEI());//手机号+设备授权码+IME号
 				synTask.writeData(apiData);
 			}else{
