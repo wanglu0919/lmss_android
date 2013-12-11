@@ -448,7 +448,7 @@
     <string name="tip_msg_get_vecode_fast">发送验证码太频繁!</string>
     <string name="tip_msg_tel_num_no_match">手机号码不匹配!</string>
     <string name="tip_msg_no_auth_device">没有设备设备操作权限!</string>
-    <string name="tip_msg_no_location">未获取定位信息，不能登录!</string>
+    <string name="tip_msg_no_location">设备不在授权范围!</string>
      <!-- 通用类 -->
     
       <string name="dlg_msg_ok">确定</string>

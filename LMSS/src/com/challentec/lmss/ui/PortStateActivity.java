@@ -129,8 +129,12 @@ public class PortStateActivity extends TabContentBaseActivity {
 	
 		initData();
 		startPortMonitor_1();// 开始监控端口状态1
-
 		
+		
+		int  winHight= getWindowManager().getDefaultDisplay().getHeight();
+		int portHeight= port_state_rl_call.getLayoutParams().height;
+		int commandHeight=port_state_rl_command.getLayoutParams().height;
+		port_state_vp_contains.getLayoutParams().height=winHight-portHeight-commandHeight-DisplayUtil.dip2px(this, 180);
 		int space=DisplayUtil.dip2px(this,20);
 		mainBoardInputGridView.getLayoutParams().height = getGridViewHeight(mainBoardInputGridView)+space;
 		mainBoardOutputGridView.getLayoutParams().height = getGridViewHeight(mainBoardOutputGridView)+space;

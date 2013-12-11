@@ -8,6 +8,7 @@ import android.os.Message;
 
 import com.challentec.lmss.app.AppConfig;
 import com.challentec.lmss.app.AppContext;
+import com.challentec.lmss.app.AppManager;
 import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.exception.ConnectServerTimeOutException;
 import com.challentec.lmss.exception.ReadDataException;
@@ -28,6 +29,7 @@ public class SynTask {
 	private SocketClient socketClient;
 	private AppContext context;
 	private AppConfig appConfig;
+	private AppManager appManager;
 
 	public SynTask(SynHandler handler, AppContext context) {
 		this.handler = handler;
@@ -35,6 +37,7 @@ public class SynTask {
 		this.context = context;
 		appConfig = AppConfig.getAppConfig(context);
 		socketClient = SocketClient.getSocketClient();
+		appManager=AppManager.getManager(context);
 	}
 
 	public SynTask(AppContext context) {
@@ -211,7 +214,9 @@ public class SynTask {
 
 					socketClient.connect();
 					if (handler != null) {
+						appManager.setPollCount(0);//心跳次数清0
 						handler.sendEmptyMessage(SynHandler.CONNECTION_SUCCESS);
+				
 					}
 
 					startRead();// 启动读取数据线程

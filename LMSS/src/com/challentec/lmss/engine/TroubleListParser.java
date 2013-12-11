@@ -10,6 +10,7 @@ import android.content.Context;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.bean.Trouble;
 import com.challentec.lmss.util.DataPaseUtil;
+import com.challentec.lmss.util.DataTimeUtil;
 
 /**
  * 故障列表解析
@@ -30,25 +31,29 @@ public class TroubleListParser {
 			String trData = matcher.group();
 
 			String id = trData.substring(0, 2);// id
-			
-			String timeStr = trData.substring(2, 6) + "."
-					+ trData.substring(6, 8) + "." + trData.substring(8, 10)
-					+ " " + trData.substring(10, 12) + ":"
-					+ trData.substring(12, 14);// 时间
+
+			String year = trData.substring(2, 6);
+			String month = trData.substring(6, 8);
+			String day = trData.substring(8, 10);
+			String hour = trData.substring(10, 12);
+			String min = trData.substring(12, 14);
+			String timeStr = year + "." + month + "." + day + " " + hour + ":"
+					+ min;// 时间
+
 			String code = trData.substring(14, 16);// 代码
 
 			Trouble trouble = new Trouble();
-			int tid=DataPaseUtil.hexStrToInt(id);
+			int tid = DataPaseUtil.hexStrToInt(id);
 			trouble.setT_id(tid + "");// id
 			if (index == 0) {
 				trouble.setT_order(context
 						.getString(R.string.trouble_list_lable_current_trouble));// 当前故障
 			} else {
-				String stid="";
-				if(tid<10){
-					stid="0"+tid;
-				}else{
-					stid=""+tid;
+				String stid = "";
+				if (tid < 10) {
+					stid = "0" + tid;
+				} else {
+					stid = "" + tid;
 				}
 				trouble.setT_order(context
 						.getString(R.string.trouble_list_lable_front)
@@ -56,15 +61,29 @@ public class TroubleListParser {
 						+ context.getString(R.string.trouble_list_lable_back));// 前+N次故障
 			}
 			trouble.setT_time(timeStr);// 时间
-			int intCode=DataPaseUtil.hexStrToInt(code);
-			if(intCode <10) {
+			int intCode = DataPaseUtil.hexStrToInt(code);
+			if (intCode < 10) {
 				trouble.setT_no("0" + intCode);
-			}else{
-				trouble.setT_no( intCode+"");
-			} 
+			} else {
+				trouble.setT_no(intCode + "");
+			}
+
+			if (DataTimeUtil.checkDataTime(Integer.parseInt(year),
+					Integer.parseInt(month), Integer.parseInt(day))) {//时间检查
+				trouble.setError(true);// 标识信息错误
+			}
 			
-			if(intCode<0||intCode>99){
-				trouble.setError(true);//标识信息错误
+			int intHour=Integer.parseInt(hour);
+			int intMin=Integer.parseInt(min);
+			if(intHour<0||intHour>24){//小时检查
+				trouble.setError(true);// 标识信息错误
+			}
+			
+			if(intMin<0||intMin>60){//分钟检查
+				trouble.setError(true);
+			}
+			if (intCode < 0 || intCode > 99) {
+				trouble.setError(true);// 标识信息错误
 			}
 			troubles.add(trouble);
 			index++;

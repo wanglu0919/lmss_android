@@ -30,6 +30,21 @@ public class AppManager {
 	private Context context;
 	public static Stack<Activity> activityStack;// activity栈
 
+	private int pollCount;//心跳数量
+	
+	public void setPollCount(int pollCount) {
+		this.pollCount = pollCount;
+	}
+	public void addPollCount(){
+		pollCount++;
+	}
+	public int getPollCount(){
+		return pollCount;
+	}
+	
+	public void reduceCount(){
+		pollCount--;
+	}
 	private AppManager() {
 	};
 

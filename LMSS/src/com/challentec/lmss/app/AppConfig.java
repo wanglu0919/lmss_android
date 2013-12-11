@@ -17,6 +17,7 @@ public class AppConfig {
 	public static final String TELE_PHONE_NUM_KEY = "tele_number";// 手机号码
 	public static final String DEVICE_NUMBER_KEY = "device_number_key";// 设备授权码
 	public static final String VECODE_KEY = "vecode_key";// 验证码
+	public static final String LOCATION_KEY="location_key";//位置信息
 	public static final int POLL_INTERVAL_TIME = 10;// 心跳时间间隔
 	public static final int AUTO_CONNECT_TIME = 5;// 自动重练时间
 	public static final String SERVER__HANG_TIME_KEY = "server_hang_time_key";// 服务端挂了时间

@@ -29,6 +29,15 @@ public class HandlerMessage {
 
 			return;
 		}
+		
+		if(responseData.getFunctionCode().equals(Protocol.C_BEAT)){//返回心跳
+			LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳返回数据");
+			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "收到心跳前心跳次数:"+AppManager.getManager(context).getPollCount());
+			AppManager.getManager(context).reduceCount();//减少心跳次数
+			
+			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "收到心跳后心跳次数:"+AppManager.getManager(context).getPollCount());
+			return ;
+		}
 		Intent intent = new Intent();
 		intent.setAction(AppMessageRecever.ACTION_STRING);
 		intent.putExtra(AppMessageRecever.DATA_KEY, responseData);

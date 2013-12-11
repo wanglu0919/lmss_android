@@ -23,6 +23,7 @@ public class LogUtil {
 	public static final String LOG_TAG_BEAT="BEAT";//心跳
 	public static final String LOG_TAG_SEND="SEND";//发送数据
 	public static final String LOG_TAG_REPONSE_DATA="RESPONSE_DATA";//返回数据
+	public static final String LOG_TAG_BEAT_COUNT="BEAT_COUNT";//心跳次数
 	
 	
 	/**

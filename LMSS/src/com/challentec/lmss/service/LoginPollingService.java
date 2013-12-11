@@ -36,9 +36,7 @@ public class LoginPollingService extends Service {
 	private SynTask synTask;
 	private SharedPreferences sp;
 
-	private GPSInfoService gpsInfoService;
-	private static final int GET_LOCATION_SUCCESS = 01;
-
+	
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -50,7 +48,6 @@ public class LoginPollingService extends Service {
 		appContext = (AppContext) getApplication();
 		synTask = new SynTask(appContext);
 		sp = AppConfig.getAppConfig(appContext).getSharedPreferences();
-		gpsInfoService = GPSInfoService.getInstance(this);
 
 	}
 
@@ -66,11 +63,16 @@ public class LoginPollingService extends Service {
 	 * @param location
 	 */
 	private void sendConnectData(String location) {
+		String gpsflag = "1";
+
+		if (appContext.isGPSOPen()) {
+			gpsflag = "0";
+		}
 		String tele = sp.getString(AppConfig.TELE_PHONE_NUM_KEY, "");
 		String vecode = sp.getString(AppConfig.VECODE_KEY, "");
 		String apiData = ClientAPI.getApiStr(Protocol.C_LOGIN, tele + "|"
 				+ vecode + "|" + AppManager.getManager(appContext).getIMEI()
-				+ "|" + location);// 手机号+验证码+IME号+定位信息
+				+ "|" + location + "|" + gpsflag);// 手机号+验证码+IME号+定位信息+定位服务是否开启
 
 		synTask.writeData(apiData);
 	}
@@ -92,12 +94,9 @@ public class LoginPollingService extends Service {
 
 			if (betweenMinutes < 30) {
 
-				if (appContext.isGPSOPen()) {// 判读用户有没有开启基站或移动定位
-					getLocation();
+				String locaton = sp.getString(AppConfig.LOCATION_KEY, "0,0");
 
-				} else {
-					sendConnectData("0,0");
-				}
+				sendConnectData(locaton);
 
 			} else {
 				PollingUtils.stopPollingService(appContext,
@@ -114,63 +113,7 @@ public class LoginPollingService extends Service {
 
 	}
 
-	/**
-	 * 获取定位 wanglu 泰得利通
-	 */
-	private void getLocation() {
-
-		gpsInfoService.registerLocationUpdates(new MyGPSLinster());
-	}
-
-	private class MyGPSLinster implements LocationListener {
-
-		// 用户位置改变的时候 的回调方法
-		public void onLocationChanged(Location location) {
-			// 获取到用户的纬度
-			double latitude = location.getLatitude();
-			// 获取到用户的经度
-			double longitude = location.getLongitude();
-			// 进行封装写入到文件中
-			String locationStr = longitude + "," + latitude;
-			Message msg = locationHander.obtainMessage();
-			msg.obj = locationStr;
-			msg.what = GET_LOCATION_SUCCESS;
-
-			locationHander.sendMessage(msg);
-
-		}
-
-		// 状态改变
-		public void onStatusChanged(String provider, int status, Bundle extras) {
-		}
-
-		// gps ,打开
-		public void onProviderEnabled(String provider) {
-		}
-
-		// 关闭
-		public void onProviderDisabled(String provider) {
-		}
-	}
-
-	private Handler locationHander = new Handler() {
-
-		@Override
-		public void handleMessage(Message msg) {
-
-			switch (msg.what) {
-			case GET_LOCATION_SUCCESS:
-				String locationStr = msg.obj.toString();
-				if (locationStr == null) {
-					locationStr = "0,0";
-				}
-				sendConnectData(locationStr);
-				gpsInfoService.cancleLocationUpdates();//停止定位
-				break;
-			}
-		}
-
-	};
+	
 
 	@Override
 	public void onDestroy() {

@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import com.challentec.lmss.app.AppContext;
+import com.challentec.lmss.app.AppManager;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.util.ClientAPI;
+import com.challentec.lmss.util.HandlerMessage;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.Protocol;
 
@@ -22,6 +24,7 @@ public class PollingService extends Service {
 
 	private AppContext appContext;
 	private SynTask synTask;
+	private AppManager appManager;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -32,6 +35,7 @@ public class PollingService extends Service {
 	public void onCreate() {
 
 		appContext = (AppContext) getApplication();
+		appManager = AppManager.getManager(appContext);
 		synTask = new SynTask(appContext);
 
 	}
@@ -48,9 +52,19 @@ public class PollingService extends Service {
 	 * @author 泰得利通 wanglu
 	 */
 	private void polling() {
-		LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳数据");
-		String apiData = ClientAPI.getApiStr(Protocol.C_BEAT);
-		synTask.writeData(apiData);
+
+		if (appManager.getPollCount() >= 3) {// 发送了三次心跳并没有返回情况
+			LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳超过3次没有返回数据");
+			HandlerMessage.handlerUNConnectMessage(appContext);// 发送断开连接重连广播
+			
+		} else {
+			LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳数据");
+			String apiData = ClientAPI.getApiStr(Protocol.C_BEAT);
+			synTask.writeData(apiData);
+			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "发送心跳前次数为:"+appManager.getPollCount());
+			appManager.addPollCount();// 记录心跳次数
+			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "发送心跳后次数为:"+appManager.getPollCount());
+		}
 
 	}
 

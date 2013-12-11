@@ -82,6 +82,7 @@ public class MainActivity extends Activity {
 	private static final int LOCATION_GET_VECODE = 1;// 验证码获取时定位
 	private static final int LOCATION_LOGIN = 2;// 登录时定位
 	private int locationType = LOCATION_GET_VECODE;
+
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 
@@ -190,6 +191,7 @@ public class MainActivity extends Activity {
 		appManager = AppManager.getManager(appContext);
 		appManager.addActivity(this);
 		sp = AppConfig.getAppConfig(appContext).getSharedPreferences();
+
 		clearCache();// 清除本地存储信息
 		connect();// 连接服务器
 
@@ -419,17 +421,25 @@ public class MainActivity extends Activity {
 		if (checkInput()) {
 			main_pb_load.setVisibility(View.VISIBLE);
 			main_pb_load.setProgressText(getString(R.string.main_tab_logining));
+			String gpsflag = "1";
+			if (appContext.isGPSOPen()) {// gps是否打开标识
+				gpsflag = "0";
+			}
 			String apiData = ClientAPI.getApiStr(
 					Protocol.C_LOGIN,
 					main_login_et_tel.getText().toString() + "|"
 							+ main_et_vecode.getText().toString() + "|"
 							+ appManager.getIMEI() + "|"
-							+ locationStr.toString());// 手机号+验证码+IME号+经纬度
+							+ locationStr.toString() + "|" + gpsflag);// 手机号+验证码+IME号+经纬度
 
 			new SynTask(new SynHandler() {
 
 			}, appContext).writeData(apiData);
 
+			/** 保存位置信息 */
+			Editor ed = sp.edit();
+			ed.putString(AppConfig.LOCATION_KEY, locationStr);// 位置信息
+			ed.commit();
 		}
 
 	}
@@ -440,10 +450,13 @@ public class MainActivity extends Activity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void getVecode() {
-
+		String gpsflag = "1";
+		if (appContext.isGPSOPen()) {// gps是否打开标识
+			gpsflag = "0";
+		}
 		String tele = main_login_et_tel.getText().toString();
 		String apiData = ClientAPI.getApiStr(Protocol.C_GET_VCODE, tele + "|"
-				+ appManager.getIMEI() + "|" + locationStr);
+				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		LogUtil.i(LogUtil.LOG_TAG_LOCATION, locationStr);
 		new SynTask(new SynHandler()
 
@@ -587,14 +600,14 @@ public class MainActivity extends Activity {
 
 		if (requestCode == LOCATION_SETTING_REQUEAST) {// 定位设置返回
 			if (appContext.isGPSOPen()) {// 基站定位打开
-				if(locationType == LOCATION_LOGIN&&checkInput()){
+				if (locationType == LOCATION_LOGIN && checkInput()) {
 					getLoaction();// 定位
-				}else if(locationType == LOCATION_GET_VECODE){
+				} else if (locationType == LOCATION_GET_VECODE) {
 					getLoaction();
 				}
-				
+
 			} else {
-				
+
 				locationStr = "0,0";// 默认地址
 				if (locationType == LOCATION_GET_VECODE) {
 					main_pb_load.setProgressText("");
@@ -636,7 +649,7 @@ public class MainActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						
+
 						locationStr = "0,0";// 默认地址
 						if (locationType == LOCATION_GET_VECODE) {
 							main_pb_load.showProgessText(false);
