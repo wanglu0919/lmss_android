@@ -68,7 +68,7 @@ public class TroubleListParser {
 				trouble.setT_no(intCode + "");
 			}
 
-			if (DataTimeUtil.checkDataTime(Integer.parseInt(year),
+			if (!DataTimeUtil.checkDataTime(Integer.parseInt(year),
 					Integer.parseInt(month), Integer.parseInt(day))) {//时间检查
 				trouble.setError(true);// 标识信息错误
 			}

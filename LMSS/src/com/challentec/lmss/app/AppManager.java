@@ -200,7 +200,7 @@ public class AppManager {
 
 		TelephonyManager telephonyManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
-		return telephonyManager.getDeviceId();
+		return telephonyManager.getDeviceId() == null ? "012345678912345" :telephonyManager.getDeviceId();
 
 	}
 

@@ -1,5 +1,7 @@
 package com.challentec.lmss.engine;
 
+import java.util.List;
+
 import android.content.Context;
 import android.location.Criteria;
 import android.location.LocationListener;
@@ -40,15 +42,17 @@ public class GPSInfoService {
 		criteria.setAccuracy(Criteria.ACCURACY_FINE);// 精准定位
 		criteria.setAltitudeRequired(false);// 不需要获取海拔数据
 		criteria.setCostAllowed(true);// 设置允许城市资费
-		criteria.setSpeedRequired(true);
+		criteria.setSpeedRequired(false);
 		criteria.setPowerRequirement(Criteria.POWER_MEDIUM);
-
+		
 		// 获取一个最符合查询条件的位置提供者
 		String provider = manager.getBestProvider(criteria, true);
-
+		
+		//List<String > providers=manager.getAllProviders();
 		// 位置改变就会调用Linster的监听器 获取经度纬度
 		if (provider != null) {
-			manager.requestLocationUpdates(provider, 1000, 50, locationListener);
+			
+			manager.requestLocationUpdates(provider, 3000, 500, locationListener);
 		}
 
 	}

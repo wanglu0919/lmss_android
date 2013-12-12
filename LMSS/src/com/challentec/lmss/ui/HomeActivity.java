@@ -1,5 +1,6 @@
 package com.challentec.lmss.ui;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +39,13 @@ public class HomeActivity extends TabContentBaseActivity {
 	private SharedPreferences sp;
 	private FloorNumbeUpdateRecever floorNumbeUpdateRecever;
 	public static final String ACTION_UPDATE_FLOOR_NUMBER = "action_update_floor_nubmer";// 更新楼层数量
+	private TextView home_tv_floor_no, home_tv_control_no,
+			home_tv_out_datetime, home_tv_fate_load, home_tv_home_speed,
+			home_tv_control_type, home_tv_floor_num, home_tv_door_num;
+
+	private LoadProgressView home_lp_device;
+	private SwitchButton home_sw_recover_out, home_sw_recover_last_out;
+	private ProgressDialog pd_recoverdlg;
 
 	@Override
 	protected void addListeners() {
@@ -113,6 +121,7 @@ public class HomeActivity extends TabContentBaseActivity {
 					"01");
 			recoverSynTask.writeData(hexData);
 			recoverOutSetDlg.dismiss();
+			pd_recoverdlg.show();
 
 		}
 
@@ -148,6 +157,7 @@ public class HomeActivity extends TabContentBaseActivity {
 					Protocol.C_RECOVER_LAST_SET, "01");
 			recoverSynTask.writeData(hexData);
 			recoverlastOutSetDlg.dismiss();
+			pd_recoverdlg.show();
 
 		}
 
@@ -160,16 +170,10 @@ public class HomeActivity extends TabContentBaseActivity {
 
 			recoverlastOutSetDlg.dismiss();
 			home_sw_recover_last_out.setChecked(false);
+
 		}
 
 	}
-
-	private TextView home_tv_floor_no, home_tv_control_no,
-			home_tv_out_datetime, home_tv_fate_load, home_tv_home_speed,
-			home_tv_control_type, home_tv_floor_num, home_tv_door_num;
-
-	private LoadProgressView home_lp_device;
-	private SwitchButton home_sw_recover_out, home_sw_recover_last_out;
 
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
@@ -190,17 +194,28 @@ public class HomeActivity extends TabContentBaseActivity {
 			String functionCode = responseData.getFunctionCode();
 			if (functionCode.equals(Protocol.C_RECOVER_LAST_SET)) {// 恢复上次出场设置使能获关闭
 				if (responseData.isSuccess()) {
-					UIHelper.showToask(HomeActivity.this, "操作成功!");
+					UIHelper.showToask(HomeActivity.this, "恢复成功!");
 
+				} else {
+					UIHelper.showToask(HomeActivity.this, AppTipMessage
+							.getResouceStringId(responseData.getErrorCode()));
 				}
-				home_lp_device.setVisibility(View.GONE);
+
+				home_sw_recover_last_out.setChecked(false);// 设置按钮状态为禁止
+
+				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
 			} else if (functionCode.equals(Protocol.C_RECOVER_DEVICE)) {// 恢复出厂设置
 
 				if (responseData.isSuccess()) {
-					UIHelper.showToask(HomeActivity.this, "操作成功!");
+					UIHelper.showToask(HomeActivity.this, "恢复成功!");
 
+				} else {
+					UIHelper.showToask(HomeActivity.this, AppTipMessage
+							.getResouceStringId(responseData.getErrorCode()));
 				}
-				home_lp_device.setVisibility(View.GONE);
+				home_sw_recover_out.setChecked(false);// 设置按钮状态为禁止
+
+				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
 
 			} else if (functionCode.equals(Protocol.C_GET_DEVICE_INFO)) {//
 				if (responseData.isSuccess()) {// 数据获取成功
@@ -250,6 +265,10 @@ public class HomeActivity extends TabContentBaseActivity {
 		initSynTask();// 初始化异步任务
 
 		registerFloorUpdateRecever();
+
+		pd_recoverdlg = new ProgressDialog(this);
+		pd_recoverdlg.setMessage(getString(R.string.tip_msg_pb_revovering));
+		pd_recoverdlg.setCancelable(false);
 
 	}
 
@@ -386,11 +405,11 @@ public class HomeActivity extends TabContentBaseActivity {
 	 * @param value
 	 */
 	private void setRecoverOUtChecked(int value) {
-		if (value == 0) {
-			home_sw_recover_out.setChecked(false);
-		} else if (value == 1) {
-			home_sw_recover_out.setChecked(true);
-		}
+		home_sw_recover_out.setChecked(false);
+		/*
+		 * if (value == 0) { home_sw_recover_out.setChecked(false); } else if
+		 * (value == 1) { home_sw_recover_out.setChecked(true); }
+		 */
 	}
 
 	/**
@@ -400,11 +419,11 @@ public class HomeActivity extends TabContentBaseActivity {
 	 * @param value
 	 */
 	private void setLastRecoverOUtChecked(int value) {
-		if (value == 0) {
-			home_sw_recover_last_out.setChecked(false);
-		} else if (value == 1) {
-			home_sw_recover_last_out.setChecked(true);
-		}
+		home_sw_recover_last_out.setChecked(false);
+		/*
+		 * if (value == 0) { home_sw_recover_last_out.setChecked(false); } else
+		 * if (value == 1) { home_sw_recover_last_out.setChecked(true); }
+		 */
 	}
 
 	private String getControlType(String value) {
@@ -460,4 +479,7 @@ public class HomeActivity extends TabContentBaseActivity {
 		}
 
 	}
+	
+	
+	
 }

@@ -6,7 +6,7 @@
     <color name="white">#ffffffff</color>
     <color name="tv_nomal_color">#979797</color>
     <color name="result_view">#b0000000</color>
-    <color name="viewfinder_mask">#60000000</color>
+    <color name="viewfinder_mask">#DEDEDE</color>
     <color name="possible_result_points">#c0ffff00</color>
     <color name="red">#FF0000</color>
     <color name="bule_text">#44A8E1</color>

@@ -30,6 +30,8 @@ public class AppTipMessage {
 	public static final String TEL_NUMBER_NOT_MATCH = "13";// 手机号码不匹配
 	public static final String NO_AUTH_DEVICE = "14";// 未获得设备授权而进行设备操作错误
 	public static final String NO_LOCATION="15";//未获得定位信息，不能登录
+	public static final String RECOVERY_COMPANY_FAIL="16";//恢复出厂设置失败
+	public static final String RECOVERY_LAST_SET_VALUE_FAIL="17";//恢复上次设置值失败
 
 	// 自定义错误信息
 	public static final String IOEXCEPTION = "20";// 网络异常
@@ -68,6 +70,8 @@ public class AppTipMessage {
 		tipMessage.put(NO_AUTH_DEVICE, R.string.tip_msg_no_auth_device);
 		
 		tipMessage.put(NO_LOCATION, R.string.tip_msg_no_location);
+		tipMessage.put(RECOVERY_COMPANY_FAIL, R.string.tip_msg_recovery_company_set_fail);
+		tipMessage.put(RECOVERY_LAST_SET_VALUE_FAIL, R.string.tip_msg_recovery_last_value_set_fail);
 
 		// 自定义错误信息
 		tipMessage.put(IOEXCEPTION, R.string.tip_msg_net_error);

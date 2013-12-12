@@ -12,8 +12,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.location.Location;
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.challentec.lmss.bean.ResponseData;
-import com.challentec.lmss.engine.GPSInfoService;
+import com.challentec.lmss.lbs.LBSTool;
+import com.challentec.lmss.lbs.LocationData;
 import com.challentec.lmss.listener.AppConectStateListener;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SocketClient;
@@ -74,7 +73,7 @@ public class MainActivity extends Activity {
 	private static final int GET_LOACTION_SUCCESS = 0x02;// 获取位置成功
 
 	private String locationStr = "";// 坐标地址
-	private GPSInfoService gpsInfoService;
+	
 	private SocketClient socketClient;
 	private LoadProgressView main_pb_load;// 加载进度条
 	private SharedPreferences sp;
@@ -98,7 +97,7 @@ public class MainActivity extends Activity {
 					doLogin();// 登陆
 				}
 
-				gpsInfoService.cancleLocationUpdates();// 取消定位服务
+			//	gpsInfoService.cancleLocationUpdates();// 取消定位服务
 				break;
 
 			}
@@ -332,11 +331,14 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 
 				if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
-					locationType = LOCATION_LOGIN;
-					showOpenGPSDlg();// 显示定位对话框
+					if(checkLoginInput()){
+						locationType = LOCATION_LOGIN;
+						showOpenGPSDlg();// 显示定位对话框
+					}
+					
 
 				} else {// 基站已经定位已经打开
-					if (checkInput()) {
+					if (checkLoginInput()) {
 						locationType = LOCATION_LOGIN;
 						getLoaction();
 					}
@@ -360,13 +362,21 @@ public class MainActivity extends Activity {
 						}
 
 						if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
-							locationType = LOCATION_GET_VECODE;
-							showOpenGPSDlg();// 显示定位对话框
+							if(checkVecodInput()){
+								locationType = LOCATION_GET_VECODE;
+								showOpenGPSDlg();// 显示定位对话框
+							}
+						
 
 						} else {// 基站已经定位已经打开
 
-							locationType = LOCATION_GET_VECODE;
-							getLoaction();// 定位
+							
+							
+							if(checkVecodInput()){
+								locationType = LOCATION_GET_VECODE;
+								getLoaction();// 定位
+							}
+						
 
 						}
 
@@ -418,7 +428,7 @@ public class MainActivity extends Activity {
 	 */
 	protected void doLogin() {
 
-		if (checkInput()) {
+		if (checkLoginInput()) {
 			main_pb_load.setVisibility(View.VISIBLE);
 			main_pb_load.setProgressText(getString(R.string.main_tab_logining));
 			String gpsflag = "1";
@@ -454,10 +464,13 @@ public class MainActivity extends Activity {
 		if (appContext.isGPSOPen()) {// gps是否打开标识
 			gpsflag = "0";
 		}
+		
 		String tele = main_login_et_tel.getText().toString();
 		String apiData = ClientAPI.getApiStr(Protocol.C_GET_VCODE, tele + "|"
 				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		LogUtil.i(LogUtil.LOG_TAG_LOCATION, locationStr);
+		LogUtil.i(LogUtil.LOG_TAG_VECODE, "获取验证码码发送数据:"+tele + "|"
+				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		new SynTask(new SynHandler()
 
 		, appContext).writeData(apiData);
@@ -472,9 +485,29 @@ public class MainActivity extends Activity {
 	private void getLoaction() {
 		main_pb_load.setVisibility(View.VISIBLE);
 		main_pb_load.showProgessText(false);
-		gpsInfoService = GPSInfoService.getInstance(MainActivity.this);
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
 
-		gpsInfoService.registerLocationUpdates(new MyGPSLinster());
+				LBSTool lbsTool=new LBSTool(MainActivity.this);
+				
+				LocationData locationData=lbsTool.getLocation(5000);//定位5秒超时处理
+				if(locationData!=null){
+					locationStr = locationData.lon + "," + locationData.lat;
+				}else{
+					locationStr="0,0";
+				}
+				
+				handler.sendEmptyMessage(GET_LOACTION_SUCCESS);
+			}
+		}).start();
+	
+		
+		
+		
 
 	}
 
@@ -543,6 +576,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/*
 	private class MyGPSLinster implements LocationListener {
 
 		// 用户位置改变的时候 的回调方法
@@ -554,23 +588,27 @@ public class MainActivity extends Activity {
 			// 进行封装写入到文件中
 			locationStr = longitude + "," + latitude;
 
+			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "获取到了位置");
 			handler.sendEmptyMessage(GET_LOACTION_SUCCESS);
 
 		}
 
 		// 状态改变
 		public void onStatusChanged(String provider, int status, Bundle extras) {
+			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onStatusChanged");
 		}
 
 		// gps ,打开
 		public void onProviderEnabled(String provider) {
+			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onProviderEnabled");
 		}
 
 		// 关闭
 		public void onProviderDisabled(String provider) {
+			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onProviderDisabled");
 		}
 	}
-
+*/
 	/**
 	 * 表单检查输入
 	 * 
@@ -579,14 +617,24 @@ public class MainActivity extends Activity {
 	 * @return
 	 */
 
-	private boolean checkInput() {
+	private boolean checkLoginInput() {
 
+		
+		
 		if (main_login_et_tel.getText().toString().equals("")) {
 			UIHelper.showToask(this, R.string.tip_msg_form_tele_empty);
 			main_login_et_tel.requestFocus();
 			return false;
-		} else if (main_et_vecode.getText().toString().equals("")) {
+		} else if(!main_login_et_tel.getText().toString().equals("")&&main_login_et_tel.getText().toString().length()!=11){
+			UIHelper.showToask(this, R.string.tip_msg_form_tele_error);
+			main_login_et_tel.requestFocus();
+			return false;
+		}else if (main_et_vecode.getText().toString().equals("")) {
 			UIHelper.showToask(this, R.string.tip_msg_form_vecode_empty);
+			main_et_vecode.requestFocus();
+			return false;
+		}else if(!main_et_vecode.getText().toString().equals("")&&main_et_vecode.getText().toString().length()!=6){
+			UIHelper.showToask(this, R.string.tip_msg_form_vecode_error);
 			main_et_vecode.requestFocus();
 			return false;
 		}
@@ -594,13 +642,28 @@ public class MainActivity extends Activity {
 		return true;
 
 	}
+	
+	/**
+	 * 获取验证码检查
+	 *wanglu 泰得利通 
+	 * @return
+	 */
+	private boolean checkVecodInput(){
+		
+		if(!main_login_et_tel.getText().toString().equals("")&&main_login_et_tel.getText().toString().length()!=11){
+			UIHelper.showToask(MainActivity.this, R.string.tip_msg_form_tele_error);
+			main_login_et_tel.requestFocus();
+			return false;
+		}
+		return true;
+	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		if (requestCode == LOCATION_SETTING_REQUEAST) {// 定位设置返回
 			if (appContext.isGPSOPen()) {// 基站定位打开
-				if (locationType == LOCATION_LOGIN && checkInput()) {
+				if (locationType == LOCATION_LOGIN && checkLoginInput()) {
 					getLoaction();// 定位
 				} else if (locationType == LOCATION_GET_VECODE) {
 					getLoaction();

@@ -24,7 +24,7 @@
     <string name="main_tab_rb_trouble">故障</string>
     <string name="main_tab_logining">登录中...</string>
     <string name="main_company">中秀科技(无锡)有限公司</string>
-       <string name="main_location_tip_title">定位提示</string>
+    <string name="main_location_tip_title">定位提示</string>
     <string name="main_location_message">需要获取您的位置信息，请您勾选移动网络和Wi-FI定位选项!</string>
 
     <!-- ui界面 -->
@@ -424,11 +424,14 @@
     <string name="tip_msg_auto_connect_time_out">重连超时!</string>
     <string name="title_tip_unconnnect">(未连接)</string>
     <string name="title_tip_auto_connecting">重连中</string>
+    <string name="tip_msg_pb_revovering">正在恢复...</string>
 
     <!-- 表单提示 -->
-    <string name="tip_msg_form_tele_empty">请输入手机号码</string>
-    <string name="tip_msg_form_vecode_empty">请输验证码</string>
-    <string name="tip_msg_form_device_no_empty">请输入设备授权码</string>
+    <string name="tip_msg_form_tele_empty">请输入手机号码!</string>
+    <string name="tip_msg_form_tele_error">手机号码不正确!</string>
+    <string name="tip_msg_form_vecode_error">验证码长度不对!</string>
+    <string name="tip_msg_form_vecode_empty">请输验证码!</string>
+    <string name="tip_msg_form_device_no_empty">请输入设备授权码!</string>
     <string name="tip_form_range_front">当前修改值的范围为</string>
     <string name="tip_form_range_back">精度及数值的进制按照所示范围确定</string>
     <string name="tip_form_number_big">输入数字过大</string>
@@ -449,10 +452,12 @@
     <string name="tip_msg_tel_num_no_match">手机号码不匹配!</string>
     <string name="tip_msg_no_auth_device">没有设备设备操作权限!</string>
     <string name="tip_msg_no_location">设备不在授权范围!</string>
-     <!-- 通用类 -->
-    
-      <string name="dlg_msg_ok">确定</string>
-   <string name="dlg_msg_cancle">取消</string>
-     <string name="dlg_title_ok_cancle">是否</string>
+    <string name="tip_msg_recovery_company_set_fail">恢复出厂设置失败!</string>
+    <string name="tip_msg_recovery_last_value_set_fail">恢复上次设置值失败!</string>
+    <!-- 通用类 -->
+
+    <string name="dlg_msg_ok">确定</string>
+    <string name="dlg_msg_cancle">取消</string>
+    <string name="dlg_title_ok_cancle">是否</string>
 
 </resources>

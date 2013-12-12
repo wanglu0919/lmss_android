@@ -68,6 +68,7 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 		synUILog.uiLog(Protocol.UI_AUTO_STUDY_ELC);// 记录UI
 		pd_study = new ProgressDialog(this);
 		pd_study.setMessage(getString(R.string.tip_msg_pb_auto_study));
+		pd_study.setCancelable(false);
 
 		
 	}

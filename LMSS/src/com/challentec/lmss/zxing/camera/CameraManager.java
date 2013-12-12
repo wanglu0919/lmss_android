@@ -247,6 +247,14 @@ public final class CameraManager {
     }
     return framingRect;
   }
+  /**
+   * 获取屏幕
+   *wanglu 泰得利通 
+   * @return
+   */
+  public Point getScreenResolution(){
+	  return  configManager.getScreenResolution();
+  }
 
   /**
    * Like {@link #getFramingRect} but coordinates are in terms of the preview frame,

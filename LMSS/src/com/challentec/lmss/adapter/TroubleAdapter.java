@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.challentec.lmss.app.R;
-import com.challentec.lmss.bean.ParamsItem;
 import com.challentec.lmss.bean.Trouble;
 
 /**

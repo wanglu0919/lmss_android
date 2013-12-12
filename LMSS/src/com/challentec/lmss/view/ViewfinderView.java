@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -133,6 +134,8 @@ public final class ViewfinderView extends View {
 	public void onDraw(Canvas canvas) {
 		// 中间的扫描框，你要修改扫描框的大小，去CameraManager里面修改
 		Rect frame = CameraManager.get().getFramingRect();
+		
+		Point screen=CameraManager.get().getScreenResolution();
 
 		if (frame == null) {
 			return;
@@ -194,15 +197,25 @@ public final class ViewfinderView extends View {
 					slideTop + MIDDLE_LINE_WIDTH / 2, paint);
 
 			// 画扫描框下面的字
-			paint.setColor(Color.WHITE);
+			paint.setColor(Color.BLACK);
 			paint.setTextSize(TEXT_SIZE * density);
-			paint.setAlpha(0x40);
+			//paint.setAlpha(0x40);
 			paint.setTypeface(Typeface.create("System", Typeface.BOLD));
 			canvas.drawText(
 					getResources().getString(R.string.scan_text),
 					frame.left,
 					(float) (frame.bottom + (float) TEXT_PADDING_TOP * density),
 					paint);
+			
+			canvas.drawText(
+					"请对准想要识别的二维码",
+					frame.left+25 ,
+					(float) (frame.top - (float) TEXT_PADDING_TOP * density),
+					paint);
+			
+			
+			
+			
 
 			Collection<ResultPoint> currentPossible = possibleResultPoints;
 			Collection<ResultPoint> currentLast = lastPossibleResultPoints;

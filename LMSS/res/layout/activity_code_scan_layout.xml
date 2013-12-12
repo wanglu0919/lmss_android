@@ -17,5 +17,14 @@
         android:layout_height="wrap_content" 
         android:layout_alignParentTop="true"
         />
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dip"
+        android:text="@string/main_company"
+        android:textColor="@color/tv_nomal_color"
+        android:textStyle="bold" />
 
 </RelativeLayout>
