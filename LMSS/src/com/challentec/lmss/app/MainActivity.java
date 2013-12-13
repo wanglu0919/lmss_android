@@ -494,7 +494,7 @@ public class MainActivity extends Activity {
 
 				LBSTool lbsTool=new LBSTool(MainActivity.this);
 				
-				LocationData locationData=lbsTool.getLocation(5000);//定位5秒超时处理
+				LocationData locationData=lbsTool.getLocation(3000);//定位3秒超时处理
 				if(locationData!=null){
 					locationStr = locationData.lon + "," + locationData.lat;
 				}else{

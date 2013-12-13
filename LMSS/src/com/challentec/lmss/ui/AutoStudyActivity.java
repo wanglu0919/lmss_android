@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -22,6 +23,7 @@ import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
+import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -40,18 +42,28 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 	private List<ImageView> imageViews;
 
 	private RelativeLayout auto_elec_rl_param;// 电机自学习参数
-	private RelativeLayout well_auto_study_rl_param;//进道自学习参数
+	private RelativeLayout well_auto_study_rl_param;// 进道自学习参数
 	private SynTask synUILog;
 	private Button auto_study_ele_btn_start;// 电机自学习开始
 	private Button auto_study_btn_well_start;// 进道子学习开始
 	private ProgressDialog pd_study;// 学习进度对话框
-	
+	private static final int STUDY_TIME_OUT = 1;// 自学习超时
+	private AppMessageRecever appMessageRecever;
+
+	private Handler studyHandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+
+			case STUDY_TIME_OUT:
+				studyTimeOut();
+				break;
+			}
+		};
+	};
 
 	@Override
 	protected void initMainView(View mainView) {
-		appManager.registerAppMessageRecever(this).setAppMessageLinstener(
-				new AutoStudyAppMessageLinster());//注册消息接收广播
-		
+
 		auto_study_vp_contains = (ViewPager) mainView
 				.findViewById(R.id.auto_study_vp_contains);
 		auto_study_ll_draw_point = (LinearLayout) mainView
@@ -70,10 +82,57 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 		pd_study.setMessage(getString(R.string.tip_msg_pb_auto_study));
 		pd_study.setCancelable(false);
 
-		
 	}
 
+	@Override
+	protected void onDestroy() {
+		if (appMessageRecever != null) {
+			unregisterReceiver(appMessageRecever);
+			appMessageRecever = null;
+		}
+		super.onDestroy();
+	}
 
+	/**
+	 * 注册消息监听 wanglu 泰得利通
+	 */
+	private void registAppMessageRecever() {
+		appMessageRecever = appManager.registerAppMessageRecever(this);
+		appMessageRecever
+				.setAppMessageLinstener(new AutoStudyAppMessageLinster());// 注册消息接收广播
+	}
+
+	/**
+	 * 自学习超时处理 wanglu 泰得利通
+	 */
+	private void studyTimeOut() {
+
+		if (pd_study.isShowing()) {// 取消对话框
+			pd_study.dismiss();
+			UIHelper.showToask(AutoStudyActivity.this, "学习失败!");
+
+			if (appMessageRecever != null) {
+				unregisterReceiver(appMessageRecever);// 取消消息监听
+				appMessageRecever = null;
+			}
+		}
+	}
+
+	/**
+	 * 自学习超时处理 wanglu 泰得利通
+	 */
+	private void startMonitorTimeOut() {
+
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				studyHandler.sendEmptyMessageDelayed(STUDY_TIME_OUT, 60000);// 一分钟超时处理
+			}
+		}).start();
+
+	}
 
 	@Override
 	protected void addListeners() {
@@ -129,16 +188,16 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 						wellStartStudy();
 					}
 				});
-		
-		well_auto_study_rl_param.setOnClickListener(new OnClickListener() {//进道自学习参数
-			
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(AutoStudyActivity.this,
-						WellAutoStudyParamActivity.class);
-				MainTabActivity.instance.addView(intent);
-			}
-		});
+
+		well_auto_study_rl_param.setOnClickListener(new OnClickListener() {// 进道自学习参数
+
+					@Override
+					public void onClick(View v) {
+						Intent intent = new Intent(AutoStudyActivity.this,
+								WellAutoStudyParamActivity.class);
+						MainTabActivity.instance.addView(intent);
+					}
+				});
 
 	}
 
@@ -148,11 +207,13 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	protected void wellStartStudy() {
+		registAppMessageRecever();// 开始广播监听
+		startMonitorTimeOut();// 开始超时处理
 		pd_study.show();
 		String apiData = ClientAPI.getApiStr(Protocol.S_WELL_AUTO_STUDY);
 		new SynTask(new SynHandler()
 
-			, appContext).writeData(apiData);
+		, appContext).writeData(apiData);
 	}
 
 	/**
@@ -161,7 +222,8 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void elecStartStudy() {
-
+		registAppMessageRecever();// 开始广播监听
+		startMonitorTimeOut();// 开始超时处理
 		pd_study.show();
 		String apiData = ClientAPI.getApiStr(Protocol.S_ELEC_AUTO_STUDY);
 		new SynTask(new SynHandler(), appContext).writeData(apiData);
@@ -177,15 +239,25 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 					Protocol.S_ELEC_AUTO_STUDY)) {
 				if (responseData.isSuccess()) {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
-				}else{
+				} else {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
 				}
+				if (appMessageRecever != null) {
+					unregisterReceiver(appMessageRecever);
+					appMessageRecever = null;
+				}
+
 			} else if (responseData.getFunctionCode().equals(
 					Protocol.S_WELL_AUTO_STUDY)) {
 				if (responseData.isSuccess()) {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
-				}else{
+				} else {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
+				}
+
+				if (appMessageRecever != null) {
+					unregisterReceiver(appMessageRecever);// 销毁监听
+					appMessageRecever = null;
 				}
 			}
 
@@ -254,7 +326,8 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 				R.layout.auto_study_well__layout, null);// 井道自学习视图
 		auto_study_btn_well_start = (Button) autoWellView
 				.findViewById(R.id.auto_study_btn_well_start);
-		well_auto_study_rl_param=(RelativeLayout) autoWellView.findViewById(R.id.well_auto_study_rl_param);
+		well_auto_study_rl_param = (RelativeLayout) autoWellView
+				.findViewById(R.id.well_auto_study_rl_param);
 		pageViews.add(autoElecView);
 		pageViews.add(autoWellView);
 

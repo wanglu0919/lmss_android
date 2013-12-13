@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -22,6 +23,7 @@ import com.challentec.lmss.dlg.RecoverOutSetDlg;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
+import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DataTimeUtil;
@@ -46,6 +48,21 @@ public class HomeActivity extends TabContentBaseActivity {
 	private LoadProgressView home_lp_device;
 	private SwitchButton home_sw_recover_out, home_sw_recover_last_out;
 	private ProgressDialog pd_recoverdlg;
+
+	private AppMessageRecever appMessageRecever;
+	private static final int REVOVERTIMEOUT = 0;
+
+	private Handler recoverHandler = new Handler() {// 恢复出厂设置，和恢复设置值handler处理
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case REVOVERTIMEOUT:
+				reoverHandlerTimeOut();
+				break;
+
+			}
+
+		};
+	};
 
 	@Override
 	protected void addListeners() {
@@ -108,6 +125,22 @@ public class HomeActivity extends TabContentBaseActivity {
 	}
 
 	/**
+	 * 恢复出厂设置值和恢复上次设置值超时处理 wanglu 泰得利通
+	 */
+	protected void reoverHandlerTimeOut() {
+
+		if (pd_recoverdlg.isShowing()) {
+			pd_recoverdlg.dismiss();
+			UIHelper.showToask(HomeActivity.this, "恢复失败!");
+			home_sw_recover_last_out.setChecked(false);// 设置按钮状态为禁止
+			home_sw_recover_out.setChecked(false);// 设置按钮状态为禁止
+			unRegistAppMessageReceiver();
+
+		}
+
+	}
+
+	/**
 	 * 恢复出厂设置使能
 	 * 
 	 * @author 泰得利通 wanglu
@@ -117,6 +150,8 @@ public class HomeActivity extends TabContentBaseActivity {
 
 		@Override
 		public void onClick(View v) {
+			startRecoverTimeOut();// 超时监听
+			registAppMessageReceiver();// 开始消息监听
 			String hexData = ClientAPI.getHexApiStr(Protocol.C_RECOVER_DEVICE,
 					"01");
 			recoverSynTask.writeData(hexData);
@@ -144,6 +179,21 @@ public class HomeActivity extends TabContentBaseActivity {
 	}
 
 	/**
+	 * 恢复出厂设置，和恢复上次设置值超时监听 wanglu 泰得利通
+	 */
+	private void startRecoverTimeOut() {
+
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				recoverHandler.sendEmptyMessageDelayed(REVOVERTIMEOUT, 10000);
+			}
+		}).start();
+	}
+
+	/**
 	 * 恢复上次出场设置值
 	 * 
 	 * @author 泰得利通 wanglu
@@ -153,6 +203,8 @@ public class HomeActivity extends TabContentBaseActivity {
 
 		@Override
 		public void onClick(View v) {
+			startRecoverTimeOut();// 超时监听
+			registAppMessageReceiver();// 开始消息监听
 			String hexData = ClientAPI.getHexApiStr(
 					Protocol.C_RECOVER_LAST_SET, "01");
 			recoverSynTask.writeData(hexData);
@@ -200,7 +252,7 @@ public class HomeActivity extends TabContentBaseActivity {
 					UIHelper.showToask(HomeActivity.this, AppTipMessage
 							.getResouceStringId(responseData.getErrorCode()));
 				}
-
+				unRegistAppMessageReceiver();// 取消监听
 				home_sw_recover_last_out.setChecked(false);// 设置按钮状态为禁止
 
 				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
@@ -213,6 +265,7 @@ public class HomeActivity extends TabContentBaseActivity {
 					UIHelper.showToask(HomeActivity.this, AppTipMessage
 							.getResouceStringId(responseData.getErrorCode()));
 				}
+				unRegistAppMessageReceiver();// 取消监听
 				home_sw_recover_out.setChecked(false);// 设置按钮状态为禁止
 
 				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
@@ -225,6 +278,7 @@ public class HomeActivity extends TabContentBaseActivity {
 					UIHelper.showToask(HomeActivity.this, AppTipMessage
 							.getResouceStringId(responseData.getErrorCode()));
 				}
+				unRegistAppMessageReceiver();// 取消监听
 				home_lp_device.setVisibility(View.GONE);
 			}
 
@@ -234,8 +288,7 @@ public class HomeActivity extends TabContentBaseActivity {
 
 	@Override
 	protected void initMainView(View mainView) {
-		appManager.registerAppMessageRecever(this).setAppMessageLinstener(
-				new HomeMessagLinstener());
+		registAppMessageReceiver();// 注册消息监听
 		home_tv_floor_no = (TextView) mainView
 				.findViewById(R.id.home_tv_floor_no);// 电梯编号
 		home_tv_control_no = (TextView) mainView
@@ -264,12 +317,40 @@ public class HomeActivity extends TabContentBaseActivity {
 
 		initSynTask();// 初始化异步任务
 
-		registerFloorUpdateRecever();
+		registerFloorUpdateRecever();//注册楼层更新广播监听
 
 		pd_recoverdlg = new ProgressDialog(this);
 		pd_recoverdlg.setMessage(getString(R.string.tip_msg_pb_revovering));
 		pd_recoverdlg.setCancelable(false);
 
+	}
+
+	/**
+	 * 注册消息监听 wanglu 泰得利通
+	 */
+	private void registAppMessageReceiver() {
+		if (appMessageRecever != null) {
+			unRegistAppMessageReceiver();// 先取消，再重新注册
+		}
+		appMessageRecever = appManager.registerAppMessageRecever(this);
+		appMessageRecever.setAppMessageLinstener(new HomeMessagLinstener());
+	}
+
+	/**
+	 * 取消消息监听 wanglu 泰得利通
+	 */
+	private void unRegistAppMessageReceiver() {
+
+		if (appMessageRecever != null) {
+			unregisterReceiver(appMessageRecever);
+			appMessageRecever = null;
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unRegistAppMessageReceiver();
 	}
 
 	/**
@@ -479,7 +560,5 @@ public class HomeActivity extends TabContentBaseActivity {
 		}
 
 	}
-	
-	
-	
+
 }
