@@ -20,6 +20,13 @@ public class Protocol {
 	 * 心跳
 	 */
 	public static final String C_BEAT = "0000";
+	
+	
+	/**
+	 * 连接服务器验证
+	 */
+	public static final String C_SEVER_VERIFY="0001";
+
 	/**
 	 * 获取验证码
 	 */

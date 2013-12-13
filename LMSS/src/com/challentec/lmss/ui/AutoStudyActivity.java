@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.challentec.lmss.app.AppTipMessage;
+import com.challentec.lmss.app.MainActivity;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
@@ -25,6 +27,7 @@ import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.util.ClientAPI;
+import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
 
@@ -240,7 +243,11 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 				if (responseData.isSuccess()) {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
 				} else {
-					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
+					String errCode="未知错误";
+					if(!responseData.getErrorCode().equals("-1")){
+						errCode=DataPaseUtil.hexStrToInt(responseData.getErrorCode())+"";
+					}
+					UIHelper.showToask(AutoStudyActivity.this, "自学习失败,故障编码为："+errCode);
 				}
 				if (appMessageRecever != null) {
 					unregisterReceiver(appMessageRecever);
@@ -252,7 +259,12 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 				if (responseData.isSuccess()) {
 					UIHelper.showToask(AutoStudyActivity.this, "自学习成功");
 				} else {
-					UIHelper.showToask(AutoStudyActivity.this, "自学习失败");
+					
+					UIHelper.showToask(AutoStudyActivity.this, AppTipMessage
+							.getString(AutoStudyActivity.this,
+									responseData.getErrorCode()));
+
+					
 				}
 
 				if (appMessageRecever != null) {

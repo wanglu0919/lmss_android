@@ -71,6 +71,7 @@ public class MainActivity extends Activity {
 	private AppManager appManager;
 
 	private static final int GET_LOACTION_SUCCESS = 0x02;// 获取位置成功
+	private static final int SEVER_VEFIY_TIME_OUT=0x03;//服务器验证码超时
 
 	private String locationStr = "";// 坐标地址
 	
@@ -81,6 +82,7 @@ public class MainActivity extends Activity {
 	private static final int LOCATION_GET_VECODE = 1;// 验证码获取时定位
 	private static final int LOCATION_LOGIN = 2;// 登录时定位
 	private int locationType = LOCATION_GET_VECODE;
+	
 
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
@@ -97,7 +99,11 @@ public class MainActivity extends Activity {
 					doLogin();// 登陆
 				}
 
-			//	gpsInfoService.cancleLocationUpdates();// 取消定位服务
+		
+				break;
+				
+			case SEVER_VEFIY_TIME_OUT:
+				serverVieryTimeOut();
 				break;
 
 			}
@@ -118,6 +124,23 @@ public class MainActivity extends Activity {
 				.setAppConectStateListener(new MainConnectStateMessageListener());
 	}
 
+	/**
+	 * 服务器验证超时
+	 *wanglu 泰得利通
+	 */
+	protected void serverVieryTimeOut() {
+		
+		if(!socketClient.isVerify()){//没有通过服务器验证码
+			LogUtil.i(LogUtil.LOG_TAG_I, "验证超时,重新连接");
+			connect();//重新连接服务器
+		}
+	}
+
+	/**
+	 * 网络状态监听
+	 * @author wanglu 泰得利通
+	 *
+	 */
 	private class MainConnectStateMessageListener implements
 			AppConectStateListener {
 
@@ -170,6 +193,14 @@ public class MainActivity extends Activity {
 					startActivity(intent);
 
 				}
+			}else if(responseData.getFunctionCode().equals(Protocol.C_SEVER_VERIFY)){//服务器验证返回数据
+				socketClient.setVerify(true);//验证通过
+				LogUtil.i(LogUtil.LOG_TAG_I, "服务器验证成功");
+				UIHelper.showToask(appContext,"连接服务器成功");
+				main_pb_load.setVisibility(View.GONE);
+				new SynTask(appContext).uiLog(Protocol.UI_LOGIN);// 记录操作日志
+				appManager.startPolling();//开始心跳
+				
 			}
 		}
 
@@ -271,21 +302,51 @@ public class MainActivity extends Activity {
 			@Override
 			public void onConnectSuccess(String code) {// 连接成功
 
-				super.onConnectSuccess(code);
+				//super.onConnectSuccess(code);
 
-				new SynTask(appContext).uiLog(Protocol.UI_LOGIN);// 记录操作日志
-				appManager.startPolling();// 开始心跳
-
+			//	new SynTask(appContext).uiLog(Protocol.UI_LOGIN);// 记录操作日志
+			//	appManager.startPolling();// 开始心跳
+				
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器成功");
+				/**
+				 * 验证成功发送验证包
+				 */
+				sendSeverVifyData();
 			}
 
 			@Override
 			public void onFianly() {
 
-				main_pb_load.setVisibility(View.GONE);
+				//main_pb_load.setVisibility(View.GONE);
 			}
 
 		}, appContext).connectServer(socketClient);
 
+	}
+	
+	
+	/**
+	 * 服务器验证
+	 *wanglu 泰得利通
+	 */
+	private void sendSeverVifyData(){
+		
+		LogUtil.i(LogUtil.LOG_TAG_I, "发送了验证包");
+		String apiData=ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
+		
+		new SynTask(appContext).writeData(apiData);
+		
+		
+		new Thread(new Runnable() {//超时处理
+			
+			@Override
+			public void run() {
+				
+				handler.sendEmptyMessageDelayed(SEVER_VEFIY_TIME_OUT, 2000);
+				
+			}
+		}).start();
+		
 	}
 
 	/**
@@ -370,7 +431,6 @@ public class MainActivity extends Activity {
 
 						} else {// 基站已经定位已经打开
 
-							
 							
 							if(checkVecodInput()){
 								locationType = LOCATION_GET_VECODE;
@@ -525,9 +585,7 @@ public class MainActivity extends Activity {
 		main_login_et_tel = (EditText) findViewById(R.id.main_login_et_tel);
 		main_et_vecode = (EditText) findViewById(R.id.main_et_vecode);
 
-		// main_login_et_tel.setText("13888888888");
-		// main_et_vecode.setText("123456");
-
+	
 	}
 
 	/**
@@ -576,39 +634,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	/*
-	private class MyGPSLinster implements LocationListener {
-
-		// 用户位置改变的时候 的回调方法
-		public void onLocationChanged(Location location) {
-			// 获取到用户的纬度
-			double latitude = location.getLatitude();
-			// 获取到用户的经度
-			double longitude = location.getLongitude();
-			// 进行封装写入到文件中
-			locationStr = longitude + "," + latitude;
-
-			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "获取到了位置");
-			handler.sendEmptyMessage(GET_LOACTION_SUCCESS);
-
-		}
-
-		// 状态改变
-		public void onStatusChanged(String provider, int status, Bundle extras) {
-			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onStatusChanged");
-		}
-
-		// gps ,打开
-		public void onProviderEnabled(String provider) {
-			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onProviderEnabled");
-		}
-
-		// 关闭
-		public void onProviderDisabled(String provider) {
-			LogUtil.i(LogUtil.LOG_TAG_LOCATION, "onProviderDisabled");
-		}
-	}
-*/
+	
 	/**
 	 * 表单检查输入
 	 * 

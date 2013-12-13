@@ -9,13 +9,9 @@ import android.os.Message;
 import com.challentec.lmss.app.AppConfig;
 import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.app.AppManager;
-import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.exception.ConnectServerTimeOutException;
-import com.challentec.lmss.exception.ReadDataException;
 import com.challentec.lmss.util.ClientAPI;
-import com.challentec.lmss.util.HandlerMessage;
 import com.challentec.lmss.util.LogUtil;
-import com.challentec.lmss.util.Protocol;
 
 /**
  * app异步任务
@@ -30,6 +26,8 @@ public class SynTask {
 	private AppContext context;
 	private AppConfig appConfig;
 	private AppManager appManager;
+	
+	
 
 	public SynTask(SynHandler handler, AppContext context) {
 		this.handler = handler;
@@ -37,7 +35,7 @@ public class SynTask {
 		this.context = context;
 		appConfig = AppConfig.getAppConfig(context);
 		socketClient = SocketClient.getSocketClient();
-		appManager=AppManager.getManager(context);
+		appManager = AppManager.getManager(context);
 	}
 
 	public SynTask(AppContext context) {
@@ -63,9 +61,13 @@ public class SynTask {
 	 * 
 	 * @author 泰得利通 wanglu
 	 * @param hexStr
-	 *            16进制数据字符串
+	 * @isverfy 是否要通过服务器验证 
+	 * 16进制数据字符串
 	 */
 	public void writeData(final String hexStr) {
+		
+		
+		
 
 		if (!context.isNetworkConnected()) {// 检查网络连接
 			if (handler != null) {
@@ -78,6 +80,9 @@ public class SynTask {
 			return;
 
 		}
+		
+		
+		
 
 		if (!socketClient.isConnected()) {// 检查连接受否断开
 			if (handler != null) {
@@ -88,12 +93,16 @@ public class SynTask {
 
 			return;
 		}
+		
+		
+		
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 
 				try {
+
 					socketClient.writeHexStr(hexStr);
 					if (handler != null) {
 						Message msg = handler.obtainMessage();
@@ -142,10 +151,14 @@ public class SynTask {
 			return;
 		}
 
+		
+	//	ReadTread.getReadThread(context, socketClient).startRead();
 		/**
 		 * 该线程死循环，阻塞监听服务器返回数据，当读取捕获ReadDataException
 		 * 表示连接断开，发送服务器挂了消息，通知app网络监听广播接收者处理
 		 */
+		
+		/*
 		new Thread(new Runnable() {
 
 			@Override
@@ -181,7 +194,11 @@ public class SynTask {
 			}
 		}).start();
 
+*/
 	}
+	
+	
+	
 
 	/**
 	 * 连接服务
@@ -214,12 +231,25 @@ public class SynTask {
 
 					socketClient.connect();
 					if (handler != null) {
-						appManager.setPollCount(0);//心跳次数清0
+						appManager.setPollCount(0);// 心跳次数清0
 						handler.sendEmptyMessage(SynHandler.CONNECTION_SUCCESS);
-				
-					}
 
-					startRead();// 启动读取数据线程
+					}
+					
+					if(socketClient.readTread!=null){
+						socketClient.readTread.stop();
+						socketClient.readTread=null;
+						
+						ReadTread readTread=new ReadTread(context,socketClient);
+						socketClient.readTread=readTread;
+						socketClient.readTread.start();//启动读取数据线程
+					}else{
+						ReadTread readTread=new ReadTread(context,socketClient);
+						socketClient.readTread=readTread;
+						socketClient.readTread.start();//启动读取数据线程
+					}
+					//ReadTread.getReadThread(context, socketClient).stopRead();//停止原来的线程
+					//startRead();// 启动读取数据线程
 				} catch (UnknownHostException e) {
 
 					e.printStackTrace();
@@ -273,7 +303,8 @@ public class SynTask {
 				String logData = ClientAPI.getLOGStr(ui_code);
 				try {
 					socketClient.writeHexStr(logData);
-					LogUtil.i(LogUtil.LOG_TAG_LOG, "提交日志数据" + ui_code + ":" + logData);
+					LogUtil.i(LogUtil.LOG_TAG_LOG, "提交日志数据" + ui_code + ":"
+							+ logData);
 
 				} catch (IOException e) {
 					e.printStackTrace();

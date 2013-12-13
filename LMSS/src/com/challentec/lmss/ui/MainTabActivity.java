@@ -38,6 +38,7 @@ import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.recever.MonitorRecever;
 import com.challentec.lmss.service.AutoConnectPollingService;
+import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
@@ -67,6 +68,8 @@ public class MainTabActivity extends ActivityGroup implements
 	private AppConnectStateRecever appConnectStateRecever;// 连接网络状态监听
 	private AppContext appContext;
 	private AppMessageRecever appMessageRecever;
+	private static final int SEVER_VEFIY_TIME_OUT = 0x01;
+	private SocketClient socketClient;
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 
@@ -75,11 +78,24 @@ public class MainTabActivity extends ActivityGroup implements
 			case REMOVE_VIEW:
 				removeView();
 				break;
+			case SEVER_VEFIY_TIME_OUT:
+				break;
 
 			}
 
 		};
 	};
+
+	/**
+	 * 服务器验证超时 wanglu 泰得利通
+	 */
+	protected void serverVieryTimeOut() {
+
+		if (!socketClient.isVerify()) {// 没有通过服务器验证码
+			LogUtil.i(LogUtil.LOG_TAG_I, "tab界面验证超时,重新连接");
+			connectServer();// 重新连接服务器
+		}
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +122,7 @@ public class MainTabActivity extends ActivityGroup implements
 			if (responseData.getFunctionCode().equals(Protocol.C_AUTO_CONNECT)) {// 自动重连接口
 
 				if (responseData.isSuccess()) {// 成功
-					
+
 					sendMonitorBroadCast();// 发送监控通知信息
 
 				} else {// 失败
@@ -121,6 +137,13 @@ public class MainTabActivity extends ActivityGroup implements
 				LogUtil.i(LogUtil.LOG_TAG_AUTO_CONNECT, "重练停止");
 				pb_head.setVisibility(View.GONE);
 				pb_text.setVisibility(View.GONE);
+			} else if (responseData.getFunctionCode().equals(
+					Protocol.C_SEVER_VERIFY)) {// 服务器验证返回数据
+				socketClient.setVerify(true);// 验证通过
+				LogUtil.i(LogUtil.LOG_TAG_I, "tab界面服务器验证成功");
+				appManager.startPolling();// 开始心跳
+				autoConnect();// 重连
+
 			}
 
 		}
@@ -207,7 +230,7 @@ public class MainTabActivity extends ActivityGroup implements
 	 */
 	private void connectServer() {
 
-		SocketClient socketClient = SocketClient.getSocketClient();
+		socketClient = SocketClient.getSocketClient();
 
 		new SynTask(new SynHandler() {
 
@@ -215,10 +238,7 @@ public class MainTabActivity extends ActivityGroup implements
 			public void onConnectSuccess(String code) {// 连接成功
 
 				// super.onConnectSuccess(code);
-
-				appManager.startPolling();// 开始心跳
-
-				autoConnect();// 重连
+				sendSeverVifyData();
 
 			}
 
@@ -228,6 +248,29 @@ public class MainTabActivity extends ActivityGroup implements
 			}
 
 		}, appContext).connectServer(socketClient);
+
+	}
+
+	/**
+	 * 服务器验证 wanglu 泰得利通
+	 */
+	private void sendSeverVifyData() {
+
+		LogUtil.i(LogUtil.LOG_TAG_I, "tab界面备界面发送了验证包");
+		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
+
+		new SynTask(appContext).writeData(apiData);
+
+		new Thread(new Runnable() {// 超时处理
+
+					@Override
+					public void run() {
+
+						handler.sendEmptyMessageDelayed(SEVER_VEFIY_TIME_OUT,
+								2000);
+
+					}
+				}).start();
 
 	}
 

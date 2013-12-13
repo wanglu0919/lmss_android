@@ -436,15 +436,15 @@ public final class R {
         public static final int device_tv_reply_default=0x7f08003e;
         public static final int device_tv_reply_last_default=0x7f08003f;
         public static final int device_tv_scan=0x7f080040;
-        public static final int dlg_msg_cancle=0x7f080181;
+        public static final int dlg_msg_cancle=0x7f080182;
         /**  通用类 
  通用类 
  通用类 
          */
-        public static final int dlg_msg_ok=0x7f080180;
+        public static final int dlg_msg_ok=0x7f080181;
         public static final int dlg_recover=0x7f080041;
         public static final int dlg_recover_cancle=0x7f080042;
-        public static final int dlg_title_ok_cancle=0x7f080182;
+        public static final int dlg_title_ok_cancle=0x7f080183;
         public static final int elec_check_run_dir_against=0x7f08011b;
         /**  电机参数选项 
  电机参数选项 
@@ -780,6 +780,7 @@ public final class R {
         public static final int tip_msg_unknow_version=0x7f080149;
         public static final int tip_msg_vecode_error=0x7f080172;
         public static final int tip_msg_vecode_time_out=0x7f080173;
+        public static final int tip_msg_well_study_fail=0x7f080180;
         public static final int title_tip_auto_connecting=0x7f080165;
         public static final int title_tip_unconnnect=0x7f080164;
         public static final int trouble_deatil_tv_zj_elec=0x7f08010e;

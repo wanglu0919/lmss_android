@@ -32,8 +32,19 @@ public class SocketClient {
 	private String ip = "";// ip地址
 	private static final int PORT = 9721;// 服务器端口
 	private static final int CONNECT_SERVER_TIME_OUT = 2000;
+	private boolean isVerify;//服务器是否通过验证码
+	
+	public  static ReadTread readTread;// 读取数据线程
 
 	// private static final int READ_TIME_OUT=10000;//读取数据超时
+
+	public boolean isVerify() {
+		return isVerify;
+	}
+
+	public void setVerify(boolean isVerify) {
+		this.isVerify = isVerify;
+	}
 
 	private SocketClient() {
 	}
@@ -65,7 +76,8 @@ public class SocketClient {
 	 */
 	public void connect() throws UnknownHostException, IOException,
 			ConnectServerTimeOutException {
-
+		
+		
 		boolean flag = true;
 		int i = 0;
 		while (flag) {// 连接服务器
@@ -75,12 +87,15 @@ public class SocketClient {
 				socket = null;
 				socket = new Socket();
 				
+				
 				if (i % 2 == 0) {//轮询连接服务器
 					ip = OUTERNET_IP;
 				} else {
 					ip = INTRANET_IP;
 				}
 				i++;
+				
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接IP为"+ip);
 				socket.connect(new InetSocketAddress(ip, PORT),
 						CONNECT_SERVER_TIME_OUT);
 				is = socket.getInputStream();
@@ -147,7 +162,7 @@ public class SocketClient {
 	}
 
 	/**
-	 * 判断socket是否连接
+	 * 判断socket是否连接 并且通过服务器验证
 	 * 
 	 * @author 泰得利通 wanglu
 	 * @return
@@ -173,6 +188,7 @@ public class SocketClient {
 	 */
 	public void dispose() {
 		try {
+			isVerify=false;//服务器验证指控
 			if (socket != null && socket.isConnected()) {
 
 				is.close();
@@ -181,7 +197,7 @@ public class SocketClient {
 				socket = null;
 				is = null;
 				os = null;
-			}
+				}
 		} catch (IOException e) {
 
 		}

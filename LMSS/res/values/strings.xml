@@ -431,7 +431,7 @@
     <string name="tip_msg_form_tele_error">手机号码不正确!</string>
     <string name="tip_msg_form_vecode_error">验证码长度不对!</string>
     <string name="tip_msg_form_vecode_empty">请输验证码!</string>
-    <string name="tip_msg_form_device_no_empty">请输入设备授权码!</string>
+    <string name="tip_msg_form_device_no_empty">请输入或扫描设备授权码!</string>
     <string name="tip_form_range_front">当前修改值的范围为</string>
     <string name="tip_form_range_back">精度及数值的进制按照所示范围确定</string>
     <string name="tip_form_number_big">输入数字过大</string>
@@ -454,6 +454,7 @@
     <string name="tip_msg_no_location">设备不在授权范围!</string>
     <string name="tip_msg_recovery_company_set_fail">恢复出厂设置失败!</string>
     <string name="tip_msg_recovery_last_value_set_fail">恢复上次设置值失败!</string>
+    <string name="tip_msg_well_study_fail">井道自学习失败!</string>
     <!-- 通用类 -->
 
     <string name="dlg_msg_ok">确定</string>

@@ -1,9 +1,12 @@
 package com.challentec.lmss.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,6 +25,7 @@ import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.service.LoginPollingService;
 import com.challentec.lmss.util.ClientAPI;
+import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
@@ -42,6 +46,37 @@ public class ChoiceDeviceActivity extends BaseActivity {
 	private Button choice_btn_submit;// 提交
 	private AppMessageRecever appMessageRecever;
 	private AppConnectStateRecever appConnectStateRecever;
+	private static final int SEVER_VEFIY_TIME_OUT = 0x03;// 服务器验证码
+
+	private SocketClient socketClient;
+	@SuppressLint("HandlerLeak")
+	private Handler handler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+
+			switch (msg.what) {
+
+			case SEVER_VEFIY_TIME_OUT:
+				serverVieryTimeOut();
+				break;
+
+			}
+
+		}
+
+	};
+
+	/**
+	 * 服务器验证超时 wanglu 泰得利通
+	 */
+	protected void serverVieryTimeOut() {
+
+		if (!socketClient.isVerify()) {// 没有通过服务器验证码
+			LogUtil.i(LogUtil.LOG_TAG_I, "选择设备验证超时,重新连接");
+			connectServer();// 重新连接服务器
+		}
+	}
 
 	@Override
 	protected void addListeners() {
@@ -146,18 +181,17 @@ public class ChoiceDeviceActivity extends BaseActivity {
 	 */
 	private void connectServer() {
 
-		SocketClient socketClient = SocketClient.getSocketClient();
+		socketClient = SocketClient.getSocketClient();
 
 		new SynTask(new SynHandler() {
 
 			@Override
 			public void onConnectSuccess(String code) {// 连接成功
 
-				super.onConnectSuccess(code);
+				// super.onConnectSuccess(code);
+				LogUtil.i(LogUtil.LOG_TAG_I, "选择社保界面连接服务器成功");
 
-				appManager.startPolling();// 开始心跳
-
-				aginLogin();// 重新登陆
+				sendSeverVifyData();
 			}
 
 			@Override
@@ -166,6 +200,29 @@ public class ChoiceDeviceActivity extends BaseActivity {
 			}
 
 		}, appContext).connectServer(socketClient);
+	}
+
+	/**
+	 * 服务器验证 wanglu 泰得利通
+	 */
+	private void sendSeverVifyData() {
+
+		LogUtil.i(LogUtil.LOG_TAG_I, "选择设备界面发送了验证包");
+		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
+
+		new SynTask(appContext).writeData(apiData);
+
+		new Thread(new Runnable() {// 超时处理
+
+					@Override
+					public void run() {
+
+						handler.sendEmptyMessageDelayed(SEVER_VEFIY_TIME_OUT,
+								5000);
+
+					}
+				}).start();
+
 	}
 
 	/**
@@ -238,15 +295,25 @@ public class ChoiceDeviceActivity extends BaseActivity {
 
 				} else {// 登陆成功
 					/*
-					UIHelper.showToask(appContext,
-							R.string.tip_msg_auto_connect_success);// 重连成功
-							*/
+					 * UIHelper.showToask(appContext,
+					 * R.string.tip_msg_auto_connect_success);// 重连成功
+					 */
 
 				}
 				PollingUtils.stopPollingService(appContext,
 						LoginPollingService.class, LoginPollingService.ACTION);// 停止自动登录
 				pb_head.setVisibility(View.GONE);
 				pb_text.setVisibility(View.GONE);
+
+			} else if (responseData.getFunctionCode().equals(
+					Protocol.C_SEVER_VERIFY)) {// 服务器验证返回数据
+				socketClient.setVerify(true);// 验证通过
+				LogUtil.i(LogUtil.LOG_TAG_I, "选择设备界面服务器验证成功");
+				UIHelper.showToask(appContext, "连接服务器成功");
+
+				appManager.startPolling();// 开始心跳
+
+				aginLogin();// 重新登陆
 
 			}
 
@@ -266,7 +333,7 @@ public class ChoiceDeviceActivity extends BaseActivity {
 
 		new SynTask(appContext).uiLog(Protocol.UI_LOGIN_SUCCESS);// 操作日志
 
-		//choice_et_no.setText("20130101");
+		// choice_et_no.setText("20130101");
 
 	}
 
