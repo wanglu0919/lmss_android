@@ -57,7 +57,7 @@ public class DriveStateActivity extends TabContentBaseActivity {
 
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
-		synTask.writeData(apiData);// 停止监控
+		synTask.writeData(apiData,true);// 停止监控
 	}
 
 	
@@ -171,7 +171,7 @@ public class DriveStateActivity extends TabContentBaseActivity {
 
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
-		synTask.writeData(apiData);// 开始监控
+		synTask.writeData(apiData,true);// 开始监控
 		synTask.uiLog(Protocol.UI_DRIVER_STATE);// 驱动状态
 
 	}

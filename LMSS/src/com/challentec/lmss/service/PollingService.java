@@ -60,7 +60,7 @@ public class PollingService extends Service {
 		} else {
 			LogUtil.i(LogUtil.LOG_TAG_BEAT, "心跳数据");
 			String apiData = ClientAPI.getApiStr(Protocol.C_BEAT);
-			synTask.writeData(apiData);
+			synTask.writeData(apiData,true);
 			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "发送心跳前次数为:"+appManager.getPollCount());
 			appManager.addPollCount();// 记录心跳次数
 			LogUtil.i(LogUtil.LOG_TAG_BEAT_COUNT, "发送心跳后次数为:"+appManager.getPollCount());

@@ -52,6 +52,10 @@ public class ReadTread extends Thread {
 
 		while (true) {// 循环从缓冲区读取消息
 			try {
+				
+				if(this.isInterrupted()){
+					break;
+				}
 				if (!context.isNetworkConnected()
 						|| !socketClient.isConnected()) {// 检查网络连接和socket状态
 					LogUtil.i(LogUtil.LOG_TAG_READ, "读取连接断开或未连接");

@@ -85,7 +85,7 @@ public class ChangeDeviceActivity extends TabContentBaseActivity {
 
 		String apiData = ClientAPI.getApiStr(Protocol.S_CHANGE_DEVICE);
 
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 
 	}
 

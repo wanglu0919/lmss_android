@@ -89,7 +89,7 @@ public class HomeActivity extends TabContentBaseActivity {
 						} else {
 							String hexData = ClientAPI.getHexApiStr(
 									Protocol.C_RECOVER_DEVICE, "00");
-							recoverSynTask.writeData(hexData);
+							recoverSynTask.writeData(hexData,true);
 
 						}
 					}
@@ -117,7 +117,7 @@ public class HomeActivity extends TabContentBaseActivity {
 						} else {
 							String hexData = ClientAPI.getHexApiStr(
 									Protocol.C_RECOVER_LAST_SET, "00");
-							recoverSynTask.writeData(hexData);
+							recoverSynTask.writeData(hexData,true);
 
 						}
 					}
@@ -154,7 +154,7 @@ public class HomeActivity extends TabContentBaseActivity {
 			registAppMessageReceiver();// 开始消息监听
 			String hexData = ClientAPI.getHexApiStr(Protocol.C_RECOVER_DEVICE,
 					"01");
-			recoverSynTask.writeData(hexData);
+			recoverSynTask.writeData(hexData,true);
 			recoverOutSetDlg.dismiss();
 			pd_recoverdlg.show();
 
@@ -207,7 +207,7 @@ public class HomeActivity extends TabContentBaseActivity {
 			registAppMessageReceiver();// 开始消息监听
 			String hexData = ClientAPI.getHexApiStr(
 					Protocol.C_RECOVER_LAST_SET, "01");
-			recoverSynTask.writeData(hexData);
+			recoverSynTask.writeData(hexData,true);
 			recoverlastOutSetDlg.dismiss();
 			pd_recoverdlg.show();
 
@@ -387,7 +387,7 @@ public class HomeActivity extends TabContentBaseActivity {
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 		synTask.uiLog(Protocol.UI_DEVICE_DISPLAY);// 日志记录
 		home_lp_device.setVisibility(View.GONE);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 
 	}
 

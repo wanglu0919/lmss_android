@@ -334,7 +334,7 @@ public class MainActivity extends Activity {
 		LogUtil.i(LogUtil.LOG_TAG_I, "发送了验证包");
 		String apiData=ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
 		
-		new SynTask(appContext).writeData(apiData);
+		new SynTask(appContext).writeData(apiData,false);
 		
 		
 		new Thread(new Runnable() {//超时处理
@@ -475,7 +475,7 @@ public class MainActivity extends Activity {
 						String hexStr = ClientAPI.getHexApiStr(
 								Protocol.C_SET_LANGUAGE, "02");
 						new SynTask(new SynHandler(), appContext)
-								.writeData(hexStr);
+								.writeData(hexStr,true);
 					}
 				});
 
@@ -504,7 +504,7 @@ public class MainActivity extends Activity {
 
 			new SynTask(new SynHandler() {
 
-			}, appContext).writeData(apiData);
+			}, appContext).writeData(apiData,true);
 
 			/** 保存位置信息 */
 			Editor ed = sp.edit();
@@ -533,7 +533,7 @@ public class MainActivity extends Activity {
 				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		new SynTask(new SynHandler()
 
-		, appContext).writeData(apiData);
+		, appContext).writeData(apiData,true);
 
 	}
 

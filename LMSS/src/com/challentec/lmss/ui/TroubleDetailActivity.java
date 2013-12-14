@@ -100,7 +100,7 @@ public class TroubleDetailActivity extends TabContentBaseActivity {
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
 		String apiData = ClientAPI.getHexApiStr(Protocol.B_GET_TROUBLE_D, tid);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 		synTask.uiLog(Protocol.UI_TROUBLE_DETAIL);
 	}
 

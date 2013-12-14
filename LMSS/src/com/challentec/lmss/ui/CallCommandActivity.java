@@ -158,7 +158,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 */
 	private void startUpCall() {
 
-		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_UP_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_UP_CALL),true);
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopUpCall() {
-		synTask.writeData(Protocol.M_END_UP_CALL);
+		synTask.writeData(Protocol.M_END_UP_CALL,true);
 
 	}
 
@@ -222,7 +222,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startDownCall() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_DOWN_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_DOWN_CALL),true);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopDownCall() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_DOWN_CALL));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_DOWN_CALL),true);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void startCommand() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_COMMAND));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_START_COMMAND),true);
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void stopCommand() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_COMMAND));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.M_END_COMMAND),true);
 	}
 
 	/**

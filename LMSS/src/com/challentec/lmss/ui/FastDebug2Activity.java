@@ -95,7 +95,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 			public void onClick(View v) {
 				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"01");
-				synTask.writeData(apiData);
+				synTask.writeData(apiData,true);
 			}
 		});
 
@@ -105,7 +105,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 			public void onClick(View v) {
 				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"03");
-				synTask.writeData(apiData);
+				synTask.writeData(apiData,true);
 			}
 		});
 
@@ -116,7 +116,7 @@ public class FastDebug2Activity extends TabContentBaseActivity {
 
 				String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 						"02");
-				synTask.writeData(apiData);
+				synTask.writeData(apiData,true);
 
 			}
 		});

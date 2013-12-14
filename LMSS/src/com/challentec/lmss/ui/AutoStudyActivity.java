@@ -216,7 +216,7 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 		String apiData = ClientAPI.getApiStr(Protocol.S_WELL_AUTO_STUDY);
 		new SynTask(new SynHandler()
 
-		, appContext).writeData(apiData);
+		, appContext).writeData(apiData,true);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 		startMonitorTimeOut();// 开始超时处理
 		pd_study.show();
 		String apiData = ClientAPI.getApiStr(Protocol.S_ELEC_AUTO_STUDY);
-		new SynTask(new SynHandler(), appContext).writeData(apiData);
+		new SynTask(new SynHandler(), appContext).writeData(apiData,true);
 
 	}
 

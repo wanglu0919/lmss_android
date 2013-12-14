@@ -74,7 +74,7 @@ public class LoginPollingService extends Service {
 				+ vecode + "|" + AppManager.getManager(appContext).getIMEI()
 				+ "|" + location + "|" + gpsflag);// 手机号+验证码+IME号+定位信息+定位服务是否开启
 
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 	}
 
 	/**

@@ -87,7 +87,7 @@ public abstract class ListParamActivity extends TabContentBaseActivity {
 		pd_save.show();// 显示进度对话框
 		String apiData = ClientAPI.getHexApiStr(getSaveFuncitonCode(),
 				getHexSaveData());
-		sysTask.writeData(apiData);
+		sysTask.writeData(apiData,true);
 	}
 
 	/**
@@ -285,7 +285,7 @@ public abstract class ListParamActivity extends TabContentBaseActivity {
 		sysTask = new SynTask(new SynHandler(), appContext);
 
 		String apiData = ClientAPI.getApiStr(getFunctionCommand());
-		sysTask.writeData(apiData);
+		sysTask.writeData(apiData,true);
 		sysTask.uiLog(getUICode());// 日志
 
 	}

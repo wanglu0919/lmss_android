@@ -186,11 +186,16 @@ public class SocketClient {
 	 * @author 泰得利通 wanglu
 	 * @throws IOException
 	 */
+	
 	public void dispose() {
 		try {
 			isVerify=false;//服务器验证指控
 			if (socket != null && socket.isConnected()) {
 
+				if(readTread!=null&&readTread.isAlive()){
+					readTread.interrupt();
+					readTread=null;
+				}
 				is.close();
 				os.close();
 				socket.close();

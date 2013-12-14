@@ -259,7 +259,7 @@ public class MainTabActivity extends ActivityGroup implements
 		LogUtil.i(LogUtil.LOG_TAG_I, "tab界面备界面发送了验证包");
 		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
 
-		new SynTask(appContext).writeData(apiData);
+		new SynTask(appContext).writeData(apiData,false);
 
 		new Thread(new Runnable() {// 超时处理
 

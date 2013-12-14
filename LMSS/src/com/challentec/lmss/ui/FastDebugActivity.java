@@ -129,7 +129,7 @@ public class FastDebugActivity extends TabContentBaseActivity {
 					Integer.parseInt(edit_tv_send.getText().toString()), 1);
 			String apiData = ClientAPI.getHexApiStr(Protocol.A_TEST_SEND,
 					hexData);
-			synTask.writeData(apiData);
+			synTask.writeData(apiData,true);
 			
 		}
 	}

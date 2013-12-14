@@ -153,7 +153,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 */
 	private void startPortMonitor_1() {
 		String apiData = ClientAPI.getApiStr(Protocol.M_START_PORT_1);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 
 	}
 
@@ -164,7 +164,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 */
 	private void stopPortMonitor_1() {
 		String apiData = ClientAPI.getApiStr(Protocol.M_END_PORT_1);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 */
 	private void startPortMonitor_2() {
 		String apiData = ClientAPI.getApiStr(Protocol.M_START_PORT_2);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class PortStateActivity extends TabContentBaseActivity {
 	 */
 	private void stopPortMonitor_2() {
 		String apiData = ClientAPI.getApiStr(Protocol.M_END_PORT_2);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 	}
 
 	/**

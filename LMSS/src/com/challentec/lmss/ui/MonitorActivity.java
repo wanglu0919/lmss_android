@@ -178,7 +178,7 @@ public class MonitorActivity extends TabContentBaseActivity {
 		monitor_pb.setVisibility(View.VISIBLE);
 		String apiData = ClientAPI.getApiStr(Protocol.M_START_MON);
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 		synTask.uiLog(Protocol.UI_MONITOR_HOME);// 记录操作
 
 	}
@@ -330,7 +330,7 @@ public class MonitorActivity extends TabContentBaseActivity {
 
 			}
 
-		}, appContext).writeData(apiData);
+		}, appContext).writeData(apiData,true);
 
 	}
 

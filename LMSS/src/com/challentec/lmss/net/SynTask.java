@@ -26,8 +26,6 @@ public class SynTask {
 	private AppContext context;
 	private AppConfig appConfig;
 	private AppManager appManager;
-	
-	
 
 	public SynTask(SynHandler handler, AppContext context) {
 		this.handler = handler;
@@ -61,13 +59,10 @@ public class SynTask {
 	 * 
 	 * @author 泰得利通 wanglu
 	 * @param hexStr
-	 * @isverfy 是否要通过服务器验证 
-	 * 16进制数据字符串
+	 * @param isVerfyServer 是否检查服务器通过验证
+	 * @isverfy 是否过服务器验证 16进制数据字符串
 	 */
-	public void writeData(final String hexStr) {
-		
-		
-		
+	public void writeData(final String hexStr,final boolean isVerfyServer) {
 
 		if (!context.isNetworkConnected()) {// 检查网络连接
 			if (handler != null) {
@@ -80,9 +75,6 @@ public class SynTask {
 			return;
 
 		}
-		
-		
-		
 
 		if (!socketClient.isConnected()) {// 检查连接受否断开
 			if (handler != null) {
@@ -93,9 +85,19 @@ public class SynTask {
 
 			return;
 		}
-		
-		
-		
+
+		/*
+		if(isVerfyServer&&!socketClient.isVerify()){//socket连上但是没有通过服务器验证
+			
+			if (handler != null) {
+				Message msg = handler.obtainMessage();
+				msg.what = SynHandler.UN_CONNECT;
+				handler.sendMessage(msg);
+			}
+
+			return ;
+			
+		}*/
 		new Thread(new Runnable() {
 
 			@Override
@@ -119,7 +121,6 @@ public class SynTask {
 					}
 
 				} catch (IOException e) {
-
 					e.printStackTrace();
 					if (handler != null) {
 						Message msg = handler.obtainMessage();
@@ -133,72 +134,6 @@ public class SynTask {
 		}).start();
 
 	}
-
-	/**
-	 * 启动读取数据线程
-	 * 
-	 * @author 泰得利通 wanglu
-	 */
-	private void startRead() {
-
-		if (!context.isNetworkConnected()) {// 检查网络连接
-
-			return;
-		}
-
-		if (!socketClient.isConnected()) {// 检查连接受否断开
-
-			return;
-		}
-
-		
-	//	ReadTread.getReadThread(context, socketClient).startRead();
-		/**
-		 * 该线程死循环，阻塞监听服务器返回数据，当读取捕获ReadDataException
-		 * 表示连接断开，发送服务器挂了消息，通知app网络监听广播接收者处理
-		 */
-		
-		/*
-		new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-
-				LogUtil.i(LogUtil.LOG_TAG_READ, "读取线程启动");
-
-				while (true) {// 循环从缓冲区读取消息
-					try {
-						if (!context.isNetworkConnected()
-								|| !socketClient.isConnected()) {// 检查网络连接和socket状态
-							LogUtil.i(LogUtil.LOG_TAG_READ, "读取连接断开或未连接");
-							continue;
-						}
-						LogUtil.i(LogUtil.LOG_TAG_READ, "读取数据等待中....");
-						String responseData = socketClient.readData();// 该方法为阻塞方法，阻塞读取服务器返回数据
-						if (responseData != null) {
-							ResponseData rd = Protocol.paseData(responseData);// 解析返回数据
-							HandlerMessage.handlerMessage(context, rd);// 分发读取返回的消息
-							LogUtil.i(LogUtil.LOG_TAG_READ,
-									"读取到了数据功能号为" + rd.getFunctionCode());
-						}
-					} catch (IOException e) {
-
-						LogUtil.i(LogUtil.LOG_TAG_READ, "读取数据异常");
-					} catch (ReadDataException e) {
-						e.printStackTrace();
-						LogUtil.i(LogUtil.LOG_TAG_READ, "服务端挂了");
-						HandlerMessage.handlerUNConnectMessage(context);// 发送服务挂了消息
-						break;
-					}
-				}
-			}
-		}).start();
-
-*/
-	}
-	
-	
-	
 
 	/**
 	 * 连接服务
@@ -235,21 +170,9 @@ public class SynTask {
 						handler.sendEmptyMessage(SynHandler.CONNECTION_SUCCESS);
 
 					}
-					
-					if(socketClient.readTread!=null){
-						socketClient.readTread.stop();
-						socketClient.readTread=null;
-						
-						ReadTread readTread=new ReadTread(context,socketClient);
-						socketClient.readTread=readTread;
-						socketClient.readTread.start();//启动读取数据线程
-					}else{
-						ReadTread readTread=new ReadTread(context,socketClient);
-						socketClient.readTread=readTread;
-						socketClient.readTread.start();//启动读取数据线程
-					}
-					//ReadTread.getReadThread(context, socketClient).stopRead();//停止原来的线程
-					//startRead();// 启动读取数据线程
+					ReadTread readTread = new ReadTread(context, socketClient);
+					SocketClient.readTread = readTread;
+					SocketClient.readTread.start();// 启动读取数据线
 				} catch (UnknownHostException e) {
 
 					e.printStackTrace();
@@ -296,6 +219,13 @@ public class SynTask {
 			return;
 		}
 
+		if(!socketClient.isVerify()){//没有通过服务器验证
+			
+			return ;
+		}
+		
+		
+		
 		new Thread(new Runnable() {
 
 			@Override

@@ -70,7 +70,7 @@ public class AutoConnectPollingService extends Service {
 				String deviceNo = sp.getString(AppConfig.DEVICE_NUMBER_KEY, "");// 设备授权码
 				String apiData = ClientAPI.getApiStr(Protocol.C_AUTO_CONNECT, tel + "|"
 						+ deviceNo+"|"+AppManager.getManager(appContext).getIMEI());//手机号+设备授权码+IME号
-				synTask.writeData(apiData);
+				synTask.writeData(apiData,true);
 			}else{
 				
 				PollingUtils.stopPollingService(appContext, AutoConnectPollingService.class, ACTION);//停止服务

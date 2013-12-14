@@ -77,7 +77,7 @@ public class TroubleActivity extends TabContentBaseActivity {
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 
 		String apiData = ClientAPI.getApiStr(Protocol.B_GET_TROUBLE);
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 		synTask.uiLog(Protocol.UI_TROUBLE_HOME);// 日志
 
 	}

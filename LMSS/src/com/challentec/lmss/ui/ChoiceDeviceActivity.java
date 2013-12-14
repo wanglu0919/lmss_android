@@ -117,7 +117,7 @@ public class ChoiceDeviceActivity extends BaseActivity {
 			String apiData = ClientAPI.getApiStr(
 					Protocol.C_SEND_AUTHORIZATION_CODE, deviceNo);
 
-			new SynTask(new SynHandler(), appContext).writeData(apiData);
+			new SynTask(new SynHandler(), appContext).writeData(apiData,true);
 
 		}
 
@@ -210,7 +210,7 @@ public class ChoiceDeviceActivity extends BaseActivity {
 		LogUtil.i(LogUtil.LOG_TAG_I, "选择设备界面发送了验证包");
 		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
 
-		new SynTask(appContext).writeData(apiData);
+		new SynTask(appContext).writeData(apiData,false);
 
 		new Thread(new Runnable() {// 超时处理
 

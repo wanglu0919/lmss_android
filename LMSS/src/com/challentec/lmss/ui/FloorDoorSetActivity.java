@@ -101,7 +101,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void getFrontDoorData() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_FRONT));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_FRONT),true);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 	 * @author 泰得利通 wanglu
 	 */
 	private void getBackDoorData() {
-		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_BACK));
+		synTask.writeData(ClientAPI.getApiStr(Protocol.S_GET_FLOOR_SET_BACK),true);
 	}
 
 	private class FloorDoorSetMessageListener implements AppMessageLinstener {
@@ -570,7 +570,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 		pd_save.show();
 		String apiData = ClientAPI.getHexApiStr(Protocol.S_SAVE_FLOOR_SET_BACK,
 				getBackSaveData());
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 	}
 
 	/**
@@ -605,7 +605,7 @@ public class FloorDoorSetActivity extends TabContentBaseActivity {
 
 		String apiData = ClientAPI.getHexApiStr(
 				Protocol.S_SAVE_FLOOR_SET_FRONT, getFrontSaveData());
-		synTask.writeData(apiData);
+		synTask.writeData(apiData,true);
 
 	}
 
