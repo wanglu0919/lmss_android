@@ -3,7 +3,11 @@ package com.challentec.lmss.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
@@ -19,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.challentec.lmss.app.AppTipMessage;
-import com.challentec.lmss.app.MainActivity;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.listener.AppMessageLinstener;
@@ -37,6 +40,7 @@ import com.challentec.lmss.util.UIHelper;
  * @author 泰得利通 wanglu
  * 
  */
+@SuppressLint("HandlerLeak")
 public class AutoStudyActivity extends TabContentBaseActivity {
 
 	private ViewPager auto_study_vp_contains;// 分页控件
@@ -247,7 +251,9 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 					if(!responseData.getErrorCode().equals("-1")){
 						errCode=DataPaseUtil.hexStrToInt(responseData.getErrorCode())+"";
 					}
-					UIHelper.showToask(AutoStudyActivity.this, "自学习失败,故障编码为："+errCode);
+					//UIHelper.showToask(AutoStudyActivity.this, "自学习失败,故障编码为："+errCode);
+					
+					showElecErrDlg(errCode);//显示学习错误对话框
 				}
 				if (appMessageRecever != null) {
 					unregisterReceiver(appMessageRecever);
@@ -387,6 +393,37 @@ public class AutoStudyActivity extends TabContentBaseActivity {
 			return pageViews.get(arg1);
 		}
 
+	}
+	
+	/**
+	 * 显示电机学习错误对话框
+	 *wanglu 泰得利通
+	 */
+	private void showElecErrDlg(String errCode){
+		
+		
+		
+		AlertDialog.Builder builder = new Builder(this);
+		builder.setIcon(R.drawable.applog);
+		builder.setTitle("故障信息");
+		builder.setMessage("自学习失败,故障编码为："+errCode);
+		builder.setCancelable(true);
+
+		
+
+		builder.setNegativeButton("确定 ",
+				new android.content.DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+
+				});
+
+		builder.create().show();
+
+		
 	}
 
 }

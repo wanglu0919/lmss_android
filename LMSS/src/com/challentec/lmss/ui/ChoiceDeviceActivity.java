@@ -333,7 +333,7 @@ public class ChoiceDeviceActivity extends BaseActivity {
 
 		new SynTask(appContext).uiLog(Protocol.UI_LOGIN_SUCCESS);// 操作日志
 
-		// choice_et_no.setText("20130101");
+		 choice_et_no.setText("20130102");
 
 	}
 

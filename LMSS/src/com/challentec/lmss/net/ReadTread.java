@@ -29,21 +29,7 @@ public class ReadTread extends Thread {
 		this.socketClient=socketClient;
 	}
 
-	/*
-	public static synchronized ReadTread getReadThread(AppContext context,
-			SocketClient socketClient) {
-
-		if (instace == null) {
-			instace = new ReadTread();
-			instace.context = context;
-
-			instace.socketClient = socketClient;
-			instace.start();
-		}
-
-		return instace;
-
-	}*/
+	
 
 	@Override
 	public void run() {
@@ -54,6 +40,7 @@ public class ReadTread extends Thread {
 			try {
 				
 				if(this.isInterrupted()){
+					LogUtil.i(LogUtil.LOG_TAG_READ, "读取线程打断,释放读取线程");
 					break;
 				}
 				if (!context.isNetworkConnected()

@@ -36,7 +36,6 @@ public class SocketClient {
 	
 	public  static ReadTread readTread;// 读取数据线程
 
-	// private static final int READ_TIME_OUT=10000;//读取数据超时
 
 	public boolean isVerify() {
 		return isVerify;
@@ -103,19 +102,19 @@ public class SocketClient {
 				flag = false;
 			} catch (ConnectException e) {
 				e.printStackTrace();
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器异常");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "ConnectException连接服务器异常");
 
 			} catch (java.net.SocketException e) {
 				e.printStackTrace();
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器异常");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "SocketException连接服务器异常");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器异常");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "InterruptedException连接服务器异常");
 
 			} catch (SocketTimeoutException e) {
 
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器超时");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "SocketTimeoutException连接服务器超时");
 			}
 
 		}

@@ -302,10 +302,6 @@ public class MainActivity extends Activity {
 			@Override
 			public void onConnectSuccess(String code) {// 连接成功
 
-				//super.onConnectSuccess(code);
-
-			//	new SynTask(appContext).uiLog(Protocol.UI_LOGIN);// 记录操作日志
-			//	appManager.startPolling();// 开始心跳
 				
 				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器成功");
 				/**
@@ -317,7 +313,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onFianly() {
 
-				//main_pb_load.setVisibility(View.GONE);
+				
 			}
 
 		}, appContext).connectServer(socketClient);
@@ -584,6 +580,8 @@ public class MainActivity extends Activity {
 		main_pb_load = (LoadProgressView) findViewById(R.id.main_pb_load);
 		main_login_et_tel = (EditText) findViewById(R.id.main_login_et_tel);
 		main_et_vecode = (EditText) findViewById(R.id.main_et_vecode);
+		main_login_et_tel.setText("13666666666");
+		main_et_vecode.setText("666666");
 
 	
 	}
