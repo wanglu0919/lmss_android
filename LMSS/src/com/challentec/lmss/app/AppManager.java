@@ -11,6 +11,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.telephony.TelephonyManager;
 
+import com.challentec.lmss.bean.UpdateInfo;
+import com.challentec.lmss.engine.UpdateInfoService;
 import com.challentec.lmss.net.SocketClient;
 import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
@@ -259,6 +261,40 @@ public class AppManager {
 		LogUtil.i(LogUtil.LOG_TAG_BEAT, "停止心跳");
 		PollingUtils.stopPollingService(context, PollingService.class,
 				PollingService.ACTION);
+
+	}
+	
+	
+	/**
+	 * 
+	 * wanglu 泰得利通 检查软件是否要更新
+	 * 
+	 * @return true更新，false不需要更新
+	 */
+	public boolean isUpdate(UpdateInfo updateInfo) {
+
+		String oldVerson = getAppVersion();
+		UpdateInfoService updateInfoService = new UpdateInfoService(context);
+		try {
+			UpdateInfo newUpdateInfo = updateInfoService
+					.getUpdateInfo(R.string.updateurl);
+			if (!newUpdateInfo.getVersion().equals(oldVerson)) {
+				if (updateInfo != null) {
+					updateInfo.setUrl(newUpdateInfo.getUrl());
+					updateInfo.setDescription(newUpdateInfo.getDescription());
+					updateInfo.setVersion(newUpdateInfo.getVersion());
+				}
+
+				return true;
+			} else {
+
+				return false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 
 	}
 

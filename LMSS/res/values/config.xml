@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- apk检测更新URL -->
+  <string name="updateurl">http://3g.wuxi.gov.cn/admin/android/apkupdate.xml</string>   
+</resources>

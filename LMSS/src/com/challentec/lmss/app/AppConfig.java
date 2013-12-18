@@ -2,6 +2,7 @@ package com.challentec.lmss.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Environment;
 
 /**
  * app配置文件 处理类
@@ -22,6 +23,8 @@ public class AppConfig {
 	public static final int AUTO_CONNECT_TIME = 5;// 自动重练时间
 	public static final String SERVER__HANG_TIME_KEY = "server_hang_time_key";// 服务端挂了时间
 	private static SharedPreferences sp;
+	public static final String APP_PATH = Environment
+			.getExternalStorageDirectory().getPath() + "/LMSS/";//文件存放路径
 	private Context mContext;
 
 	/**

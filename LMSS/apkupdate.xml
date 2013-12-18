@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apkinfo>
+
+    <version>1.0.7</version>
+
+    <description>
+     1、修复已知bug 
+	 2、修复低版本系统兼容问题 
+	 3、完善政民互动
+    </description>
+
+    <url>
+        http://3g.wuxi.gov.cn/admin/android/chinawuxi.apk
+    </url>
+
+</apkinfo>

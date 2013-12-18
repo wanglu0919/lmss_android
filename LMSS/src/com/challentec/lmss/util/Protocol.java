@@ -435,37 +435,5 @@ public class Protocol {
 
 	}
 }
-/*
- * if (checkReceive(hexStr)) {// 检查是否符合数据格式 ResponseData reponseData = new
- * ResponseData(); int len = getDataLength(hexStr);// 长度
- * 
- * String enData = hexStr.substring(PROTOCOL_HEADER.length() + 4);// 加密的数据部分
- * 
- * String desData = Des.deHexStr(enData).substring(0, len * 2 + 4);// 4为功能代码的长度
- * // 解密后的数据
- * 
- * reponseData.setLen(len); reponseData.setEnHexStrData(enData);
- * reponseData.setDesHexStrData(desData);
- * reponseData.setFunctionCode(desData.substring(0, 4));// 功能代码
- * reponseData.setReslutCode(DataPaseUtil.hexStrToInt(desData .substring(4, 6))
- * + "");// 返回结果
- * 
- * if (!reponseData.isSuccess()) {// 失败,解析错误代码
- * 
- * reponseData.setErrorCode(desData.substring(6, 8));// 返回结果错误代码 } else {//
- * 成功解析数据部分 reponseData.setData(desData.substring(6));// 数据 }
- * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "长度:" + len);
- * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "密文数据:" +
- * reponseData.getEnHexStrData()); LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA,
- * "解密数据:" + reponseData.getDesHexStrData());
- * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "功能代码:" +
- * reponseData.getFunctionCode());// 功能代码
- * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "结果代码:" +
- * reponseData.getReslutCode()); LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "错误代码:"
- * + reponseData.getErrorCode()); if (reponseData.isSuccess()) {
- * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "数据:" + reponseData.getData()); }
- * return reponseData;
- * 
- * } else { return null; }
- */
+
 
