@@ -429,6 +429,7 @@
     <!-- 表单提示 -->
     <string name="tip_msg_form_tele_empty">请输入手机号码!</string>
     <string name="tip_msg_form_tele_error">手机号码不正确!</string>
+    <string name="tip_msg_getvecode_fast">60秒后重新获取!</string>
     <string name="tip_msg_form_vecode_error">验证码长度不对!</string>
     <string name="tip_msg_form_vecode_empty">请输验证码!</string>
     <string name="tip_msg_form_device_no_empty">请输入或扫描设备授权码!</string>

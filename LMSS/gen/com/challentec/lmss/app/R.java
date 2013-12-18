@@ -88,30 +88,32 @@ public final class R {
         public static final int setting_down_selector=0x7f02002f;
         public static final int setting_up_pressed=0x7f020030;
         public static final int setting_up_selector=0x7f020031;
-        public static final int switch_bottom=0x7f020032;
-        public static final int switch_btn_pressed=0x7f020033;
-        public static final int switch_btn_unpressed=0x7f020034;
-        public static final int switch_frame=0x7f020035;
-        public static final int switch_mask=0x7f020036;
-        public static final int test_checked_selector=0x7f020037;
-        public static final int test_start=0x7f020038;
-        public static final int test_stop=0x7f020039;
-        public static final int title_back_normal=0x7f02003a;
-        public static final int title_back_pressed=0x7f02003b;
-        public static final int title_back_selector=0x7f02003c;
-        public static final int title_boobar_bg=0x7f02003d;
-        public static final int title_call_command_normal=0x7f02003e;
-        public static final int title_call_command_press=0x7f02003f;
-        public static final int title_call_command_selector=0x7f020040;
-        public static final int title_save_normal=0x7f020041;
-        public static final int title_save_pressed=0x7f020042;
-        public static final int title_save_selector=0x7f020043;
-        public static final int touch_flush=0x7f020044;
-        public static final int twocode_selected=0x7f020045;
-        public static final int twocode_unselected=0x7f020046;
-        public static final int wheel_bg=0x7f020047;
-        public static final int wheel_val=0x7f020048;
-        public static final int widget_keypad_operation_digit=0x7f020049;
+        public static final int start=0x7f020032;
+        public static final int start_background=0x7f020033;
+        public static final int switch_bottom=0x7f020034;
+        public static final int switch_btn_pressed=0x7f020035;
+        public static final int switch_btn_unpressed=0x7f020036;
+        public static final int switch_frame=0x7f020037;
+        public static final int switch_mask=0x7f020038;
+        public static final int test_checked_selector=0x7f020039;
+        public static final int test_start=0x7f02003a;
+        public static final int test_stop=0x7f02003b;
+        public static final int title_back_normal=0x7f02003c;
+        public static final int title_back_pressed=0x7f02003d;
+        public static final int title_back_selector=0x7f02003e;
+        public static final int title_boobar_bg=0x7f02003f;
+        public static final int title_call_command_normal=0x7f020040;
+        public static final int title_call_command_press=0x7f020041;
+        public static final int title_call_command_selector=0x7f020042;
+        public static final int title_save_normal=0x7f020043;
+        public static final int title_save_pressed=0x7f020044;
+        public static final int title_save_selector=0x7f020045;
+        public static final int touch_flush=0x7f020046;
+        public static final int twocode_selected=0x7f020047;
+        public static final int twocode_unselected=0x7f020048;
+        public static final int wheel_bg=0x7f020049;
+        public static final int wheel_val=0x7f02004a;
+        public static final int widget_keypad_operation_digit=0x7f02004b;
     }
     public static final class id {
         public static final int about_version_code=0x7f07000e;
@@ -359,8 +361,9 @@ public final class R {
         public static final int port_state_jdbord_layout=0x7f03002a;
         public static final int port_state_mainbord_layout=0x7f03002b;
         public static final int recover_out_set_dialog=0x7f03002c;
-        public static final int trouble_item_layout=0x7f03002d;
-        public static final int up_call_layout=0x7f03002e;
+        public static final int start=0x7f03002d;
+        public static final int trouble_item_layout=0x7f03002e;
+        public static final int up_call_layout=0x7f03002f;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -437,15 +440,15 @@ public final class R {
         public static final int device_tv_reply_default=0x7f08003e;
         public static final int device_tv_reply_last_default=0x7f08003f;
         public static final int device_tv_scan=0x7f080040;
-        public static final int dlg_msg_cancle=0x7f080182;
+        public static final int dlg_msg_cancle=0x7f080183;
         /**  通用类 
  通用类 
  通用类 
          */
-        public static final int dlg_msg_ok=0x7f080181;
+        public static final int dlg_msg_ok=0x7f080182;
         public static final int dlg_recover=0x7f080041;
         public static final int dlg_recover_cancle=0x7f080042;
-        public static final int dlg_title_ok_cancle=0x7f080183;
+        public static final int dlg_title_ok_cancle=0x7f080184;
         public static final int elec_check_run_dir_against=0x7f08011b;
         /**  电机参数选项 
  电机参数选项 
@@ -715,13 +718,13 @@ public final class R {
         public static final int test_vector_controlparams_speed_score_two=0x7f0800a9;
         public static final int test_vector_controlparams_switch_frequency_one=0x7f0800a7;
         public static final int test_vector_controlparams_torque_full_uplimt=0x7f0800ae;
-        public static final int tip_form_number_big=0x7f08016e;
-        public static final int tip_form_range_back=0x7f08016d;
-        public static final int tip_form_range_front=0x7f08016c;
+        public static final int tip_form_number_big=0x7f08016f;
+        public static final int tip_form_range_back=0x7f08016e;
+        public static final int tip_form_range_front=0x7f08016d;
         public static final int tip_msg_auto_connect_success=0x7f080162;
         public static final int tip_msg_auto_connect_time_out=0x7f080163;
         public static final int tip_msg_changedevice_success=0x7f080157;
-        public static final int tip_msg_data_format_error=0x7f080179;
+        public static final int tip_msg_data_format_error=0x7f08017a;
         public static final int tip_msg_edit_input_data_check=0x7f080158;
         public static final int tip_msg_edit_input_empty=0x7f080159;
         public static final int tip_msg_edit_scal_data_error=0x7f08015a;
@@ -730,19 +733,20 @@ public final class R {
  系统图提示消息 
          */
         public static final int tip_msg_exit=0x7f080148;
-        public static final int tip_msg_floor_device_offline=0x7f080177;
-        public static final int tip_msg_form_device_no_empty=0x7f08016b;
+        public static final int tip_msg_floor_device_offline=0x7f080178;
+        public static final int tip_msg_form_device_no_empty=0x7f08016c;
         /**  表单提示 
  表单提示 
  表单提示 
          */
         public static final int tip_msg_form_tele_empty=0x7f080167;
         public static final int tip_msg_form_tele_error=0x7f080168;
-        public static final int tip_msg_form_vecode_empty=0x7f08016a;
-        public static final int tip_msg_form_vecode_error=0x7f080169;
-        public static final int tip_msg_get_data_fail=0x7f080178;
-        public static final int tip_msg_get_vecode_fast=0x7f08017a;
+        public static final int tip_msg_form_vecode_empty=0x7f08016b;
+        public static final int tip_msg_form_vecode_error=0x7f08016a;
+        public static final int tip_msg_get_data_fail=0x7f080179;
+        public static final int tip_msg_get_vecode_fast=0x7f08017b;
         public static final int tip_msg_get_vecode_success=0x7f080153;
+        public static final int tip_msg_getvecode_fast=0x7f080169;
         public static final int tip_msg_list_pb_save_data=0x7f08015d;
         public static final int tip_msg_list_save_data_error=0x7f08015b;
         public static final int tip_msg_list_save_data_success=0x7f08015c;
@@ -752,36 +756,36 @@ public final class R {
         public static final int tip_msg_net_nuknow_server=0x7f08014e;
         public static final int tip_msg_net_read_data_time_out=0x7f080150;
         public static final int tip_msg_net_un_connect=0x7f08014c;
-        public static final int tip_msg_no_auth_device=0x7f08017c;
-        public static final int tip_msg_no_device=0x7f080174;
-        public static final int tip_msg_no_device_authority=0x7f080175;
-        public static final int tip_msg_no_ime_use=0x7f080170;
-        public static final int tip_msg_no_location=0x7f08017d;
+        public static final int tip_msg_no_auth_device=0x7f08017d;
+        public static final int tip_msg_no_device=0x7f080175;
+        public static final int tip_msg_no_device_authority=0x7f080176;
+        public static final int tip_msg_no_ime_use=0x7f080171;
+        public static final int tip_msg_no_location=0x7f08017e;
         public static final int tip_msg_no_net=0x7f08014a;
         /**  协议定义错误消息 
  协议定义错误消息 
  协议定义错误消息 
          */
-        public static final int tip_msg_no_tel_use=0x7f08016f;
+        public static final int tip_msg_no_tel_use=0x7f080170;
         public static final int tip_msg_pb_auto_study=0x7f080155;
         public static final int tip_msg_pb_change_device=0x7f080156;
         public static final int tip_msg_pb_connecting_server=0x7f080152;
         public static final int tip_msg_pb_loading=0x7f080154;
         public static final int tip_msg_pb_revovering=0x7f080166;
-        public static final int tip_msg_recovery_company_set_fail=0x7f08017e;
-        public static final int tip_msg_recovery_last_value_set_fail=0x7f08017f;
+        public static final int tip_msg_recovery_company_set_fail=0x7f08017f;
+        public static final int tip_msg_recovery_last_value_set_fail=0x7f080180;
         public static final int tip_msg_save_back_save_data=0x7f08015f;
         public static final int tip_msg_save_back_success=0x7f080161;
         public static final int tip_msg_save_front_save_data=0x7f08015e;
         public static final int tip_msg_save_front_success=0x7f080160;
-        public static final int tip_msg_tel_ime_not_pair=0x7f080171;
-        public static final int tip_msg_tel_num_no_match=0x7f08017b;
-        public static final int tip_msg_un_know_sever_error=0x7f080176;
+        public static final int tip_msg_tel_ime_not_pair=0x7f080172;
+        public static final int tip_msg_tel_num_no_match=0x7f08017c;
+        public static final int tip_msg_un_know_sever_error=0x7f080177;
         public static final int tip_msg_unknow_error=0x7f080151;
         public static final int tip_msg_unknow_version=0x7f080149;
-        public static final int tip_msg_vecode_error=0x7f080172;
-        public static final int tip_msg_vecode_time_out=0x7f080173;
-        public static final int tip_msg_well_study_fail=0x7f080180;
+        public static final int tip_msg_vecode_error=0x7f080173;
+        public static final int tip_msg_vecode_time_out=0x7f080174;
+        public static final int tip_msg_well_study_fail=0x7f080181;
         public static final int title_tip_auto_connecting=0x7f080165;
         public static final int title_tip_unconnnect=0x7f080164;
         public static final int trouble_deatil_tv_zj_elec=0x7f08010e;

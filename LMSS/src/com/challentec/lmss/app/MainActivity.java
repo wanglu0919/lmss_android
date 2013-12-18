@@ -71,10 +71,11 @@ public class MainActivity extends Activity {
 	private AppManager appManager;
 
 	private static final int GET_LOACTION_SUCCESS = 0x02;// 获取位置成功
-	private static final int SEVER_VEFIY_TIME_OUT=0x03;//服务器验证码超时
+	private static final int SEVER_VEFIY_TIME_OUT = 0x03;// 服务器验证码超时
+	private static final int GET_VECODE_TIME = 0x04;// 获取验证码倒计时
 
 	private String locationStr = "";// 坐标地址
-	
+
 	private SocketClient socketClient;
 	private LoadProgressView main_pb_load;// 加载进度条
 	private SharedPreferences sp;
@@ -82,7 +83,7 @@ public class MainActivity extends Activity {
 	private static final int LOCATION_GET_VECODE = 1;// 验证码获取时定位
 	private static final int LOCATION_LOGIN = 2;// 登录时定位
 	private int locationType = LOCATION_GET_VECODE;
-	
+	private int vecodeTime = 60;// 获取验证码倒计时
 
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
@@ -99,11 +100,29 @@ public class MainActivity extends Activity {
 					doLogin();// 登陆
 				}
 
-		
 				break;
-				
+
 			case SEVER_VEFIY_TIME_OUT:
 				serverVieryTimeOut();
+				break;
+
+			case GET_VECODE_TIME:// 验证码倒计时
+				vecodeTime--;
+				main_btn_getvecode.setText(getString(R.string.main_tv_getvecode) + vecodeTime);
+				main_btn_getvecode
+						.setBackgroundResource(R.drawable.main_vecode_bg_press);
+				if (vecodeTime > 0) {
+					Message message = handler.obtainMessage(GET_VECODE_TIME);
+					handler.sendMessageDelayed(message, 1000);
+
+				} else {
+					main_btn_getvecode
+							.setText(getString(R.string.main_tv_getvecode));
+					main_btn_getvecode
+							.setBackgroundResource(R.drawable.main_vecode_bg_selector);
+					vecodeTime=60;
+				}
+
 				break;
 
 			}
@@ -125,21 +144,21 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * 服务器验证超时
-	 *wanglu 泰得利通
+	 * 服务器验证超时 wanglu 泰得利通
 	 */
 	protected void serverVieryTimeOut() {
-		
-		if(!socketClient.isVerify()){//没有通过服务器验证码
+
+		if (!socketClient.isVerify()) {// 没有通过服务器验证码
 			LogUtil.i(LogUtil.LOG_TAG_I, "验证超时,重新连接");
-			connect();//重新连接服务器
+			connect();// 重新连接服务器
 		}
 	}
 
 	/**
 	 * 网络状态监听
+	 * 
 	 * @author wanglu 泰得利通
-	 *
+	 * 
 	 */
 	private class MainConnectStateMessageListener implements
 			AppConectStateListener {
@@ -193,14 +212,15 @@ public class MainActivity extends Activity {
 					startActivity(intent);
 
 				}
-			}else if(responseData.getFunctionCode().equals(Protocol.C_SEVER_VERIFY)){//服务器验证返回数据
-				socketClient.setVerify(true);//验证通过
+			} else if (responseData.getFunctionCode().equals(
+					Protocol.C_SEVER_VERIFY)) {// 服务器验证返回数据
+				socketClient.setVerify(true);// 验证通过
 				LogUtil.i(LogUtil.LOG_TAG_I, "服务器验证成功");
-				UIHelper.showToask(appContext,"连接服务器成功");
+				UIHelper.showToask(appContext, "连接服务器成功");
 				main_pb_load.setVisibility(View.GONE);
 				new SynTask(appContext).uiLog(Protocol.UI_LOGIN);// 记录操作日志
-				appManager.startPolling();//开始心跳
-				
+				appManager.startPolling();// 开始心跳
+
 			}
 		}
 
@@ -302,7 +322,6 @@ public class MainActivity extends Activity {
 			@Override
 			public void onConnectSuccess(String code) {// 连接成功
 
-				
 				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器成功");
 				/**
 				 * 验证成功发送验证包
@@ -313,36 +332,33 @@ public class MainActivity extends Activity {
 			@Override
 			public void onFianly() {
 
-				
 			}
 
 		}, appContext).connectServer(socketClient);
 
 	}
-	
-	
+
 	/**
-	 * 服务器验证
-	 *wanglu 泰得利通
+	 * 服务器验证 wanglu 泰得利通
 	 */
-	private void sendSeverVifyData(){
-		
+	private void sendSeverVifyData() {
+
 		LogUtil.i(LogUtil.LOG_TAG_I, "发送了验证包");
-		String apiData=ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
-		
-		new SynTask(appContext).writeData(apiData,false);
-		
-		
-		new Thread(new Runnable() {//超时处理
-			
-			@Override
-			public void run() {
-				
-				handler.sendEmptyMessageDelayed(SEVER_VEFIY_TIME_OUT, 2000);
-				
-			}
-		}).start();
-		
+		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
+
+		new SynTask(appContext).writeData(apiData, false);
+
+		new Thread(new Runnable() {// 超时处理
+
+					@Override
+					public void run() {
+
+						handler.sendEmptyMessageDelayed(SEVER_VEFIY_TIME_OUT,
+								2000);
+
+					}
+				}).start();
+
 	}
 
 	/**
@@ -388,11 +404,10 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 
 				if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
-					if(checkLoginInput()){
+					if (checkLoginInput()) {
 						locationType = LOCATION_LOGIN;
 						showOpenGPSDlg();// 显示定位对话框
 					}
-					
 
 				} else {// 基站已经定位已经打开
 					if (checkLoginInput()) {
@@ -419,20 +434,20 @@ public class MainActivity extends Activity {
 						}
 
 						if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
-							if(checkVecodInput()){
+							if (checkVecodInput()) {
 								locationType = LOCATION_GET_VECODE;
 								showOpenGPSDlg();// 显示定位对话框
 							}
-						
 
 						} else {// 基站已经定位已经打开
 
-							
-							if(checkVecodInput()){
+							if (checkVecodInput()) {
+								Message message = handler.obtainMessage(GET_VECODE_TIME);//验证码开始倒计时
+								handler.sendMessageDelayed(message, 1000);
 								locationType = LOCATION_GET_VECODE;
+								
 								getLoaction();// 定位
 							}
-						
 
 						}
 
@@ -470,8 +485,8 @@ public class MainActivity extends Activity {
 
 						String hexStr = ClientAPI.getHexApiStr(
 								Protocol.C_SET_LANGUAGE, "02");
-						new SynTask(new SynHandler(), appContext)
-								.writeData(hexStr,true);
+						new SynTask(new SynHandler(), appContext).writeData(
+								hexStr, true);
 					}
 				});
 
@@ -500,7 +515,7 @@ public class MainActivity extends Activity {
 
 			new SynTask(new SynHandler() {
 
-			}, appContext).writeData(apiData,true);
+			}, appContext).writeData(apiData, true);
 
 			/** 保存位置信息 */
 			Editor ed = sp.edit();
@@ -520,16 +535,16 @@ public class MainActivity extends Activity {
 		if (appContext.isGPSOPen()) {// gps是否打开标识
 			gpsflag = "0";
 		}
-		
+
 		String tele = main_login_et_tel.getText().toString();
 		String apiData = ClientAPI.getApiStr(Protocol.C_GET_VCODE, tele + "|"
 				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		LogUtil.i(LogUtil.LOG_TAG_LOCATION, locationStr);
-		LogUtil.i(LogUtil.LOG_TAG_VECODE, "获取验证码码发送数据:"+tele + "|"
+		LogUtil.i(LogUtil.LOG_TAG_VECODE, "获取验证码码发送数据:" + tele + "|"
 				+ appManager.getIMEI() + "|" + locationStr + "|" + gpsflag);
 		new SynTask(new SynHandler()
 
-		, appContext).writeData(apiData,true);
+		, appContext).writeData(apiData, true);
 
 	}
 
@@ -541,29 +556,24 @@ public class MainActivity extends Activity {
 	private void getLoaction() {
 		main_pb_load.setVisibility(View.VISIBLE);
 		main_pb_load.showProgessText(false);
-		
+
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				
 
-				LBSTool lbsTool=new LBSTool(MainActivity.this);
-				
-				LocationData locationData=lbsTool.getLocation(3000);//定位3秒超时处理
-				if(locationData!=null){
+				LBSTool lbsTool = new LBSTool(MainActivity.this);
+
+				LocationData locationData = lbsTool.getLocation(3000);// 定位3秒超时处理
+				if (locationData != null) {
 					locationStr = locationData.lon + "," + locationData.lat;
-				}else{
-					locationStr="0,0";
+				} else {
+					locationStr = "0,0";
 				}
-				
+
 				handler.sendEmptyMessage(GET_LOACTION_SUCCESS);
 			}
 		}).start();
-	
-		
-		
-		
 
 	}
 
@@ -583,7 +593,6 @@ public class MainActivity extends Activity {
 		main_login_et_tel.setText("13666666666");
 		main_et_vecode.setText("666666");
 
-	
 	}
 
 	/**
@@ -632,7 +641,6 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	
 	/**
 	 * 表单检查输入
 	 * 
@@ -643,21 +651,21 @@ public class MainActivity extends Activity {
 
 	private boolean checkLoginInput() {
 
-		
-		
 		if (main_login_et_tel.getText().toString().equals("")) {
 			UIHelper.showToask(this, R.string.tip_msg_form_tele_empty);
 			main_login_et_tel.requestFocus();
 			return false;
-		} else if(!main_login_et_tel.getText().toString().equals("")&&main_login_et_tel.getText().toString().length()!=11){
+		} else if (!main_login_et_tel.getText().toString().equals("")
+				&& main_login_et_tel.getText().toString().length() != 11) {
 			UIHelper.showToask(this, R.string.tip_msg_form_tele_error);
 			main_login_et_tel.requestFocus();
 			return false;
-		}else if (main_et_vecode.getText().toString().equals("")) {
+		} else if (main_et_vecode.getText().toString().equals("")) {
 			UIHelper.showToask(this, R.string.tip_msg_form_vecode_empty);
 			main_et_vecode.requestFocus();
 			return false;
-		}else if(!main_et_vecode.getText().toString().equals("")&&main_et_vecode.getText().toString().length()!=6){
+		} else if (!main_et_vecode.getText().toString().equals("")
+				&& main_et_vecode.getText().toString().length() != 6) {
 			UIHelper.showToask(this, R.string.tip_msg_form_vecode_error);
 			main_et_vecode.requestFocus();
 			return false;
@@ -666,16 +674,22 @@ public class MainActivity extends Activity {
 		return true;
 
 	}
-	
+
 	/**
-	 * 获取验证码检查
-	 *wanglu 泰得利通 
+	 * 获取验证码检查 wanglu 泰得利通
+	 * 
 	 * @return
 	 */
-	private boolean checkVecodInput(){
-		
-		if(!main_login_et_tel.getText().toString().equals("")&&main_login_et_tel.getText().toString().length()!=11){
-			UIHelper.showToask(MainActivity.this, R.string.tip_msg_form_tele_error);
+	private boolean checkVecodInput() {
+
+		if(vecodeTime>0&&vecodeTime<60){
+			UIHelper.showToask(MainActivity.this,
+					R.string.tip_msg_getvecode_fast);
+			return false;
+		}else if (!main_login_et_tel.getText().toString().equals("")
+				&& main_login_et_tel.getText().toString().length() != 11) {
+			UIHelper.showToask(MainActivity.this,
+					R.string.tip_msg_form_tele_error);
 			main_login_et_tel.requestFocus();
 			return false;
 		}
@@ -690,6 +704,8 @@ public class MainActivity extends Activity {
 				if (locationType == LOCATION_LOGIN && checkLoginInput()) {
 					getLoaction();// 定位
 				} else if (locationType == LOCATION_GET_VECODE) {
+					Message message = handler.obtainMessage(GET_VECODE_TIME);
+					handler.sendMessageDelayed(message, 1000);
 					getLoaction();
 				}
 
@@ -699,6 +715,8 @@ public class MainActivity extends Activity {
 				if (locationType == LOCATION_GET_VECODE) {
 					main_pb_load.setProgressText("");
 					main_pb_load.setVisibility(View.VISIBLE);
+					Message message = handler.obtainMessage(GET_VECODE_TIME);
+					handler.sendMessageDelayed(message, 1000);
 					getVecode();// 获取验证码
 				} else if (locationType == LOCATION_LOGIN) {
 					doLogin();// 登录

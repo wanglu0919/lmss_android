@@ -259,7 +259,7 @@ public class MainTabActivity extends ActivityGroup implements
 		LogUtil.i(LogUtil.LOG_TAG_I, "tab界面备界面发送了验证包");
 		String apiData = ClientAPI.getApiStr(Protocol.C_SEVER_VERIFY);
 
-		new SynTask(appContext).writeData(apiData,false);
+		new SynTask(appContext).writeData(apiData, false);
 
 		new Thread(new Runnable() {// 超时处理
 
@@ -365,13 +365,26 @@ public class MainTabActivity extends ActivityGroup implements
 			main_content.removeAllViews();
 			main_content.addView(element.getView());
 			main_content.requestFocus();
+
+			if (size == 2) {
+				flushHomeData();// 刷新首页数据
+			}
 		} else if (size == 1) {
 			element = stack.peek();
-
 			appManager.finishActivity(this);
 		}
 
 		return stack.size();
+	}
+
+	/**
+	 * 刷新首页数据 wanglu 泰得利通
+	 */
+	private void flushHomeData() {
+		Intent intent = new Intent();// 通知楼层数量更新
+		intent.setAction(HomeActivity.ACTION_FLUSHDATA);
+
+		sendBroadcast(intent);// 通知广播
 	}
 
 	/**

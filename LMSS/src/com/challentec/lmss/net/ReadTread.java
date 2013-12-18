@@ -1,6 +1,7 @@
 package com.challentec.lmss.net;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.bean.ResponseData;
@@ -51,10 +52,14 @@ public class ReadTread extends Thread {
 				LogUtil.i(LogUtil.LOG_TAG_READ, "读取数据等待中....");
 				String responseData = socketClient.readData();// 该方法为阻塞方法，阻塞读取服务器返回数据
 				if (responseData != null) {
-					ResponseData rd = Protocol.paseData(responseData);// 解析返回数据
-					HandlerMessage.handlerMessage(context, rd);// 分发读取返回的消息
-					LogUtil.i(LogUtil.LOG_TAG_READ,
-							"读取到了数据功能号为" + rd.getFunctionCode());
+					List<ResponseData > rds = Protocol.paseData(responseData);// 解析返回数据
+					
+					for(ResponseData rd : rds){
+						HandlerMessage.handlerMessage(context, rd);// 分发读取返回的消息
+						LogUtil.i(LogUtil.LOG_TAG_READ,
+								"读取到了数据功能号为" + rd.getFunctionCode());
+					}
+					
 				}
 			} catch (IOException e) {
 

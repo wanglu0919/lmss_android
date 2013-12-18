@@ -27,6 +27,7 @@ import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.DataPaseUtil;
 import com.challentec.lmss.util.DataTimeUtil;
+import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.Protocol;
 import com.challentec.lmss.util.UIHelper;
 import com.challentec.lmss.view.LoadProgressView;
@@ -40,7 +41,9 @@ public class HomeActivity extends TabContentBaseActivity {
 	private Drawable imgData_Warring;
 	private SharedPreferences sp;
 	private FloorNumbeUpdateRecever floorNumbeUpdateRecever;
+	private FlushDataRecever flushDataRecever;
 	public static final String ACTION_UPDATE_FLOOR_NUMBER = "action_update_floor_nubmer";// 更新楼层数量
+	public static final String ACTION_FLUSHDATA = "action_flush_data";// 更新首页数据监听
 	private TextView home_tv_floor_no, home_tv_control_no,
 			home_tv_out_datetime, home_tv_fate_load, home_tv_home_speed,
 			home_tv_control_type, home_tv_floor_num, home_tv_door_num;
@@ -251,10 +254,10 @@ public class HomeActivity extends TabContentBaseActivity {
 				} else {
 					UIHelper.showToask(HomeActivity.this, AppTipMessage
 							.getResouceStringId(responseData.getErrorCode()));
+					unRegistAppMessageReceiver();// 取消监听
 				}
-				unRegistAppMessageReceiver();// 取消监听
+				//unRegistAppMessageReceiver();// 取消监听
 				home_sw_recover_last_out.setChecked(false);// 设置按钮状态为禁止
-
 				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
 			} else if (functionCode.equals(Protocol.C_RECOVER_DEVICE)) {// 恢复出厂设置
 
@@ -264,8 +267,9 @@ public class HomeActivity extends TabContentBaseActivity {
 				} else {
 					UIHelper.showToask(HomeActivity.this, AppTipMessage
 							.getResouceStringId(responseData.getErrorCode()));
+					unRegistAppMessageReceiver();// 取消监听
 				}
-				unRegistAppMessageReceiver();// 取消监听
+			//	unRegistAppMessageReceiver();// 取消监听
 				home_sw_recover_out.setChecked(false);// 设置按钮状态为禁止
 
 				pd_recoverdlg.dismiss();// 销毁恢复进度对话框
@@ -313,12 +317,12 @@ public class HomeActivity extends TabContentBaseActivity {
 		imgData_Warring.setBounds(0, 0, imgData_Warring.getMinimumWidth(),
 				imgData_Warring.getMinimumHeight());
 
-		loadData();
+		loadData(false);
 
 		initSynTask();// 初始化异步任务
 
 		registerFloorUpdateRecever();//注册楼层更新广播监听
-
+		registerFlushDataRecever();//注册刷新数据广播监听
 		pd_recoverdlg = new ProgressDialog(this);
 		pd_recoverdlg.setMessage(getString(R.string.tip_msg_pb_revovering));
 		pd_recoverdlg.setCancelable(false);
@@ -364,6 +368,20 @@ public class HomeActivity extends TabContentBaseActivity {
 		filter.addAction(ACTION_UPDATE_FLOOR_NUMBER);
 		registerReceiver(floorNumbeUpdateRecever, filter);
 	}
+	
+	/**
+	 * 注册楼层更改广播监听
+	 * 
+	 * @author 泰得利通 wanglu
+	 */
+	private void registerFlushDataRecever() {
+		flushDataRecever = new FlushDataRecever();
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(ACTION_FLUSHDATA);
+		registerReceiver(flushDataRecever, filter);
+	}
+	
+	
 
 	@Override
 	protected void onStop() {
@@ -382,11 +400,14 @@ public class HomeActivity extends TabContentBaseActivity {
 	 * 
 	 * @author 泰得利通 wanglu
 	 */
-	private void loadData() {
+	private void loadData(boolean isFlush) {
 		String apiData = ClientAPI.getApiStr(Protocol.C_GET_DEVICE_INFO);
 		SynTask synTask = new SynTask(new SynHandler(), appContext);
 		synTask.uiLog(Protocol.UI_DEVICE_DISPLAY);// 日志记录
-		home_lp_device.setVisibility(View.GONE);
+		if(!isFlush){
+			home_lp_device.setVisibility(View.GONE);
+		}
+		
 		synTask.writeData(apiData,true);
 
 	}
@@ -557,6 +578,35 @@ public class HomeActivity extends TabContentBaseActivity {
 				home_tv_floor_num.setText(sp.getInt(AppConfig.FLOOR_NUM_KEY, 0)
 						+ getString(R.string.unit_floor));
 			}
+		}
+
+	}
+	
+	/**
+	 * 刷新首页数据 wanglu 泰得利通
+	 */
+	private void flushHomeData() {
+		Intent intent = new Intent();// 通知楼层数量更新
+		intent.setAction(ACTION_FLUSHDATA);
+
+		sendBroadcast(intent);// 通知广播
+	}
+	
+	/**
+	 * 刷新数据监听
+	 * 
+	 * @author 泰得利通 wanglu
+	 * 
+	 */
+	private class FlushDataRecever extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+
+			registAppMessageReceiver();
+			loadData(true);//刷新数据
+			
+			LogUtil.i(LogUtil.LOG_TAG_I, "刷新首页数据");
 		}
 
 	}

@@ -1,5 +1,8 @@
 package com.challentec.lmss.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.challentec.lmss.bean.ResponseData;
 
 /**
@@ -20,12 +23,11 @@ public class Protocol {
 	 * 心跳
 	 */
 	public static final String C_BEAT = "0000";
-	
-	
+
 	/**
 	 * 连接服务器验证
 	 */
-	public static final String C_SEVER_VERIFY="0001";
+	public static final String C_SEVER_VERIFY = "0001";
 
 	/**
 	 * 获取验证码
@@ -70,11 +72,11 @@ public class Protocol {
 	 * 恢复上次设置值
 	 */
 	public static final String C_RECOVER_LAST_SET = "0203";
-	
+
 	/**
 	 * 退出到登录界面
 	 */
-	public static final String C_EXIT_LOGIN="0107";
+	public static final String C_EXIT_LOGIN = "0107";
 
 	/**
 	 * 获取设备基本参数
@@ -291,10 +293,10 @@ public class Protocol {
 	 */
 
 	public static final String B_GET_TROUBLE_D = "0611";
-	
-	public static final String A_TEST_SEND="0700";//测试发送一字节数据
-	
-	public static final String A_TEST_RECEIVE="0701";//测试接受数据
+
+	public static final String A_TEST_SEND = "0700";// 测试发送一字节数据
+
+	public static final String A_TEST_RECEIVE = "0701";// 测试接受数据
 
 	// --------------UI操作LOG-----------------//编码
 
@@ -335,9 +337,9 @@ public class Protocol {
 	public static final String UI_DOWN_CALL = "31";// 下召唤
 	public static final String UI_TROUBLE_HOME = "32";// 故障首页
 	public static final String UI_TROUBLE_DETAIL = "33";// 故障明细
-	public static final String UI_SOFT_ABOUT="34";//软件相关
-	public static final String UI_SOFT_UPDATE="35";//软件升级
-	public static final String UI_LOGINOUT="36";//退出登录
+	public static final String UI_SOFT_ABOUT = "34";// 软件相关
+	public static final String UI_SOFT_UPDATE = "35";// 软件升级
+	public static final String UI_LOGINOUT = "36";// 退出登录
 
 	/**
 	 * 检查接收的数据是否合法
@@ -374,44 +376,96 @@ public class Protocol {
 	 *            返回数据
 	 * @return ReponseData 返回包装对象
 	 */
-	public static ResponseData paseData(String hexStr) {
-		if (checkReceive(hexStr)) {// 检查是否符合数据格式
-			ResponseData reponseData = new ResponseData();
-			int len = getDataLength(hexStr);// 长度
+	public static List<ResponseData> paseData(String hexStr) {
 
-			String enData = hexStr.substring(PROTOCOL_HEADER.length() + 4);// 加密的数据部分
+		String recePackageData[] = hexStr.split(PROTOCOL_HEADER);// 粘包处理
+		List<ResponseData> responseDatas = new ArrayList<ResponseData>();
+		if (recePackageData != null) {
+			for (String packageData : recePackageData) {
+				
+				if(packageData.equals("")){
+					continue;
+				}
+				packageData=PROTOCOL_HEADER+packageData;
+				if (checkReceive(packageData)) {// 检查是否符合数据格式
+					ResponseData reponseData = new ResponseData();
+					int len = getDataLength(packageData);// 长度
 
-			String desData = Des.deHexStr(enData).substring(0, len * 2 + 4);// 4为功能代码的长度
-																			// 解密后的数据
+					String enData = packageData.substring(PROTOCOL_HEADER
+							.length() + 4);// 加密的数据部分
 
-			reponseData.setLen(len);
-			reponseData.setEnHexStrData(enData);
-			reponseData.setDesHexStrData(desData);
-			reponseData.setFunctionCode(desData.substring(0, 4));// 功能代码
-			reponseData.setReslutCode(DataPaseUtil.hexStrToInt(desData
-					.substring(4, 6)) + "");// 返回结果
+					String desData = Des.deHexStr(enData).substring(0,
+							len * 2 + 4);// 4为功能代码的长度
+											// 解密后的数据
 
-			if (!reponseData.isSuccess()) {// 失败,解析错误代码
+					reponseData.setLen(len);
+					reponseData.setEnHexStrData(enData);
+					reponseData.setDesHexStrData(desData);
+					reponseData.setFunctionCode(desData.substring(0, 4));// 功能代码
+					reponseData.setReslutCode(DataPaseUtil.hexStrToInt(desData
+							.substring(4, 6)) + "");// 返回结果
 
-				reponseData.setErrorCode(desData.substring(6, 8));// 返回结果错误代码
-			} else {// 成功解析数据部分
-				reponseData.setData(desData.substring(6));// 数据
+					if (!reponseData.isSuccess()) {// 失败,解析错误代码
+
+						reponseData.setErrorCode(desData.substring(6, 8));// 返回结果错误代码
+					} else {// 成功解析数据部分
+						reponseData.setData(desData.substring(6));// 数据
+					}
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "长度:" + len);
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "密文数据:"
+							+ reponseData.getEnHexStrData());
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "解密数据:"
+							+ reponseData.getDesHexStrData());
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "功能代码:"
+							+ reponseData.getFunctionCode());// 功能代码
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "结果代码:"
+							+ reponseData.getReslutCode());
+					LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "错误代码:"
+							+ reponseData.getErrorCode());
+					if (reponseData.isSuccess()) {
+						LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "数据:"
+								+ reponseData.getData());
+					}
+					responseDatas.add(reponseData);
+				}
+
 			}
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "长度:" + len);
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "密文数据:" + reponseData.getEnHexStrData());
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "解密数据:" + reponseData.getDesHexStrData());
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "功能代码:" + reponseData.getFunctionCode());// 功能代码
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "结果代码:" + reponseData.getReslutCode());
-			LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "错误代码:" + reponseData.getErrorCode());
-			if (reponseData.isSuccess()) {
-				LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "数据:" + reponseData.getData());
-			}
-			return reponseData;
-
-		} else {
-			return null;
 		}
+		return responseDatas;
 
 	}
-
 }
+/*
+ * if (checkReceive(hexStr)) {// 检查是否符合数据格式 ResponseData reponseData = new
+ * ResponseData(); int len = getDataLength(hexStr);// 长度
+ * 
+ * String enData = hexStr.substring(PROTOCOL_HEADER.length() + 4);// 加密的数据部分
+ * 
+ * String desData = Des.deHexStr(enData).substring(0, len * 2 + 4);// 4为功能代码的长度
+ * // 解密后的数据
+ * 
+ * reponseData.setLen(len); reponseData.setEnHexStrData(enData);
+ * reponseData.setDesHexStrData(desData);
+ * reponseData.setFunctionCode(desData.substring(0, 4));// 功能代码
+ * reponseData.setReslutCode(DataPaseUtil.hexStrToInt(desData .substring(4, 6))
+ * + "");// 返回结果
+ * 
+ * if (!reponseData.isSuccess()) {// 失败,解析错误代码
+ * 
+ * reponseData.setErrorCode(desData.substring(6, 8));// 返回结果错误代码 } else {//
+ * 成功解析数据部分 reponseData.setData(desData.substring(6));// 数据 }
+ * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "长度:" + len);
+ * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "密文数据:" +
+ * reponseData.getEnHexStrData()); LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA,
+ * "解密数据:" + reponseData.getDesHexStrData());
+ * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "功能代码:" +
+ * reponseData.getFunctionCode());// 功能代码
+ * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "结果代码:" +
+ * reponseData.getReslutCode()); LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "错误代码:"
+ * + reponseData.getErrorCode()); if (reponseData.isSuccess()) {
+ * LogUtil.i(LogUtil.LOG_TAG_REPONSE_DATA, "数据:" + reponseData.getData()); }
+ * return reponseData;
+ * 
+ * } else { return null; }
+ */
+

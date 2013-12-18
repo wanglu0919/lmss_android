@@ -8,117 +8,120 @@
 -keep class com.challentec.lmss.app.AppContext { <init>(...); }
 
 # view AndroidManifest.xml #generated:35
+-keep class com.challentec.lmss.app.AppStartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:45
 -keep class com.challentec.lmss.app.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:173
+# view AndroidManifest.xml #generated:171
 -keep class com.challentec.lmss.service.AutoConnectPollingService { <init>(...); }
 
-# view AndroidManifest.xml #generated:175
+# view AndroidManifest.xml #generated:173
 -keep class com.challentec.lmss.service.LoginPollingService { <init>(...); }
 
-# view AndroidManifest.xml #generated:171
+# view AndroidManifest.xml #generated:169
 -keep class com.challentec.lmss.service.PollingService { <init>(...); }
 
-# view AndroidManifest.xml #generated:102
+# view AndroidManifest.xml #generated:103
 -keep class com.challentec.lmss.ui.AboutUsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:84
+# view AndroidManifest.xml #generated:85
 -keep class com.challentec.lmss.ui.AutoStudyActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:72
+# view AndroidManifest.xml #generated:73
 -keep class com.challentec.lmss.ui.BasicParamActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:135
+# view AndroidManifest.xml #generated:136
 -keep class com.challentec.lmss.ui.CallCommandActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:99
+# view AndroidManifest.xml #generated:100
 -keep class com.challentec.lmss.ui.ChangeDeviceActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:163
+# view AndroidManifest.xml #generated:161
 -keep class com.challentec.lmss.ui.CheckItemActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:47
+# view AndroidManifest.xml #generated:50
 -keep class com.challentec.lmss.ui.ChoiceDeviceActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:51
+# view AndroidManifest.xml #generated:54
 -keep class com.challentec.lmss.ui.CodeScanActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:166
+# view AndroidManifest.xml #generated:164
 -keep class com.challentec.lmss.ui.DateTimeEditActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:110
+# view AndroidManifest.xml #generated:111
 -keep class com.challentec.lmss.ui.DeviceTestActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:122
+# view AndroidManifest.xml #generated:123
 -keep class com.challentec.lmss.ui.DeviceTestFunctionParamsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:129
+# view AndroidManifest.xml #generated:130
 -keep class com.challentec.lmss.ui.DriveStateActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:154
+# view AndroidManifest.xml #generated:155
 -keep class com.challentec.lmss.ui.EditItemActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:93
+# view AndroidManifest.xml #generated:94
 -keep class com.challentec.lmss.ui.ElecAutoStudyParamActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:75
+# view AndroidManifest.xml #generated:76
 -keep class com.challentec.lmss.ui.ElecParamActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:141
+# view AndroidManifest.xml #generated:142
 -keep class com.challentec.lmss.ui.FastDebug2Activity { <init>(...); }
 
-# view AndroidManifest.xml #generated:138
+# view AndroidManifest.xml #generated:139
 -keep class com.challentec.lmss.ui.FastDebugActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:78
+# view AndroidManifest.xml #generated:79
 -keep class com.challentec.lmss.ui.FloorDisplayActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:90
+# view AndroidManifest.xml #generated:91
 -keep class com.challentec.lmss.ui.FloorDoorSetActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:58
+# view AndroidManifest.xml #generated:61
 -keep class com.challentec.lmss.ui.HomeActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:81
+# view AndroidManifest.xml #generated:82
 -keep class com.challentec.lmss.ui.MainBoardActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:63
+# view AndroidManifest.xml #generated:66
 -keep class com.challentec.lmss.ui.MainTabActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:126
+# view AndroidManifest.xml #generated:127
 -keep class com.challentec.lmss.ui.MonitorActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:105
+# view AndroidManifest.xml #generated:106
 -keep class com.challentec.lmss.ui.PhoneImeIdActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:132
+# view AndroidManifest.xml #generated:133
 -keep class com.challentec.lmss.ui.PortStateActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:116
+# view AndroidManifest.xml #generated:117
 -keep class com.challentec.lmss.ui.RunControlParamsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:160
+# view AndroidManifest.xml #generated:158
 -keep class com.challentec.lmss.ui.ScaleEditActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:69
+# view AndroidManifest.xml #generated:70
 -keep class com.challentec.lmss.ui.SettingActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:87
+# view AndroidManifest.xml #generated:88
 -keep class com.challentec.lmss.ui.SoftwareAboutActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:119
+# view AndroidManifest.xml #generated:120
 -keep class com.challentec.lmss.ui.TimeControlParamsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:146
+# view AndroidManifest.xml #generated:147
 -keep class com.challentec.lmss.ui.TroubleActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:149
+# view AndroidManifest.xml #generated:150
 -keep class com.challentec.lmss.ui.TroubleDetailActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:113
+# view AndroidManifest.xml #generated:114
 -keep class com.challentec.lmss.ui.VectorControlParamsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:96
+# view AndroidManifest.xml #generated:97
 -keep class com.challentec.lmss.ui.WellAutoStudyParamActivity { <init>(...); }
 
 # view res/layout/floor_door_back_gate_set_layout.xml #generated:22
