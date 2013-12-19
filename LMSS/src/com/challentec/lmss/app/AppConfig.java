@@ -24,7 +24,7 @@ public class AppConfig {
 	public static final String SERVER__HANG_TIME_KEY = "server_hang_time_key";// 服务端挂了时间
 	private static SharedPreferences sp;
 	public static final String APP_PATH = Environment
-			.getExternalStorageDirectory().getPath() + "/LMSS/";//文件存放路径
+			.getExternalStorageDirectory().getPath() + "/ZXLCS/";//文件存放路径
 	private Context mContext;
 
 	/**

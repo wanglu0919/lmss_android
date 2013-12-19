@@ -342,7 +342,7 @@ public class AppStartActivity extends Activity {
 							}
 							DownLoadThreadTask dowTask = new DownLoadThreadTask(
 									apkUrl, AppConfig.APP_PATH
-											+ "LMSS.apk");
+											+ "ZXLCS.apk");
 
 							new Thread(dowTask).start();
 							pd.show();

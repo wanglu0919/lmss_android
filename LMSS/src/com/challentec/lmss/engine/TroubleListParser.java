@@ -47,7 +47,7 @@ public class TroubleListParser {
 			trouble.setT_id(tid + "");// id
 			if (index == 0) {
 				trouble.setT_order(context
-						.getString(R.string.trouble_list_lable_current_trouble));// 当前故障
+						.getString(R.string.trouble_list_lable_current_trouble)+"    ");// 当前故障
 			} else {
 				String stid = "";
 				if (tid < 10) {
