@@ -3,18 +3,12 @@ package com.challentec.lmss.service;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 
 import com.challentec.lmss.app.AppConfig;
 import com.challentec.lmss.app.AppContext;
 import com.challentec.lmss.app.AppManager;
 import com.challentec.lmss.app.R;
-import com.challentec.lmss.engine.GPSInfoService;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.util.ClientAPI;
 import com.challentec.lmss.util.LogUtil;

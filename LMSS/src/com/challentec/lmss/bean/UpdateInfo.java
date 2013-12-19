@@ -10,7 +10,8 @@ package com.challentec.lmss.bean;
 public class UpdateInfo {
 	private String version;//版本
 	private String description;//说嘛
-	private String url;//URL地址
+	private String url1;//内网URL地址
+	private String url2;//外围地址
 	public String getVersion() {
 		return version;
 	}
@@ -23,10 +24,17 @@ public class UpdateInfo {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getUrl() {
-		return url;
+	public String getUrl1() {
+		return url1;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrl1(String url1) {
+		this.url1 = url1;
 	}
+	public String getUrl2() {
+		return url2;
+	}
+	public void setUrl2(String url2) {
+		this.url2 = url2;
+	}
+	
 }

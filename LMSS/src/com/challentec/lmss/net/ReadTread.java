@@ -10,8 +10,6 @@ import com.challentec.lmss.util.HandlerMessage;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.Protocol;
 
-import android.content.Context;
-
 /**
  * 读取数据线程
  * 

@@ -32,21 +32,24 @@ public class AppManager {
 	private Context context;
 	public static Stack<Activity> activityStack;// activity栈
 
-	private int pollCount;//心跳数量
-	
+	private int pollCount;// 心跳数量
+
 	public void setPollCount(int pollCount) {
 		this.pollCount = pollCount;
 	}
-	public void addPollCount(){
+
+	public void addPollCount() {
 		pollCount++;
 	}
-	public int getPollCount(){
+
+	public int getPollCount() {
 		return pollCount;
 	}
-	
-	public void reduceCount(){
+
+	public void reduceCount() {
 		pollCount--;
 	}
+
 	private AppManager() {
 	};
 
@@ -155,16 +158,19 @@ public class AppManager {
 	public void appExit(Context context) {
 		try {
 			stopPolling();// 停止心跳
-			PollingUtils.stopPollingService(context, LoginPollingService.class, LoginPollingService.ACTION);
-			PollingUtils.stopPollingService(context, AutoConnectPollingService.class, AutoConnectPollingService.ACTION);
-			SocketClient.getSocketClient().dispose();//释放连接资源
-			
+			PollingUtils.stopPollingService(context, LoginPollingService.class,
+					LoginPollingService.ACTION);
+			PollingUtils.stopPollingService(context,
+					AutoConnectPollingService.class,
+					AutoConnectPollingService.ACTION);
+			SocketClient.getSocketClient().dispose();// 释放连接资源
+
 			finishAllActivity();
 			ActivityManager activityMgr = (ActivityManager) context
 					.getSystemService(Context.ACTIVITY_SERVICE);
 			activityMgr.restartPackage(context.getPackageName());
 			System.exit(0);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -202,7 +208,8 @@ public class AppManager {
 
 		TelephonyManager telephonyManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
-		return telephonyManager.getDeviceId() == null ? "012345678912345" :telephonyManager.getDeviceId();
+		return telephonyManager.getDeviceId() == null ? "012345678912345"
+				: telephonyManager.getDeviceId();
 
 	}
 
@@ -263,15 +270,14 @@ public class AppManager {
 				PollingService.ACTION);
 
 	}
-	
-	
+
 	/**
 	 * 
 	 * wanglu 泰得利通 检查软件是否要更新
 	 * 
 	 * @return true更新，false不需要更新
 	 */
-	public boolean isUpdate(UpdateInfo updateInfo,String updateUrl) {
+	public boolean isUpdate(UpdateInfo updateInfo, String updateUrl) {
 
 		String oldVerson = getAppVersion();
 		UpdateInfoService updateInfoService = new UpdateInfoService(context);
@@ -280,7 +286,9 @@ public class AppManager {
 					.getUpdateInfo(updateUrl);
 			if (!newUpdateInfo.getVersion().equals(oldVerson)) {
 				if (updateInfo != null) {
-					updateInfo.setUrl(newUpdateInfo.getUrl());
+					updateInfo.setUrl1(newUpdateInfo.getUrl1());
+					updateInfo.setUrl2(newUpdateInfo.getUrl2());
+
 					updateInfo.setDescription(newUpdateInfo.getDescription());
 					updateInfo.setVersion(newUpdateInfo.getVersion());
 				}

@@ -336,8 +336,12 @@ public class AppStartActivity extends Activity {
 							if (!file.exists()) {
 								file.mkdirs();
 							}
+							String apkUrl=updateInfo.getUrl1();
+							if(socketClient.getIpType()==SocketClient.IP_OUTER){//外网IP
+								apkUrl=updateInfo.getUrl2();
+							}
 							DownLoadThreadTask dowTask = new DownLoadThreadTask(
-									updateInfo.getUrl(), AppConfig.APP_PATH
+									apkUrl, AppConfig.APP_PATH
 											+ "LMSS.apk");
 
 							new Thread(dowTask).start();

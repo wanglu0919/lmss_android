@@ -28,8 +28,10 @@ public class UpdateParser {
 					update.setVersion(paser.nextText());
 				}else if("description".equals(paser.getName())){
 					update.setDescription(paser.nextText());
-				}else if("url".equals(paser.getName())){
-					update.setUrl(paser.nextText());
+				}else if("url1".equals(paser.getName())){
+					update.setUrl1(paser.nextText());
+				}else if("url2".equals(paser.getName())){
+					update.setUrl2(paser.nextText());
 				}
 				break;
 			
