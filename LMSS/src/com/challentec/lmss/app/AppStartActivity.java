@@ -157,7 +157,7 @@ public class AppStartActivity extends Activity {
 
 		// 渐变展示启动屏
 		AlphaAnimation aa = new AlphaAnimation(0.3f, 1.0f);
-		aa.setDuration(2000);
+		aa.setDuration(1000);
 		view.startAnimation(aa);
 		aa.setAnimationListener(new AnimationListener() {
 			@Override
@@ -398,7 +398,6 @@ public class AppStartActivity extends Activity {
 
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			socketClient.dispose();// 关闭连接
-
 			finish();
 
 			return true;

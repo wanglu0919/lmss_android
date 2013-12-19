@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
 
 			case GET_VECODE_TIME:// 验证码倒计时
 				vecodeTime--;
-				main_btn_getvecode.setText(getString(R.string.main_tv_getvecode) + vecodeTime);
+				main_btn_getvecode.setText(getString(R.string.main_tv_getvecode)+" "+ vecodeTime);
 				main_btn_getvecode
 						.setBackgroundResource(R.drawable.main_vecode_bg_press);
 				if (vecodeTime > 0) {
@@ -759,6 +759,8 @@ public class MainActivity extends Activity {
 						if (locationType == LOCATION_GET_VECODE) {
 							main_pb_load.showProgessText(false);
 							main_pb_load.setVisibility(View.VISIBLE);
+							Message message = handler.obtainMessage(GET_VECODE_TIME);
+							handler.sendMessageDelayed(message, 1000);
 							getVecode();// 获取验证码
 						} else if (locationType == LOCATION_LOGIN) {
 
