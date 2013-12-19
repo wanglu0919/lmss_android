@@ -27,9 +27,9 @@ public class UpdateInfoService {
 	 * @return
 	 * @throws E 
 	 */
-	public UpdateInfo getUpdateInfo(int urlId) throws Exception{
+	public UpdateInfo getUpdateInfo(String  path) throws Exception{
 	
-		String path=context.getResources().getString(urlId);
+		
 		URL url=new URL(path);
 		HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
 		httpURLConnection.setConnectTimeout(5000);

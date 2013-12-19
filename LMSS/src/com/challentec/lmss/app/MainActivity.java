@@ -243,7 +243,7 @@ public class MainActivity extends Activity {
 		sp = AppConfig.getAppConfig(appContext).getSharedPreferences();
 
 		clearCache();// 清除本地存储信息
-		connect();// 连接服务器
+		//connect();// 连接服务器
 
 		PollingUtils.stopPollingService(appContext, LoginPollingService.class,
 				LoginPollingService.ACTION);

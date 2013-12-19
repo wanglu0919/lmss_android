@@ -373,546 +373,549 @@ public final class R {
         public static final int realm_properties=0x7f040001;
     }
     public static final class string {
-        public static final int action_settings=0x7f060002;
+        public static final int action_settings=0x7f060003;
         /**  app 
  app 
  app 
          */
-        public static final int app_name=0x7f060001;
-        public static final int auto_study_elec_param_alternate_elec_resistance=0x7f060073;
+        public static final int app_name=0x7f060002;
+        public static final int auto_study_elec_param_alternate_elec_resistance=0x7f060074;
         /**  设置->电机自学习-参数 
  设置->电机自学习-参数 
  设置->电机自学习-参数 
          */
-        public static final int auto_study_elec_param_asyn_empty_load_elec=0x7f060069;
-        public static final int auto_study_elec_param_asyn_leakage_oppose=0x7f06006c;
-        public static final int auto_study_elec_param_asyn_mutual_oppose=0x7f06006d;
-        public static final int auto_study_elec_param_asyn_rotor_resistance=0x7f06006b;
-        public static final int auto_study_elec_param_asyn_stator_resistance=0x7f06006a;
-        public static final int auto_study_elec_param_auto_study_trouble_decode=0x7f060072;
-        public static final int auto_study_elec_param_syn_cut_elec_location=0x7f06006f;
-        public static final int auto_study_elec_param_syn_d_elec=0x7f060071;
-        public static final int auto_study_elec_param_syn_q_elec=0x7f060070;
-        public static final int auto_study_elec_param_syn_start_location=0x7f06006e;
-        public static final int auto_study_well_param_down_cut_one_count=0x7f06007d;
-        public static final int auto_study_well_param_down_cut_two_count=0x7f06007f;
-        public static final int auto_study_well_param_downstream_synch=0x7f060083;
-        public static final int auto_study_well_param_floor_location=0x7f060080;
+        public static final int auto_study_elec_param_asyn_empty_load_elec=0x7f06006a;
+        public static final int auto_study_elec_param_asyn_leakage_oppose=0x7f06006d;
+        public static final int auto_study_elec_param_asyn_mutual_oppose=0x7f06006e;
+        public static final int auto_study_elec_param_asyn_rotor_resistance=0x7f06006c;
+        public static final int auto_study_elec_param_asyn_stator_resistance=0x7f06006b;
+        public static final int auto_study_elec_param_auto_study_trouble_decode=0x7f060073;
+        public static final int auto_study_elec_param_syn_cut_elec_location=0x7f060070;
+        public static final int auto_study_elec_param_syn_d_elec=0x7f060072;
+        public static final int auto_study_elec_param_syn_q_elec=0x7f060071;
+        public static final int auto_study_elec_param_syn_start_location=0x7f06006f;
+        public static final int auto_study_well_param_down_cut_one_count=0x7f06007e;
+        public static final int auto_study_well_param_down_cut_two_count=0x7f060080;
+        public static final int auto_study_well_param_downstream_synch=0x7f060084;
+        public static final int auto_study_well_param_floor_location=0x7f060081;
         /**  设置->井道自学习->参数 
  设置->井道自学习->参数 
  设置->井道自学习->参数 
          */
-        public static final int auto_study_well_param_hight_total=0x7f06007b;
-        public static final int auto_study_well_param_interlamination_pulse=0x7f060081;
-        public static final int auto_study_well_param_up_cut_one_count=0x7f06007c;
-        public static final int auto_study_well_param_up_cut_two_count=0x7f06007e;
-        public static final int auto_study_well_param_upstream_synch=0x7f060082;
-        public static final int basic_check_ard_start=0x7f060114;
-        public static final int basic_check_ard_stop=0x7f060115;
+        public static final int auto_study_well_param_hight_total=0x7f06007c;
+        public static final int auto_study_well_param_interlamination_pulse=0x7f060082;
+        public static final int auto_study_well_param_up_cut_one_count=0x7f06007d;
+        public static final int auto_study_well_param_up_cut_two_count=0x7f06007f;
+        public static final int auto_study_well_param_upstream_synch=0x7f060083;
+        public static final int basic_check_ard_start=0x7f060115;
+        public static final int basic_check_ard_stop=0x7f060116;
         /**  基本参数 选项 
  基本参数 选项 
  基本参数 选项 
          */
-        public static final int basic_check_asynchronization=0x7f060110;
-        public static final int basic_check_control_type_bl=0x7f060118;
-        public static final int basic_check_control_type_jx=0x7f060116;
-        public static final int basic_check_control_type_qc=0x7f060117;
-        public static final int basic_check_opendoor_start=0x7f060119;
-        public static final int basic_check_opendoor_stop=0x7f06011a;
-        public static final int basic_check_pf_vecotor=0x7f060113;
-        public static final int basic_check_synchronization=0x7f060111;
-        public static final int basic_check_vf_vecotor=0x7f060112;
-        public static final int choice_btn_submit=0x7f06000f;
-        public static final int choice_input=0x7f060005;
-        public static final int choice_scan=0x7f060006;
-        public static final int device_tv_control_no=0x7f060038;
-        public static final int device_tv_control_way=0x7f06003c;
-        public static final int device_tv_door_num=0x7f06003e;
-        public static final int device_tv_floor_num=0x7f06003d;
+        public static final int basic_check_asynchronization=0x7f060111;
+        public static final int basic_check_control_type_bl=0x7f060119;
+        public static final int basic_check_control_type_jx=0x7f060117;
+        public static final int basic_check_control_type_qc=0x7f060118;
+        public static final int basic_check_opendoor_start=0x7f06011a;
+        public static final int basic_check_opendoor_stop=0x7f06011b;
+        public static final int basic_check_pf_vecotor=0x7f060114;
+        public static final int basic_check_synchronization=0x7f060112;
+        public static final int basic_check_vf_vecotor=0x7f060113;
+        public static final int choice_btn_submit=0x7f060010;
+        public static final int choice_input=0x7f060006;
+        public static final int choice_scan=0x7f060007;
+        public static final int device_tv_control_no=0x7f060039;
+        public static final int device_tv_control_way=0x7f06003d;
+        public static final int device_tv_door_num=0x7f06003f;
+        public static final int device_tv_floor_num=0x7f06003e;
         /**  设备信息 
  设备信息 
  设备信息 
          */
-        public static final int device_tv_lift_no=0x7f060037;
-        public static final int device_tv_out_datetime=0x7f060039;
-        public static final int device_tv_rated_load=0x7f06003a;
-        public static final int device_tv_rated_speed=0x7f06003b;
-        public static final int device_tv_reply_default=0x7f06003f;
-        public static final int device_tv_reply_last_default=0x7f060040;
-        public static final int device_tv_scan=0x7f060041;
-        public static final int dlg_msg_cancle=0x7f060184;
+        public static final int device_tv_lift_no=0x7f060038;
+        public static final int device_tv_out_datetime=0x7f06003a;
+        public static final int device_tv_rated_load=0x7f06003b;
+        public static final int device_tv_rated_speed=0x7f06003c;
+        public static final int device_tv_reply_default=0x7f060040;
+        public static final int device_tv_reply_last_default=0x7f060041;
+        public static final int device_tv_scan=0x7f060042;
+        public static final int dlg_msg_cancle=0x7f060185;
         /**  通用类 
  通用类 
  通用类 
          */
-        public static final int dlg_msg_ok=0x7f060183;
-        public static final int dlg_recover=0x7f060042;
-        public static final int dlg_recover_cancle=0x7f060043;
-        public static final int dlg_title_ok_cancle=0x7f060185;
-        public static final int elec_check_run_dir_against=0x7f06011c;
+        public static final int dlg_msg_ok=0x7f060184;
+        public static final int dlg_recover=0x7f060043;
+        public static final int dlg_recover_cancle=0x7f060044;
+        public static final int dlg_title_ok_cancle=0x7f060186;
+        public static final int elec_check_run_dir_against=0x7f06011d;
         /**  电机参数选项 
  电机参数选项 
  电机参数选项 
          */
-        public static final int elec_check_run_dir_positive=0x7f06011b;
-        public static final int elec_check_run_encode_against=0x7f06011e;
-        public static final int elec_check_run_encode_positive=0x7f06011d;
+        public static final int elec_check_run_dir_positive=0x7f06011c;
+        public static final int elec_check_run_encode_against=0x7f06011f;
+        public static final int elec_check_run_encode_positive=0x7f06011e;
         /**  楼层显示设置 
  楼层显示设置 
  楼层显示设置 
          */
-        public static final int floor_display_set_lable=0x7f06011f;
-        public static final int head_btn_back=0x7f060003;
-        public static final int head_btn_save=0x7f060004;
-        public static final int main_company=0x7f060015;
-        public static final int main_location_message=0x7f060017;
-        public static final int main_location_tip_title=0x7f060016;
-        public static final int main_tab_logining=0x7f060014;
-        public static final int main_tab_rb_monitor=0x7f060012;
-        public static final int main_tab_rb_setting=0x7f060010;
-        public static final int main_tab_rb_test=0x7f060011;
-        public static final int main_tab_rb_trouble=0x7f060013;
+        public static final int floor_display_set_lable=0x7f060120;
+        public static final int head_btn_back=0x7f060004;
+        public static final int head_btn_save=0x7f060005;
+        public static final int main_company=0x7f060016;
+        public static final int main_location_message=0x7f060018;
+        public static final int main_location_tip_title=0x7f060017;
+        public static final int main_tab_logining=0x7f060015;
+        public static final int main_tab_rb_monitor=0x7f060013;
+        public static final int main_tab_rb_setting=0x7f060011;
+        public static final int main_tab_rb_test=0x7f060012;
+        public static final int main_tab_rb_trouble=0x7f060014;
         /**  首页登陆 
  首页登陆 
  首页登陆 
          */
-        public static final int main_tv_choice_language=0x7f060008;
-        public static final int main_tv_getvecode=0x7f06000e;
-        public static final int main_tv_language_Chinese=0x7f060009;
-        public static final int main_tv_language_English=0x7f06000a;
-        public static final int main_tv_login=0x7f06000d;
-        public static final int main_tv_teleno=0x7f06000b;
-        public static final int main_tv_vcode=0x7f06000c;
-        public static final int monitor_btn_call=0x7f0600fc;
+        public static final int main_tv_choice_language=0x7f060009;
+        public static final int main_tv_getvecode=0x7f06000f;
+        public static final int main_tv_language_Chinese=0x7f06000a;
+        public static final int main_tv_language_English=0x7f06000b;
+        public static final int main_tv_login=0x7f06000e;
+        public static final int main_tv_teleno=0x7f06000c;
+        public static final int main_tv_vcode=0x7f06000d;
+        public static final int monitor_btn_call=0x7f0600fd;
         /**  召唤指令 
  召唤指令 
  召唤指令 
          */
-        public static final int monitor_btn_command=0x7f0600fb;
-        public static final int monitor_down_call=0x7f0600fe;
+        public static final int monitor_btn_command=0x7f0600fc;
+        public static final int monitor_down_call=0x7f0600ff;
         /**  监控->驱动状态 
  监控->驱动状态 
  监控->驱动状态 
          */
-        public static final int monitor_drive_state_device_nomal=0x7f0600ed;
-        public static final int monitor_drive_state_device_run=0x7f0600ee;
-        public static final int monitor_drive_state_module_temperature=0x7f0600f4;
-        public static final int monitor_drive_state_moment_command=0x7f0600f2;
-        public static final int monitor_drive_state_out_elec=0x7f0600f0;
-        public static final int monitor_drive_state_out_rate=0x7f0600f1;
-        public static final int monitor_drive_state_out_voltage=0x7f0600ef;
-        public static final int monitor_drive_state_parent_voltage=0x7f0600f3;
+        public static final int monitor_drive_state_device_nomal=0x7f0600ee;
+        public static final int monitor_drive_state_device_run=0x7f0600ef;
+        public static final int monitor_drive_state_module_temperature=0x7f0600f5;
+        public static final int monitor_drive_state_moment_command=0x7f0600f3;
+        public static final int monitor_drive_state_out_elec=0x7f0600f1;
+        public static final int monitor_drive_state_out_rate=0x7f0600f2;
+        public static final int monitor_drive_state_out_voltage=0x7f0600f0;
+        public static final int monitor_drive_state_parent_voltage=0x7f0600f4;
         /**  监控->端口状态 
  监控->端口状态 
  监控->端口状态 
          */
-        public static final int monitor_port_state_call=0x7f0600f5;
-        public static final int monitor_port_state_cammand=0x7f0600f6;
-        public static final int monitor_port_state_jdb_input=0x7f0600f9;
-        public static final int monitor_port_state_jdb_output=0x7f0600fa;
-        public static final int monitor_port_state_mainbord_input=0x7f0600f7;
-        public static final int monitor_port_state_mainbord_output=0x7f0600f8;
-        public static final int monitor_tv_control_model_bl=0x7f0600ec;
-        public static final int monitor_tv_control_model_jx=0x7f0600eb;
-        public static final int monitor_tv_control_model_reparir=0x7f0600ea;
-        public static final int monitor_tv_drive_state=0x7f0600e8;
+        public static final int monitor_port_state_call=0x7f0600f6;
+        public static final int monitor_port_state_cammand=0x7f0600f7;
+        public static final int monitor_port_state_jdb_input=0x7f0600fa;
+        public static final int monitor_port_state_jdb_output=0x7f0600fb;
+        public static final int monitor_port_state_mainbord_input=0x7f0600f8;
+        public static final int monitor_port_state_mainbord_output=0x7f0600f9;
+        public static final int monitor_tv_control_model_bl=0x7f0600ed;
+        public static final int monitor_tv_control_model_jx=0x7f0600ec;
+        public static final int monitor_tv_control_model_reparir=0x7f0600eb;
+        public static final int monitor_tv_drive_state=0x7f0600e9;
         /**  监控 
  监控 
  监控 
          */
-        public static final int monitor_tv_floor_control_model=0x7f0600de;
-        public static final int monitor_tv_floor_current_direction=0x7f0600e3;
-        public static final int monitor_tv_floor_current_floor=0x7f0600e1;
-        public static final int monitor_tv_floor_current_height=0x7f0600e2;
-        public static final int monitor_tv_floor_current_speed=0x7f0600df;
-        public static final int monitor_tv_floor_give_speed=0x7f0600e0;
-        public static final int monitor_tv_floor_total_run_time=0x7f0600e4;
-        public static final int monitor_tv_floor_total_run_time_cout=0x7f0600e5;
-        public static final int monitor_tv_port_state=0x7f0600e9;
-        public static final int monitor_tv_run_dir_down=0x7f0600e7;
-        public static final int monitor_tv_run_dir_up=0x7f0600e6;
-        public static final int monitor_up_call=0x7f0600fd;
-        public static final int scan_text=0x7f060007;
+        public static final int monitor_tv_floor_control_model=0x7f0600df;
+        public static final int monitor_tv_floor_current_direction=0x7f0600e4;
+        public static final int monitor_tv_floor_current_floor=0x7f0600e2;
+        public static final int monitor_tv_floor_current_height=0x7f0600e3;
+        public static final int monitor_tv_floor_current_speed=0x7f0600e0;
+        public static final int monitor_tv_floor_give_speed=0x7f0600e1;
+        public static final int monitor_tv_floor_total_run_time=0x7f0600e5;
+        public static final int monitor_tv_floor_total_run_time_cout=0x7f0600e6;
+        public static final int monitor_tv_port_state=0x7f0600ea;
+        public static final int monitor_tv_run_dir_down=0x7f0600e8;
+        public static final int monitor_tv_run_dir_up=0x7f0600e7;
+        public static final int monitor_up_call=0x7f0600fe;
+        public static final int scan_text=0x7f060008;
         /**  设置->电机自学习 
  设置->电机自学习 
  设置->电机自学习 
          */
-        public static final int setting_auto_study_elec=0x7f060061;
-        public static final int setting_auto_study_elec_step_1=0x7f060063;
-        public static final int setting_auto_study_elec_step_2=0x7f060064;
-        public static final int setting_auto_study_elec_step_3=0x7f060065;
-        public static final int setting_auto_study_elec_step_4=0x7f060066;
-        public static final int setting_auto_study_elec_trouble_no=0x7f060062;
-        public static final int setting_auto_study_params=0x7f060067;
-        public static final int setting_auto_study_start=0x7f060068;
+        public static final int setting_auto_study_elec=0x7f060062;
+        public static final int setting_auto_study_elec_step_1=0x7f060064;
+        public static final int setting_auto_study_elec_step_2=0x7f060065;
+        public static final int setting_auto_study_elec_step_3=0x7f060066;
+        public static final int setting_auto_study_elec_step_4=0x7f060067;
+        public static final int setting_auto_study_elec_trouble_no=0x7f060063;
+        public static final int setting_auto_study_params=0x7f060068;
+        public static final int setting_auto_study_start=0x7f060069;
         /**  设置->井道子学习 
  设置->井道子学习 
  设置->井道子学习 
          */
-        public static final int setting_auto_study_well=0x7f060074;
-        public static final int setting_auto_study_well_step_1=0x7f060075;
-        public static final int setting_auto_study_well_step_2=0x7f060076;
-        public static final int setting_auto_study_well_step_3=0x7f060077;
-        public static final int setting_auto_study_well_step_4=0x7f060078;
-        public static final int setting_auto_study_well_step_5=0x7f060079;
-        public static final int setting_auto_study_well_step_6=0x7f06007a;
-        public static final int setting_basicparams_tv_ard_choice=0x7f06005d;
-        public static final int setting_basicparams_tv_ard_speed=0x7f06005e;
-        public static final int setting_basicparams_tv_back_station_floor=0x7f06005c;
-        public static final int setting_basicparams_tv_control_type=0x7f06005f;
-        public static final int setting_basicparams_tv_drag_rope_scale=0x7f060054;
-        public static final int setting_basicparams_tv_drag_wheel_dia=0x7f060053;
-        public static final int setting_basicparams_tv_drive_control_pattern=0x7f060059;
-        public static final int setting_basicparams_tv_elec_model=0x7f060057;
-        public static final int setting_basicparams_tv_fire_protection_leave_floor=0x7f06005a;
-        public static final int setting_basicparams_tv_floor_fixed_speed=0x7f060051;
-        public static final int setting_basicparams_tv_floor_run_speed=0x7f060052;
-        public static final int setting_basicparams_tv_hight_speed_count_direction=0x7f060056;
-        public static final int setting_basicparams_tv_open_door_front=0x7f060060;
-        public static final int setting_basicparams_tv_parking_floor=0x7f06005b;
-        public static final int setting_basicparams_tv_signal_carrier_rate=0x7f060058;
-        public static final int setting_basicparams_tv_speed_cut_scale=0x7f060055;
+        public static final int setting_auto_study_well=0x7f060075;
+        public static final int setting_auto_study_well_step_1=0x7f060076;
+        public static final int setting_auto_study_well_step_2=0x7f060077;
+        public static final int setting_auto_study_well_step_3=0x7f060078;
+        public static final int setting_auto_study_well_step_4=0x7f060079;
+        public static final int setting_auto_study_well_step_5=0x7f06007a;
+        public static final int setting_auto_study_well_step_6=0x7f06007b;
+        public static final int setting_basicparams_tv_ard_choice=0x7f06005e;
+        public static final int setting_basicparams_tv_ard_speed=0x7f06005f;
+        public static final int setting_basicparams_tv_back_station_floor=0x7f06005d;
+        public static final int setting_basicparams_tv_control_type=0x7f060060;
+        public static final int setting_basicparams_tv_drag_rope_scale=0x7f060055;
+        public static final int setting_basicparams_tv_drag_wheel_dia=0x7f060054;
+        public static final int setting_basicparams_tv_drive_control_pattern=0x7f06005a;
+        public static final int setting_basicparams_tv_elec_model=0x7f060058;
+        public static final int setting_basicparams_tv_fire_protection_leave_floor=0x7f06005b;
+        public static final int setting_basicparams_tv_floor_fixed_speed=0x7f060052;
+        public static final int setting_basicparams_tv_floor_run_speed=0x7f060053;
+        public static final int setting_basicparams_tv_hight_speed_count_direction=0x7f060057;
+        public static final int setting_basicparams_tv_open_door_front=0x7f060061;
+        public static final int setting_basicparams_tv_parking_floor=0x7f06005c;
+        public static final int setting_basicparams_tv_signal_carrier_rate=0x7f060059;
+        public static final int setting_basicparams_tv_speed_cut_scale=0x7f060056;
         /**  基本设置->基本参数 
  基本设置->基本参数 
  基本设置->基本参数 
          */
-        public static final int setting_basicparams_tv_system_time=0x7f06004e;
-        public static final int setting_basicparams_tv_total_floor=0x7f06004f;
-        public static final int setting_basicparams_tv_under_floor=0x7f060050;
-        public static final int setting_elec_params_double_num=0x7f060089;
-        public static final int setting_elec_params_encoder_dir=0x7f06008f;
-        public static final int setting_elec_params_encoder_resolution=0x7f06008e;
-        public static final int setting_elec_params_encoder_test_enabled=0x7f060090;
-        public static final int setting_elec_params_encoder_test_time=0x7f060091;
-        public static final int setting_elec_params_encoder_type=0x7f06008d;
-        public static final int setting_elec_params_overload_ratio=0x7f06008b;
-        public static final int setting_elec_params_overload_time=0x7f06008c;
-        public static final int setting_elec_params_rate__frequency=0x7f060085;
+        public static final int setting_basicparams_tv_system_time=0x7f06004f;
+        public static final int setting_basicparams_tv_total_floor=0x7f060050;
+        public static final int setting_basicparams_tv_under_floor=0x7f060051;
+        public static final int setting_elec_params_double_num=0x7f06008a;
+        public static final int setting_elec_params_encoder_dir=0x7f060090;
+        public static final int setting_elec_params_encoder_resolution=0x7f06008f;
+        public static final int setting_elec_params_encoder_test_enabled=0x7f060091;
+        public static final int setting_elec_params_encoder_test_time=0x7f060092;
+        public static final int setting_elec_params_encoder_type=0x7f06008e;
+        public static final int setting_elec_params_overload_ratio=0x7f06008c;
+        public static final int setting_elec_params_overload_time=0x7f06008d;
+        public static final int setting_elec_params_rate__frequency=0x7f060086;
         /**  设置->电机参数 
  设置->电机参数 
  设置->电机参数 
          */
-        public static final int setting_elec_params_rate__power=0x7f060084;
-        public static final int setting_elec_params_rate_elec=0x7f060088;
-        public static final int setting_elec_params_rate_rotate_speed=0x7f060086;
-        public static final int setting_elec_params_rate_voltage=0x7f060087;
-        public static final int setting_elec_params_run_dir=0x7f06008a;
-        public static final int setting_floor_door_back=0x7f06009a;
+        public static final int setting_elec_params_rate__power=0x7f060085;
+        public static final int setting_elec_params_rate_elec=0x7f060089;
+        public static final int setting_elec_params_rate_rotate_speed=0x7f060087;
+        public static final int setting_elec_params_rate_voltage=0x7f060088;
+        public static final int setting_elec_params_run_dir=0x7f06008b;
+        public static final int setting_floor_door_back=0x7f06009b;
         /**  设置->前后门设置 
  设置->前后门设置 
  设置->前后门设置 
          */
-        public static final int setting_floor_door_front=0x7f060099;
-        public static final int setting_flush_device=0x7f06004d;
-        public static final int setting_mainbord_funciton_x11_x18=0x7f060093;
+        public static final int setting_floor_door_front=0x7f06009a;
+        public static final int setting_flush_device=0x7f06004e;
+        public static final int setting_mainbord_funciton_x11_x18=0x7f060094;
         /**  设置->主板输入逻辑设置 
  设置->主板输入逻辑设置 
  设置->主板输入逻辑设置 
          */
-        public static final int setting_mainbord_funciton_x1_x8=0x7f060092;
-        public static final int setting_mainbord_funciton_x21_x28=0x7f060094;
-        public static final int setting_mainbord_funciton_x27=0x7f060095;
-        public static final int setting_mainbord_funciton_x28=0x7f060096;
-        public static final int setting_mainbord_funciton_y7=0x7f060097;
-        public static final int setting_mainbord_funciton_y8=0x7f060098;
-        public static final int setting_soft_about_us=0x7f06009c;
-        public static final int setting_soft_login_out=0x7f06009e;
-        public static final int setting_soft_phone_id=0x7f06009d;
+        public static final int setting_mainbord_funciton_x1_x8=0x7f060093;
+        public static final int setting_mainbord_funciton_x21_x28=0x7f060095;
+        public static final int setting_mainbord_funciton_x27=0x7f060096;
+        public static final int setting_mainbord_funciton_x28=0x7f060097;
+        public static final int setting_mainbord_funciton_y7=0x7f060098;
+        public static final int setting_mainbord_funciton_y8=0x7f060099;
+        public static final int setting_soft_about_us=0x7f06009d;
+        public static final int setting_soft_login_out=0x7f06009f;
+        public static final int setting_soft_phone_id=0x7f06009e;
         /**  设置软件相关 
  设置软件相关 
  设置软件相关 
          */
-        public static final int setting_soft_update=0x7f06009b;
-        public static final int setting_soft_version=0x7f06009f;
-        public static final int setting_tv_auto_study=0x7f060046;
+        public static final int setting_soft_update=0x7f06009c;
+        public static final int setting_soft_version=0x7f0600a0;
+        public static final int setting_tv_auto_study=0x7f060047;
         /**  设置 
  设置 
  设置 
          */
-        public static final int setting_tv_basic_params=0x7f060044;
-        public static final int setting_tv_change_device=0x7f060047;
-        public static final int setting_tv_elec_params=0x7f060045;
-        public static final int setting_tv_floor_display_setting=0x7f060049;
-        public static final int setting_tv_floor_door_setting=0x7f060048;
-        public static final int setting_tv_mainboard_input_setting=0x7f06004a;
-        public static final int setting_tv_soft_about=0x7f06004b;
-        public static final int test_run_control_accelerated_speed_slope=0x7f0600ba;
-        public static final int test_run_control_again_adjust=0x7f0600c5;
-        public static final int test_run_control_again_speed=0x7f0600c2;
-        public static final int test_run_control_curve_give_delayed=0x7f0600b9;
-        public static final int test_run_control_inflection_point_accelerated_speed_1=0x7f0600bb;
-        public static final int test_run_control_inflection_point_accelerated_speed_2=0x7f0600bc;
-        public static final int test_run_control_inflection_point_slowdown_speed_1=0x7f0600be;
-        public static final int test_run_control_inflection_point_slowdown_speed_2=0x7f0600bf;
-        public static final int test_run_control_park_distance=0x7f0600c1;
-        public static final int test_run_control_repair=0x7f0600c3;
-        public static final int test_run_control_reverse_again_speed=0x7f0600c4;
-        public static final int test_run_control_slowdown_speed_slope=0x7f0600bd;
-        public static final int test_run_control_special_slowdown_speed=0x7f0600c0;
+        public static final int setting_tv_basic_params=0x7f060045;
+        public static final int setting_tv_change_device=0x7f060048;
+        public static final int setting_tv_elec_params=0x7f060046;
+        public static final int setting_tv_floor_display_setting=0x7f06004a;
+        public static final int setting_tv_floor_door_setting=0x7f060049;
+        public static final int setting_tv_mainboard_input_setting=0x7f06004b;
+        public static final int setting_tv_soft_about=0x7f06004c;
+        public static final int test_run_control_accelerated_speed_slope=0x7f0600bb;
+        public static final int test_run_control_again_adjust=0x7f0600c6;
+        public static final int test_run_control_again_speed=0x7f0600c3;
+        public static final int test_run_control_curve_give_delayed=0x7f0600ba;
+        public static final int test_run_control_inflection_point_accelerated_speed_1=0x7f0600bc;
+        public static final int test_run_control_inflection_point_accelerated_speed_2=0x7f0600bd;
+        public static final int test_run_control_inflection_point_slowdown_speed_1=0x7f0600bf;
+        public static final int test_run_control_inflection_point_slowdown_speed_2=0x7f0600c0;
+        public static final int test_run_control_park_distance=0x7f0600c2;
+        public static final int test_run_control_repair=0x7f0600c4;
+        public static final int test_run_control_reverse_again_speed=0x7f0600c5;
+        public static final int test_run_control_slowdown_speed_slope=0x7f0600be;
+        public static final int test_run_control_special_slowdown_speed=0x7f0600c1;
         /**  测试->运行控制参数 
  测试->运行控制参数 
  测试->运行控制参数 
          */
-        public static final int test_run_control_start_speed=0x7f0600b6;
-        public static final int test_run_control_start_speed_keep_time=0x7f0600b7;
-        public static final int test_run_control_start_zero_speed_time=0x7f0600b8;
-        public static final int test_test_function_call_enabled=0x7f0600db;
-        public static final int test_test_function_down_call_regist=0x7f0600d7;
+        public static final int test_run_control_start_speed=0x7f0600b7;
+        public static final int test_run_control_start_speed_keep_time=0x7f0600b8;
+        public static final int test_run_control_start_zero_speed_time=0x7f0600b9;
+        public static final int test_test_function_call_enabled=0x7f0600dc;
+        public static final int test_test_function_down_call_regist=0x7f0600d8;
         /**  测试->测试功能参数 
  测试->测试功能参数 
  测试->测试功能参数 
          */
-        public static final int test_test_function_inner_command_regist=0x7f0600d5;
-        public static final int test_test_function_open_door_enabled=0x7f0600dc;
-        public static final int test_test_function_over_load_enabled=0x7f0600dd;
-        public static final int test_test_function_random_run_enabled=0x7f0600da;
-        public static final int test_test_function_random_run_space=0x7f0600d9;
-        public static final int test_test_function_random_run_time=0x7f0600d8;
-        public static final int test_test_function_up_call_regist=0x7f0600d6;
-        public static final int test_time_control_arrive_station_keep_time=0x7f0600d3;
-        public static final int test_time_control_auto_open_door_time=0x7f0600ce;
-        public static final int test_time_control_auto_switch_time=0x7f0600d1;
-        public static final int test_time_control_back_base_station_delay=0x7f0600cf;
-        public static final int test_time_control_curve_give_delay=0x7f0600c8;
-        public static final int test_time_control_dir_backout_delay=0x7f0600cb;
-        public static final int test_time_control_firemen_run_delay=0x7f0600d4;
-        public static final int test_time_control_flat_sensor_delay=0x7f0600cc;
-        public static final int test_time_control_free_switch_delay=0x7f0600ca;
+        public static final int test_test_function_inner_command_regist=0x7f0600d6;
+        public static final int test_test_function_open_door_enabled=0x7f0600dd;
+        public static final int test_test_function_over_load_enabled=0x7f0600de;
+        public static final int test_test_function_random_run_enabled=0x7f0600db;
+        public static final int test_test_function_random_run_space=0x7f0600da;
+        public static final int test_test_function_random_run_time=0x7f0600d9;
+        public static final int test_test_function_up_call_regist=0x7f0600d7;
+        public static final int test_time_control_arrive_station_keep_time=0x7f0600d4;
+        public static final int test_time_control_auto_open_door_time=0x7f0600cf;
+        public static final int test_time_control_auto_switch_time=0x7f0600d2;
+        public static final int test_time_control_back_base_station_delay=0x7f0600d0;
+        public static final int test_time_control_curve_give_delay=0x7f0600c9;
+        public static final int test_time_control_dir_backout_delay=0x7f0600cc;
+        public static final int test_time_control_firemen_run_delay=0x7f0600d5;
+        public static final int test_time_control_flat_sensor_delay=0x7f0600cd;
+        public static final int test_time_control_free_switch_delay=0x7f0600cb;
         /**  时间->时间控制参数 
  时间->时间控制参数 
  时间->时间控制参数 
          */
-        public static final int test_time_control_one_way_run_time_limit=0x7f0600c6;
-        public static final int test_time_control_open_switch_delay=0x7f0600c9;
-        public static final int test_time_control_repair_park_delay=0x7f0600cd;
-        public static final int test_time_control_save_energy_control_time=0x7f0600d0;
-        public static final int test_time_control_start_prevent_jump_delay=0x7f0600c7;
-        public static final int test_time_control_ups_run_protected_time=0x7f0600d2;
-        public static final int test_tv_fast_debug_params=0x7f0600a4;
-        public static final int test_tv_run_control_params=0x7f0600a1;
-        public static final int test_tv_test_function_params=0x7f0600a3;
-        public static final int test_tv_time_control_params=0x7f0600a2;
+        public static final int test_time_control_one_way_run_time_limit=0x7f0600c7;
+        public static final int test_time_control_open_switch_delay=0x7f0600ca;
+        public static final int test_time_control_repair_park_delay=0x7f0600ce;
+        public static final int test_time_control_save_energy_control_time=0x7f0600d1;
+        public static final int test_time_control_start_prevent_jump_delay=0x7f0600c8;
+        public static final int test_time_control_ups_run_protected_time=0x7f0600d3;
+        public static final int test_tv_fast_debug_params=0x7f0600a5;
+        public static final int test_tv_run_control_params=0x7f0600a2;
+        public static final int test_tv_test_function_params=0x7f0600a4;
+        public static final int test_tv_time_control_params=0x7f0600a3;
         /**  测试 
  测试 
  测试 
          */
-        public static final int test_tv_vector_control_params=0x7f0600a0;
-        public static final int test_vector_controlparams_elec_add=0x7f0600ac;
-        public static final int test_vector_controlparams_elec_contants=0x7f0600b5;
-        public static final int test_vector_controlparams_elec_full_uplimt=0x7f0600ae;
-        public static final int test_vector_controlparams_elec_score=0x7f0600ad;
-        public static final int test_vector_controlparams_lj_add_speed_time=0x7f0600b3;
-        public static final int test_vector_controlparams_lj_slow_speed_time=0x7f0600b4;
-        public static final int test_vector_controlparams_lsf_elec_coefficient=0x7f0600b0;
-        public static final int test_vector_controlparams_lsf_speed_ki=0x7f0600b2;
-        public static final int test_vector_controlparams_lsf_speed_kp=0x7f0600b1;
+        public static final int test_tv_vector_control_params=0x7f0600a1;
+        public static final int test_vector_controlparams_elec_add=0x7f0600ad;
+        public static final int test_vector_controlparams_elec_contants=0x7f0600b6;
+        public static final int test_vector_controlparams_elec_full_uplimt=0x7f0600af;
+        public static final int test_vector_controlparams_elec_score=0x7f0600ae;
+        public static final int test_vector_controlparams_lj_add_speed_time=0x7f0600b4;
+        public static final int test_vector_controlparams_lj_slow_speed_time=0x7f0600b5;
+        public static final int test_vector_controlparams_lsf_elec_coefficient=0x7f0600b1;
+        public static final int test_vector_controlparams_lsf_speed_ki=0x7f0600b3;
+        public static final int test_vector_controlparams_lsf_speed_kp=0x7f0600b2;
         /**  测试->矢量控制参数 
  测试->矢量控制参数 
  测试->矢量控制参数 
          */
-        public static final int test_vector_controlparams_speed_add_one=0x7f0600a5;
-        public static final int test_vector_controlparams_speed_add_two=0x7f0600a9;
-        public static final int test_vector_controlparams_speed_full_uplimt_one=0x7f0600a7;
-        public static final int test_vector_controlparams_speed_full_uplimt_two=0x7f0600ab;
-        public static final int test_vector_controlparams_speed_score_one=0x7f0600a6;
-        public static final int test_vector_controlparams_speed_score_two=0x7f0600aa;
-        public static final int test_vector_controlparams_switch_frequency_one=0x7f0600a8;
-        public static final int test_vector_controlparams_torque_full_uplimt=0x7f0600af;
-        public static final int tip_form_number_big=0x7f060170;
-        public static final int tip_form_range_back=0x7f06016f;
-        public static final int tip_form_range_front=0x7f06016e;
-        public static final int tip_msg_auto_connect_success=0x7f060163;
-        public static final int tip_msg_auto_connect_time_out=0x7f060164;
-        public static final int tip_msg_changedevice_success=0x7f060158;
-        public static final int tip_msg_data_format_error=0x7f06017b;
-        public static final int tip_msg_edit_input_data_check=0x7f060159;
-        public static final int tip_msg_edit_input_empty=0x7f06015a;
-        public static final int tip_msg_edit_scal_data_error=0x7f06015b;
+        public static final int test_vector_controlparams_speed_add_one=0x7f0600a6;
+        public static final int test_vector_controlparams_speed_add_two=0x7f0600aa;
+        public static final int test_vector_controlparams_speed_full_uplimt_one=0x7f0600a8;
+        public static final int test_vector_controlparams_speed_full_uplimt_two=0x7f0600ac;
+        public static final int test_vector_controlparams_speed_score_one=0x7f0600a7;
+        public static final int test_vector_controlparams_speed_score_two=0x7f0600ab;
+        public static final int test_vector_controlparams_switch_frequency_one=0x7f0600a9;
+        public static final int test_vector_controlparams_torque_full_uplimt=0x7f0600b0;
+        public static final int tip_form_number_big=0x7f060171;
+        public static final int tip_form_range_back=0x7f060170;
+        public static final int tip_form_range_front=0x7f06016f;
+        public static final int tip_msg_auto_connect_success=0x7f060164;
+        public static final int tip_msg_auto_connect_time_out=0x7f060165;
+        public static final int tip_msg_changedevice_success=0x7f060159;
+        public static final int tip_msg_data_format_error=0x7f06017c;
+        public static final int tip_msg_edit_input_data_check=0x7f06015a;
+        public static final int tip_msg_edit_input_empty=0x7f06015b;
+        public static final int tip_msg_edit_scal_data_error=0x7f06015c;
         /**  系统图提示消息 
  系统图提示消息 
  系统图提示消息 
          */
-        public static final int tip_msg_exit=0x7f060149;
-        public static final int tip_msg_floor_device_offline=0x7f060179;
-        public static final int tip_msg_form_device_no_empty=0x7f06016d;
+        public static final int tip_msg_exit=0x7f06014a;
+        public static final int tip_msg_floor_device_offline=0x7f06017a;
+        public static final int tip_msg_form_device_no_empty=0x7f06016e;
         /**  表单提示 
  表单提示 
  表单提示 
          */
-        public static final int tip_msg_form_tele_empty=0x7f060168;
-        public static final int tip_msg_form_tele_error=0x7f060169;
-        public static final int tip_msg_form_vecode_empty=0x7f06016c;
-        public static final int tip_msg_form_vecode_error=0x7f06016b;
-        public static final int tip_msg_get_data_fail=0x7f06017a;
-        public static final int tip_msg_get_vecode_fast=0x7f06017c;
-        public static final int tip_msg_get_vecode_success=0x7f060154;
-        public static final int tip_msg_getvecode_fast=0x7f06016a;
-        public static final int tip_msg_list_pb_save_data=0x7f06015e;
-        public static final int tip_msg_list_save_data_error=0x7f06015c;
-        public static final int tip_msg_list_save_data_success=0x7f06015d;
-        public static final int tip_msg_net_connect_server_time_out=0x7f060150;
-        public static final int tip_msg_net_connected=0x7f06014e;
-        public static final int tip_msg_net_error=0x7f06014c;
-        public static final int tip_msg_net_nuknow_server=0x7f06014f;
-        public static final int tip_msg_net_read_data_time_out=0x7f060151;
-        public static final int tip_msg_net_un_connect=0x7f06014d;
-        public static final int tip_msg_no_auth_device=0x7f06017e;
-        public static final int tip_msg_no_device=0x7f060176;
-        public static final int tip_msg_no_device_authority=0x7f060177;
-        public static final int tip_msg_no_ime_use=0x7f060172;
-        public static final int tip_msg_no_location=0x7f06017f;
-        public static final int tip_msg_no_net=0x7f06014b;
+        public static final int tip_msg_form_tele_empty=0x7f060169;
+        public static final int tip_msg_form_tele_error=0x7f06016a;
+        public static final int tip_msg_form_vecode_empty=0x7f06016d;
+        public static final int tip_msg_form_vecode_error=0x7f06016c;
+        public static final int tip_msg_get_data_fail=0x7f06017b;
+        public static final int tip_msg_get_vecode_fast=0x7f06017d;
+        public static final int tip_msg_get_vecode_success=0x7f060155;
+        public static final int tip_msg_getvecode_fast=0x7f06016b;
+        public static final int tip_msg_list_pb_save_data=0x7f06015f;
+        public static final int tip_msg_list_save_data_error=0x7f06015d;
+        public static final int tip_msg_list_save_data_success=0x7f06015e;
+        public static final int tip_msg_net_connect_server_time_out=0x7f060151;
+        public static final int tip_msg_net_connected=0x7f06014f;
+        public static final int tip_msg_net_error=0x7f06014d;
+        public static final int tip_msg_net_nuknow_server=0x7f060150;
+        public static final int tip_msg_net_read_data_time_out=0x7f060152;
+        public static final int tip_msg_net_un_connect=0x7f06014e;
+        public static final int tip_msg_no_auth_device=0x7f06017f;
+        public static final int tip_msg_no_device=0x7f060177;
+        public static final int tip_msg_no_device_authority=0x7f060178;
+        public static final int tip_msg_no_ime_use=0x7f060173;
+        public static final int tip_msg_no_location=0x7f060180;
+        public static final int tip_msg_no_net=0x7f06014c;
         /**  协议定义错误消息 
  协议定义错误消息 
  协议定义错误消息 
          */
-        public static final int tip_msg_no_tel_use=0x7f060171;
-        public static final int tip_msg_pb_auto_study=0x7f060156;
-        public static final int tip_msg_pb_change_device=0x7f060157;
-        public static final int tip_msg_pb_connecting_server=0x7f060153;
-        public static final int tip_msg_pb_loading=0x7f060155;
-        public static final int tip_msg_pb_revovering=0x7f060167;
-        public static final int tip_msg_recovery_company_set_fail=0x7f060180;
-        public static final int tip_msg_recovery_last_value_set_fail=0x7f060181;
-        public static final int tip_msg_save_back_save_data=0x7f060160;
-        public static final int tip_msg_save_back_success=0x7f060162;
-        public static final int tip_msg_save_front_save_data=0x7f06015f;
-        public static final int tip_msg_save_front_success=0x7f060161;
-        public static final int tip_msg_tel_ime_not_pair=0x7f060173;
-        public static final int tip_msg_tel_num_no_match=0x7f06017d;
-        public static final int tip_msg_un_know_sever_error=0x7f060178;
-        public static final int tip_msg_unknow_error=0x7f060152;
-        public static final int tip_msg_unknow_version=0x7f06014a;
-        public static final int tip_msg_vecode_error=0x7f060174;
-        public static final int tip_msg_vecode_time_out=0x7f060175;
-        public static final int tip_msg_well_study_fail=0x7f060182;
-        public static final int title_tip_auto_connecting=0x7f060166;
-        public static final int title_tip_unconnnect=0x7f060165;
-        public static final int trouble_deatil_tv_zj_elec=0x7f06010f;
+        public static final int tip_msg_no_tel_use=0x7f060172;
+        public static final int tip_msg_pb_auto_study=0x7f060157;
+        public static final int tip_msg_pb_change_device=0x7f060158;
+        public static final int tip_msg_pb_connecting_server=0x7f060154;
+        public static final int tip_msg_pb_loading=0x7f060156;
+        public static final int tip_msg_pb_revovering=0x7f060168;
+        public static final int tip_msg_recovery_company_set_fail=0x7f060181;
+        public static final int tip_msg_recovery_last_value_set_fail=0x7f060182;
+        public static final int tip_msg_save_back_save_data=0x7f060161;
+        public static final int tip_msg_save_back_success=0x7f060163;
+        public static final int tip_msg_save_front_save_data=0x7f060160;
+        public static final int tip_msg_save_front_success=0x7f060162;
+        public static final int tip_msg_tel_ime_not_pair=0x7f060174;
+        public static final int tip_msg_tel_num_no_match=0x7f06017e;
+        public static final int tip_msg_un_know_sever_error=0x7f060179;
+        public static final int tip_msg_unknow_error=0x7f060153;
+        public static final int tip_msg_unknow_version=0x7f06014b;
+        public static final int tip_msg_vecode_error=0x7f060175;
+        public static final int tip_msg_vecode_time_out=0x7f060176;
+        public static final int tip_msg_well_study_fail=0x7f060183;
+        public static final int title_tip_auto_connecting=0x7f060167;
+        public static final int title_tip_unconnnect=0x7f060166;
+        public static final int trouble_deatil_tv_zj_elec=0x7f060110;
         /**  故障详细 
  故障详细 
  故障详细 
          */
-        public static final int trouble_detail_add_speed=0x7f060120;
-        public static final int trouble_detail_fix_speed=0x7f060121;
-        public static final int trouble_detail_slow_speed=0x7f060122;
-        public static final int trouble_detail_tv_current_floor=0x7f060106;
-        public static final int trouble_detail_tv_current_location=0x7f060105;
-        public static final int trouble_detail_tv_curve_info=0x7f060109;
+        public static final int trouble_detail_add_speed=0x7f060121;
+        public static final int trouble_detail_fix_speed=0x7f060122;
+        public static final int trouble_detail_slow_speed=0x7f060123;
+        public static final int trouble_detail_tv_current_floor=0x7f060107;
+        public static final int trouble_detail_tv_current_location=0x7f060106;
+        public static final int trouble_detail_tv_curve_info=0x7f06010a;
         /**  故障-详细 
  故障-详细 
  故障-详细 
          */
-        public static final int trouble_detail_tv_datetime=0x7f060102;
-        public static final int trouble_detail_tv_feedback_speed=0x7f06010b;
-        public static final int trouble_detail_tv_give_speed=0x7f06010a;
-        public static final int trouble_detail_tv_input_info=0x7f060107;
-        public static final int trouble_detail_tv_no=0x7f060104;
-        public static final int trouble_detail_tv_out_elec=0x7f06010d;
-        public static final int trouble_detail_tv_out_info=0x7f060108;
-        public static final int trouble_detail_tv_out_rate=0x7f06010e;
-        public static final int trouble_detail_tv_parent_voltage=0x7f06010c;
-        public static final int trouble_detail_tv_time=0x7f060103;
-        public static final int trouble_list_lable_back=0x7f060125;
+        public static final int trouble_detail_tv_datetime=0x7f060103;
+        public static final int trouble_detail_tv_feedback_speed=0x7f06010c;
+        public static final int trouble_detail_tv_give_speed=0x7f06010b;
+        public static final int trouble_detail_tv_input_info=0x7f060108;
+        public static final int trouble_detail_tv_no=0x7f060105;
+        public static final int trouble_detail_tv_out_elec=0x7f06010e;
+        public static final int trouble_detail_tv_out_info=0x7f060109;
+        public static final int trouble_detail_tv_out_rate=0x7f06010f;
+        public static final int trouble_detail_tv_parent_voltage=0x7f06010d;
+        public static final int trouble_detail_tv_time=0x7f060104;
+        public static final int trouble_list_lable_back=0x7f060126;
         /**  故障列表 
  故障列表 
  故障列表 
          */
-        public static final int trouble_list_lable_current_trouble=0x7f060123;
-        public static final int trouble_list_lable_front=0x7f060124;
-        public static final int trouble_tv_trouble_no=0x7f060101;
+        public static final int trouble_list_lable_current_trouble=0x7f060124;
+        public static final int trouble_list_lable_front=0x7f060125;
+        public static final int trouble_tv_trouble_no=0x7f060102;
         /**  故障 
  故障 
  故障 
          */
-        public static final int trouble_tv_trouble_order=0x7f0600ff;
-        public static final int trouble_tv_trouble_time=0x7f060100;
+        public static final int trouble_tv_trouble_order=0x7f060100;
+        public static final int trouble_tv_trouble_time=0x7f060101;
         /**  关于我们 
  关于我们 
  关于我们 
          */
-        public static final int tv_about_us_content=0x7f06004c;
-        public static final int ui_choice_hint=0x7f06001f;
-        public static final int ui_login_success=0x7f060035;
-        public static final int ui_title_about_us=0x7f060034;
-        public static final int ui_title_auto_study=0x7f06001e;
-        public static final int ui_title_call=0x7f060033;
-        public static final int ui_title_change_device=0x7f06002a;
-        public static final int ui_title_choice=0x7f060019;
-        public static final int ui_title_codescan=0x7f060020;
-        public static final int ui_title_command=0x7f060032;
-        public static final int ui_title_device_info=0x7f060028;
-        public static final int ui_title_device_test=0x7f06002b;
-        public static final int ui_title_device_test_vector_control_params=0x7f06002c;
-        public static final int ui_title_elec_auto_study_param=0x7f060024;
-        public static final int ui_title_elec_basic=0x7f060023;
-        public static final int ui_title_floor_display_setting=0x7f060027;
-        public static final int ui_title_floor_door_setting=0x7f060026;
+        public static final int tv_about_us_content=0x7f06004d;
+        public static final int ui_choice_hint=0x7f060020;
+        public static final int ui_login_success=0x7f060036;
+        public static final int ui_title_about_us=0x7f060035;
+        public static final int ui_title_auto_study=0x7f06001f;
+        public static final int ui_title_call=0x7f060034;
+        public static final int ui_title_change_device=0x7f06002b;
+        public static final int ui_title_choice=0x7f06001a;
+        public static final int ui_title_codescan=0x7f060021;
+        public static final int ui_title_command=0x7f060033;
+        public static final int ui_title_device_info=0x7f060029;
+        public static final int ui_title_device_test=0x7f06002c;
+        public static final int ui_title_device_test_vector_control_params=0x7f06002d;
+        public static final int ui_title_elec_auto_study_param=0x7f060025;
+        public static final int ui_title_elec_basic=0x7f060024;
+        public static final int ui_title_floor_display_setting=0x7f060028;
+        public static final int ui_title_floor_door_setting=0x7f060027;
         /**  ui界面 
  ui界面 
  ui界面 
          */
-        public static final int ui_title_login=0x7f060018;
-        public static final int ui_title_mainbord_input_setting=0x7f060029;
-        public static final int ui_title_monitor=0x7f06001a;
-        public static final int ui_title_monitor_drive_state=0x7f06001b;
-        public static final int ui_title_monitor_port_state=0x7f06001c;
-        public static final int ui_title_phone_ime=0x7f06002e;
-        public static final int ui_title_run_control_params=0x7f06002f;
-        public static final int ui_title_setting=0x7f060021;
-        public static final int ui_title_setting_basic=0x7f060022;
-        public static final int ui_title_soft_about=0x7f06002d;
-        public static final int ui_title_test_function_params=0x7f060031;
-        public static final int ui_title_time_control_params=0x7f060030;
-        public static final int ui_title_trouble=0x7f06001d;
-        public static final int ui_title_well_auto_study_param=0x7f060025;
-        public static final int ui_trouble_detail=0x7f060036;
-        public static final int unit_ap=0x7f06013d;
-        public static final int unit_apair=0x7f06013e;
-        public static final int unit_day=0x7f060131;
-        public static final int unit_desk=0x7f060135;
-        public static final int unit_du=0x7f060144;
-        public static final int unit_floor=0x7f060134;
-        public static final int unit_ft=0x7f06013b;
-        public static final int unit_hh=0x7f060146;
-        public static final int unit_hour=0x7f060143;
-        public static final int unit_hz=0x7f060139;
-        public static final int unit_jdu=0x7f060147;
-        public static final int unit_killmi=0x7f06013f;
-        public static final int unit_kw=0x7f060138;
-        public static final int unit_load=0x7f060133;
-        public static final int unit_miil=0x7f060140;
-        public static final int unit_millimetre=0x7f060136;
-        public static final int unit_month=0x7f060130;
-        public static final int unit_om=0x7f060145;
-        public static final int unit_rate_khz=0x7f060137;
-        public static final int unit_seconds=0x7f06013c;
-        public static final int unit_speed=0x7f060132;
-        public static final int unit_time=0x7f060141;
-        public static final int unit_vector=0x7f060148;
+        public static final int ui_title_login=0x7f060019;
+        public static final int ui_title_mainbord_input_setting=0x7f06002a;
+        public static final int ui_title_monitor=0x7f06001b;
+        public static final int ui_title_monitor_drive_state=0x7f06001c;
+        public static final int ui_title_monitor_port_state=0x7f06001d;
+        public static final int ui_title_phone_ime=0x7f06002f;
+        public static final int ui_title_run_control_params=0x7f060030;
+        public static final int ui_title_setting=0x7f060022;
+        public static final int ui_title_setting_basic=0x7f060023;
+        public static final int ui_title_soft_about=0x7f06002e;
+        public static final int ui_title_test_function_params=0x7f060032;
+        public static final int ui_title_time_control_params=0x7f060031;
+        public static final int ui_title_trouble=0x7f06001e;
+        public static final int ui_title_well_auto_study_param=0x7f060026;
+        public static final int ui_trouble_detail=0x7f060037;
+        public static final int unit_ap=0x7f06013e;
+        public static final int unit_apair=0x7f06013f;
+        public static final int unit_day=0x7f060132;
+        public static final int unit_desk=0x7f060136;
+        public static final int unit_du=0x7f060145;
+        public static final int unit_floor=0x7f060135;
+        public static final int unit_ft=0x7f06013c;
+        public static final int unit_hh=0x7f060147;
+        public static final int unit_hour=0x7f060144;
+        public static final int unit_hz=0x7f06013a;
+        public static final int unit_jdu=0x7f060148;
+        public static final int unit_killmi=0x7f060140;
+        public static final int unit_kw=0x7f060139;
+        public static final int unit_load=0x7f060134;
+        public static final int unit_miil=0x7f060141;
+        public static final int unit_millimetre=0x7f060137;
+        public static final int unit_month=0x7f060131;
+        public static final int unit_om=0x7f060146;
+        public static final int unit_rate_khz=0x7f060138;
+        public static final int unit_seconds=0x7f06013d;
+        public static final int unit_speed=0x7f060133;
+        public static final int unit_time=0x7f060142;
+        public static final int unit_vector=0x7f060149;
         /**  单位 
  单位 
  单位 
          */
-        public static final int unit_year=0x7f06012f;
-        public static final int unit_z=0x7f060142;
-        public static final int unit_zf=0x7f06013a;
-        /**  apk检测更新URL 
+        public static final int unit_year=0x7f060130;
+        public static final int unit_z=0x7f060143;
+        public static final int unit_zf=0x7f06013b;
+        /**  apk检测更新URL内网IP 
          */
-        public static final int updateurl=0x7f060000;
-        public static final int well_study_down_pulse1=0x7f060128;
-        public static final int well_study_down_pulse2=0x7f06012a;
-        public static final int well_study_down_syn_value=0x7f06012e;
-        public static final int well_study_floor_positon_value=0x7f06012b;
-        public static final int well_study_floor_space_value=0x7f06012c;
+        public static final int updateurl_inner=0x7f060000;
+        /**  外围IP 
+         */
+        public static final int updateurl_outer=0x7f060001;
+        public static final int well_study_down_pulse1=0x7f060129;
+        public static final int well_study_down_pulse2=0x7f06012b;
+        public static final int well_study_down_syn_value=0x7f06012f;
+        public static final int well_study_floor_positon_value=0x7f06012c;
+        public static final int well_study_floor_space_value=0x7f06012d;
         /**  井道自学习 
  井道自学习 
  井道自学习 
          */
-        public static final int well_study_total_high=0x7f060126;
-        public static final int well_study_up_pulse1=0x7f060127;
-        public static final int well_study_up_pulse2=0x7f060129;
-        public static final int well_study_up_syn_value=0x7f06012d;
+        public static final int well_study_total_high=0x7f060127;
+        public static final int well_study_up_pulse1=0x7f060128;
+        public static final int well_study_up_pulse2=0x7f06012a;
+        public static final int well_study_up_syn_value=0x7f06012e;
     }
     public static final class style {
         /** 

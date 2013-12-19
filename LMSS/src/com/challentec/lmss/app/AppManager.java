@@ -271,13 +271,13 @@ public class AppManager {
 	 * 
 	 * @return true更新，false不需要更新
 	 */
-	public boolean isUpdate(UpdateInfo updateInfo) {
+	public boolean isUpdate(UpdateInfo updateInfo,String updateUrl) {
 
 		String oldVerson = getAppVersion();
 		UpdateInfoService updateInfoService = new UpdateInfoService(context);
 		try {
 			UpdateInfo newUpdateInfo = updateInfoService
-					.getUpdateInfo(R.string.updateurl);
+					.getUpdateInfo(updateUrl);
 			if (!newUpdateInfo.getVersion().equals(oldVerson)) {
 				if (updateInfo != null) {
 					updateInfo.setUrl(newUpdateInfo.getUrl());
@@ -293,6 +293,7 @@ public class AppManager {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			LogUtil.i(LogUtil.LOG_TAG_I, "检测更新超时");
 			return false;
 		}
 

@@ -144,6 +144,7 @@
 # view res/layout/activity_monitor_layout.xml #generated:201
 # view res/layout/activity_params_list_layout.xml #generated:20
 # view res/layout/activity_trouble_layout.xml #generated:79
+# view res/layout/start.xml #generated:8
 -keep class com.challentec.lmss.view.LoadProgressView { <init>(...); }
 
 # view res/layout/activity_auto_study_layout.xml #generated:17

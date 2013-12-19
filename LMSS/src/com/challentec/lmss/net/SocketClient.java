@@ -32,10 +32,11 @@ public class SocketClient {
 	private String ip = "";// ip地址
 	private static final int PORT = 9721;// 服务器端口
 	private static final int CONNECT_SERVER_TIME_OUT = 2000;
-	private boolean isVerify;//服务器是否通过验证码
-	
-	public  static ReadTread readTread;// 读取数据线程
+	private boolean isVerify;// 服务器是否通过验证码
 
+	public static ReadTread readTread;// 读取数据线程
+	public static final int IP_INNER = 1;// 内网IP
+	public static final int IP_OUTER = 2;// 外围IP
 
 	public boolean isVerify() {
 		return isVerify;
@@ -75,8 +76,7 @@ public class SocketClient {
 	 */
 	public void connect() throws UnknownHostException, IOException,
 			ConnectServerTimeOutException {
-		
-		
+
 		boolean flag = true;
 		int i = 0;
 		while (flag) {// 连接服务器
@@ -85,16 +85,15 @@ public class SocketClient {
 				Thread.sleep(500);// 每个两秒尝试连接一次服务器
 				socket = null;
 				socket = new Socket();
-				
-				
-				if (i % 2 == 0) {//轮询连接服务器
+
+				if (i % 2 == 0) {// 轮询连接服务器
 					ip = OUTERNET_IP;
 				} else {
 					ip = INTRANET_IP;
 				}
 				i++;
-				
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接IP为"+ip);
+
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接IP为" + ip);
 				socket.connect(new InetSocketAddress(ip, PORT),
 						CONNECT_SERVER_TIME_OUT);
 				is = socket.getInputStream();
@@ -110,11 +109,13 @@ public class SocketClient {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "InterruptedException连接服务器异常");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT,
+						"InterruptedException连接服务器异常");
 
 			} catch (SocketTimeoutException e) {
 
-				LogUtil.i(LogUtil.LOG_TAG_CONNECT, "SocketTimeoutException连接服务器超时");
+				LogUtil.i(LogUtil.LOG_TAG_CONNECT,
+						"SocketTimeoutException连接服务器超时");
 			}
 
 		}
@@ -185,15 +186,15 @@ public class SocketClient {
 	 * @author 泰得利通 wanglu
 	 * @throws IOException
 	 */
-	
+
 	public void dispose() {
 		try {
-			isVerify=false;//服务器验证指控
+			isVerify = false;// 服务器验证指控
 			if (socket != null && socket.isConnected()) {
 
-				if(readTread!=null&&readTread.isAlive()){
+				if (readTread != null && readTread.isAlive()) {
 					readTread.interrupt();
-					readTread=null;
+					readTread = null;
 				}
 				is.close();
 				os.close();
@@ -201,11 +202,22 @@ public class SocketClient {
 				socket = null;
 				is = null;
 				os = null;
-				}
+			}
 		} catch (IOException e) {
 
 		}
 
+	}
+
+	/**
+	 * 获取连接IP类型
+	 * 
+	 * @author 泰得利通 wanglu
+	 * @return
+	 */
+	public int getIpType() {
+
+		return ip.equals(INTRANET_IP) ? IP_INNER : IP_OUTER;
 	}
 
 }
