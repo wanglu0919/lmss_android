@@ -73,6 +73,7 @@ public class DeviceTestActivity extends TabContentBaseActivity {
 					}
 				});
 
+		/*
 		device_fast_rl_fast_debug.setOnClickListener(new OnClickListener() {// 快速调试
 
 					@Override
@@ -81,7 +82,7 @@ public class DeviceTestActivity extends TabContentBaseActivity {
 								FastDebug2Activity.class);
 						MainTabActivity.instance.addView(intent);
 					}
-				});
+				});*/
 	}
 
 	@Override
@@ -95,8 +96,8 @@ public class DeviceTestActivity extends TabContentBaseActivity {
 				.findViewById(R.id.device_test_rl_time_control_params);
 		device_test_rl_test_function_control_params = (RelativeLayout) mainView
 				.findViewById(R.id.device_test_rl_test_function_control_params);
-		device_fast_rl_fast_debug = (RelativeLayout) mainView
-				.findViewById(R.id.device_fast_rl_fast_debug);// 快速调试
+		//device_fast_rl_fast_debug = (RelativeLayout) mainView
+			//	.findViewById(R.id.device_fast_rl_fast_debug);// 快速调试
 		new SynTask(appContext).uiLog(Protocol.UI_TEST_HOME);// 提交操作日志
 
 	}

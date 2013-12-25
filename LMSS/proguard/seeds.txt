@@ -5068,12 +5068,15 @@ android.support.v4.widget.ViewDragHelper$Callback: int getViewVerticalDragRange(
 android.support.v4.widget.ViewDragHelper$Callback: boolean tryCaptureView(android.view.View,int)
 android.support.v4.widget.ViewDragHelper$Callback: int clampViewPositionHorizontal(android.view.View,int,int)
 android.support.v4.widget.ViewDragHelper$Callback: int clampViewPositionVertical(android.view.View,int,int)
-com.challentec.lmss.app.AppConnectStateRecever
 com.challentec.lmss.app.AppContext
 com.challentec.lmss.app.AppContext: AppContext()
-com.challentec.lmss.app.AppMessageRecever
+com.challentec.lmss.app.AppStartActivity
+com.challentec.lmss.app.AppStartActivity: AppStartActivity()
 com.challentec.lmss.app.MainActivity
 com.challentec.lmss.app.MainActivity: MainActivity()
+com.challentec.lmss.recever.AppConnectStateRecever
+com.challentec.lmss.recever.AppMessageRecever
+com.challentec.lmss.recever.MonitorRecever
 com.challentec.lmss.service.AutoConnectPollingService
 com.challentec.lmss.service.AutoConnectPollingService: AutoConnectPollingService()
 com.challentec.lmss.service.LoginPollingService
@@ -5240,6 +5243,7 @@ com.challentec.lmss.zxing.camera.CameraManager: void stopPreview()
 com.challentec.lmss.zxing.camera.CameraManager: void requestPreviewFrame(android.os.Handler,int)
 com.challentec.lmss.zxing.camera.CameraManager: void requestAutoFocus(android.os.Handler,int)
 com.challentec.lmss.zxing.camera.CameraManager: android.graphics.Rect getFramingRect()
+com.challentec.lmss.zxing.camera.CameraManager: android.graphics.Point getScreenResolution()
 com.challentec.lmss.zxing.camera.CameraManager: android.graphics.Rect getFramingRectInPreview()
 com.challentec.lmss.zxing.camera.CameraManager: com.challentec.lmss.zxing.camera.PlanarYUVLuminanceSource buildLuminanceSource(byte[],int,int)
 com.challentec.lmss.zxing.camera.CameraManager: android.content.Context getContext()

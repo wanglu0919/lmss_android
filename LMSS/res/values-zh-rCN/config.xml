@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- apk检测更新URL内网IP -->
+  <string name="updateurl_inner">http://172.16.40.97:9724/upload/AndroidUpdate.xml</string> 
+  <!-- 外围IP -->
+   <string name="updateurl_outer">http://61.160.96.205:9724/upload/AndroidUpdate.xml</string>  
+</resources>

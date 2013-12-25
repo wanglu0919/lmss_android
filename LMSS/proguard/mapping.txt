@@ -4619,6 +4619,8 @@ com.challentec.lmss.adapter.ParamsItemAdapter$ViewHolder -> com.challentec.lmss.
 com.challentec.lmss.adapter.TroubleAdapter -> com.challentec.lmss.a.h:
     android.content.Context context -> a
     java.util.List troubles -> b
+    android.graphics.drawable.Drawable imgMore -> c
+    android.graphics.drawable.Drawable imgData_Warring -> d
     int getCount() -> getCount
     java.lang.Object getItem(int) -> getItem
     long getItemId(int) -> getItemId
@@ -4631,44 +4633,116 @@ com.challentec.lmss.adapter.WheelAdapter -> com.challentec.lmss.a.j:
     int getItemsCount() -> a
     java.lang.String getItem(int) -> a
     int getMaximumLength() -> b
-com.challentec.lmss.app.AppConfig -> com.challentec.lmss.app.a:
-    com.challentec.lmss.app.AppConfig appConfig -> a
-    android.content.SharedPreferences sp -> b
-    android.content.Context mContext -> c
+com.challentec.lmss.app.AppCache -> com.challentec.lmss.app.a:
+    java.util.Map cacheMap -> a
+    void cache(java.lang.String,java.lang.String) -> a
+    java.lang.String getCache(java.lang.String) -> a
+com.challentec.lmss.app.AppConfig -> com.challentec.lmss.app.b:
+    com.challentec.lmss.app.AppConfig appConfig -> b
+    android.content.SharedPreferences sp -> c
+    java.lang.String APP_PATH -> a
+    android.content.Context mContext -> d
     com.challentec.lmss.app.AppConfig getAppConfig(android.content.Context) -> a
     android.content.SharedPreferences getSharedPreferences() -> a
     int getSharePreferenceInt(java.lang.String) -> a
-com.challentec.lmss.app.AppConnectStateRecever -> com.challentec.lmss.app.AppConnectStateRecever:
-    com.challentec.lmss.listener.AppConectStateListener appConectStateListener -> a
-    void setAppConectStateListener(com.challentec.lmss.listener.AppConectStateListener) -> a
-    void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.challentec.lmss.app.AppContext -> com.challentec.lmss.app.AppContext:
     void onCreate() -> onCreate
     boolean isNetworkConnected() -> a
     boolean isGPSOPen() -> b
-com.challentec.lmss.app.AppManager -> com.challentec.lmss.app.b:
+com.challentec.lmss.app.AppManager -> com.challentec.lmss.app.c:
     com.challentec.lmss.app.AppManager instance -> a
     android.content.Context context -> c
     java.util.Stack activityStack -> b
+    int pollCount -> d
+    void setPollCount$13462e() -> a
+    void addPollCount() -> b
+    int getPollCount() -> c
+    void reduceCount() -> d
     com.challentec.lmss.app.AppManager getManager(android.content.Context) -> a
     void addActivity(android.app.Activity) -> a
-    void redirtToLogin() -> a
+    void redirtToLogin() -> e
     void finishActivity(android.app.Activity) -> b
     void appExit(android.content.Context) -> b
-    java.lang.String getAppVersion() -> b
-    java.lang.String getIMEI() -> c
-    com.challentec.lmss.app.AppMessageRecever registerAppMessageRecever(android.content.Context) -> c
-    com.challentec.lmss.app.AppConnectStateRecever registerAppConnectStateRecever(android.content.Context) -> d
-    void startPolling() -> d
-    void stopPolling() -> e
-com.challentec.lmss.app.AppMessageRecever -> com.challentec.lmss.app.AppMessageRecever:
-    com.challentec.lmss.listener.AppMessageLinstener appMessageLinstener -> a
-    void setAppMessageLinstener(com.challentec.lmss.listener.AppMessageLinstener) -> a
-    void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.challentec.lmss.app.AppTipMessage -> com.challentec.lmss.app.c:
+    java.lang.String getAppVersion() -> f
+    java.lang.String getIMEI() -> g
+    com.challentec.lmss.recever.AppMessageRecever registerAppMessageRecever(android.content.Context) -> c
+    com.challentec.lmss.recever.AppConnectStateRecever registerAppConnectStateRecever(android.content.Context) -> d
+    void startPolling() -> h
+    void stopPolling() -> i
+    boolean isUpdate(com.challentec.lmss.bean.UpdateInfo,java.lang.String) -> a
+com.challentec.lmss.app.AppStartActivity -> com.challentec.lmss.app.AppStartActivity:
+    com.challentec.lmss.bean.UpdateInfo updateInfo -> a
+    android.app.ProgressDialog pd -> b
+    com.challentec.lmss.app.AppContext appContext -> c
+    com.challentec.lmss.net.SocketClient socketClient -> d
+    com.challentec.lmss.view.LoadProgressView pb_load -> e
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> f
+    com.challentec.lmss.app.AppManager appManager -> g
+    android.os.Handler handler -> h
+    void onDestroy() -> onDestroy
+    void serverVieryTimeOut() -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void connect() -> b
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void access$0(com.challentec.lmss.app.AppStartActivity) -> a
+    void access$1(com.challentec.lmss.app.AppStartActivity) -> b
+    com.challentec.lmss.net.SocketClient access$2(com.challentec.lmss.app.AppStartActivity) -> c
+    com.challentec.lmss.app.AppContext access$3(com.challentec.lmss.app.AppStartActivity) -> d
+    com.challentec.lmss.view.LoadProgressView access$4(com.challentec.lmss.app.AppStartActivity) -> e
+    com.challentec.lmss.app.AppManager access$5(com.challentec.lmss.app.AppStartActivity) -> f
+    void access$6(com.challentec.lmss.app.AppStartActivity) -> g
+    android.app.ProgressDialog access$7(com.challentec.lmss.app.AppStartActivity) -> h
+    void access$8(com.challentec.lmss.app.AppStartActivity,java.io.File) -> a
+    android.os.Handler access$9(com.challentec.lmss.app.AppStartActivity) -> i
+    void access$10(com.challentec.lmss.app.AppStartActivity) -> j
+    void access$11(com.challentec.lmss.app.AppStartActivity) -> k
+    void access$12(com.challentec.lmss.app.AppStartActivity,com.challentec.lmss.bean.UpdateInfo) -> a
+    com.challentec.lmss.bean.UpdateInfo access$13(com.challentec.lmss.app.AppStartActivity) -> l
+com.challentec.lmss.app.AppStartActivity$1 -> com.challentec.lmss.app.d:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.challentec.lmss.app.AppStartActivity$2 -> com.challentec.lmss.app.e:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.challentec.lmss.app.AppStartActivity$3 -> com.challentec.lmss.app.f:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void onConnectSuccess(java.lang.String) -> a
+com.challentec.lmss.app.AppStartActivity$4 -> com.challentec.lmss.app.g:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.app.AppStartActivity$5 -> com.challentec.lmss.app.h:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.app.AppStartActivity$6 -> com.challentec.lmss.app.i:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.challentec.lmss.app.AppStartActivity$7 -> com.challentec.lmss.app.j:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.challentec.lmss.app.AppStartActivity$DownLoadThreadTask -> com.challentec.lmss.app.k:
+    java.lang.String path -> b
+    java.lang.String filePath -> c
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.app.AppStartActivity$MainAppMessageLinstener -> com.challentec.lmss.app.l:
+    com.challentec.lmss.app.AppStartActivity this$0 -> a
+    void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
+com.challentec.lmss.app.AppTipMessage -> com.challentec.lmss.app.m:
     java.util.HashMap tipMessage -> a
     java.lang.String getString(android.content.Context,java.lang.String) -> a
     int getResouceStringId(java.lang.String) -> a
+com.challentec.lmss.app.CrashHandler -> com.challentec.lmss.app.n:
+    java.lang.Thread$UncaughtExceptionHandler mDefaultHandler -> a
+    com.challentec.lmss.app.CrashHandler INSTANCE -> b
+    android.content.Context mContext -> c
+    java.util.Map infos -> d
+    java.text.DateFormat formatter -> e
+    com.challentec.lmss.app.CrashHandler getInstance() -> a
+    void init(android.content.Context) -> a
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    java.lang.String saveCrashInfo2File(java.lang.Throwable) -> a
 com.challentec.lmss.app.MainActivity -> com.challentec.lmss.app.MainActivity:
     long lastExitTime -> a
     android.widget.Button main_btn_login -> b
@@ -4677,86 +4751,96 @@ com.challentec.lmss.app.MainActivity -> com.challentec.lmss.app.MainActivity:
     android.widget.TextView main_tv_english -> e
     android.widget.EditText main_login_et_tel -> f
     android.widget.EditText main_et_vecode -> g
-    com.challentec.lmss.app.AppMessageRecever appMessageRecever -> h
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> h
     int CURRENT_LANGUAGE_TYPE -> i
     com.challentec.lmss.app.AppContext appContext -> j
     com.challentec.lmss.app.AppManager appManager -> k
     java.lang.String locationStr -> l
-    com.challentec.lmss.engine.GPSInfoService gpsInfoService -> m
-    com.challentec.lmss.net.SocketClient socketClient -> n
-    com.challentec.lmss.view.LoadProgressView main_pb_load -> o
-    android.content.SharedPreferences sp -> p
-    com.challentec.lmss.app.AppConnectStateRecever appConnectStateRecever -> q
-    android.os.Handler handler -> r
+    com.challentec.lmss.net.SocketClient socketClient -> m
+    com.challentec.lmss.view.LoadProgressView main_pb_load -> n
+    android.content.SharedPreferences sp -> o
+    com.challentec.lmss.recever.AppConnectStateRecever appConnectStateRecever -> p
+    int locationType -> q
+    int vecodeTime -> r
+    android.os.Handler handler -> s
+    void serverVieryTimeOut() -> a
     void onCreate(android.os.Bundle) -> onCreate
     void onStart() -> onStart
     void onStop() -> onStop
-    void connect() -> b
+    void connect() -> c
     void setLanguage(int) -> a
-    void addLinsteners() -> c
-    void doLogin() -> a
-    void getVecode() -> d
-    void getLoaction() -> e
-    void findViews() -> f
-    void setLanguageTextViewStyle() -> g
+    void addLinsteners() -> d
+    void doLogin() -> b
+    void getVecode() -> e
+    void getLoaction() -> f
+    void findViews() -> g
+    void setLanguageTextViewStyle() -> h
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    boolean checkLoginInput() -> i
     void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    void access$0(com.challentec.lmss.app.MainActivity) -> a
-    com.challentec.lmss.engine.GPSInfoService access$1(com.challentec.lmss.app.MainActivity) -> b
-    void access$2(com.challentec.lmss.app.MainActivity) -> c
-    com.challentec.lmss.view.LoadProgressView access$3(com.challentec.lmss.app.MainActivity) -> d
-    void access$4(com.challentec.lmss.app.MainActivity) -> e
-    int access$5(com.challentec.lmss.app.MainActivity) -> f
-    void access$6(com.challentec.lmss.app.MainActivity,int) -> a
-    void access$7(com.challentec.lmss.app.MainActivity,java.lang.String) -> a
-    android.os.Handler access$8(com.challentec.lmss.app.MainActivity) -> g
-    com.challentec.lmss.app.AppContext access$9(com.challentec.lmss.app.MainActivity) -> h
-    com.challentec.lmss.app.AppManager access$10(com.challentec.lmss.app.MainActivity) -> i
-    android.widget.EditText access$11(com.challentec.lmss.app.MainActivity) -> j
-    void access$12(com.challentec.lmss.app.MainActivity) -> k
-    void access$13(com.challentec.lmss.app.MainActivity) -> l
+    int access$0(com.challentec.lmss.app.MainActivity) -> a
+    void access$1(com.challentec.lmss.app.MainActivity) -> b
+    int access$2(com.challentec.lmss.app.MainActivity) -> c
+    void access$3(com.challentec.lmss.app.MainActivity,int) -> a
+    android.widget.Button access$4(com.challentec.lmss.app.MainActivity) -> d
+    android.os.Handler access$5(com.challentec.lmss.app.MainActivity) -> e
+    void access$6(com.challentec.lmss.app.MainActivity) -> f
+    com.challentec.lmss.view.LoadProgressView access$7(com.challentec.lmss.app.MainActivity) -> g
+    void access$8(com.challentec.lmss.app.MainActivity) -> h
+    int access$9(com.challentec.lmss.app.MainActivity) -> i
+    void access$10(com.challentec.lmss.app.MainActivity,int) -> b
+    com.challentec.lmss.net.SocketClient access$11(com.challentec.lmss.app.MainActivity) -> j
+    com.challentec.lmss.app.AppContext access$12(com.challentec.lmss.app.MainActivity) -> k
+    com.challentec.lmss.app.AppManager access$13(com.challentec.lmss.app.MainActivity) -> l
     void access$14(com.challentec.lmss.app.MainActivity) -> m
-    void access$15(com.challentec.lmss.app.MainActivity) -> n
-    void access$16(com.challentec.lmss.app.MainActivity) -> o
-com.challentec.lmss.app.MainActivity$1 -> com.challentec.lmss.app.d:
+    boolean access$15(com.challentec.lmss.app.MainActivity) -> n
+    void access$16(com.challentec.lmss.app.MainActivity,int) -> c
+    void access$17(com.challentec.lmss.app.MainActivity) -> o
+    void access$18(com.challentec.lmss.app.MainActivity) -> p
+    android.widget.EditText access$19(com.challentec.lmss.app.MainActivity) -> q
+    boolean access$20(com.challentec.lmss.app.MainActivity) -> r
+    void access$21(com.challentec.lmss.app.MainActivity) -> s
+    void access$22(com.challentec.lmss.app.MainActivity) -> t
+    void access$23(com.challentec.lmss.app.MainActivity) -> u
+    void access$24(com.challentec.lmss.app.MainActivity,java.lang.String) -> a
+com.challentec.lmss.app.MainActivity$1 -> com.challentec.lmss.app.o:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.challentec.lmss.app.MainActivity$2 -> com.challentec.lmss.app.e:
+com.challentec.lmss.app.MainActivity$10 -> com.challentec.lmss.app.p:
+    com.challentec.lmss.app.MainActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.challentec.lmss.app.MainActivity$11 -> com.challentec.lmss.app.q:
+    com.challentec.lmss.app.MainActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.challentec.lmss.app.MainActivity$2 -> com.challentec.lmss.app.r:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onConnectSuccess(java.lang.String) -> a
-    void onFianly() -> a
-com.challentec.lmss.app.MainActivity$3 -> com.challentec.lmss.app.f:
+com.challentec.lmss.app.MainActivity$3 -> com.challentec.lmss.app.s:
+    com.challentec.lmss.app.MainActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.app.MainActivity$4 -> com.challentec.lmss.app.t:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.app.MainActivity$4 -> com.challentec.lmss.app.g:
+com.challentec.lmss.app.MainActivity$5 -> com.challentec.lmss.app.u:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.app.MainActivity$5 -> com.challentec.lmss.app.h:
+com.challentec.lmss.app.MainActivity$6 -> com.challentec.lmss.app.v:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.app.MainActivity$6 -> com.challentec.lmss.app.i:
+com.challentec.lmss.app.MainActivity$7 -> com.challentec.lmss.app.w:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.app.MainActivity$7 -> com.challentec.lmss.app.j:
+com.challentec.lmss.app.MainActivity$8 -> com.challentec.lmss.app.x:
     com.challentec.lmss.app.MainActivity this$0 -> a
-com.challentec.lmss.app.MainActivity$8 -> com.challentec.lmss.app.k:
+com.challentec.lmss.app.MainActivity$9 -> com.challentec.lmss.app.y:
     com.challentec.lmss.app.MainActivity this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
-com.challentec.lmss.app.MainActivity$9 -> com.challentec.lmss.app.l:
-    com.challentec.lmss.app.MainActivity this$0 -> a
-    void onClick(android.content.DialogInterface,int) -> onClick
-com.challentec.lmss.app.MainActivity$MainAppMessageLinstener -> com.challentec.lmss.app.m:
+    void run() -> run
+com.challentec.lmss.app.MainActivity$MainAppMessageLinstener -> com.challentec.lmss.app.z:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.app.MainActivity$MainConnectStateMessageListener -> com.challentec.lmss.app.n:
+com.challentec.lmss.app.MainActivity$MainConnectStateMessageListener -> com.challentec.lmss.app.aa:
     com.challentec.lmss.app.MainActivity this$0 -> a
     void connectStateChanged() -> a
-com.challentec.lmss.app.MainActivity$MyGPSLinster -> com.challentec.lmss.app.o:
-    com.challentec.lmss.app.MainActivity this$0 -> a
-    void onLocationChanged(android.location.Location) -> onLocationChanged
-    void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
-    void onProviderEnabled(java.lang.String) -> onProviderEnabled
-    void onProviderDisabled(java.lang.String) -> onProviderDisabled
 com.challentec.lmss.bean.ButtonParamItem -> com.challentec.lmss.b.a:
     java.lang.String itemName -> a
     boolean isHightLinght -> b
@@ -4864,14 +4948,30 @@ com.challentec.lmss.bean.Trouble -> com.challentec.lmss.b.f:
     java.lang.String t_order -> b
     java.lang.String t_time -> c
     java.lang.String t_no -> d
-    java.lang.String getT_order() -> a
+    boolean isError -> e
+    boolean isError() -> a
+    void setError$1385ff() -> b
+    java.lang.String getT_order() -> c
     void setT_order(java.lang.String) -> a
-    java.lang.String getT_time() -> b
+    java.lang.String getT_time() -> d
     void setT_time(java.lang.String) -> b
-    java.lang.String getT_no() -> c
+    java.lang.String getT_no() -> e
     void setT_no(java.lang.String) -> c
-    java.lang.String getT_id() -> d
+    java.lang.String getT_id() -> f
     void setT_id(java.lang.String) -> d
+com.challentec.lmss.bean.UpdateInfo -> com.challentec.lmss.b.g:
+    java.lang.String version -> a
+    java.lang.String description -> b
+    java.lang.String url1 -> c
+    java.lang.String url2 -> d
+    java.lang.String getVersion() -> a
+    void setVersion(java.lang.String) -> a
+    java.lang.String getDescription() -> b
+    void setDescription(java.lang.String) -> b
+    java.lang.String getUrl1() -> c
+    void setUrl1(java.lang.String) -> c
+    java.lang.String getUrl2() -> d
+    void setUrl2(java.lang.String) -> d
 com.challentec.lmss.dlg.RecoverOutSetDlg -> com.challentec.lmss.c.a:
     android.widget.Button dlg_btn_ok -> a
     android.widget.Button dlg_btn_cancle -> b
@@ -4880,92 +4980,137 @@ com.challentec.lmss.dlg.RecoverOutSetDlg -> com.challentec.lmss.c.a:
     android.widget.TextView dlg_tv_title -> e
 com.challentec.lmss.engine.FloorDoorSetParser -> com.challentec.lmss.d.a:
     java.lang.String getHexSaveData(java.util.List) -> a
-com.challentec.lmss.engine.GPSInfoService -> com.challentec.lmss.d.b:
-    android.location.LocationManager manager -> a
-    android.location.LocationListener locationListener -> b
-    com.challentec.lmss.engine.GPSInfoService mGPSService -> c
-    com.challentec.lmss.engine.GPSInfoService getInstance(android.content.Context) -> a
-    void registerLocationUpdates(android.location.LocationListener) -> a
-    void cancleLocationUpdates() -> a
+com.challentec.lmss.engine.UpdateInfoService -> com.challentec.lmss.d.b:
+    android.content.Context context -> a
+com.challentec.lmss.engine.UpdateParser -> com.challentec.lmss.d.c:
+    com.challentec.lmss.bean.UpdateInfo paserUpdateInfo(java.io.InputStream) -> a
 com.challentec.lmss.exception.ConnectServerTimeOutException -> com.challentec.lmss.e.a:
 com.challentec.lmss.exception.ReadDataException -> com.challentec.lmss.e.b:
-com.challentec.lmss.listener.AppConectStateListener -> com.challentec.lmss.f.a:
+com.challentec.lmss.lbs.LBSTool -> com.challentec.lmss.f.a:
+    android.content.Context mContext -> a
+    android.location.LocationManager mLocationManager -> b
+    com.challentec.lmss.lbs.LocationData mLocation -> c
+    com.challentec.lmss.lbs.LBSTool$LBSThread mLBSThread -> d
+    com.challentec.lmss.lbs.LBSTool$MyLocationListner mNetworkListner -> e
+    com.challentec.lmss.lbs.LBSTool$MyLocationListner mGPSListener -> f
+    android.os.Looper mLooper -> g
+    com.challentec.lmss.lbs.LocationData getLocation$367cb68b() -> a
+    void access$0(com.challentec.lmss.lbs.LBSTool,android.os.Looper) -> a
+    void access$1(com.challentec.lmss.lbs.LBSTool) -> a
+    void access$2(com.challentec.lmss.lbs.LBSTool) -> b
+    com.challentec.lmss.lbs.LBSTool$LBSThread access$3(com.challentec.lmss.lbs.LBSTool) -> c
+    void access$4(com.challentec.lmss.lbs.LBSTool,com.challentec.lmss.lbs.LocationData) -> a
+    com.challentec.lmss.lbs.LocationData access$5(com.challentec.lmss.lbs.LBSTool) -> d
+    android.os.Looper access$6(com.challentec.lmss.lbs.LBSTool) -> e
+com.challentec.lmss.lbs.LBSTool$LBSThread -> com.challentec.lmss.f.b:
+    com.challentec.lmss.lbs.LBSTool this$0 -> a
+    void run() -> run
+com.challentec.lmss.lbs.LBSTool$MyLocationListner -> com.challentec.lmss.f.c:
+    com.challentec.lmss.lbs.LBSTool this$0 -> a
+    void onLocationChanged(android.location.Location) -> onLocationChanged
+    void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    void onProviderDisabled(java.lang.String) -> onProviderDisabled
+com.challentec.lmss.lbs.LocationData -> com.challentec.lmss.f.d:
+    java.lang.String lat -> a
+    java.lang.String lon -> b
+com.challentec.lmss.listener.AppConectStateListener -> com.challentec.lmss.g.a:
     void connectStateChanged() -> a
-com.challentec.lmss.listener.AppMessageLinstener -> com.challentec.lmss.f.b:
+com.challentec.lmss.listener.AppMessageLinstener -> com.challentec.lmss.g.b:
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.listener.ArdChooseEnableOnChangeListener -> com.challentec.lmss.f.c:
+com.challentec.lmss.listener.ArdChooseEnableOnChangeListener -> com.challentec.lmss.g.c:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.CallFunctionEnableOnChangeListener -> com.challentec.lmss.f.d:
+com.challentec.lmss.listener.CallFunctionEnableOnChangeListener -> com.challentec.lmss.g.d:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.CodeEnableOnChangeListener -> com.challentec.lmss.f.e:
+com.challentec.lmss.listener.CodeEnableOnChangeListener -> com.challentec.lmss.g.e:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.KeyBoardPressListener -> com.challentec.lmss.f.f:
+com.challentec.lmss.listener.KeyBoardPressListener -> com.challentec.lmss.g.f:
     void onPress(int) -> a
-com.challentec.lmss.listener.OnWheelChangedListener -> com.challentec.lmss.f.g:
+com.challentec.lmss.listener.MonitorListener -> com.challentec.lmss.g.g:
+    void monitor$14d1abce() -> a
+com.challentec.lmss.listener.OnWheelChangedListener -> com.challentec.lmss.g.h:
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.listener.OpenDoorEnableOnChangeListener -> com.challentec.lmss.f.h:
+com.challentec.lmss.listener.OpenDoorEnableOnChangeListener -> com.challentec.lmss.g.i:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.OverLoadEnableOnChangeListener -> com.challentec.lmss.f.i:
+com.challentec.lmss.listener.OverLoadEnableOnChangeListener -> com.challentec.lmss.g.j:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.TestFunctionEnableOnChangeListener -> com.challentec.lmss.f.j:
+com.challentec.lmss.listener.TestFunctionEnableOnChangeListener -> com.challentec.lmss.g.k:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.listener.TqOpenDoorEnableOnChangeListener -> com.challentec.lmss.f.k:
+com.challentec.lmss.listener.TqOpenDoorEnableOnChangeListener -> com.challentec.lmss.g.l:
     com.challentec.lmss.bean.ParamsItem paramsItem -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.net.SocketClient -> com.challentec.lmss.g.a:
-    java.net.Socket socket -> a
-    java.io.InputStream is -> b
-    java.io.OutputStream os -> c
-    com.challentec.lmss.net.SocketClient instance -> d
-    java.lang.String ip -> e
-    com.challentec.lmss.net.SocketClient getSocketClient() -> a
-    void connect() -> b
+com.challentec.lmss.net.ReadTread -> com.challentec.lmss.h.a:
+    com.challentec.lmss.app.AppContext context -> a
+    com.challentec.lmss.net.SocketClient socketClient -> b
+    void run() -> run
+com.challentec.lmss.net.SocketClient -> com.challentec.lmss.h.b:
+    java.net.Socket socket -> b
+    java.io.InputStream is -> c
+    java.io.OutputStream os -> d
+    com.challentec.lmss.net.SocketClient instance -> e
+    java.lang.String ip -> f
+    boolean isVerify -> g
+    com.challentec.lmss.net.ReadTread readTread -> a
+    boolean isVerify() -> a
+    void setVerify$1385ff() -> b
+    com.challentec.lmss.net.SocketClient getSocketClient() -> c
+    void connect() -> d
     void writeHexStr(java.lang.String) -> a
-    java.lang.String readData() -> c
-    boolean isConnected() -> d
-    void dispose() -> e
-com.challentec.lmss.net.SynHandler -> com.challentec.lmss.g.b:
+    java.lang.String readData() -> e
+    boolean isConnected() -> f
+    void dispose() -> g
+    int getIpType() -> h
+com.challentec.lmss.net.SynHandler -> com.challentec.lmss.h.c:
     com.challentec.lmss.app.AppContext context -> a
     void setContext(com.challentec.lmss.app.AppContext) -> a
     void handleMessage(android.os.Message) -> handleMessage
-    void onSendSuccess() -> b
-    void onFianly() -> a
+    void onSendSuccess() -> a
     void onToast(java.lang.String) -> b
     void onConnectSuccess(java.lang.String) -> a
-com.challentec.lmss.net.SynTask -> com.challentec.lmss.g.c:
+com.challentec.lmss.net.SynTask -> com.challentec.lmss.h.d:
     com.challentec.lmss.net.SynHandler handler -> a
     com.challentec.lmss.net.SocketClient socketClient -> b
     com.challentec.lmss.app.AppContext context -> c
     com.challentec.lmss.app.AppConfig appConfig -> d
-    void writeData(java.lang.String) -> a
+    com.challentec.lmss.app.AppManager appManager -> e
+    void writeData$505cbf4b(java.lang.String) -> a
     void connectServer(com.challentec.lmss.net.SocketClient) -> a
     void uiLog(java.lang.String) -> b
     com.challentec.lmss.net.SocketClient access$0(com.challentec.lmss.net.SynTask) -> a
     com.challentec.lmss.net.SynHandler access$1(com.challentec.lmss.net.SynTask) -> b
-    com.challentec.lmss.app.AppContext access$2(com.challentec.lmss.net.SynTask) -> c
-    com.challentec.lmss.app.AppConfig access$3(com.challentec.lmss.net.SynTask) -> d
-    void access$4(com.challentec.lmss.net.SynTask) -> e
-com.challentec.lmss.net.SynTask$1 -> com.challentec.lmss.g.d:
+    com.challentec.lmss.app.AppConfig access$2(com.challentec.lmss.net.SynTask) -> c
+    com.challentec.lmss.app.AppManager access$3(com.challentec.lmss.net.SynTask) -> d
+    com.challentec.lmss.app.AppContext access$4(com.challentec.lmss.net.SynTask) -> e
+com.challentec.lmss.net.SynTask$1 -> com.challentec.lmss.h.e:
     com.challentec.lmss.net.SynTask this$0 -> a
     java.lang.String val$hexStr -> b
     void run() -> run
-com.challentec.lmss.net.SynTask$2 -> com.challentec.lmss.g.e:
-    com.challentec.lmss.net.SynTask this$0 -> a
-    void run() -> run
-com.challentec.lmss.net.SynTask$3 -> com.challentec.lmss.g.f:
+com.challentec.lmss.net.SynTask$2 -> com.challentec.lmss.h.f:
     com.challentec.lmss.net.SynTask this$0 -> a
     com.challentec.lmss.net.SocketClient val$socketClient -> b
     void run() -> run
-com.challentec.lmss.net.SynTask$4 -> com.challentec.lmss.g.g:
+com.challentec.lmss.net.SynTask$3 -> com.challentec.lmss.h.g:
     com.challentec.lmss.net.SynTask this$0 -> a
     java.lang.String val$ui_code -> b
     void run() -> run
+com.challentec.lmss.recever.AppConnectStateRecever -> com.challentec.lmss.recever.AppConnectStateRecever:
+    com.challentec.lmss.listener.AppConectStateListener appConectStateListener -> a
+    void setAppConectStateListener(com.challentec.lmss.listener.AppConectStateListener) -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.challentec.lmss.recever.AppMessageRecever -> com.challentec.lmss.recever.AppMessageRecever:
+    com.challentec.lmss.listener.AppMessageLinstener appMessageLinstener -> a
+    void setAppMessageLinstener(com.challentec.lmss.listener.AppMessageLinstener) -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.challentec.lmss.recever.MonitorRecever -> com.challentec.lmss.recever.MonitorRecever:
+    com.challentec.lmss.listener.MonitorListener monitorListener -> a
+    void setMonitorListener(com.challentec.lmss.listener.MonitorListener) -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.challentec.lmss.service.AutoConnectPollingService -> com.challentec.lmss.service.AutoConnectPollingService:
     com.challentec.lmss.app.AppContext appContext -> a
     com.challentec.lmss.net.SynTask synTask -> b
@@ -4976,6 +5121,7 @@ com.challentec.lmss.service.AutoConnectPollingService -> com.challentec.lmss.ser
 com.challentec.lmss.service.LoginPollingService -> com.challentec.lmss.service.LoginPollingService:
     com.challentec.lmss.app.AppContext appContext -> a
     com.challentec.lmss.net.SynTask synTask -> b
+    android.content.SharedPreferences sp -> c
     android.os.IBinder onBind(android.content.Intent) -> onBind
     void onCreate() -> onCreate
     void onStart(android.content.Intent,int) -> onStart
@@ -4983,6 +5129,7 @@ com.challentec.lmss.service.LoginPollingService -> com.challentec.lmss.service.L
 com.challentec.lmss.service.PollingService -> com.challentec.lmss.service.PollingService:
     com.challentec.lmss.app.AppContext appContext -> a
     com.challentec.lmss.net.SynTask synTask -> b
+    com.challentec.lmss.app.AppManager appManager -> c
     android.os.IBinder onBind(android.content.Intent) -> onBind
     void onCreate() -> onCreate
     void onStart(android.content.Intent,int) -> onStart
@@ -5003,42 +5150,61 @@ com.challentec.lmss.ui.AutoStudyActivity -> com.challentec.lmss.ui.AutoStudyActi
     android.widget.Button auto_study_ele_btn_start -> n
     android.widget.Button auto_study_btn_well_start -> o
     android.app.ProgressDialog pd_study -> p
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> q
+    android.os.Handler studyHandler -> r
     void initMainView(android.view.View) -> a
+    void onDestroy() -> onDestroy
+    void registAppMessageRecever() -> f
+    void startMonitorTimeOut() -> g
     void addListeners() -> c
     void wellStartStudy() -> a_
     void draw_Point(int) -> a
-    void initPointView() -> f
+    void initPointView() -> h
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
-    android.app.ProgressDialog access$0(com.challentec.lmss.ui.AutoStudyActivity) -> a
-    java.util.List access$1(com.challentec.lmss.ui.AutoStudyActivity) -> b
-    com.challentec.lmss.net.SynTask access$2(com.challentec.lmss.ui.AutoStudyActivity) -> c
-    void access$3(com.challentec.lmss.ui.AutoStudyActivity) -> d
+    void access$0(com.challentec.lmss.ui.AutoStudyActivity) -> a
+    android.app.ProgressDialog access$1(com.challentec.lmss.ui.AutoStudyActivity) -> b
+    void access$2(com.challentec.lmss.ui.AutoStudyActivity,java.lang.String) -> a
+    com.challentec.lmss.recever.AppMessageRecever access$3(com.challentec.lmss.ui.AutoStudyActivity) -> c
+    void access$4$ab7bef8(com.challentec.lmss.ui.AutoStudyActivity) -> d
+    java.util.List access$5(com.challentec.lmss.ui.AutoStudyActivity) -> e
+    android.os.Handler access$6(com.challentec.lmss.ui.AutoStudyActivity) -> f
+    com.challentec.lmss.net.SynTask access$7(com.challentec.lmss.ui.AutoStudyActivity) -> g
+    void access$8(com.challentec.lmss.ui.AutoStudyActivity) -> h
 com.challentec.lmss.ui.AutoStudyActivity$1 -> com.challentec.lmss.ui.a:
+    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.challentec.lmss.ui.AutoStudyActivity$2 -> com.challentec.lmss.ui.b:
+    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.ui.AutoStudyActivity$3 -> com.challentec.lmss.ui.c:
     com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
     void onPageSelected(int) -> onPageSelected
     void onPageScrolled(int,float,int) -> onPageScrolled
     void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-com.challentec.lmss.ui.AutoStudyActivity$2 -> com.challentec.lmss.ui.b:
-    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.AutoStudyActivity$3 -> com.challentec.lmss.ui.c:
-    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
-    void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.AutoStudyActivity$4 -> com.challentec.lmss.ui.d:
     com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.AutoStudyActivity$5 -> com.challentec.lmss.ui.e:
     com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.AutoStudyActivity$AutoPagerViewAdapter -> com.challentec.lmss.ui.f:
+com.challentec.lmss.ui.AutoStudyActivity$6 -> com.challentec.lmss.ui.f:
+    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.challentec.lmss.ui.AutoStudyActivity$7 -> com.challentec.lmss.ui.g:
+    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.challentec.lmss.ui.AutoStudyActivity$8 -> com.challentec.lmss.ui.h:
+    com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.challentec.lmss.ui.AutoStudyActivity$AutoPagerViewAdapter -> com.challentec.lmss.ui.i:
     com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
     int getCount() -> getCount
     boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
     int getItemPosition(java.lang.Object) -> getItemPosition
     void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
     java.lang.Object instantiateItem(android.view.View,int) -> instantiateItem
-com.challentec.lmss.ui.AutoStudyActivity$AutoStudyAppMessageLinster -> com.challentec.lmss.ui.g:
+com.challentec.lmss.ui.AutoStudyActivity$AutoStudyAppMessageLinster -> com.challentec.lmss.ui.j:
     com.challentec.lmss.ui.AutoStudyActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.BaseActivity -> com.challentec.lmss.ui.BaseActivity:
@@ -5059,7 +5225,7 @@ com.challentec.lmss.ui.BaseActivity -> com.challentec.lmss.ui.BaseActivity:
     void addListeners() -> c
     boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
     void onBack() -> d
-com.challentec.lmss.ui.BaseActivity$1 -> com.challentec.lmss.ui.h:
+com.challentec.lmss.ui.BaseActivity$1 -> com.challentec.lmss.ui.k:
     com.challentec.lmss.ui.BaseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.BasicParamActivity -> com.challentec.lmss.ui.BasicParamActivity:
@@ -5090,15 +5256,19 @@ com.challentec.lmss.ui.CallCommandActivity -> com.challentec.lmss.ui.CallCommand
     android.widget.LinearLayout call_command_rl_call -> s
     android.widget.LinearLayout call_command_rl_command -> t
     com.challentec.lmss.net.SynTask synTask -> u
-    com.challentec.lmss.adapter.ButtonParamItemAdapter upCallButtonParamItemAdapter -> v
-    com.challentec.lmss.adapter.ButtonParamItemAdapter downCallButtonParamItemAdapter -> w
-    com.challentec.lmss.adapter.ButtonParamItemAdapter commandButtonParamItemAdapter -> x
-    android.content.SharedPreferences sp -> y
-    int floorNumber -> z
+    int viewpostion -> v
+    com.challentec.lmss.adapter.ButtonParamItemAdapter upCallButtonParamItemAdapter -> w
+    com.challentec.lmss.adapter.ButtonParamItemAdapter downCallButtonParamItemAdapter -> x
+    com.challentec.lmss.adapter.ButtonParamItemAdapter commandButtonParamItemAdapter -> y
+    android.content.SharedPreferences sp -> z
+    int floorNumber -> A
+    com.challentec.lmss.recever.MonitorRecever monitorRecever -> B
+    void onBack() -> c_
     void initMainView(android.view.View) -> a
     void onDestroy() -> onDestroy
     void startUpCall() -> f
     void stopUpCall() -> g
+    void onCreate(android.os.Bundle) -> onCreate
     void stopDownCall() -> h
     void startCommand() -> i
     void stopCommand() -> j
@@ -5118,39 +5288,44 @@ com.challentec.lmss.ui.CallCommandActivity -> com.challentec.lmss.ui.CallCommand
     java.lang.String getTitleString() -> r
     int getMainViewLayoutId() -> b
     int getDataLen() -> s
-    android.support.v4.view.ViewPager access$0(com.challentec.lmss.ui.CallCommandActivity) -> a
-    java.util.List access$1(com.challentec.lmss.ui.CallCommandActivity) -> b
+    int access$0(com.challentec.lmss.ui.CallCommandActivity) -> a
+    int access$1(com.challentec.lmss.ui.CallCommandActivity) -> b
     void access$2(com.challentec.lmss.ui.CallCommandActivity) -> c
     void access$3(com.challentec.lmss.ui.CallCommandActivity) -> d
-    com.challentec.lmss.net.SynTask access$4(com.challentec.lmss.ui.CallCommandActivity) -> e
-    void access$5(com.challentec.lmss.ui.CallCommandActivity) -> f
-    void access$6(com.challentec.lmss.ui.CallCommandActivity) -> g
-    int access$7(com.challentec.lmss.ui.CallCommandActivity) -> h
-    void access$8(com.challentec.lmss.ui.CallCommandActivity,int) -> a
-    void access$9(com.challentec.lmss.ui.CallCommandActivity) -> i
+    void access$4(com.challentec.lmss.ui.CallCommandActivity) -> e
+    android.support.v4.view.ViewPager access$5(com.challentec.lmss.ui.CallCommandActivity) -> f
+    java.util.List access$6(com.challentec.lmss.ui.CallCommandActivity) -> g
+    void access$7(com.challentec.lmss.ui.CallCommandActivity) -> h
+    com.challentec.lmss.net.SynTask access$8(com.challentec.lmss.ui.CallCommandActivity) -> i
+    void access$9(com.challentec.lmss.ui.CallCommandActivity,int) -> a
     void access$10(com.challentec.lmss.ui.CallCommandActivity) -> j
-    java.lang.String access$11(com.challentec.lmss.ui.CallCommandActivity) -> k
-    java.lang.String access$12(com.challentec.lmss.ui.CallCommandActivity) -> l
-    void access$13(com.challentec.lmss.ui.CallCommandActivity) -> m
-com.challentec.lmss.ui.CallCommandActivity$1 -> com.challentec.lmss.ui.i:
+    void access$11(com.challentec.lmss.ui.CallCommandActivity,int) -> b
+    void access$12(com.challentec.lmss.ui.CallCommandActivity) -> k
+    java.lang.String access$13(com.challentec.lmss.ui.CallCommandActivity) -> l
+    java.lang.String access$14(com.challentec.lmss.ui.CallCommandActivity) -> m
+    void access$15(com.challentec.lmss.ui.CallCommandActivity) -> n
+com.challentec.lmss.ui.CallCommandActivity$1 -> com.challentec.lmss.ui.l:
     com.challentec.lmss.ui.CallCommandActivity this$0 -> a
     void onPageSelected(int) -> onPageSelected
     void onPageScrolled(int,float,int) -> onPageScrolled
     void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-com.challentec.lmss.ui.CallCommandActivity$2 -> com.challentec.lmss.ui.j:
+com.challentec.lmss.ui.CallCommandActivity$2 -> com.challentec.lmss.ui.m:
     com.challentec.lmss.ui.CallCommandActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.CallCommandActivity$CallAndCommandMessageListener -> com.challentec.lmss.ui.k:
+com.challentec.lmss.ui.CallCommandActivity$CallAndCommandMessageListener -> com.challentec.lmss.ui.n:
     com.challentec.lmss.ui.CallCommandActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.CallCommandActivity$CallViewAdapter -> com.challentec.lmss.ui.l:
+com.challentec.lmss.ui.CallCommandActivity$CallViewAdapter -> com.challentec.lmss.ui.o:
     com.challentec.lmss.ui.CallCommandActivity this$0 -> a
     int getCount() -> getCount
     boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
     int getItemPosition(java.lang.Object) -> getItemPosition
     void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
     java.lang.Object instantiateItem(android.view.View,int) -> instantiateItem
-com.challentec.lmss.ui.CallCommandActivity$PonitClickListner -> com.challentec.lmss.ui.m:
+com.challentec.lmss.ui.CallCommandActivity$CommadCallMonListener -> com.challentec.lmss.ui.p:
+    com.challentec.lmss.ui.CallCommandActivity this$0 -> a
+    void monitor$14d1abce() -> a
+com.challentec.lmss.ui.CallCommandActivity$PonitClickListner -> com.challentec.lmss.ui.q:
     com.challentec.lmss.ui.CallCommandActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.ChangeDeviceActivity -> com.challentec.lmss.ui.ChangeDeviceActivity:
@@ -5163,10 +5338,10 @@ com.challentec.lmss.ui.ChangeDeviceActivity -> com.challentec.lmss.ui.ChangeDevi
     int getMainViewLayoutId() -> b
     com.challentec.lmss.view.LoadProgressView access$0(com.challentec.lmss.ui.ChangeDeviceActivity) -> a
     void access$1(com.challentec.lmss.ui.ChangeDeviceActivity) -> b
-com.challentec.lmss.ui.ChangeDeviceActivity$1 -> com.challentec.lmss.ui.n:
+com.challentec.lmss.ui.ChangeDeviceActivity$1 -> com.challentec.lmss.ui.r:
     com.challentec.lmss.ui.ChangeDeviceActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.ChangeDeviceActivity$ChangeDeviceLinseter -> com.challentec.lmss.ui.o:
+com.challentec.lmss.ui.ChangeDeviceActivity$ChangeDeviceLinseter -> com.challentec.lmss.ui.s:
     com.challentec.lmss.ui.ChangeDeviceActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.CheckItemActivity -> com.challentec.lmss.ui.CheckItemActivity:
@@ -5181,7 +5356,7 @@ com.challentec.lmss.ui.CheckItemActivity -> com.challentec.lmss.ui.CheckItemActi
     java.util.List access$0(com.challentec.lmss.ui.CheckItemActivity) -> a
     com.challentec.lmss.adapter.CheckItemAdapter access$1(com.challentec.lmss.ui.CheckItemActivity) -> b
     com.challentec.lmss.bean.ParamsItem access$2(com.challentec.lmss.ui.CheckItemActivity) -> c
-com.challentec.lmss.ui.CheckItemActivity$1 -> com.challentec.lmss.ui.p:
+com.challentec.lmss.ui.CheckItemActivity$1 -> com.challentec.lmss.ui.t:
     com.challentec.lmss.ui.CheckItemActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.challentec.lmss.ui.ChoiceDeviceActivity -> com.challentec.lmss.ui.ChoiceDeviceActivity:
@@ -5189,9 +5364,13 @@ com.challentec.lmss.ui.ChoiceDeviceActivity -> com.challentec.lmss.ui.ChoiceDevi
     android.widget.EditText choice_et_no -> i
     android.widget.Button choice_btn_codescan -> j
     android.widget.Button choice_btn_submit -> k
-    com.challentec.lmss.app.AppMessageRecever appMessageRecever -> l
-    com.challentec.lmss.app.AppConnectStateRecever appConnectStateRecever -> m
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> l
+    com.challentec.lmss.recever.AppConnectStateRecever appConnectStateRecever -> m
+    com.challentec.lmss.net.SocketClient socketClient -> n
+    android.os.Handler handler -> o
+    void serverVieryTimeOut() -> e
     void addListeners() -> c
+    void connectServer() -> f
     void onCreate(android.os.Bundle) -> onCreate
     void onStart() -> onStart
     void onStop() -> onStop
@@ -5203,22 +5382,30 @@ com.challentec.lmss.ui.ChoiceDeviceActivity -> com.challentec.lmss.ui.ChoiceDevi
     void access$0(com.challentec.lmss.ui.ChoiceDeviceActivity) -> a
     android.widget.EditText access$1(com.challentec.lmss.ui.ChoiceDeviceActivity) -> b
     com.challentec.lmss.view.LoadProgressView access$2(com.challentec.lmss.ui.ChoiceDeviceActivity) -> c
-    void access$3(com.challentec.lmss.ui.ChoiceDeviceActivity) -> d
+    com.challentec.lmss.net.SocketClient access$3(com.challentec.lmss.ui.ChoiceDeviceActivity) -> d
     void access$4(com.challentec.lmss.ui.ChoiceDeviceActivity) -> e
-com.challentec.lmss.ui.ChoiceDeviceActivity$1 -> com.challentec.lmss.ui.q:
+    void access$5(com.challentec.lmss.ui.ChoiceDeviceActivity) -> f
+    void access$6(com.challentec.lmss.ui.ChoiceDeviceActivity) -> g
+    android.os.Handler access$7(com.challentec.lmss.ui.ChoiceDeviceActivity) -> h
+com.challentec.lmss.ui.ChoiceDeviceActivity$1 -> com.challentec.lmss.ui.u:
+    com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.challentec.lmss.ui.ChoiceDeviceActivity$2 -> com.challentec.lmss.ui.v:
     com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.ChoiceDeviceActivity$2 -> com.challentec.lmss.ui.r:
+com.challentec.lmss.ui.ChoiceDeviceActivity$3 -> com.challentec.lmss.ui.w:
     com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.ChoiceDeviceActivity$3 -> com.challentec.lmss.ui.s:
+com.challentec.lmss.ui.ChoiceDeviceActivity$4 -> com.challentec.lmss.ui.x:
     com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
     void onConnectSuccess(java.lang.String) -> a
-    void onFianly() -> a
-com.challentec.lmss.ui.ChoiceDeviceActivity$ChoiceConnectStateMessageListener -> com.challentec.lmss.ui.t:
+com.challentec.lmss.ui.ChoiceDeviceActivity$5 -> com.challentec.lmss.ui.y:
+    com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.ui.ChoiceDeviceActivity$ChoiceConnectStateMessageListener -> com.challentec.lmss.ui.z:
     com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
     void connectStateChanged() -> a
-com.challentec.lmss.ui.ChoiceDeviceActivity$ChoiceDeviceMessageLinstener -> com.challentec.lmss.ui.u:
+com.challentec.lmss.ui.ChoiceDeviceActivity$ChoiceDeviceMessageLinstener -> com.challentec.lmss.ui.aa:
     com.challentec.lmss.ui.ChoiceDeviceActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.CodeScanActivity -> com.challentec.lmss.ui.CodeScanActivity:
@@ -5248,7 +5435,7 @@ com.challentec.lmss.ui.CodeScanActivity -> com.challentec.lmss.ui.CodeScanActivi
     void onPause() -> onPause
     void onDestroy() -> onDestroy
     int getMainViewLayoutId() -> b
-com.challentec.lmss.ui.CodeScanActivity$1 -> com.challentec.lmss.ui.v:
+com.challentec.lmss.ui.CodeScanActivity$1 -> com.challentec.lmss.ui.ab:
     com.challentec.lmss.ui.CodeScanActivity this$0 -> a
     void onCompletion(android.media.MediaPlayer) -> onCompletion
 com.challentec.lmss.ui.DateTimeEditActivity -> com.challentec.lmss.ui.DateTimeEditActivity:
@@ -5265,28 +5452,28 @@ com.challentec.lmss.ui.DateTimeEditActivity -> com.challentec.lmss.ui.DateTimeEd
     void initMainView(android.view.View) -> a
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
-    int access$0() -> e
+    int access$0() -> f
     com.challentec.lmss.view.WheelView access$1(com.challentec.lmss.ui.DateTimeEditActivity) -> a
     com.challentec.lmss.view.WheelView access$2(com.challentec.lmss.ui.DateTimeEditActivity) -> b
     void access$3(com.challentec.lmss.ui.DateTimeEditActivity) -> c
     com.challentec.lmss.view.WheelView access$4(com.challentec.lmss.ui.DateTimeEditActivity) -> d
-com.challentec.lmss.ui.DateTimeEditActivity$1 -> com.challentec.lmss.ui.w:
+com.challentec.lmss.ui.DateTimeEditActivity$1 -> com.challentec.lmss.ui.ac:
     com.challentec.lmss.ui.DateTimeEditActivity this$0 -> a
     java.util.List val$list_big -> b
     java.util.List val$list_little -> c
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.ui.DateTimeEditActivity$2 -> com.challentec.lmss.ui.x:
+com.challentec.lmss.ui.DateTimeEditActivity$2 -> com.challentec.lmss.ui.ad:
     com.challentec.lmss.ui.DateTimeEditActivity this$0 -> a
     java.util.List val$list_big -> b
     java.util.List val$list_little -> c
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.ui.DateTimeEditActivity$3 -> com.challentec.lmss.ui.y:
+com.challentec.lmss.ui.DateTimeEditActivity$3 -> com.challentec.lmss.ui.ae:
     com.challentec.lmss.ui.DateTimeEditActivity this$0 -> a
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.ui.DateTimeEditActivity$4 -> com.challentec.lmss.ui.z:
+com.challentec.lmss.ui.DateTimeEditActivity$4 -> com.challentec.lmss.ui.af:
     com.challentec.lmss.ui.DateTimeEditActivity this$0 -> a
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.ui.DateTimeEditActivity$5 -> com.challentec.lmss.ui.aa:
+com.challentec.lmss.ui.DateTimeEditActivity$5 -> com.challentec.lmss.ui.ag:
     com.challentec.lmss.ui.DateTimeEditActivity this$0 -> a
     void onChanged$7a8aed54(int) -> a
 com.challentec.lmss.ui.DeviceTestActivity -> com.challentec.lmss.ui.DeviceTestActivity:
@@ -5294,24 +5481,20 @@ com.challentec.lmss.ui.DeviceTestActivity -> com.challentec.lmss.ui.DeviceTestAc
     android.widget.RelativeLayout device_test_rl_run_control_params -> b
     android.widget.RelativeLayout device_test_rl_time_control_params -> c
     android.widget.RelativeLayout device_test_rl_test_function_control_params -> d
-    android.widget.RelativeLayout device_fast_rl_fast_debug -> k
     void addListeners() -> c
     void initMainView(android.view.View) -> a
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
-com.challentec.lmss.ui.DeviceTestActivity$1 -> com.challentec.lmss.ui.ab:
+com.challentec.lmss.ui.DeviceTestActivity$1 -> com.challentec.lmss.ui.ah:
     com.challentec.lmss.ui.DeviceTestActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.DeviceTestActivity$2 -> com.challentec.lmss.ui.ac:
+com.challentec.lmss.ui.DeviceTestActivity$2 -> com.challentec.lmss.ui.ai:
     com.challentec.lmss.ui.DeviceTestActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.DeviceTestActivity$3 -> com.challentec.lmss.ui.ad:
+com.challentec.lmss.ui.DeviceTestActivity$3 -> com.challentec.lmss.ui.aj:
     com.challentec.lmss.ui.DeviceTestActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.DeviceTestActivity$4 -> com.challentec.lmss.ui.ae:
-    com.challentec.lmss.ui.DeviceTestActivity this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.DeviceTestActivity$5 -> com.challentec.lmss.ui.af:
+com.challentec.lmss.ui.DeviceTestActivity$4 -> com.challentec.lmss.ui.ak:
     com.challentec.lmss.ui.DeviceTestActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.DeviceTestFunctionParamsActivity -> com.challentec.lmss.ui.DeviceTestFunctionParamsActivity:
@@ -5338,14 +5521,22 @@ com.challentec.lmss.ui.DriveStateActivity -> com.challentec.lmss.ui.DriveStateAc
     android.widget.TextView driver_tv_mother_voltage -> o
     android.widget.TextView driver_tv_model_tp -> p
     android.graphics.drawable.Drawable imgData_Warring -> q
+    com.challentec.lmss.recever.MonitorRecever monitorRecever -> r
     void onDestroy() -> onDestroy
     void initMainView(android.view.View) -> a
+    void onBack() -> c_
+    void onCreate(android.os.Bundle) -> onCreate
+    void startDriverState() -> f
     void showDriverData(com.challentec.lmss.bean.ResponseData) -> a
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     void showErro(android.widget.TextView) -> a
-    com.challentec.lmss.view.LoadProgressView access$0(com.challentec.lmss.ui.DriveStateActivity) -> a
-com.challentec.lmss.ui.DriveStateActivity$DriverStateListener -> com.challentec.lmss.ui.ag:
+    void access$0(com.challentec.lmss.ui.DriveStateActivity) -> a
+    com.challentec.lmss.view.LoadProgressView access$1(com.challentec.lmss.ui.DriveStateActivity) -> b
+com.challentec.lmss.ui.DriveStateActivity$DriverMonitorListener -> com.challentec.lmss.ui.al:
+    com.challentec.lmss.ui.DriveStateActivity this$0 -> a
+    void monitor$14d1abce() -> a
+com.challentec.lmss.ui.DriveStateActivity$DriverStateListener -> com.challentec.lmss.ui.am:
     com.challentec.lmss.ui.DriveStateActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.EditItemActivity -> com.challentec.lmss.ui.EditItemActivity:
@@ -5367,10 +5558,10 @@ com.challentec.lmss.ui.EditItemActivity -> com.challentec.lmss.ui.EditItemActivi
     android.widget.EditText access$0(com.challentec.lmss.ui.EditItemActivity) -> a
     void access$1(com.challentec.lmss.ui.EditItemActivity,java.lang.String) -> a
     void access$2(com.challentec.lmss.ui.EditItemActivity) -> b
-com.challentec.lmss.ui.EditItemActivity$1 -> com.challentec.lmss.ui.ah:
+com.challentec.lmss.ui.EditItemActivity$1 -> com.challentec.lmss.ui.an:
     com.challentec.lmss.ui.EditItemActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.EditItemActivity$EditeOnKeyBoardListener -> com.challentec.lmss.ui.ai:
+com.challentec.lmss.ui.EditItemActivity$EditeOnKeyBoardListener -> com.challentec.lmss.ui.ao:
     com.challentec.lmss.ui.EditItemActivity this$0 -> a
     void onPress(int) -> a
 com.challentec.lmss.ui.ElecAutoStudyParamActivity -> com.challentec.lmss.ui.ElecAutoStudyParamActivity:
@@ -5413,19 +5604,19 @@ com.challentec.lmss.ui.FastDebug2Activity -> com.challentec.lmss.ui.FastDebug2Ac
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     com.challentec.lmss.net.SynTask access$0(com.challentec.lmss.ui.FastDebug2Activity) -> a
-com.challentec.lmss.ui.FastDebug2Activity$1 -> com.challentec.lmss.ui.aj:
+com.challentec.lmss.ui.FastDebug2Activity$1 -> com.challentec.lmss.ui.ap:
     com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
-    void onSendSuccess() -> b
-com.challentec.lmss.ui.FastDebug2Activity$2 -> com.challentec.lmss.ui.ak:
-    com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.FastDebug2Activity$3 -> com.challentec.lmss.ui.al:
+    void onSendSuccess() -> a
+com.challentec.lmss.ui.FastDebug2Activity$2 -> com.challentec.lmss.ui.aq:
     com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.FastDebug2Activity$4 -> com.challentec.lmss.ui.am:
+com.challentec.lmss.ui.FastDebug2Activity$3 -> com.challentec.lmss.ui.ar:
     com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.FastDebug2Activity$FastMessageListener -> com.challentec.lmss.ui.an:
+com.challentec.lmss.ui.FastDebug2Activity$4 -> com.challentec.lmss.ui.as:
+    com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.challentec.lmss.ui.FastDebug2Activity$FastMessageListener -> com.challentec.lmss.ui.at:
     com.challentec.lmss.ui.FastDebug2Activity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.FastDebugActivity -> com.challentec.lmss.ui.FastDebugActivity:
@@ -5447,19 +5638,19 @@ com.challentec.lmss.ui.FastDebugActivity -> com.challentec.lmss.ui.FastDebugActi
     android.widget.EditText access$1(com.challentec.lmss.ui.FastDebugActivity) -> b
     void access$2(com.challentec.lmss.ui.FastDebugActivity,java.lang.String) -> a
     boolean access$3(com.challentec.lmss.ui.FastDebugActivity) -> c
-com.challentec.lmss.ui.FastDebugActivity$1 -> com.challentec.lmss.ui.ao:
+com.challentec.lmss.ui.FastDebugActivity$1 -> com.challentec.lmss.ui.au:
     com.challentec.lmss.ui.FastDebugActivity this$0 -> a
-    void onSendSuccess() -> b
-com.challentec.lmss.ui.FastDebugActivity$2 -> com.challentec.lmss.ui.ap:
-    com.challentec.lmss.ui.FastDebugActivity this$0 -> a
-    void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.FastDebugActivity$3 -> com.challentec.lmss.ui.aq:
+    void onSendSuccess() -> a
+com.challentec.lmss.ui.FastDebugActivity$2 -> com.challentec.lmss.ui.av:
     com.challentec.lmss.ui.FastDebugActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.FastDebugActivity$FastMessageListener -> com.challentec.lmss.ui.ar:
+com.challentec.lmss.ui.FastDebugActivity$3 -> com.challentec.lmss.ui.aw:
+    com.challentec.lmss.ui.FastDebugActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.challentec.lmss.ui.FastDebugActivity$FastMessageListener -> com.challentec.lmss.ui.ax:
     com.challentec.lmss.ui.FastDebugActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.FastDebugActivity$FastOnKeyBoardListener -> com.challentec.lmss.ui.as:
+com.challentec.lmss.ui.FastDebugActivity$FastOnKeyBoardListener -> com.challentec.lmss.ui.ay:
     com.challentec.lmss.ui.FastDebugActivity this$0 -> a
     void onPress(int) -> a
 com.challentec.lmss.ui.FloorDisplayActivity -> com.challentec.lmss.ui.FloorDisplayActivity:
@@ -5513,28 +5704,28 @@ com.challentec.lmss.ui.FloorDoorSetActivity -> com.challentec.lmss.ui.FloorDoorS
     java.util.List access$6(com.challentec.lmss.ui.FloorDoorSetActivity) -> g
     void access$7(com.challentec.lmss.ui.FloorDoorSetActivity,int) -> a
     com.challentec.lmss.net.SynTask access$8(com.challentec.lmss.ui.FloorDoorSetActivity) -> h
-com.challentec.lmss.ui.FloorDoorSetActivity$1 -> com.challentec.lmss.ui.at:
+com.challentec.lmss.ui.FloorDoorSetActivity$1 -> com.challentec.lmss.ui.az:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     void onPageSelected(int) -> onPageSelected
     void onPageScrolled(int,float,int) -> onPageScrolled
     void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-com.challentec.lmss.ui.FloorDoorSetActivity$BackItemClickListener -> com.challentec.lmss.ui.au:
+com.challentec.lmss.ui.FloorDoorSetActivity$BackItemClickListener -> com.challentec.lmss.ui.ba:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.challentec.lmss.ui.FloorDoorSetActivity$FloorDoorSetMessageListener -> com.challentec.lmss.ui.av:
+com.challentec.lmss.ui.FloorDoorSetActivity$FloorDoorSetMessageListener -> com.challentec.lmss.ui.bb:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.FloorDoorSetActivity$FloorDoorSetPagerViewAdapter -> com.challentec.lmss.ui.aw:
+com.challentec.lmss.ui.FloorDoorSetActivity$FloorDoorSetPagerViewAdapter -> com.challentec.lmss.ui.bc:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     int getCount() -> getCount
     boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
     int getItemPosition(java.lang.Object) -> getItemPosition
     void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
     java.lang.Object instantiateItem(android.view.View,int) -> instantiateItem
-com.challentec.lmss.ui.FloorDoorSetActivity$FrontItemClickListener -> com.challentec.lmss.ui.ax:
+com.challentec.lmss.ui.FloorDoorSetActivity$FrontItemClickListener -> com.challentec.lmss.ui.bd:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.challentec.lmss.ui.FloorDoorSetActivity$PonitClickListner -> com.challentec.lmss.ui.ay:
+com.challentec.lmss.ui.FloorDoorSetActivity$PonitClickListner -> com.challentec.lmss.ui.be:
     com.challentec.lmss.ui.FloorDoorSetActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.HomeActivity -> com.challentec.lmss.ui.HomeActivity:
@@ -5544,57 +5735,81 @@ com.challentec.lmss.ui.HomeActivity -> com.challentec.lmss.ui.HomeActivity:
     android.graphics.drawable.Drawable imgData_Warring -> d
     android.content.SharedPreferences sp -> k
     com.challentec.lmss.ui.HomeActivity$FloorNumbeUpdateRecever floorNumbeUpdateRecever -> l
-    android.widget.TextView home_tv_floor_no -> m
-    android.widget.TextView home_tv_control_no -> n
-    android.widget.TextView home_tv_out_datetime -> o
-    android.widget.TextView home_tv_fate_load -> p
-    android.widget.TextView home_tv_home_speed -> q
-    android.widget.TextView home_tv_control_type -> r
-    android.widget.TextView home_tv_floor_num -> s
-    android.widget.TextView home_tv_door_num -> t
-    com.challentec.lmss.view.LoadProgressView home_lp_device -> u
-    com.challentec.lmss.view.SwitchButton home_sw_recover_out -> v
-    com.challentec.lmss.view.SwitchButton home_sw_recover_last_out -> w
+    com.challentec.lmss.ui.HomeActivity$FlushDataRecever flushDataRecever -> m
+    android.widget.TextView home_tv_floor_no -> n
+    android.widget.TextView home_tv_control_no -> o
+    android.widget.TextView home_tv_out_datetime -> p
+    android.widget.TextView home_tv_fate_load -> q
+    android.widget.TextView home_tv_home_speed -> r
+    android.widget.TextView home_tv_control_type -> s
+    android.widget.TextView home_tv_floor_num -> t
+    android.widget.TextView home_tv_door_num -> u
+    com.challentec.lmss.view.LoadProgressView home_lp_device -> v
+    com.challentec.lmss.view.SwitchButton home_sw_recover_out -> w
+    com.challentec.lmss.view.SwitchButton home_sw_recover_last_out -> x
+    android.app.ProgressDialog pd_recoverdlg -> y
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> z
+    android.os.Handler recoverHandler -> A
     void addListeners() -> c
+    void reoverHandlerTimeOut() -> f
     boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
     void initMainView(android.view.View) -> a
+    void registAppMessageReceiver() -> g
+    void unRegistAppMessageReceiver() -> h
+    void onDestroy() -> onDestroy
     void onStop() -> onStop
+    void loadData(boolean) -> a
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     void showErro(android.widget.TextView) -> a
-    com.challentec.lmss.net.SynTask access$0(com.challentec.lmss.ui.HomeActivity) -> a
-    com.challentec.lmss.dlg.RecoverOutSetDlg access$1(com.challentec.lmss.ui.HomeActivity) -> b
-    com.challentec.lmss.view.SwitchButton access$2(com.challentec.lmss.ui.HomeActivity) -> c
+    void access$0(com.challentec.lmss.ui.HomeActivity) -> a
+    void access$1(com.challentec.lmss.ui.HomeActivity) -> b
+    com.challentec.lmss.net.SynTask access$2(com.challentec.lmss.ui.HomeActivity) -> c
     com.challentec.lmss.dlg.RecoverOutSetDlg access$3(com.challentec.lmss.ui.HomeActivity) -> d
-    com.challentec.lmss.view.SwitchButton access$4(com.challentec.lmss.ui.HomeActivity) -> e
-    com.challentec.lmss.view.LoadProgressView access$5(com.challentec.lmss.ui.HomeActivity) -> f
-    void access$6(com.challentec.lmss.ui.HomeActivity,java.lang.String) -> a
-    android.content.SharedPreferences access$7(com.challentec.lmss.ui.HomeActivity) -> g
-    android.widget.TextView access$8(com.challentec.lmss.ui.HomeActivity) -> h
-    void access$9(com.challentec.lmss.ui.HomeActivity,com.challentec.lmss.dlg.RecoverOutSetDlg) -> a
-    void access$10(com.challentec.lmss.ui.HomeActivity,com.challentec.lmss.dlg.RecoverOutSetDlg) -> b
-com.challentec.lmss.ui.HomeActivity$1 -> com.challentec.lmss.ui.az:
+    android.app.ProgressDialog access$4(com.challentec.lmss.ui.HomeActivity) -> e
+    com.challentec.lmss.view.SwitchButton access$5(com.challentec.lmss.ui.HomeActivity) -> f
+    com.challentec.lmss.dlg.RecoverOutSetDlg access$6(com.challentec.lmss.ui.HomeActivity) -> g
+    com.challentec.lmss.view.SwitchButton access$7(com.challentec.lmss.ui.HomeActivity) -> h
+    void access$8(com.challentec.lmss.ui.HomeActivity) -> i
+    void access$9(com.challentec.lmss.ui.HomeActivity,java.lang.String) -> a
+    com.challentec.lmss.view.LoadProgressView access$10(com.challentec.lmss.ui.HomeActivity) -> j
+    android.content.SharedPreferences access$11(com.challentec.lmss.ui.HomeActivity) -> k
+    android.widget.TextView access$12(com.challentec.lmss.ui.HomeActivity) -> l
+    void access$13$2f72d6a9(com.challentec.lmss.ui.HomeActivity) -> m
+    void access$14(com.challentec.lmss.ui.HomeActivity,com.challentec.lmss.dlg.RecoverOutSetDlg) -> a
+    void access$15(com.challentec.lmss.ui.HomeActivity,com.challentec.lmss.dlg.RecoverOutSetDlg) -> b
+    android.os.Handler access$16(com.challentec.lmss.ui.HomeActivity) -> n
+com.challentec.lmss.ui.HomeActivity$1 -> com.challentec.lmss.ui.bf:
+    com.challentec.lmss.ui.HomeActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.challentec.lmss.ui.HomeActivity$2 -> com.challentec.lmss.ui.bg:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.ui.HomeActivity$2 -> com.challentec.lmss.ui.ba:
+com.challentec.lmss.ui.HomeActivity$3 -> com.challentec.lmss.ui.bh:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.challentec.lmss.ui.HomeActivity$FloorNumbeUpdateRecever -> com.challentec.lmss.ui.bb:
+com.challentec.lmss.ui.HomeActivity$4 -> com.challentec.lmss.ui.bi:
+    com.challentec.lmss.ui.HomeActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.ui.HomeActivity$FloorNumbeUpdateRecever -> com.challentec.lmss.ui.bj:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.challentec.lmss.ui.HomeActivity$HomeMessagLinstener -> com.challentec.lmss.ui.bc:
+com.challentec.lmss.ui.HomeActivity$FlushDataRecever -> com.challentec.lmss.ui.bk:
+    com.challentec.lmss.ui.HomeActivity this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.challentec.lmss.ui.HomeActivity$HomeMessagLinstener -> com.challentec.lmss.ui.bl:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.HomeActivity$RecoverLastOutCancleListener -> com.challentec.lmss.ui.bd:
+com.challentec.lmss.ui.HomeActivity$RecoverLastOutCancleListener -> com.challentec.lmss.ui.bm:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.HomeActivity$RecoverLastOutEnableListener -> com.challentec.lmss.ui.be:
+com.challentec.lmss.ui.HomeActivity$RecoverLastOutEnableListener -> com.challentec.lmss.ui.bn:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.HomeActivity$RecoverOutCancleListener -> com.challentec.lmss.ui.bf:
+com.challentec.lmss.ui.HomeActivity$RecoverOutCancleListener -> com.challentec.lmss.ui.bo:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.HomeActivity$RecoverOutEnableListener -> com.challentec.lmss.ui.bg:
+com.challentec.lmss.ui.HomeActivity$RecoverOutEnableListener -> com.challentec.lmss.ui.bp:
     com.challentec.lmss.ui.HomeActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.ListParamActivity -> com.challentec.lmss.ui.ListParamActivity:
@@ -5622,13 +5837,13 @@ com.challentec.lmss.ui.ListParamActivity -> com.challentec.lmss.ui.ListParamActi
     int getDataLen() -> f
     void onEditItemSuccess(com.challentec.lmss.bean.ParamsItem) -> a
     android.app.ProgressDialog access$0(com.challentec.lmss.ui.ListParamActivity) -> a
-com.challentec.lmss.ui.ListParamActivity$1 -> com.challentec.lmss.ui.bh:
+com.challentec.lmss.ui.ListParamActivity$1 -> com.challentec.lmss.ui.bq:
     com.challentec.lmss.ui.ListParamActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.challentec.lmss.ui.ListParamActivity$EditRecever -> com.challentec.lmss.ui.bi:
+com.challentec.lmss.ui.ListParamActivity$EditRecever -> com.challentec.lmss.ui.br:
     com.challentec.lmss.ui.ListParamActivity this$0 -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.challentec.lmss.ui.ListParamActivity$ListMessageLinstener -> com.challentec.lmss.ui.bj:
+com.challentec.lmss.ui.ListParamActivity$ListMessageLinstener -> com.challentec.lmss.ui.bs:
     com.challentec.lmss.ui.ListParamActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.MainBoardActivity -> com.challentec.lmss.ui.MainBoardActivity:
@@ -5655,17 +5870,19 @@ com.challentec.lmss.ui.MainTabActivity -> com.challentec.lmss.ui.MainTabActivity
     android.widget.ProgressBar pb_head -> i
     android.widget.TextView pb_text -> j
     com.challentec.lmss.app.AppManager appManager -> k
-    com.challentec.lmss.app.AppConnectStateRecever appConnectStateRecever -> l
+    com.challentec.lmss.recever.AppConnectStateRecever appConnectStateRecever -> l
     com.challentec.lmss.app.AppContext appContext -> m
-    com.challentec.lmss.app.AppMessageRecever appMessageRecever -> n
-    android.os.Handler handler -> o
+    com.challentec.lmss.recever.AppMessageRecever appMessageRecever -> n
+    com.challentec.lmss.net.SocketClient socketClient -> o
+    android.os.Handler handler -> p
     void onCreate(android.os.Bundle) -> onCreate
     void onDestroy() -> onDestroy
+    void sendMonitorBroadCast() -> a
     void onStart() -> onStart
-    void autoConnect() -> a
+    void autoConnect() -> b
     void addView(android.content.Intent) -> a
-    int pop() -> b
-    void clearAll() -> c
+    int back() -> c
+    void clearAll() -> d
     boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
     void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
     void onClick(android.view.View) -> onClick
@@ -5673,52 +5890,66 @@ com.challentec.lmss.ui.MainTabActivity -> com.challentec.lmss.ui.MainTabActivity
     com.challentec.lmss.app.AppManager access$1(com.challentec.lmss.ui.MainTabActivity) -> b
     android.widget.ProgressBar access$2(com.challentec.lmss.ui.MainTabActivity) -> c
     android.widget.TextView access$3(com.challentec.lmss.ui.MainTabActivity) -> d
-    void access$4(com.challentec.lmss.ui.MainTabActivity) -> e
-com.challentec.lmss.ui.MainTabActivity$1 -> com.challentec.lmss.ui.bk:
+    com.challentec.lmss.net.SocketClient access$4(com.challentec.lmss.ui.MainTabActivity) -> e
+    void access$5(com.challentec.lmss.ui.MainTabActivity) -> f
+    void access$6(com.challentec.lmss.ui.MainTabActivity) -> g
+    android.os.Handler access$7(com.challentec.lmss.ui.MainTabActivity) -> h
+com.challentec.lmss.ui.MainTabActivity$1 -> com.challentec.lmss.ui.bt:
     com.challentec.lmss.ui.MainTabActivity this$0 -> a
     void handleMessage(android.os.Message) -> handleMessage
-com.challentec.lmss.ui.MainTabActivity$2 -> com.challentec.lmss.ui.bl:
+com.challentec.lmss.ui.MainTabActivity$2 -> com.challentec.lmss.ui.bu:
     com.challentec.lmss.ui.MainTabActivity this$0 -> a
     void onConnectSuccess(java.lang.String) -> a
-    void onFianly() -> a
-com.challentec.lmss.ui.MainTabActivity$MainTabAppMessageListener -> com.challentec.lmss.ui.bm:
+com.challentec.lmss.ui.MainTabActivity$3 -> com.challentec.lmss.ui.bv:
+    com.challentec.lmss.ui.MainTabActivity this$0 -> a
+    void run() -> run
+com.challentec.lmss.ui.MainTabActivity$MainTabAppMessageListener -> com.challentec.lmss.ui.bw:
     com.challentec.lmss.ui.MainTabActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.MainTabActivity$MainTabConnectStateMessageListener -> com.challentec.lmss.ui.bn:
+com.challentec.lmss.ui.MainTabActivity$MainTabConnectStateMessageListener -> com.challentec.lmss.ui.bx:
     com.challentec.lmss.ui.MainTabActivity this$0 -> a
     void connectStateChanged() -> a
 com.challentec.lmss.ui.MonitorActivity -> com.challentec.lmss.ui.MonitorActivity:
-    android.widget.RelativeLayout monitor_rl_drive_state -> a
-    android.widget.RelativeLayout monitor_rl_port_state -> b
-    com.challentec.lmss.view.LoadProgressView monitor_pb -> c
-    android.widget.TextView mon_tv_control_type -> d
-    android.widget.TextView mon_current_speed -> k
-    android.widget.TextView mon_tv_give_speed -> l
-    android.widget.TextView mon_tv_current_floor -> m
-    android.widget.TextView mon_tv_current_height -> n
-    android.widget.TextView mon_tv_current_dir -> o
-    android.widget.TextView mon_tv_total_time -> p
-    android.widget.TextView mon_tv_total_count -> q
-    android.graphics.drawable.Drawable imgData_Warring -> r
+    android.widget.RelativeLayout monitor_rl_drive_state -> b
+    android.widget.RelativeLayout monitor_rl_port_state -> c
+    com.challentec.lmss.view.LoadProgressView monitor_pb -> d
+    android.widget.TextView mon_tv_control_type -> k
+    android.widget.TextView mon_current_speed -> l
+    android.widget.TextView mon_tv_give_speed -> m
+    android.widget.TextView mon_tv_current_floor -> n
+    android.widget.TextView mon_tv_current_height -> o
+    android.widget.TextView mon_tv_current_dir -> p
+    android.widget.TextView mon_tv_total_time -> q
+    android.widget.TextView mon_tv_total_count -> r
+    android.graphics.drawable.Drawable imgData_Warring -> s
+    com.challentec.lmss.recever.MonitorRecever monitorRecever -> t
+    java.lang.String UI_NAME -> a
     void addListeners() -> c
     void initMainView(android.view.View) -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void startMontitor() -> f
     void showMonitorData(com.challentec.lmss.bean.ResponseData) -> a
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     void onDestroy() -> onDestroy
+    void stopMontitor() -> g
     void showErro(android.widget.TextView) -> a
-    com.challentec.lmss.view.LoadProgressView access$0(com.challentec.lmss.ui.MonitorActivity) -> a
-com.challentec.lmss.ui.MonitorActivity$1 -> com.challentec.lmss.ui.bo:
+    void access$0(com.challentec.lmss.ui.MonitorActivity) -> a
+    com.challentec.lmss.view.LoadProgressView access$1(com.challentec.lmss.ui.MonitorActivity) -> b
+    void access$2(com.challentec.lmss.ui.MonitorActivity) -> c
+com.challentec.lmss.ui.MonitorActivity$1 -> com.challentec.lmss.ui.by:
     com.challentec.lmss.ui.MonitorActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.MonitorActivity$2 -> com.challentec.lmss.ui.bp:
+com.challentec.lmss.ui.MonitorActivity$2 -> com.challentec.lmss.ui.bz:
     com.challentec.lmss.ui.MonitorActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.MonitorActivity$3 -> com.challentec.lmss.ui.bq:
+com.challentec.lmss.ui.MonitorActivity$3 -> com.challentec.lmss.ui.ca:
     com.challentec.lmss.ui.MonitorActivity this$0 -> a
     void onToast(java.lang.String) -> b
-    void onFianly() -> a
-com.challentec.lmss.ui.MonitorActivity$MonitorMessageListner -> com.challentec.lmss.ui.br:
+com.challentec.lmss.ui.MonitorActivity$MonListener -> com.challentec.lmss.ui.cb:
+    com.challentec.lmss.ui.MonitorActivity this$0 -> a
+    void monitor$14d1abce() -> a
+com.challentec.lmss.ui.MonitorActivity$MonitorMessageListner -> com.challentec.lmss.ui.cc:
     com.challentec.lmss.ui.MonitorActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.PhoneImeIdActivity -> com.challentec.lmss.ui.PhoneImeIdActivity:
@@ -5752,19 +5983,26 @@ com.challentec.lmss.ui.PortStateActivity -> com.challentec.lmss.ui.PortStateActi
     com.challentec.lmss.adapter.ButtonParamItemAdapter mainBoardOutAdapter -> C
     com.challentec.lmss.adapter.ButtonParamItemAdapter jdbParamsItemAdapter -> D
     com.challentec.lmss.adapter.ButtonParamItemAdapter jdboutButtonParamItemAdapter -> E
+    int viewPostion -> F
+    com.challentec.lmss.recever.MonitorRecever monitorRecever -> G
+    void onBack() -> c_
     void onCreate(android.os.Bundle) -> onCreate
     void initMainView(android.view.View) -> a
+    void startPortMonitor_1() -> f
+    void stopPortMonitor_1() -> g
+    void stopPortMonitor_2() -> h
     void showPoartState2(com.challentec.lmss.bean.ResponseData) -> a
     void showPortState1(com.challentec.lmss.bean.ResponseData) -> b
-    void initJdbOutputData() -> f
-    void initJdbInputData() -> g
-    void initMainBoardInputData() -> h
-    void initMainBoardOutputData() -> i
-    void initPointView() -> j
+    void initJdbOutputData() -> i
+    void initJdbInputData() -> j
+    void initMainBoardInputData() -> l
+    void initMainBoardOutputData() -> m
+    void initPointView() -> n
     void addListeners() -> c
     void draw_Point(int) -> a
     java.lang.CharSequence getTitleText() -> a
     void onDestroy() -> onDestroy
+    void stopMonitor() -> o
     void onPause() -> onPause
     void onStart() -> onStart
     void onStop() -> onStop
@@ -5772,25 +6010,35 @@ com.challentec.lmss.ui.PortStateActivity -> com.challentec.lmss.ui.PortStateActi
     int getGridViewHeight(android.widget.GridView) -> a
     android.support.v4.view.ViewPager access$0(com.challentec.lmss.ui.PortStateActivity) -> a
     java.util.List access$1(com.challentec.lmss.ui.PortStateActivity) -> b
-    com.challentec.lmss.net.SynTask access$2(com.challentec.lmss.ui.PortStateActivity) -> c
-com.challentec.lmss.ui.PortStateActivity$1 -> com.challentec.lmss.ui.bs:
+    int access$2(com.challentec.lmss.ui.PortStateActivity) -> c
+    void access$3(com.challentec.lmss.ui.PortStateActivity) -> d
+    void access$4(com.challentec.lmss.ui.PortStateActivity) -> e
+    com.challentec.lmss.net.SynTask access$5(com.challentec.lmss.ui.PortStateActivity) -> f
+    void access$6(com.challentec.lmss.ui.PortStateActivity,int) -> a
+    void access$7(com.challentec.lmss.ui.PortStateActivity) -> g
+    void access$8(com.challentec.lmss.ui.PortStateActivity) -> h
+    void access$9(com.challentec.lmss.ui.PortStateActivity) -> i
+com.challentec.lmss.ui.PortStateActivity$1 -> com.challentec.lmss.ui.cd:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     void onPageSelected(int) -> onPageSelected
     void onPageScrolled(int,float,int) -> onPageScrolled
     void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-com.challentec.lmss.ui.PortStateActivity$2 -> com.challentec.lmss.ui.bt:
+com.challentec.lmss.ui.PortStateActivity$2 -> com.challentec.lmss.ui.ce:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.PortStateActivity$3 -> com.challentec.lmss.ui.bu:
+com.challentec.lmss.ui.PortStateActivity$3 -> com.challentec.lmss.ui.cf:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.PortStateActivity$PonitClickListner -> com.challentec.lmss.ui.bv:
+com.challentec.lmss.ui.PortStateActivity$PonitClickListner -> com.challentec.lmss.ui.cg:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.PortStateActivity$PortStateMessageListner -> com.challentec.lmss.ui.bw:
+com.challentec.lmss.ui.PortStateActivity$PortStateMessageListner -> com.challentec.lmss.ui.ch:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
-com.challentec.lmss.ui.PortStateActivity$PortStatePagerViewAdapter -> com.challentec.lmss.ui.bx:
+com.challentec.lmss.ui.PortStateActivity$PortStateMoniListener -> com.challentec.lmss.ui.ci:
+    com.challentec.lmss.ui.PortStateActivity this$0 -> a
+    void monitor$14d1abce() -> a
+com.challentec.lmss.ui.PortStateActivity$PortStatePagerViewAdapter -> com.challentec.lmss.ui.cj:
     com.challentec.lmss.ui.PortStateActivity this$0 -> a
     int getCount() -> getCount
     boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
@@ -5822,10 +6070,10 @@ com.challentec.lmss.ui.ScaleEditActivity -> com.challentec.lmss.ui.ScaleEditActi
     com.challentec.lmss.bean.ParamsItem access$0(com.challentec.lmss.ui.ScaleEditActivity) -> a
     android.widget.TextView access$1(com.challentec.lmss.ui.ScaleEditActivity) -> b
     android.widget.TextView access$2(com.challentec.lmss.ui.ScaleEditActivity) -> c
-com.challentec.lmss.ui.ScaleEditActivity$1 -> com.challentec.lmss.ui.by:
+com.challentec.lmss.ui.ScaleEditActivity$1 -> com.challentec.lmss.ui.ck:
     com.challentec.lmss.ui.ScaleEditActivity this$0 -> a
     void onChanged$7a8aed54(int) -> a
-com.challentec.lmss.ui.ScaleEditActivity$2 -> com.challentec.lmss.ui.bz:
+com.challentec.lmss.ui.ScaleEditActivity$2 -> com.challentec.lmss.ui.cl:
     com.challentec.lmss.ui.ScaleEditActivity this$0 -> a
     void onChanged$7a8aed54(int) -> a
 com.challentec.lmss.ui.SettingActivity -> com.challentec.lmss.ui.SettingActivity:
@@ -5841,28 +6089,28 @@ com.challentec.lmss.ui.SettingActivity -> com.challentec.lmss.ui.SettingActivity
     void addListeners() -> c
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
-com.challentec.lmss.ui.SettingActivity$1 -> com.challentec.lmss.ui.ca:
+com.challentec.lmss.ui.SettingActivity$1 -> com.challentec.lmss.ui.cm:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$2 -> com.challentec.lmss.ui.cb:
+com.challentec.lmss.ui.SettingActivity$2 -> com.challentec.lmss.ui.cn:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$3 -> com.challentec.lmss.ui.cc:
+com.challentec.lmss.ui.SettingActivity$3 -> com.challentec.lmss.ui.co:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$4 -> com.challentec.lmss.ui.cd:
+com.challentec.lmss.ui.SettingActivity$4 -> com.challentec.lmss.ui.cp:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$5 -> com.challentec.lmss.ui.ce:
+com.challentec.lmss.ui.SettingActivity$5 -> com.challentec.lmss.ui.cq:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$6 -> com.challentec.lmss.ui.cf:
+com.challentec.lmss.ui.SettingActivity$6 -> com.challentec.lmss.ui.cr:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$7 -> com.challentec.lmss.ui.cg:
+com.challentec.lmss.ui.SettingActivity$7 -> com.challentec.lmss.ui.cs:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SettingActivity$8 -> com.challentec.lmss.ui.ch:
+com.challentec.lmss.ui.SettingActivity$8 -> com.challentec.lmss.ui.ct:
     com.challentec.lmss.ui.SettingActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.SoftwareAboutActivity -> com.challentec.lmss.ui.SoftwareAboutActivity:
@@ -5877,16 +6125,16 @@ com.challentec.lmss.ui.SoftwareAboutActivity -> com.challentec.lmss.ui.SoftwareA
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     com.challentec.lmss.net.SynTask access$0(com.challentec.lmss.ui.SoftwareAboutActivity) -> a
-com.challentec.lmss.ui.SoftwareAboutActivity$1 -> com.challentec.lmss.ui.ci:
+com.challentec.lmss.ui.SoftwareAboutActivity$1 -> com.challentec.lmss.ui.cu:
     com.challentec.lmss.ui.SoftwareAboutActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SoftwareAboutActivity$2 -> com.challentec.lmss.ui.cj:
+com.challentec.lmss.ui.SoftwareAboutActivity$2 -> com.challentec.lmss.ui.cv:
     com.challentec.lmss.ui.SoftwareAboutActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SoftwareAboutActivity$3 -> com.challentec.lmss.ui.ck:
+com.challentec.lmss.ui.SoftwareAboutActivity$3 -> com.challentec.lmss.ui.cw:
     com.challentec.lmss.ui.SoftwareAboutActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.SoftwareAboutActivity$4 -> com.challentec.lmss.ui.cl:
+com.challentec.lmss.ui.SoftwareAboutActivity$4 -> com.challentec.lmss.ui.cx:
     com.challentec.lmss.ui.SoftwareAboutActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.TabContentBaseActivity -> com.challentec.lmss.ui.TabContentBaseActivity:
@@ -5908,10 +6156,10 @@ com.challentec.lmss.ui.TabContentBaseActivity -> com.challentec.lmss.ui.TabConte
     void hideOrShowSaveBtn$1385ff() -> k
     boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
     void onBack() -> c_
-com.challentec.lmss.ui.TabContentBaseActivity$1 -> com.challentec.lmss.ui.cm:
+com.challentec.lmss.ui.TabContentBaseActivity$1 -> com.challentec.lmss.ui.cy:
     com.challentec.lmss.ui.TabContentBaseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
-com.challentec.lmss.ui.TabContentBaseActivity$2 -> com.challentec.lmss.ui.cn:
+com.challentec.lmss.ui.TabContentBaseActivity$2 -> com.challentec.lmss.ui.cz:
     com.challentec.lmss.ui.TabContentBaseActivity this$0 -> a
     void onClick(android.view.View) -> onClick
 com.challentec.lmss.ui.TimeControlParamsActivity -> com.challentec.lmss.ui.TimeControlParamsActivity:
@@ -5937,10 +6185,10 @@ com.challentec.lmss.ui.TroubleActivity -> com.challentec.lmss.ui.TroubleActivity
     int getMainViewLayoutId() -> b
     com.challentec.lmss.view.LoadProgressView access$0(com.challentec.lmss.ui.TroubleActivity) -> a
     java.util.List access$1(com.challentec.lmss.ui.TroubleActivity) -> b
-com.challentec.lmss.ui.TroubleActivity$1 -> com.challentec.lmss.ui.co:
+com.challentec.lmss.ui.TroubleActivity$1 -> com.challentec.lmss.ui.da:
     com.challentec.lmss.ui.TroubleActivity this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.challentec.lmss.ui.TroubleActivity$TroubleMessageLinterner -> com.challentec.lmss.ui.cp:
+com.challentec.lmss.ui.TroubleActivity$TroubleMessageLinterner -> com.challentec.lmss.ui.db:
     com.challentec.lmss.ui.TroubleActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.TroubleDetailActivity -> com.challentec.lmss.ui.TroubleDetailActivity:
@@ -5955,7 +6203,7 @@ com.challentec.lmss.ui.TroubleDetailActivity -> com.challentec.lmss.ui.TroubleDe
     java.lang.CharSequence getTitleText() -> a
     int getMainViewLayoutId() -> b
     com.challentec.lmss.view.LoadProgressView access$0(com.challentec.lmss.ui.TroubleDetailActivity) -> a
-com.challentec.lmss.ui.TroubleDetailActivity$TroubleDetailMessageListener -> com.challentec.lmss.ui.cq:
+com.challentec.lmss.ui.TroubleDetailActivity$TroubleDetailMessageListener -> com.challentec.lmss.ui.dc:
     com.challentec.lmss.ui.TroubleDetailActivity this$0 -> a
     void onRespnseDataReceve(com.challentec.lmss.bean.ResponseData) -> a
 com.challentec.lmss.ui.VectorControlParamsActivity -> com.challentec.lmss.ui.VectorControlParamsActivity:
@@ -5984,11 +6232,11 @@ com.challentec.lmss.ui.WellAutoStudyParamActivity -> com.challentec.lmss.ui.Well
     java.lang.String getSaveFuncitonCode() -> h
     void onEditItemSuccess(com.challentec.lmss.bean.ParamsItem) -> a
     void onSaveSuccess() -> i
-com.challentec.lmss.util.ClinetAPI -> com.challentec.lmss.h.a:
+com.challentec.lmss.util.ClientAPI -> com.challentec.lmss.i.a:
     java.lang.String getApiStr(java.lang.String,java.lang.String) -> a
     java.lang.String getHexApiStr(java.lang.String,java.lang.String) -> b
     java.lang.String getApiStr(java.lang.String) -> a
-com.challentec.lmss.util.DataPaseUtil -> com.challentec.lmss.h.b:
+com.challentec.lmss.util.DataPaseUtil -> com.challentec.lmss.i.b:
     java.lang.String hexString -> a
     byte[] hexString2byte(java.lang.String) -> a
     java.lang.String getHexStr(int,int) -> a
@@ -6003,10 +6251,10 @@ com.challentec.lmss.util.DataPaseUtil -> com.challentec.lmss.h.b:
     java.lang.String getDataFloat(java.lang.String,int,int,int,int) -> a
     java.lang.String getCompareData$31f3b324(java.lang.String) -> e
     java.lang.String hexString2BinaryRe(java.lang.String) -> f
-com.challentec.lmss.util.DataTimeUtil -> com.challentec.lmss.h.c:
+com.challentec.lmss.util.DataTimeUtil -> com.challentec.lmss.i.c:
     boolean checkDataTime(int,int,int) -> a
     java.util.Calendar getCalendar(int,int,int) -> b
-com.challentec.lmss.util.Des -> com.challentec.lmss.h.d:
+com.challentec.lmss.util.Des -> com.challentec.lmss.i.d:
     int[] IP -> a
     int[] IP_1 -> b
     int[] PC_1 -> c
@@ -6023,15 +6271,17 @@ com.challentec.lmss.util.Des -> com.challentec.lmss.h.d:
     byte[] DesEncrypt(byte[],byte[],int) -> a
     java.lang.String enHexStr(java.lang.String) -> a
     java.lang.String deHexStr(java.lang.String) -> b
-com.challentec.lmss.util.DisplayUtil -> com.challentec.lmss.h.e:
+com.challentec.lmss.util.DisplayUtil -> com.challentec.lmss.i.e:
     int dip2px(android.content.Context,float) -> a
-com.challentec.lmss.util.PollingUtils -> com.challentec.lmss.h.f:
+com.challentec.lmss.util.HandlerMessage -> com.challentec.lmss.i.f:
+    void handlerUNConnectMessage(android.content.Context) -> a
+com.challentec.lmss.util.PollingUtils -> com.challentec.lmss.i.g:
     void startPollingService(android.content.Context,int,java.lang.Class,java.lang.String) -> a
     void stopPollingService(android.content.Context,java.lang.Class,java.lang.String) -> a
-com.challentec.lmss.util.UIHelper -> com.challentec.lmss.h.g:
+com.challentec.lmss.util.UIHelper -> com.challentec.lmss.i.h:
     void showToask(android.content.Context,java.lang.String) -> a
     void showToask(android.content.Context,int) -> a
-com.challentec.lmss.util.UnitUtil -> com.challentec.lmss.h.h:
+com.challentec.lmss.util.UnitUtil -> com.challentec.lmss.i.i:
     java.lang.String getUnit(android.content.Context,int) -> a
 com.challentec.lmss.view.FrameAnimationController -> com.challentec.lmss.view.a:
     android.os.Handler mHandler -> a
@@ -6294,6 +6544,7 @@ com.challentec.lmss.zxing.camera.CameraManager -> com.challentec.lmss.zxing.came
     void requestPreviewFrame(android.os.Handler,int) -> requestPreviewFrame
     void requestAutoFocus(android.os.Handler,int) -> requestAutoFocus
     android.graphics.Rect getFramingRect() -> getFramingRect
+    android.graphics.Point getScreenResolution() -> getScreenResolution
     android.graphics.Rect getFramingRectInPreview() -> getFramingRectInPreview
     com.challentec.lmss.zxing.camera.PlanarYUVLuminanceSource buildLuminanceSource(byte[],int,int) -> buildLuminanceSource
     android.content.Context getContext() -> getContext

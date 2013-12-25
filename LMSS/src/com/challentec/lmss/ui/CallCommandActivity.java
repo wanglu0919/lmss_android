@@ -129,7 +129,7 @@ public class CallCommandActivity extends TabContentBaseActivity {
 				+ DisplayUtil.dip2px(this, 50);
 
 		call_command_rl_command.getLayoutParams().height = getGridViewHeight(commandGridView)
-				+ DisplayUtil.dip2px(this, 20);
+				+ DisplayUtil.dip2px(this, 25);
 
 		if (type == TYPE_CALL) {
 			startUpCall();// 开始上召唤数据监控

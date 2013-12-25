@@ -73,7 +73,7 @@
             <ImageView style="@style/Item_ImageMore_Sytle" />
         </RelativeLayout>
 
-        <View style="@style/Item_Devide_Solid_Line_Style" />
+      <!--   <View style="@style/Item_Devide_Solid_Line_Style" />
 
         <RelativeLayout
             android:id="@+id/device_fast_rl_fast_debug"
@@ -87,7 +87,7 @@
                 android:text="@string/test_tv_fast_debug_params" />
 
             <ImageView style="@style/Item_ImageMore_Sytle" />
-        </RelativeLayout>
+        </RelativeLayout> -->
     </LinearLayout>
 
 </ScrollView>

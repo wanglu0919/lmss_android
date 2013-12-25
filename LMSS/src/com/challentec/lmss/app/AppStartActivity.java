@@ -162,7 +162,6 @@ public class AppStartActivity extends Activity {
 		aa.setAnimationListener(new AnimationListener() {
 			@Override
 			public void onAnimationEnd(Animation arg0) {
-				// checkUpdate();// 检查更新
 
 				connect();// 连接服务器
 			}

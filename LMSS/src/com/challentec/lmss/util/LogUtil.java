@@ -10,7 +10,7 @@ import android.util.Log;
  */
 public class LogUtil {
 
-	private static final int LOG_LEVEL = 1;
+	private static final int LOG_LEVEL = -1;
 	private static final int LEVEL = 0;
 
 	public static final String LOG_TAG_POLL="POLL";
