@@ -46,7 +46,7 @@ import com.challentec.lmss.util.UIHelper;
 import com.challentec.lmss.view.LoadProgressView;
 
 /**
- * 开始activity 登陆界面
+ * 开始activity 登陆界面s
  * 
  * @author 泰得利通 wanglu
  * 
