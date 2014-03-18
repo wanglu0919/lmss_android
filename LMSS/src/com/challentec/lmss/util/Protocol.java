@@ -58,6 +58,11 @@ public class Protocol {
 	 * 自动重连
 	 */
 	public static final String C_AUTO_CONNECT = "0106";
+	
+	/**
+	 * 自动获取ＧＰＳ定位信息
+	 */
+	public static final String C_AUTO_LOACTON="0108";
 	/**
 	 * 获取设备基础信息
 	 */

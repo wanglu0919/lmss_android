@@ -7,7 +7,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -29,6 +32,7 @@ import com.challentec.lmss.app.AppTipMessage;
 import com.challentec.lmss.app.R;
 import com.challentec.lmss.bean.ResponseData;
 import com.challentec.lmss.bean.StackElement;
+import com.challentec.lmss.lbs.GPSProvider;
 import com.challentec.lmss.listener.AppConectStateListener;
 import com.challentec.lmss.listener.AppMessageLinstener;
 import com.challentec.lmss.net.SocketClient;
@@ -70,6 +74,8 @@ public class MainTabActivity extends ActivityGroup implements
 	private AppMessageRecever appMessageRecever;
 	private static final int SEVER_VEFIY_TIME_OUT = 0x01;
 	private SocketClient socketClient;
+	private SharedPreferences sp ;
+	private GPSProvider  gpsProvider;
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 
@@ -102,6 +108,7 @@ public class MainTabActivity extends ActivityGroup implements
 
 		super.onCreate(savedInstanceState);
 		appContext = (AppContext) getApplication();
+		sp=AppConfig.getAppConfig(appContext).getSharedPreferences();
 		instance = this;
 		stack = new Stack<StackElement>();
 		setContentView(R.layout.main_tab_layout);
@@ -112,6 +119,9 @@ public class MainTabActivity extends ActivityGroup implements
 		appMessageRecever = appManager.registerAppMessageRecever(this);
 		appMessageRecever
 				.setAppMessageLinstener(new MainTabAppMessageListener());// 注册消息监听
+		
+		
+		openAutoGetLocation();//检查是否要后台自动定位
 	}
 
 	private class MainTabAppMessageListener implements AppMessageLinstener {
@@ -144,6 +154,15 @@ public class MainTabActivity extends ActivityGroup implements
 				appManager.startPolling();// 开始心跳
 				autoConnect();// 重连
 
+			}else if(responseData.getFunctionCode().equals(Protocol.C_AUTO_LOACTON)){//自动获取定位信息
+				LogUtil.i(LogUtil.LOG_TAG_I, "自动发送获取定位信息成功");
+				if(!responseData.isSuccess()){
+					UIHelper.showToask(MainTabActivity.this, AppTipMessage
+							.getResouceStringId(responseData.getErrorCode()));
+				}
+					
+					
+				
 			}
 
 		}
@@ -157,6 +176,8 @@ public class MainTabActivity extends ActivityGroup implements
 
 		unregisterAppConnectStateReceiver();// 取消网络监测
 		unregisterReceiver(appMessageRecever);
+		
+		gpsProvider.removeLocation();
 	}
 
 	/**
@@ -251,6 +272,102 @@ public class MainTabActivity extends ActivityGroup implements
 
 	}
 
+	
+	/**
+	 * 自动获取GPS信息
+	 *wanglu 泰得利通
+	 */
+	private void openAutoGetLocation(){
+		
+		//String location=sp.getString(key, "0,0");
+		
+		
+		
+		String location=sp.getString(AppConfig.LOCATION_KEY, "0,0");
+		
+		//synTask.writeData(apiData,true);
+		if(appContext.isGPSOPen()||appContext.isNetWorkOpen()){//定位开启，并且
+			
+			if(location.equals("0,0")){//自动获取定位开启
+				
+				LogUtil.i(LogUtil.LOG_TAG_I, "自动获取定位信息开启了.......");
+				
+				
+				  gpsProvider=GPSProvider.getInstance(appContext, new MyLoactionListener());
+				  gpsProvider.getLocation();
+				
+			}
+			
+			
+			
+		}
+		
+		
+	}
+	
+	
+	/**
+	 * 发送获取的定位信息
+	 *wanglu 泰得利通 
+	 * @param location
+	 */
+	private void sendAutoLoactionData(String location){
+	
+		String tel = sp.getString(AppConfig.TELE_PHONE_NUM_KEY, "");
+		
+		String deviceNo = sp.getString(AppConfig.DEVICE_NUMBER_KEY, "");// 设备授权码
+		String apiData = ClientAPI.getApiStr(Protocol.C_AUTO_LOACTON, tel + "|"
+				+ deviceNo+"|"+AppManager.getManager(appContext).getIMEI()+"|"+location);//手机号+设备授权码+IME号
+		
+		SynTask synTask = new SynTask(appContext);
+		synTask.writeData(apiData,true);//写出数据
+		LogUtil.i(LogUtil.LOG_TAG_I, "写出了自动获取定位信息");
+		
+		
+		
+	}
+	/**
+	 * 位置信息监听器 
+	 * @author wanglu 泰得利通
+	 *
+	 */
+	public class MyLoactionListener implements LocationListener{
+
+		public GPSProvider gpsProvider;
+		@Override
+		public void onLocationChanged(Location location) {
+			
+			String locationStr=location.getLongitude()+","+location.getLatitude();
+        
+			sendAutoLoactionData(locationStr);
+			
+			LogUtil.i(LogUtil.LOG_TAG_I, "获取到了定位信息 位置为"+locationStr);
+			if(gpsProvider!=null){
+				gpsProvider.removeLocation();//取消定位
+			}
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+		//	if(gpsProvider!=null){
+		//		gpsProvider.removeLocation();//取消定位
+		//	}
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+			
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			
+		}
+		
+	}
+	
+	
+	
 	/**
 	 * 服务器验证 wanglu 泰得利通
 	 */

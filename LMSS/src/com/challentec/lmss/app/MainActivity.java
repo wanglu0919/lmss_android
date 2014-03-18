@@ -149,7 +149,7 @@ public class MainActivity extends Activity {
 	protected void serverVieryTimeOut() {
 
 		if (!socketClient.isVerify()) {// 没有通过服务器验证码
-			LogUtil.i(LogUtil.LOG_TAG_I, "验证超时,重新连接");
+			LogUtil.i(LogUtil.LOG_TAG_I, "验证服务器超时,重新连接");
 			connect();// 重新连接服务器
 		}
 	}
@@ -403,13 +403,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
+				if (!appContext.isGPSOPen()&&!appContext.isNetWorkOpen()) {// 用户基站定位没有打开
 					if (checkLoginInput()) {
 						locationType = LOCATION_LOGIN;
 						showOpenGPSDlg();// 显示定位对话框
 					}
 
-				} else {// 基站已经定位已经打开
+				} else if(appContext.isGPSOPen()||appContext.isNetWorkOpen()){// 基站已经定位已经打开
 					if (checkLoginInput()) {
 						locationType = LOCATION_LOGIN;
 						getLoaction();
@@ -428,18 +428,18 @@ public class MainActivity extends Activity {
 						if (main_login_et_tel.getText().toString().trim()
 								.equals("")) {
 							UIHelper.showToask(MainActivity.this,
-									R.string.tip_msg_form_tele_empty);
+									R.string.tip_msg_form_tele_empty);//手机号为空
 							main_login_et_tel.requestFocus();
 							return;
 						}
 
-						if (!appContext.isGPSOPen()) {// 用户基站定位没有打开
+						if (!appContext.isGPSOPen()&&!appContext.isNetWorkOpen()) {// 用户基站定位没有打开
 							if (checkVecodInput()) {
 								locationType = LOCATION_GET_VECODE;
 								showOpenGPSDlg();// 显示定位对话框
 							}
 
-						} else {// 基站已经定位已经打开
+						} else if(appContext.isGPSOPen()||appContext.isNetWorkOpen()){// 打开了一项定位信息
 
 							if (checkVecodInput()) {
 								Message message = handler.obtainMessage(GET_VECODE_TIME);//验证码开始倒计时
@@ -503,7 +503,7 @@ public class MainActivity extends Activity {
 			main_pb_load.setVisibility(View.VISIBLE);
 			main_pb_load.setProgressText(getString(R.string.main_tab_logining));
 			String gpsflag = "1";
-			if (appContext.isGPSOPen()) {// gps是否打开标识
+			if (appContext.isGPSOPen()||appContext.isNetWorkOpen()) {// gps是否打开标识和网络定位打开标示 
 				gpsflag = "0";
 			}
 			String apiData = ClientAPI.getApiStr(
@@ -521,6 +521,10 @@ public class MainActivity extends Activity {
 			Editor ed = sp.edit();
 			ed.putString(AppConfig.LOCATION_KEY, locationStr);// 位置信息
 			ed.commit();
+			
+			
+			
+			
 		}
 
 	}
@@ -532,7 +536,7 @@ public class MainActivity extends Activity {
 	 */
 	private void getVecode() {
 		String gpsflag = "1";
-		if (appContext.isGPSOPen()) {// gps是否打开标识
+		if (appContext.isGPSOPen()||appContext.isNetWorkOpen()) {// gps是否打开标识
 			gpsflag = "0";
 		}
 
@@ -562,14 +566,21 @@ public class MainActivity extends Activity {
 			@Override
 			public void run() {
 
-				LBSTool lbsTool = new LBSTool(MainActivity.this);
+				if(appContext.isNetWorkOpen()){//网络定位打开
+					LBSTool lbsTool = new LBSTool(MainActivity.this);
 
-				LocationData locationData = lbsTool.getLocation(3000);// 定位3秒超时处理
-				if (locationData != null) {
-					locationStr = locationData.lon + "," + locationData.lat;
-				} else {
+					LocationData locationData = lbsTool.getLocation(3000);// 定位3秒超时处理
+					if (locationData != null) {
+						locationStr = locationData.lon + "," + locationData.lat;
+					} else {
+						locationStr = "0,0";
+					}
+					
+				}else{
 					locationStr = "0,0";
 				}
+				
+			
 
 				handler.sendEmptyMessage(GET_LOACTION_SUCCESS);
 			}
@@ -700,8 +711,8 @@ public class MainActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		if (requestCode == LOCATION_SETTING_REQUEAST) {// 定位设置返回
-			if (appContext.isGPSOPen()) {// 基站定位打开
-				if (locationType == LOCATION_LOGIN && checkLoginInput()) {
+			if (appContext.isNetWorkOpen()) {// 网络定位打开
+				if (locationType == LOCATION_LOGIN && checkLoginInput()) {//登录定位
 					getLoaction();// 定位
 				} else if (locationType == LOCATION_GET_VECODE) {
 					Message message = handler.obtainMessage(GET_VECODE_TIME);
@@ -712,7 +723,7 @@ public class MainActivity extends Activity {
 			} else {
 
 				locationStr = "0,0";// 默认地址
-				if (locationType == LOCATION_GET_VECODE) {
+				if (locationType == LOCATION_GET_VECODE) {//后去验证码定位
 					main_pb_load.setProgressText("");
 					main_pb_load.setVisibility(View.VISIBLE);
 					Message message = handler.obtainMessage(GET_VECODE_TIME);

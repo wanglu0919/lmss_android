@@ -25,7 +25,7 @@
     <string name="main_tab_logining">登录中...</string>
     <string name="main_company">中秀科技(无锡)有限公司</string>
     <string name="main_location_tip_title">定位提示</string>
-    <string name="main_location_message">需要获取您的位置信息，请您勾选移动网络和Wi-FI定位选项!</string>
+    <string name="main_location_message">需要获取您的位置信息，为了确保能获取您的定位信息，请您务必勾选GPS定位和移动网络和Wi-FI定位两个选项!</string>
 
     <!-- ui界面 -->
     <string name="ui_title_login">用户登录</string>

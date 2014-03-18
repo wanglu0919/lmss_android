@@ -16,6 +16,7 @@ public class AppConfig {
 	private static final String SP_CONFIG = "sp_config";// SharePrefence配置文件名称
 	public static final String FLOOR_NUM_KEY = "floor_num_key";// 楼层数量
 	public static final String TELE_PHONE_NUM_KEY = "tele_number";// 手机号码
+	
 	public static final String DEVICE_NUMBER_KEY = "device_number_key";// 设备授权码
 	public static final String VECODE_KEY = "vecode_key";// 验证码
 	public static final String LOCATION_KEY="location_key";//位置信息

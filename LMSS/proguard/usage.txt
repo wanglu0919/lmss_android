@@ -241,8 +241,8 @@ com.challentec.lmss.ui.MainBoardActivity:
 com.challentec.lmss.ui.MainTabActivity:
     private static final int REMOVE_VIEW
     private static final int SEVER_VEFIY_TIME_OUT
-    94:98:protected void serverVieryTimeOut()
-    395:402:public void clearStack()
+    100:104:protected void serverVieryTimeOut()
+    512:519:public void clearStack()
 com.challentec.lmss.ui.MonitorActivity:
     private static final int DATA_LEN
 com.challentec.lmss.ui.PortStateActivity:
@@ -305,6 +305,7 @@ com.challentec.lmss.util.Protocol:
     public static final java.lang.String C_SEND_AUTHORIZATION_CODE
     public static final java.lang.String C_LOG
     public static final java.lang.String C_AUTO_CONNECT
+    public static final java.lang.String C_AUTO_LOACTON
     public static final java.lang.String C_GET_DEVICE_INFO
     public static final java.lang.String C_RECOVER_DEVICE
     public static final java.lang.String C_RECOVER_LAST_SET
