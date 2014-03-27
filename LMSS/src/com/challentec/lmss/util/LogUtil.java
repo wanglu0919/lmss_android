@@ -10,7 +10,7 @@ import android.util.Log;
  */
 public class LogUtil {
 
-	private static final int LOG_LEVEL = -1;
+	private static final int LOG_LEVEL = 1;
 	private static final int LEVEL = 0;
 
 	public static final String LOG_TAG_POLL="POLL";
@@ -26,6 +26,8 @@ public class LogUtil {
 	public static final String LOG_TAG_BEAT_COUNT="BEAT_COUNT";//心跳次数
 	public static final String LOG_TAG_VECODE="VECODE_DATA";//验证码数据
 	public static final String LOG_TAG_I="LOG_TAG_I";//普通信息
+	
+	public static final String LOG__TAG_NETWORK="LOG_TAG_NET_WORK";//
 	
 	
 	

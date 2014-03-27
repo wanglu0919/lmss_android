@@ -125,6 +125,13 @@ public class EditItemActivity extends TabContentBaseActivity {
 				return false;
 			}
 			String floatStr = textData.split("\\.")[1];
+			String intStr=textData.split("\\.")[0];
+			if(intStr.length()>1&&intStr.startsWith("0")){//处理这种输入 010.52
+				
+				showErrorIcon();
+				return false;
+			}
+			
 
 			if (floatStr == null
 					|| (floatStr != null && floatStr.length() != paramsItem
@@ -132,6 +139,8 @@ public class EditItemActivity extends TabContentBaseActivity {
 				showErrorIcon();
 				return false;
 			}
+			
+			
 
 			float fdata = Float.parseFloat(textData);
 

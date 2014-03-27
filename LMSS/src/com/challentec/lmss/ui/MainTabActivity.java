@@ -6,6 +6,7 @@ import java.util.UUID;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityGroup;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -35,14 +36,17 @@ import com.challentec.lmss.bean.StackElement;
 import com.challentec.lmss.lbs.GPSProvider;
 import com.challentec.lmss.listener.AppConectStateListener;
 import com.challentec.lmss.listener.AppMessageLinstener;
+import com.challentec.lmss.listener.NetWorkStateLinstener;
 import com.challentec.lmss.net.SocketClient;
 import com.challentec.lmss.net.SynHandler;
 import com.challentec.lmss.net.SynTask;
 import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
 import com.challentec.lmss.recever.MonitorRecever;
+import com.challentec.lmss.recever.NetWorkStateRecever;
 import com.challentec.lmss.service.AutoConnectPollingService;
 import com.challentec.lmss.util.ClientAPI;
+import com.challentec.lmss.util.HandlerMessage;
 import com.challentec.lmss.util.LogUtil;
 import com.challentec.lmss.util.PollingUtils;
 import com.challentec.lmss.util.Protocol;
@@ -70,12 +74,14 @@ public class MainTabActivity extends ActivityGroup implements
 	private TextView pb_text;
 	private AppManager appManager = AppManager.getManager(this);
 	private AppConnectStateRecever appConnectStateRecever;// 连接网络状态监听
+	private NetWorkStateRecever netWorkStateRecever;//网络状态监听器 
 	private AppContext appContext;
 	private AppMessageRecever appMessageRecever;
 	private static final int SEVER_VEFIY_TIME_OUT = 0x01;
 	private SocketClient socketClient;
 	private SharedPreferences sp ;
 	private GPSProvider  gpsProvider;
+	private boolean isFirtOpenNet=true;// 是不是首次监听到网络打开
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 
@@ -121,7 +127,37 @@ public class MainTabActivity extends ActivityGroup implements
 				.setAppMessageLinstener(new MainTabAppMessageListener());// 注册消息监听
 		
 		
-		openAutoGetLocation();//检查是否要后台自动定位
+		netWorkStateRecever=appManager.registNetWorkStateRecever(this);//注册网络状态消息监听
+		netWorkStateRecever.setNetWorkStateLinstener(new NetWorkStateListener());//设置监听回调
+		
+		
+		//openAutoGetLocation();//检查是否要后台自动定位
+	}
+	
+	/**
+	 * 网络状态监听
+	 * @author wanglu 泰得利通
+	 *
+	 */
+	private class NetWorkStateListener implements NetWorkStateLinstener{
+
+		@Override
+		public void onNetOpen() {
+			if(!isFirtOpenNet){
+				isFirtOpenNet=false;
+				connectServer();//连接服务器
+			}
+			
+			LogUtil.i(LogUtil.LOG__TAG_NETWORK, "Tab监听到网络打开了");
+		}
+
+		@Override
+		public void onNetClose() {
+		
+			HandlerMessage.handlerUNConnectMessage(MainTabActivity.this);//发送服务断掉消息
+			LogUtil.i(LogUtil.LOG__TAG_NETWORK, "Tab监听到网络关闭了");
+		}
+		
 	}
 
 	private class MainTabAppMessageListener implements AppMessageLinstener {
@@ -152,7 +188,7 @@ public class MainTabActivity extends ActivityGroup implements
 				socketClient.setVerify(true);// 验证通过
 				LogUtil.i(LogUtil.LOG_TAG_I, "tab界面服务器验证成功");
 				appManager.startPolling();// 开始心跳
-				autoConnect();// 重连
+				autoConnect();// 向服务器发送重连
 
 			}else if(responseData.getFunctionCode().equals(Protocol.C_AUTO_LOACTON)){//自动获取定位信息
 				LogUtil.i(LogUtil.LOG_TAG_I, "自动发送获取定位信息成功");
@@ -176,8 +212,9 @@ public class MainTabActivity extends ActivityGroup implements
 
 		unregisterAppConnectStateReceiver();// 取消网络监测
 		unregisterReceiver(appMessageRecever);
+		unregisterReceiver(netWorkStateRecever);//去下取消监听
 		
-		gpsProvider.removeLocation();
+		gpsProvider.removeLocation();//停止自动定位
 	}
 
 	/**
@@ -234,6 +271,7 @@ public class MainTabActivity extends ActivityGroup implements
 
 		@Override
 		public void connectStateChanged() {
+			LogUtil.i(LogUtil.LOG_TAG_CONNECT, "Tab页面,监听到服务器挂了");
 			appManager.stopPolling();// 停止心跳
 			pb_head.setVisibility(View.INVISIBLE);
 			pb_text.setVisibility(View.VISIBLE);
@@ -259,7 +297,7 @@ public class MainTabActivity extends ActivityGroup implements
 			public void onConnectSuccess(String code) {// 连接成功
 
 				// super.onConnectSuccess(code);
-				sendSeverVifyData();
+				sendSeverVifyData();//发送验证码数据包
 
 			}
 
@@ -619,5 +657,8 @@ public class MainTabActivity extends ActivityGroup implements
 		}
 
 	}
+	
+	
+	
 
 }

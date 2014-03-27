@@ -601,8 +601,9 @@ public class MainActivity extends Activity {
 		main_pb_load = (LoadProgressView) findViewById(R.id.main_pb_load);
 		main_login_et_tel = (EditText) findViewById(R.id.main_login_et_tel);
 		main_et_vecode = (EditText) findViewById(R.id.main_et_vecode);
-		//main_login_et_tel.setText("13666666666");
-		//main_et_vecode.setText("666666");
+		
+		main_login_et_tel.setText("13666666666");
+		main_et_vecode.setText("666666");
 
 	}
 

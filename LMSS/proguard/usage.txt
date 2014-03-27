@@ -159,6 +159,12 @@ com.challentec.lmss.exception.ConnectServerTimeOutException:
     8:8:public ConnectServerTimeOutException()
 com.challentec.lmss.exception.ReadDataException:
     private static final long serialVersionUID
+com.challentec.lmss.lbs.GPSProvider:
+    private static com.challentec.lmss.lbs.GPSProvider gpsProvider
+    private static android.content.Context context
+    26:28:private GPSProvider()
+    32:38:public static synchronized com.challentec.lmss.lbs.GPSProvider getInstance(android.content.Context,com.challentec.lmss.ui.MainTabActivity$MyLoactionListener)
+    42:52:public void getLocation()
 com.challentec.lmss.net.SocketClient:
     private static final java.lang.String INTRANET_IP
     private static final java.lang.String OUTERNET_IP
@@ -242,7 +248,11 @@ com.challentec.lmss.ui.MainTabActivity:
     private static final int REMOVE_VIEW
     private static final int SEVER_VEFIY_TIME_OUT
     100:104:protected void serverVieryTimeOut()
+    286:306:private void openAutoGetLocation()
+    316:328:private void sendAutoLoactionData(java.lang.String)
     512:519:public void clearStack()
+    314:314:static synthetic void access$6(com.challentec.lmss.ui.MainTabActivity,java.lang.String)
+com.challentec.lmss.ui.MainTabActivity$MyLoactionListener
 com.challentec.lmss.ui.MonitorActivity:
     private static final int DATA_LEN
 com.challentec.lmss.ui.PortStateActivity:

@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.ConnectivityManager;
 import android.telephony.TelephonyManager;
 
 import com.challentec.lmss.bean.UpdateInfo;
@@ -16,6 +17,7 @@ import com.challentec.lmss.engine.UpdateInfoService;
 import com.challentec.lmss.net.SocketClient;
 import com.challentec.lmss.recever.AppConnectStateRecever;
 import com.challentec.lmss.recever.AppMessageRecever;
+import com.challentec.lmss.recever.NetWorkStateRecever;
 import com.challentec.lmss.service.AutoConnectPollingService;
 import com.challentec.lmss.service.LoginPollingService;
 import com.challentec.lmss.service.PollingService;
@@ -229,6 +231,21 @@ public class AppManager {
 		context.registerReceiver(appMessageRecever, filter);
 		return appMessageRecever;
 
+	}
+	
+	/**
+	 * 注册网络状态监听广播接收者
+	 *wanglu 泰得利通 
+	 * @param context
+	 * @return
+	 */
+	public NetWorkStateRecever registNetWorkStateRecever(Context context){
+		LogUtil.i(LogUtil.LOG__TAG_NETWORK, "注册了网络监听");
+		NetWorkStateRecever netWorkStateRecever=new NetWorkStateRecever();
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+		context.registerReceiver(netWorkStateRecever, filter);
+		return netWorkStateRecever;
 	}
 
 	/**

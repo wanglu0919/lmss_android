@@ -28,6 +28,7 @@ public class SocketClient {
 	private OutputStream os;
 	private static SocketClient instance;
 	private static final String INTRANET_IP = "172.16.40.97";// 内服务器IP
+	
 	private static final String OUTERNET_IP = "61.160.96.205";// 外网服务器IP
 	private String ip = "";// ip地址
 	private static final int PORT = 9721;// 服务器端口

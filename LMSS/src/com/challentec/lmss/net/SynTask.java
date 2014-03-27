@@ -143,7 +143,7 @@ public class SynTask {
 	public void connectServer(final SocketClient socketClient) {
 
 		if (!context.isNetworkConnected()) {// 检查网络连接
-
+			LogUtil.i(LogUtil.LOG_TAG_CONNECT, "连接服务器没有网络");
 			handler.sendEmptyMessage(SynHandler.NO_NET);
 			return;
 		}
